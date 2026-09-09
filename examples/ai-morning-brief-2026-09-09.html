@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-09-09</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #6b7280;
+      --paper: #f5f2ea;
+      --card: #ffffff;
+      --line: #e7e2d8;
+      --jike: #f5c542;
+      --zhihu: #1772f6;
+      --x: #111111;
+      --xhs: #ff2442;
+      --weibo: #ff8200;
+      --green: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    .page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: #111827;
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px 42px 38px;
+      box-shadow: 0 20px 50px rgba(17, 24, 39, .16);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      right: -90px;
+      top: -130px;
+      background: radial-gradient(circle, rgba(245, 197, 66, .55), rgba(245, 197, 66, 0) 68%);
+    }
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #f5c542;
+      font-weight: 700;
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 12px 0 4px;
+      font-size: clamp(38px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+    .date {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      color: #d1d5db;
+      font-size: 15px;
+    }
+    .lead {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0;
+      color: #f3f4f6;
+      font-size: 17px;
+    }
+    .hero-tags {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .hero-tags span {
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+    section { margin-top: 34px; }
+    h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .section-head span {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .summary {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px 26px;
+      box-shadow: 0 8px 26px rgba(23, 23, 23, .05);
+    }
+    .summary h2 { margin-bottom: 12px; }
+    .summary ol { margin: 0; padding-left: 22px; }
+    .summary li { margin: 8px 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(23, 23, 23, .045);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(23, 23, 23, .09);
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: #111;
+      background: #e5e7eb;
+    }
+    .badge.jike { background: var(--jike); }
+    .badge.zhihu { background: var(--zhihu); color: #fff; }
+    .badge.x { background: var(--x); color: #fff; }
+    .badge.xhs { background: var(--xhs); color: #fff; }
+    .badge.weibo { background: var(--weibo); color: #fff; }
+    .badge.github { background: #24292f; color: #fff; }
+    .meta { color: var(--muted); font-size: 12px; text-align: right; }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 19px;
+      line-height: 1.35;
+      letter-spacing: -.015em;
+    }
+    .author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+    .summary-text { margin: 0 0 14px; color: #333; }
+    .discussion {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+      color: #444;
+      font-size: 14px;
+    }
+    .discussion strong { color: var(--green); }
+    .link {
+      display: inline-block;
+      margin-top: 14px;
+      color: #0f766e;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .link:hover { text-decoration: underline; }
+    .takeaway {
+      background: #0f766e;
+      color: #fff;
+      border-radius: 24px;
+      padding: 26px;
+    }
+    .takeaway h2 { color: #fff; }
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .takeaway-item {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .takeaway-item span {
+      display: block;
+      color: #a7f3d0;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      margin-bottom: 8px;
+    }
+    .takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+    @media (max-width: 760px) {
+      .page { padding: 14px 12px 40px; }
+      .hero { padding: 30px 24px; border-radius: 22px; }
+      .grid, .takeaway-grid { grid-template-columns: 1fr; }
+      .section-head { align-items: flex-start; }
+      .card { padding: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 样例版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 9 月 9 日 · 周三</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些讨论为什么值得关心。</p>
+      <div class="hero-tags">
+        <span>AI 技术</span>
+        <span>Agent 开发工具</span>
+        <span>AI 产品</span>
+        <span>创业融资</span>
+        <span>AIGC 加权</span>
+      </div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>AIGC 正在从“生成一段内容”变成“完成一整条工作流”。</strong> Astra 自动剪视频、Synvas 把生成和剪辑合并，都是同一个方向。</li>
+        <li><strong>AI 办公 Agent 是今天最密集的产品话题。</strong> 腾讯、字节、阿里都在抢“让 AI 直接交付成品”的入口。</li>
+        <li><strong>普通人的问题开始盖过技术问题。</strong> 知乎上最受关注的是：AI 提效之后，为什么人反而更累了？</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>平台热帖</h2>
+        <span>10 条 · 按平台和讨论度筛选</span>
+      </div>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">9月7日 · 155赞 · 17评论</span></div>
+          <h3>Astra 20 分钟剪完一小时家庭视频</h3>
+          <p class="author">VincentSkywalker</p>
+          <p class="summary-text">作者用 Astra 从 1 小时家庭素材中自动剪出 15 分钟精华，包含抽帧、理解场景、转写字幕和转场，成本约 1.5 美元。</p>
+          <div class="discussion"><strong>讨论点：</strong> AI 正在接手最耗时间的“整理和剪辑”，普通人也能完成以前需要请人做的任务。</div>
+          <a class="link" href="https://m.okjike.com/originalPosts/6a9e696e141b85b292dfb450" target="_blank" rel="noopener">查看原帖 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">9月8日 · 76赞 · 16评论</span></div>
+          <h3>Synvas：把 AI 生成和视频剪辑放进同一个画布</h3>
+          <p class="author">Wz__</p>
+          <p class="summary-text">作者把 Synvas 解释为“画布抽卡 + 剪映”：不是只生成一段素材，而是把生成、连接、剪辑和再生成放在同一个工作流里。</p>
+          <div class="discussion"><strong>讨论点：</strong> AI 视频工具的竞争，正在从“模型能生成什么”转向“能不能真正完成创作流程”。</div>
+          <a class="link" href="https://m.okjike.com/originalPosts/6a9ee562bd0563695b65629e" target="_blank" rel="noopener">查看原帖 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">9月9日 · 58赞 · 7评论</span></div>
+          <h3>OpenAI 与 Anthropic 的“算力竞赛”讨论</h3>
+          <p class="author">木遥</p>
+          <p class="summary-text">帖子讨论了一个圈内传闻：如果顶级 AI 实验室能在几天内集中算力攻克长期数学难题，人类科研的组织方式会被彻底改变。原帖提到 88 小时、约 1300 亿输出 token 等说法。</p>
+          <div class="discussion"><strong>讨论点：</strong> 这不是已经确认的学术结论，但它反映了大家对“AI 会如何改变科研和智力工作”的强烈兴趣。</div>
+          <a class="link" href="https://m.okjike.com/originalPosts/6aa0a2b493c3ab0f3a17fa52" target="_blank" rel="noopener">查看原帖 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">9月8日 · 公开页未显示赞同数</span></div>
+          <h3>外滩大会这 10 个问题，问的不是 AI，是每个人自己</h3>
+          <p class="author">知乎作者：asdfghjkl</p>
+          <p class="summary-text">5000 多个普通人的提问被整理成“AI 科技人文十问”：AI 提效为什么让人更累？每天教 AI 是不是在训练替代自己的人？孩子该怎么学思考？AI 陪伴会不会让人更孤独？</p>
+          <div class="discussion"><strong>讨论点：</strong> 关于 AI 的讨论正在从“模型多强”转向“普通人如何工作、学习和生活”。这类内容对非技术读者最友好。</div>
+          <a class="link" href="https://zhuanlan.zhihu.com/p/2080695074631972145" target="_blank" rel="noopener">查看文章 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">9月4日 · 公开页显示 2 赞同</span></div>
+          <h3>腾讯、字节、阿里“会战”AI 办公之后：Agent 格局已变</h3>
+          <p class="author">极客公园</p>
+          <p class="summary-text">豆包工作、飞书、腾讯 WorkBuddy、阿里钉钉等都在争夺 AI 办公入口。文章认为，大厂真正的优势主要是钱和算力，创业公司在垂直场景反而还有机会。</p>
+          <div class="discussion"><strong>讨论点：</strong> Agent 不再只是聊天工具，而是在变成能“交付成品”的生产力系统；这也是创业融资最关注的方向之一。</div>
+          <a class="link" href="https://zhuanlan.zhihu.com/p/2079192284835455310" target="_blank" rel="noopener">查看文章 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge x">Twitter / X</span><span class="meta">8小时前 · 36万浏览 · 3567赞</span></div>
+          <h3>给 GPT-6 Astra 一堆照片，它生成可交互 3D 空间</h3>
+          <p class="author">Roberto Nickson</p>
+          <p class="summary-text">作者给 Astra 一些普通工作室照片，它理解空间布局，把它们拼接成一个可交互的 3D 空间模型。</p>
+          <div class="discussion"><strong>讨论点：</strong> AIGC 正在从“生成图片/视频”走向“理解空间并生成可操作场景”，这会直接影响游戏、影视和空间设计。</div>
+          <a class="link" href="https://x.com/rpnickson/status/2097488440489116111" target="_blank" rel="noopener">查看原帖 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge x">Twitter / X</span><span class="meta">9月8日 · 10万浏览 · 712赞</span></div>
+          <h3>用 GPT-6 Astra 操控 Blender 的教程火了</h3>
+          <p class="author">数字生命卡兹克</p>
+          <p class="summary-text">作者发布“用 Astra 操控 Blender”的教程，认为 Blender 可能是这轮 Astra 热潮的最大受益者，甚至带动了下载量上涨。</p>
+          <div class="discussion"><strong>讨论点：</strong> AI Agent 正在变成“软件操作层”：普通人可以通过自然语言操作专业软件，3D 创作门槛可能明显下降。</div>
+          <a class="link" href="https://x.com/Khazix0918/status/2097201246973366417" target="_blank" rel="noopener">查看原帖 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">9月8日 · 公开页未显示互动量</span></div>
+          <h3>字节将推实时空间视频生成 AI 模型</h3>
+          <p class="author">36氪</p>
+          <p class="summary-text">据报道，该模型基于字节现有视频生成模型 Seedance，面向直播、短剧和游戏生成可交互的 3D 虚拟环境，云端渲染，端到端延迟约 50 毫秒。</p>
+          <div class="discussion"><strong>讨论点：</strong> 世界模型和 AIGC 正在从“生成内容”走向“生成可实时交互的空间”，这可能是下一阶段内容平台的基础设施。</div>
+          <a class="link" href="https://weibo.com/2/detail/5340867066858164" target="_blank" rel="noopener">查看原帖 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">9月7日 · 公开页未显示互动量</span></div>
+          <h3>微信测试“小微”与好友“小微”对话</h3>
+          <p class="author">梨新疆</p>
+          <p class="summary-text">微信正在测试用户让“小微”去和好友的“小微”沟通，比如传话、协调时间，属于 A2A（AI to AI）的沟通方式。</p>
+          <div class="discussion"><strong>讨论点：</strong> Agent 可能不会一开始就替人做复杂工作，而是先以“帮人传话、协调事情”的轻量形式进入日常社交。</div>
+          <a class="link" href="https://weibo.com/2/detail/5340566701214899" target="_blank" rel="noopener">查看原帖 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge xhs">小红书</span><span class="meta">9月9日抓取 · 公开搜索联想</span></div>
+          <h3>小红书上最热的 AI 搜索方向：短剧、漫剧和生成视频</h3>
+          <p class="author">平台搜索风向</p>
+          <p class="summary-text">搜索“AI”时，联想词集中在：AI 短剧制作教程、AI 漫剧、AI 生成图片、AI 视频、AI 软件哪个好用、AI 工具。公开搜索页需要登录，因此这里记录的是搜索趋势，而不是单条笔记互动量。</p>
+          <div class="discussion"><strong>讨论点：</strong> 小红书上的 AI 讨论更偏“怎么用 AI 做内容、做账号、做副业”，而不是模型技术本身，对非技术读者更友好。</div>
+          <a class="link" href="https://www.xiaohongshu.com/search_result?keyword=AI" target="_blank" rel="noopener">查看搜索页 →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>GitHub 新鲜项目</h2>
+        <span>4 个 · 今日 Trending</span>
+      </div>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">26,707 stars · 今日 +490</span></div>
+          <h3>openai/skills</h3>
+          <p class="author">Python · Codex 技能目录</p>
+          <p class="summary-text">给 Codex 这类 AI Agent 提供可复用的“技能包”，让 Agent 不只是聊天，还能按固定流程完成具体任务。</p>
+          <div class="discussion"><strong>为什么值得看：</strong> 这是“Agent 开发工具”里最贴近普通用户的一类项目，未来很多重复工作都可能被封装成技能。</div>
+          <a class="link" href="https://github.com/openai/skills" target="_blank" rel="noopener">打开项目 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">48,137 stars · 今日 +2,627</span></div>
+          <h3>heygen-com/hyperframes</h3>
+          <p class="author">TypeScript · 用 HTML 渲染视频</p>
+          <p class="summary-text">核心思路是“写 HTML，渲染成视频”，并且专门为 AI Agent 设计。它把网页技术和视频生产连接起来。</p>
+          <div class="discussion"><strong>为什么值得看：</strong> 对 AIGC 内容创作者来说，这可能是一种比传统剪辑软件更可编程、更适合批量生产的方式。</div>
+          <a class="link" href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">打开项目 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">182,008 stars · 今日 +2,047</span></div>
+          <h3>microsoft/markitdown</h3>
+          <p class="author">Python · 文件转 Markdown</p>
+          <p class="summary-text">把 PDF、Word、Excel、PPT 等文件转换成 Markdown，让 AI 更容易读取和整理资料。</p>
+          <div class="discussion"><strong>为什么值得看：</strong> 它是知识工作者的基础工具：先让 AI 看懂你的资料，AI 才能帮你写报告、做总结和整理信息。</div>
+          <a class="link" href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener">打开项目 →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">35,788 stars · 今日 +710</span></div>
+          <h3>cathrynlavery/diagram-design</h3>
+          <p class="author">HTML · 38 种编辑级图表</p>
+          <p class="summary-text">为 Claude Code、Codex 等 Agent 准备的图表设计模板，使用自包含 HTML + SVG，目标是让 AI 生成更专业的图表，而不是千篇一律的流程图。</p>
+          <div class="discussion"><strong>为什么值得看：</strong> 如果你经常要做汇报、方案或内容，这个项目能让 AI 输出的视觉材料更接近“可以拿出去给人看”的水平。</div>
+          <a class="link" href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">打开项目 →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item">
+          <span>01</span>
+          <p><strong>AIGC 的重心变了。</strong> 从生成一张图、一段视频，转向生成完整工作流、可交互空间和可交付成品。</p>
+        </div>
+        <div class="takeaway-item">
+          <span>02</span>
+          <p><strong>Agent 正在进入日常工具。</strong> 它先出现在办公软件、微信和创作工具里，以“替你干活”而不是“陪你聊天”的方式出现。</p>
+        </div>
+        <div class="takeaway-item">
+          <span>03</span>
+          <p><strong>非技术问题最值得关注。</strong> 大家最在意的不是模型参数，而是 AI 会不会让人更累、会不会替代自己的工作、如何用来做内容。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据抓取时间：2026-09-09 17:22 CST · 样例版</p>
+      <p>说明：小红书公开搜索页需要登录，因此该部分记录的是公开搜索联想趋势，而非单条笔记互动数据。其余内容均附原链接，便于核对。</p>
+    </footer>
+  </main>
+</body>
+</html>

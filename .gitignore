@@ -1,0 +1,17 @@
+# Local runtime and secrets
+work/
+config/bark-key.txt
+config/bark-proxy.txt
+.env
+.env.*
+*.log
+
+# Generated reports and local preview files
+outputs/
+public/
+tmp/
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
