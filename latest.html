@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>AI 早报 · 2026-09-14</title>
+<style>
+:root{
+  --ink:#141821; --muted:#6B7280; --faint:#9AA1AC; --paper:#F4F1EA; --card:#FFFFFF;
+  --line:#E6E1D6; --hero:#161A23; --accent:#F2C14E; --teal:#0F766E; --radius:16px;
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);
+  font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:14px 14px 64px}
+
+.hero{position:relative;overflow:hidden;background:var(--hero);color:#fff;
+  border-radius:22px;padding:26px 22px 24px}
+.hero::after{content:"";position:absolute;width:260px;height:260px;right:-110px;top:-120px;
+  background:radial-gradient(circle,rgba(242,193,78,.42),rgba(242,193,78,0) 70%)}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:11px;letter-spacing:.2em;font-weight:600;color:var(--accent);text-transform:uppercase}
+.hero h1{margin:10px 0 6px;font-size:34px;line-height:1.1;letter-spacing:-.02em}
+.hero .date{margin:0;color:#C7CDD8;font-size:14px}
+.hero .lead{margin:14px 0 0;color:#EDEFF3;font-size:15px;line-height:1.7}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.tags span{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);
+  padding:4px 11px;border-radius:999px;font-size:12.5px;color:#fff}
+
+section{margin-top:26px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;
+  flex-wrap:wrap;gap:4px 12px;margin-bottom:12px}
+h2{margin:0;font-size:19px;letter-spacing:-.01em}
+.sec-head span{color:var(--faint);font-size:12.5px;min-width:0;overflow-wrap:anywhere}
+
+.keys{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;counter-reset:k}
+.keys li{list-style:none;position:relative;padding-left:30px;margin:0 0 12px}
+.keys li:last-child{margin-bottom:0}
+.keys li::before{counter-increment:k;content:counter(k);position:absolute;left:0;top:3px;
+  width:20px;height:20px;border-radius:6px;background:var(--hero);color:var(--accent);
+  font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.keys ol{margin:0;padding:0}
+.keys strong{display:block;font-weight:600;font-size:15.5px}
+.keys p{margin:2px 0 0;color:#4B5563;font-size:14.5px}
+
+.grid{display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 17px 14px;min-width:0;overflow-wrap:anywhere}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.badge{font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.meta{font-size:11.5px;color:var(--faint);text-align:right;line-height:1.4}
+.b-jike{background:#FDF3D0;color:#8A6800}
+.b-qbitai{background:#E4EEFF;color:#1A5FCC}
+.b-leiphone{background:#FFEDE2;color:#C2410C}
+.b-infoq{background:#DFF5EF;color:#0F766E}
+.b-tmtpost{background:#E9E7FF;color:#4338CA}
+.b-sspai{background:#FFE4EC;color:#BE123C}
+.b-ifanr{background:#F1E8FF;color:#7C3AED}
+.b-ithome{background:#E0F5F9;color:#0E7490}
+.b-github{background:#EDEFF2;color:#24292F}
+.card h3{margin:0 0 4px;font-size:16.5px;line-height:1.45;font-weight:600}
+.card h3.mono{font-family:var(--mono);font-size:15px;letter-spacing:-.01em}
+.byline{margin:0 0 9px;font-size:12.5px;color:var(--faint)}
+.body{margin:0 0 10px;color:#3F4652;font-size:14.5px;line-height:1.72}
+.why{margin:0 0 12px;padding:9px 12px;background:#FAF8F3;border-left:3px solid var(--line);
+  border-radius:0 8px 8px 0;font-size:14px;color:#3F4652}
+.why b{display:block;color:var(--teal);font-size:12px;font-weight:600;margin-bottom:2px;
+  letter-spacing:.02em}
+.link{display:inline-block;font-size:13.5px;font-weight:600;color:var(--teal);
+  text-decoration:none;border-bottom:1px solid rgba(15,118,110,.3);padding-bottom:1px}
+.repo .why{border-left-color:#DCE1E8}
+
+.takes{display:grid;gap:10px}
+.take{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+  display:flex;gap:12px}
+.take i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--faint);padding-top:3px}
+.take strong{display:block;font-size:15px;font-weight:600;margin-bottom:3px}
+.take p{margin:0;font-size:14px;color:#4B5563}
+
+footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
+footer .stamp{font-size:12.5px;color:var(--faint);margin:0 0 12px}
+footer details{font-size:13px;color:#6B7280}
+footer summary{cursor:pointer;font-weight:600;color:#4B5563;margin-bottom:8px}
+footer details p{margin:0 0 8px;line-height:1.68}
+footer .arch{margin-top:16px;font-size:13px}
+
+@media (min-width:600px){
+  .wrap{padding:22px 22px 72px}
+  .hero{padding:38px 36px 34px;border-radius:26px}
+  .hero h1{font-size:46px}
+  .hero .lead{font-size:16px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .grid.single{grid-template-columns:1fr}
+  footer details p{margin-bottom:7px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .card,.keys,.take{transition:border-color .18s ease}
+  .card:hover{border-color:#D6D0C2}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+<div class="eyebrow">Daily AI Brief</div>
+<h1>AI 早报</h1>
+<p class="date">2026 年 9 月 14 日 · 周一</p>
+<p class="lead">给没时间追技术细节的人：今天 AI 圈在聊什么，哪些和你有关。</p>
+<div class="tags"><span>智谱 GLM</span><span>Anthropic 冲刺 IPO</span><span>豆包手机</span><span>具身智能进家庭</span><span>AI 编程成本</span></div>
+</header>
+
+<section class="keys">
+<h2>今天先看这 3 件事</h2>
+<ol><li><strong>智谱先把下一代 GLM 的自训练方法亮出来了</strong><p>模型和论文都还没发，方法先出现在财务公告里。同期公布的还有约 50 亿美元融资，用于扩大算力。国内大模型公司开始把「怎么训」本身当成竞争力来展示。</p></li><li><strong>豆包手机助手发布消费者版本，首款机器 9 月 16 日开卖</strong><p>跟去年底的技术预览版相比，这版主打稳定和日常可用。手机 AI 的竞争点，正在从「能聊天」转到「能替你办事」。</p></li><li><strong>Anthropic 一边冲刺 IPO，一边警告智能体风险</strong><p>消息称英伟达正就参与 Anthropic 的 IPO 投资最高 100 亿美元进行谈判；同一天 Anthropic 与 OpenAI 的 CEO 先后表态支持给 AI 发展「控速」。资本在加速，安全叙事也在同步加码。</p></li></ol>
+</section>
+
+<section>
+<div class="sec-head"><h2>今天值得读的 10 条</h2><span>即刻 1 · 量子位 3 · 雷锋网 2 · InfoQ 2 · 钛媒体 1 · IT之家 1</span></div>
+<div class="grid"><article class="card">
+<div class="card-top"><span class="badge b-jike">即刻</span><span class="meta">赞 21 · 评 2 · 转 1 · 分享 2 ｜ 09-14 15:35 采集</span></div>
+<h3>termany.sh 上线 Bot 功能：把本地所有 Agent 聚在一起协作</h3>
+<p class="byline">艾逗笔 · 09-14 12:07</p>
+<p class="body">作者介绍一个终端工具的新版本，可以让本机不同来源的 Agent 互相协作完成任务，并且复用已有的订阅额度，不额外烧 token。</p>
+<p class="why"><b>讨论点</b>评论区关注点在「额度复用」这件事上。对同时订阅多个 AI 工具的人来说，把散落的 Agent 串起来用是一个真实需求；但这套做法依赖本机常开，也没有官方支持。</p>
+<a class="link" href="https://m.okjike.com/originalPosts/6aa7730538f1dff45519e558" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-qbitai">量子位</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>智谱提前剧透下一代 GLM：完全自训练方法公开</h3>
+<p class="byline">量子位 · 09-14 08:30</p>
+<p class="body">智谱下一代 GLM 的模型和论文都还没发布，训练方法却先通过上市公司财务公告披露。报道提到其强调完全自训练路线。</p>
+<p class="why"><b>讨论点</b>常规顺序是先发论文再发模型；这次顺序反过来，说明训练方法本身已经成了对外证明能力的筹码。具体技术细节仍需等正式论文。</p>
+<a class="link" href="https://www.qbitai.com/2026/09/488694.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-qbitai">量子位</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>Anthropic 一脚油门冲刺 IPO，英伟达据传拟投最高 100 亿美元</h3>
+<p class="byline">量子位 · 09-14 10:56</p>
+<p class="body">报道称 Anthropic 正在推进 IPO，英伟达就参与其 IPO 投资最高 100 亿美元进行谈判。同期还提到 OpenAI 不会在 2026 年上市。</p>
+<p class="why"><b>讨论点</b>AI 公司上市节奏和芯片厂商的资本绑定是这次的核心看点。金额与轮次以媒体报道为准，尚无官方公告，不宜当成既定事实。</p>
+<a class="link" href="https://www.qbitai.com/2026/09/488699.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-qbitai">量子位</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>中国物理 AI 登上全球开源榜首：PhysBrain 1.5 主打空间智能</h3>
+<p class="byline">量子位 · 09-14 11:18</p>
+<p class="body">报道称 PhysBrain 1.5 在全球开源榜登顶，方向是让模型理解三维物理世界的空间关系，和纯文本模型走的是两条路。</p>
+<p class="why"><b>讨论点</b>「物理 AI」是机器人真正能干活的前提，但开源榜单一时的排名不等于真实场景里的稳定表现，落地效果还要看后续验证。</p>
+<a class="link" href="https://www.qbitai.com/2026/09/488725.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-leiphone">雷锋网</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>豆包手机助手发布消费者版本，首款新机 9 月 16 日开售</h3>
+<p class="byline">雷锋网 · 09-14 10:55</p>
+<p class="body">豆包手机助手消费者版正式发布，以豆包 App 为基础与手机厂商做系统层合作，围绕交互、任务执行、本地记忆和检索展开。官方称相比技术预览版更强调稳定性和日常可用性。</p>
+<p class="why"><b>讨论点</b>手机厂商与 AI 助手的分工是长期争议点：系统级权限给了助手办事的能力，也把数据和入口交到了合作方手里。首款机器开卖后的实际体验才是检验。</p>
+<a class="link" href="https://www.leiphone.com/category/industrynews/p1zBbVMbsyYNHOJ4.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-leiphone">雷锋网</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>斜跃智能完成数亿元天使+轮融资，主攻家庭具身基础模型</h3>
+<p class="byline">雷锋网 · 09-13 18:30</p>
+<p class="body">具身基础模型公司斜跃智能完成数亿元天使+轮，投资方包括线性资本、钧山资本等。资金用于模型训练、算力与数据基础设施，以及家庭机器人本体研发。公司成立于 2026 年 2 月，把家庭作为第一落地场景。</p>
+<p class="why"><b>讨论点</b>家庭机器人是本轮具身智能里最拥挤的入口之一，成立半年多就拿到数亿元，说明资本对「通用家庭场景」的耐心仍然充足，同时也意味着短期验证压力更大。</p>
+<a class="link" href="https://www.leiphone.com/category/industrynews/PHYwHDvtZ5GGXTK6.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-infoq">InfoQ</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>模型完全一样，Token 消耗却差 70 倍：AI 编程工具的成本黑洞</h3>
+<p class="byline">InfoQ · 09-12 18:13</p>
+<p class="body">作者用三项实测对比不同 AI 编程工具，指出在底层模型相同的情况下，实际 token 消耗可以相差 70 倍，差额来自工具怎么组织上下文和工具调用。</p>
+<p class="why"><b>讨论点</b>这条对按量付费的用户最直接：选工具时看的不该只是接了哪个模型，还要看它每完成一件事要来回读多少内容。文中数据来自作者自测，环境和任务不同结果会有差异。</p>
+<a class="link" href="https://www.infoq.cn/article/oPSaLpULlAxGxTbYXlXO?utm_source=rss&amp;utm_medium=article" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-infoq">InfoQ</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>两个 Token 就让 Kimi「变成」Claude？一场蒸馏疑云</h3>
+<p class="byline">InfoQ · 09-12 18:19</p>
+<p class="body">一位前 Google DeepMind 研究员在实验中偶然发现，加入极少量特定 token 就能让 Kimi 的输出风格明显偏向 Claude，由此引发对大模型蒸馏与身份识别的讨论。</p>
+<p class="why"><b>讨论点</b>这类现象可以有两种解释：模型确实在训练中吸收过某个模型的输出，或者只是提示词触发了相似的表达习惯。仅凭风格相似无法下结论，需要更严格的实验设计。</p>
+<a class="link" href="https://www.infoq.cn/article/GhA2VWxo6JTGyKIb7KdT?utm_source=rss&amp;utm_medium=article" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-tmtpost">钛媒体</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>Anthropic CEO 公开信警告 AI 智能体可能掌控互联网，呼吁放缓增长</h3>
+<p class="byline">钛媒体 · 09-14 08:04</p>
+<p class="body">日报汇总提到，Anthropic CEO 在公开信中警告 AI 智能体存在掌控互联网的风险，呼吁放缓增长速度，并把能源短缺和数据中心耗电列为核心瓶颈。同一天 OpenAI CEO 也表态支持对 AI 发展「控速」，强调并非停止进步。</p>
+<p class="why"><b>讨论点</b>两家最直接的竞争对手在同一天讲同一件事，「控速」究竟是行业共识还是监管前的姿态，目前看不出答案。可以确定的是，算力和电力正在成为比模型能力更硬的约束。</p>
+<a class="link" href="https://www.tmtpost.com/8138614.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article><article class="card">
+<div class="card-top"><span class="badge b-ithome">IT之家</span><span class="meta">未公开互动数 ｜ 09-14 15:35 采集</span></div>
+<h3>我国发布全球首个人工智能加脑机接口标准，明年 9 月 1 日实施</h3>
+<p class="byline">IT之家 · 09-14 14:47</p>
+<p class="body">国家药监局批准发布脑机接口医疗器械标准，这是全球第一个采用人工智能技术处理脑电数据的产品标准，规范了数据采集、处理、标注等环节，明年 9 月 1 日起实施。</p>
+<p class="why"><b>讨论点</b>标准先于产品落地，意味着脑机接口在国内进入了有章可循的阶段。对做相关硬件的公司来说，合规路径清晰了，同时也意味着数据处理的自由度被收紧。</p>
+<a class="link" href="https://www.ithome.com/1/002/093.htm" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+</article></div>
+</section>
+
+<section>
+<div class="sec-head"><h2>GitHub 新鲜项目</h2><span>5 个</span></div>
+<div class="grid"><article class="card repo">
+<div class="card-top"><span class="badge b-github">GitHub</span><span class="meta">总 Star 66,310 · 今日 +706</span></div>
+<h3 class="mono">asgeirtj/system_prompts_leaks</h3>
+<p class="byline">JavaScript</p>
+<p class="body">收集各家 AI 产品的系统提示词，覆盖 Anthropic、OpenAI、Google 等多家模型与产品。</p>
+<p class="why"><b>为什么值得看</b>系统提示词决定了 AI 说什么、不说什么。这份合集让人能直接看到各家给模型定的规矩，做产品和做内容的人都能拿来对照。</p>
+<a class="link" href="https://github.com/asgeirtj/system_prompts_leaks" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+</article><article class="card repo">
+<div class="card-top"><span class="badge b-github">GitHub</span><span class="meta">总 Star 58,775 · 今日 +380</span></div>
+<h3 class="mono">calesthio/OpenMontage</h3>
+<p class="byline">Python</p>
+<p class="body">开源的智能体视频生产系统，内置 12 条生产流水线和上百个工具，附带 700 多个技能与制作知识文件。</p>
+<p class="why"><b>为什么值得看</b>内容创作者最费时间的环节是重复的组织和拼接。这个项目把整条视频生产链路做成可编排的智能体流程，是观察「AI 能不能接管剪辑全流程」的一个现成样本。</p>
+<a class="link" href="https://github.com/calesthio/OpenMontage" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+</article><article class="card repo">
+<div class="card-top"><span class="badge b-github">GitHub</span><span class="meta">总 Star 23,916 · 今日 +443</span></div>
+<h3 class="mono">alibaba/open-code-review</h3>
+<p class="byline">Go</p>
+<p class="body">阿里的代码评审工具，采用确定性流程加 LLM 智能体的混合架构，输出行级评论。</p>
+<p class="why"><b>为什么值得看</b>纯靠大模型做代码审查容易漏也不稳定，这个项目把固定规则和模型提意见拆开处理，是「哪些活该交给模型、哪些不该」的一个具体答案。</p>
+<a class="link" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+</article><article class="card repo">
+<div class="card-top"><span class="badge b-github">GitHub</span><span class="meta">总 Star 5,819 · 今日 +265</span></div>
+<h3 class="mono">tech-leads-club/agent-skills</h3>
+<p class="byline">TypeScript</p>
+<p class="body">面向 AI 编程工具的技能注册表，为主流编程助手提供经过校验的技能包。</p>
+<p class="why"><b>为什么值得看</b>现在到处都在分享提示词和技能文件，来源和安全性没人管。这个项目试图给技能加一层审核和版本管理，方向值得关注。</p>
+<a class="link" href="https://github.com/tech-leads-club/agent-skills" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+</article><article class="card repo">
+<div class="card-top"><span class="badge b-github">GitHub</span><span class="meta">总 Star 2,823 · 创建于 2026-09-01</span></div>
+<h3 class="mono">anthropics/commerce-agents</h3>
+<p class="byline">Python</p>
+<p class="body">Anthropic 官方的购物和商家智能体参考实现，涵盖零售、电商、电信和娱乐场景。</p>
+<p class="why"><b>为什么值得看</b>购物助手是智能体最容易商业化的场景之一。官方给出参考蓝图，通常意味着一条赛道要开始标准化，做电商和运营的人值得先看一眼它怎么设计交互。</p>
+<a class="link" href="https://github.com/anthropics/commerce-agents" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+</article></div>
+</section>
+
+<section>
+<div class="sec-head"><h2>今日观察</h2><span>本报判断，非事实陈述</span></div>
+<div class="takes"><div class="take"><i>01</i><div><strong>今天的钱比技术更抢戏</strong><p>本期 15 条里，直接涉及融资、IPO 或投资谈判的有 4 条。模型能力的新闻正在被资本动作盖过，这也意味着行业进入看回报的阶段。</p></div></div><div class="take"><i>02</i><div><strong>具身智能在往「家庭」收口</strong><p>斜跃智能把家庭当第一落地场景，后摩智能和绿联则选择用本地算力做家庭 AI 中枢。家庭被反复选中，是因为它足够刚需又足够难，谁能先跑通谁就有议价权。</p></div></div><div class="take"><i>03</i><div><strong>省钱第一次成了公开议题</strong><p>两条来自技术社区的报道都在讲成本：同样的模型，不同工具能差 70 倍 token。当模型能力拉不开差距时，工程效率就变成了产品差异。</p></div></div></div>
+</section>
+
+<footer>
+<p class="stamp">采集时间 2026-09-14T15:35:10+08:00 ｜ 页面生成 2026-09-14 15:38 ｜ 数据来自公开网页与公开 API</p>
+<details>
+<summary>数据采集说明与口径</summary>
+<p>候选池覆盖 10 个源：即刻、量子位、雷锋网、InfoQ、钛媒体、少数派、爱范儿、IT之家、GitHub 日榜、GitHub 新项目。抓取时间 2026-09-14 15:35（北京时间），10 个源本次全部可用。</p><p>互动数据口径：只有即刻的原帖公开了点赞、评论、转发、分享计数，采集于 09-14 15:35。其余媒体源不公开显示互动数，一律记为「未公开互动数」，不做估算。</p><p>GitHub 数据口径：日榜的「今日 +N」是榜单原值，不等于北京时间零点起的增量；「总 Star」是累计收藏数，不是项目发布时间。新项目来自 GitHub 搜索 API，按其创建时间筛选。</p><p>时间口径：即刻按原帖发布时间，RSS 按各站 feed 提供的 pubDate。InfoQ 有两条 pubDate 晚于本机当前时间，按原值照录未做修正，读的时候可以留个心眼。</p><p>本期缺口：知乎热榜、微博热搜、X 和小红书未接入。这几家要么要求登录，要么对自动访问返回 403，本流程不为它们接管浏览器登录态。因此「网友在讨论什么」目前只有即刻一个来源，样本偏小，不能代表全网热度。</p><p>整理深度：本期内容基于各站标题与 RSS 摘要完成，没有逐篇打开原文核对细节。融资金额、IPO 进展、榜单排名均以来源报道为准，未做二次求证。</p><p>「今日观察」是本报判断，不是事实陈述，也不代表评论区共识。</p>
+</details>
+<p class="arch"><a class="link" href="index.html">查看往期日报 →</a></p>
+</footer>
+</main>
+</body>
+</html>
