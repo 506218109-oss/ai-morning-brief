@@ -1,415 +1,250 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light">
-<title>AI 早报 · 2026-09-30</title>
-<style>
-:root{
-  --ink:#141821; --muted:#6B7280; --faint:#9AA1AC; --paper:#F4F1EA; --card:#FFFFFF;
-  --line:#E6E1D6; --hero:#161A23; --accent:#F2C14E; --teal:#0F766E; --radius:16px;
-  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-10-09</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
 }
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;overflow-x:hidden}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);
-  font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit}
-.wrap{max-width:720px;margin:0 auto;padding:22px 22px 72px}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) { .page { padding: 14px 12px 40px; } .hero { padding: 30px 24px; border-radius: 22px; } .grid, .grid.cols-3, .grid.six, .takeaway-grid { grid-template-columns: 1fr; } .grid.six > .card { grid-column: auto; } .section-head { align-items: flex-start; } .card { padding: 17px; } }
 
-.hero{position:relative;overflow:hidden;background:var(--hero);color:#fff;
-  border-radius:26px;padding:38px 36px 34px}
-.hero::after{content:"";position:absolute;width:260px;height:260px;right:-110px;top:-120px;
-  background:radial-gradient(circle,rgba(242,193,78,.42),rgba(242,193,78,0) 70%)}
-.hero>*{position:relative;z-index:1}
-.eyebrow{font-size:11px;letter-spacing:.2em;font-weight:600;color:var(--accent);text-transform:uppercase}
-.hero h1{margin:10px 0 6px;font-size:46px;line-height:1.1;letter-spacing:-.02em}
-.hero .date{margin:0;color:#C7CDD8;font-size:14px}
-.hero .lead{margin:14px 0 0;color:#EDEFF3;font-size:16px;line-height:1.7}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
-.tags span{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);
-  padding:4px 11px;border-radius:999px;font-size:12.5px;color:#fff}
-.mixline{margin:14px 0 0;font-size:12.5px;color:#9CA5B4;letter-spacing:.01em}
-
-section{margin-top:26px}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;
-  flex-wrap:wrap;gap:4px 12px;margin-bottom:12px}
-h2{margin:0;font-size:19px;letter-spacing:-.01em}
-.sec-head span{color:var(--faint);font-size:12.5px;min-width:0;overflow-wrap:anywhere}
-
-.keys{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:18px 20px;counter-reset:k}
-.keys li{list-style:none;position:relative;padding-left:30px;margin:0 0 12px}
-.keys li:last-child{margin-bottom:0}
-.keys li::before{counter-increment:k;content:counter(k);position:absolute;left:0;top:3px;
-  width:20px;height:20px;border-radius:6px;background:var(--hero);color:var(--accent);
-  font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center}
-.keys ol{margin:0;padding:0}
-.keys strong{display:block;font-weight:600;font-size:15.5px}
-.keys p{margin:2px 0 0;color:#4B5563;font-size:14.5px}
-
-.grid{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:16px 17px 14px;min-width:0;overflow-wrap:anywhere}
-.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-.badge{font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.meta{font-size:11.5px;color:var(--faint);text-align:right;line-height:1.4}
-.b-jike{background:#FDF3D0;color:#8A6800}
-.b-x{background:#E8E8E8;color:#1A1A1A}
-.b-zhihu{background:#E4EEFF;color:#1A5FCC}
-.b-weibo{background:#FFEDE2;color:#C2410C}
-.b-qbitai{background:#E4EEFF;color:#1A5FCC}
-.b-leiphone{background:#FFEDE2;color:#C2410C}
-.b-infoq{background:#DFF5EF;color:#0F766E}
-.b-tmtpost{background:#E9E7FF;color:#4338CA}
-.b-sspai{background:#FFE4EC;color:#BE123C}
-.b-ifanr{background:#F1E8FF;color:#7C3AED}
-.b-ithome{background:#E0F5F9;color:#0E7490}
-.b-github{background:#EDEFF2;color:#24292F}
-.b-wallstreetcn{background:#FFF3D6;color:#8A5A00}
-.card h3{margin:0 0 4px;font-size:16.5px;line-height:1.45;font-weight:600}
-.card h3.mono{font-family:var(--mono);font-size:15px;letter-spacing:-.01em}
-.byline{margin:0 0 9px;font-size:12.5px;color:var(--faint)}
-.body{margin:0 0 10px;color:#3F4652;font-size:14.5px;line-height:1.72}
-.why{margin:0 0 12px;padding:9px 12px;background:#FAF8F3;border-left:3px solid var(--line);
-  border-radius:0 8px 8px 0;font-size:14px;color:#3F4652}
-.why b{display:block;color:var(--teal);font-size:12px;font-weight:600;margin-bottom:2px;
-  letter-spacing:.02em}
-.use{margin:0 0 12px;padding:9px 12px;background:#EDF6F4;border-left:3px solid var(--teal);
-  border-radius:0 8px 8px 0;font-size:14px;color:#25514C}
-.use b{display:block;color:var(--teal);font-size:12px;font-weight:600;margin-bottom:2px;
-  letter-spacing:.02em}
-.link{display:inline-block;font-size:13.5px;font-weight:600;color:var(--teal);
-  text-decoration:none;border-bottom:1px solid rgba(15,118,110,.3);padding-bottom:1px}
-.repo .why{border-left-color:#DCE1E8}
-/* 折叠块：电脑端永远展开且不显示折叠条；手机端由下面的媒体查询接管 */
-details.more>summary{display:none;list-style:none}
-details.more>summary::-webkit-details-marker{display:none}
-.full{display:none}
-.m-when{display:inline}
-
-.takes{display:grid;gap:10px}
-.take{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;
-  display:flex;gap:12px}
-.take i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--faint);padding-top:3px}
-.take strong{display:block;font-size:15px;font-weight:600;margin-bottom:3px}
-.take p{margin:0;font-size:14px;color:#4B5563}
-
-footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
-footer .stamp{font-size:12.5px;color:var(--faint);margin:0 0 12px}
-footer details{font-size:13px;color:#6B7280}
-footer summary{cursor:pointer;font-weight:600;color:#4B5563;margin-bottom:8px}
-footer details p{margin:0 0 8px;line-height:1.68}
-footer .arch{margin-top:16px;font-size:13px}
-
-@media (max-width:600px){
-  .wrap{padding:10px 10px 36px}
-  .hero{padding:22px 18px 20px;border-radius:18px}
-  .hero::after{width:180px;height:180px;right:-80px;top:-90px}
-  .eyebrow{font-size:10px;letter-spacing:.16em}
-  .hero h1{margin:7px 0 5px;font-size:30px}
-  .hero .date{font-size:12.5px}
-  .hero .lead{margin:10px 0 0;font-size:13.5px;line-height:1.62}
-  .tags{gap:5px;margin-top:12px}
-  .tags span{padding:3px 9px;font-size:11px}
-  .mixline{margin:10px 0 0;font-size:11px}
-  section{margin-top:16px}
-  .sec-head{margin-bottom:7px;gap:2px 8px}
-  h2{font-size:15px}
-  .sec-head span{font-size:10px}
-  .keys{padding:12px;border-radius:12px}
-  .keys li{padding-left:24px;margin-bottom:8px}
-  .keys li::before{width:16px;height:16px;border-radius:5px;font-size:9.5px;top:2px}
-  .keys strong{font-size:12.5px;line-height:1.48}
-  .keys p{margin-top:2px;font-size:11.5px;line-height:1.52}
-  .grid{gap:8px}
-  .card{padding:9px 10px 8px;border-radius:11px}
-  .card-top{gap:3px;margin-bottom:5px}
-  .badge{padding:1px 6px;font-size:9.5px}
-  .meta{text-align:left;font-size:9.5px;line-height:1.35}
-  .m-when{display:none}
-  .card h3{margin-bottom:2px;font-size:13px;line-height:1.35}
-  .card h3.mono{font-size:11.5px}
-  .byline{margin-bottom:5px;font-size:10px}
-  .body{margin-bottom:0;font-size:11.5px;line-height:1.52;
-    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  details.more{margin:6px 0 7px}
-  details.more>summary{display:block;cursor:pointer;font-size:10.5px;font-weight:600;
-    color:var(--teal);background:#EDF6F4;border-radius:6px;padding:4px 7px;line-height:1.3}
-  details.more>summary::after{content:" ▾"}
-  details.more[open]>summary::after{content:" ▴"}
-  .full{display:block;margin:7px 0 8px;font-size:11px;line-height:1.5;color:#3F4652}
-  .why,.use{margin-bottom:7px;padding:6px 8px;font-size:11px;line-height:1.5}
-  .why b,.use b{font-size:9.5px;margin-bottom:1px}
-  .link{font-size:11px}
-  .takes{gap:7px}
-  .take{padding:9px 10px;gap:7px;border-radius:11px}
-  .take i{font-size:10px;padding-top:2px}
-  .take strong{font-size:12.5px;margin-bottom:2px}
-  .take p{font-size:11.5px;line-height:1.52}
-  footer{margin-top:18px;padding-top:12px}
-  footer .stamp{font-size:10.5px}
-  footer details{font-size:11px}
-  footer details p{line-height:1.55;margin-bottom:6px}
-  footer .arch{font-size:11px}
-}
-@media (prefers-reduced-motion:no-preference){
-  .card,.keys,.take{transition:border-color .18s ease}
-  .card:hover{border-color:#D6D0C2}
-}
-</style>
+  </style>
 </head>
 <body>
-<main class="wrap">
-<header class="hero">
-<div class="eyebrow">Daily AI Brief</div>
-<h1>AI 早报</h1>
-<p class="date">2026 年 9 月 30 日 · 周三</p>
-<p class="lead">给没时间追技术细节的人：今天 AI 圈在聊什么，哪些和你有关。</p>
-<div class="tags"><span>个人 Agent 入口战</span><span>Anthropic 算力账单</span><span>GPT-6.1 Sol</span><span>AI 自律监管</span><span>无本体数据</span><span>Agent 安全运行时</span></div>
-<p class="mixline">共 15 条内容</p>
-</header>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 试行版 v2</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 10 月 9 日 · 周五</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>OpenAI 营收</span><span>DeepSeek 融资</span><span>版权诉讼</span><span>AI 安全</span><span>个人 Agent</span></div>
+    </header>
 
-<section class="keys">
-<h2>今天先看这 3 件事</h2>
-<ol><li><strong>OpenAI 一夜 25 项更新，GPT-6.1 Sol 上线</strong><p>量子位报道，OpenAI 一次性上线 25 项改动并推出 GPT-6.1 Sol，文章用「牙膏挤爆」形容这次更新的密度。同一天的另一批报道给出了反向信息：钛媒体称 OpenAI 因安全测试不合格取消了 GPT-6.1 Astra 的发布，并把这一天概括为「Dots 上场这天，OpenAI 把自家最强模型拦在门外」。也就是说这一轮是慢档先发、顶配延后。</p></li><li><strong>Anthropic 与 SpaceX 的算力协议涨到 845 亿美元</strong><p>路透社获取的 Anthropic 机密 IPO 招股书显示，其与 SpaceX 的算力租赁协议总金额上限达 845 亿美元、期限延伸到 2029 年，几乎是 5 月披露口径（每月 12.5 亿美元、总额约 450 亿美元）的两倍。报道称协议大部分条款仍保留 90 天取消权；招股书同时提到 Anthropic 未来十年在 AI 基础设施上的支出至少 5180 亿美元，合作方包括谷歌、亚马逊、微软与 SpaceX。</p></li><li><strong>腾讯、字节、阿里一起挤进个人 AI 助理</strong><p>先是 Meta 在 9 月初推出个人 Agent 产品 Muse，给每名用户配一套长期在线的独立云端电脑，可以在授权后处理邮件、预约、填表；随后 Instinct 在 9 月 28 日以 100 亿美元估值完成 10 亿美元融资。华尔街见闻称这股热潮已传导到国内，腾讯、字节、阿里集体入场。个人 Agent 正在从「一个新功能」变成大厂争夺的下一代入口。</p></li></ol>
-</section>
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>OpenAI 营收“缩水” 200 亿，美股科技股下跌。</strong> FT 称 OpenAI 年化营收接近 500 亿美元，比外传少约 200 亿，差在统计口径；纳斯达克 100 收跌 1.4%，英伟达跌 2.9%，甲骨文跌 5.5%。</li>
+        <li><strong>DeepSeek 拿到至少 800 亿元，冲刺 2027 年 IPO。</strong> 腾讯、宁德时代是最大出资方，估值或达 710 亿美元；月之暗面也在冲港股，国产大模型进入上市竞赛。</li>
+        <li><strong>AI 和人类规则的摩擦在加剧。</strong> USA TODAY 旗下 19 家报纸起诉 OpenAI，要求销毁模型；陶哲轩牵头号召数学界抵制 OpenAI，知乎 233 万热度围观。</li>
+      </ol>
+    </section>
 
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · AI Hot 3 · 英文媒体 2 · 知乎 1 · X 2 · 即刻 1 · 微博 3</span></div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 78 · 热点榜</span></div>
+          <h3>OpenAI 年化营收据报只有约 500 亿美元，比外传少 200 亿，美股科技股应声下跌</h3>
+          <p class="author">IT之家（转述 Financial Times，经 AI Hot 收录） · 2026-10-09 07:02 CST</p>
+          <p class="summary-text">据 FT 报道，OpenAI 向投资者披露，截至 9 月底年化营收接近 500 亿美元，比外界流传的约 700 亿美元（CNBC 称 680 亿）少约 200 亿。差异来自口径：Anthropic 把通过 AWS、谷歌云卖出的部分算进营收，OpenAI 不算。消息出来后，纳斯达克 100 指数收跌 1.4%，英伟达跌 2.9%，甲骨文跌 5.5%；另据转述，纳指 100 创 7 周最大跌幅，费城半导体指数跌 3.4%。</p>
+          <div class="discussion"><strong>讨论点：</strong>市场开始认真追问“AI 的钱到底赚回来没有”。OpenAI 自报第三季度营收增速 77%、企业业务增速 107%，增长并不差，但“口径”一变，估值预期就被打折。同日 WSJ 发文《AI 价格战愈演愈烈，OpenAI 正在缩小与 Anthropic 的差距》（仅见标题，原文付费）。CNBC 也报道英伟达、甲骨文、CoreWeave 等 AI 概念股走低。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>AI 行业的叙事正从“谁的模型更强”转向“谁能赚到钱”。做 AI 产品运营和商业化的人，接下来会被更频繁地问 ROI（投入产出比）；看任何“年化收入”数字，先问口径。</p>
+          <a class="link" href="https://www.ithome.com/1/010/751.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">Bloomberg 首发 · 10/6 起持续发酵</span></div>
+          <h3>DeepSeek 接近完成至少 800 亿元融资，腾讯、宁德时代领投，瞄准 2027 年初 IPO</h3>
+          <p class="author">Bloomberg（据 The Decoder 等转述） · 2026-10-06 首发 · 持续热点</p>
+          <p class="summary-text">据彭博报道，DeepSeek 接近完成至少 800 亿元人民币（约 120 亿美元）融资，高于原定约 500 亿元的目标，已签条款可能让总额接近 150 亿美元，估值或达 710 亿美元。腾讯和宁德时代是出资最多的投资方。资金将用于硬件，包括为内蒙古数据中心规划至少 16 万块华为昇腾 950DT 芯片，公司计划 2027 年初上市。</p>
+          <div class="discussion"><strong>讨论点：</strong>知乎“DeepSeek 估值接近 5000 亿元”问题今天凌晨仍在热榜；同时字节 Seed 论文指出 DeepSeek V4 长文本有“性能漂移”，今天凌晨冲上知乎热榜第 2（323 万热度）。一边是资本狂热，一边是同行挑刺。月之暗面也被曝以约 500 亿美元估值冲刺港股 IPO，国产大模型进入“上市竞赛”。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>大模型公司钱多了，就会大规模买流量、做生态、招人。接下来半年，国产 AI 产品在增长运营、内容营销和开发者社区上的岗位和预算可能会增加（本报推测）。</p>
+          <a class="link" href="https://the-decoder.com/catl-and-tencent-back-deepseeks-ballooning-funding-round-as-the-ai-startup-eyes-a-2027-ipo/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 61</span></div>
+          <h3>USA TODAY 旗下 19 家报纸起诉 OpenAI：索赔 2.5 亿美元，要求销毁模型</h3>
+          <p class="author">AI Hot 收录（Rohan Paul 转述） · 2026-10-09 16:25 CST</p>
+          <p class="summary-text">USA TODAY Co. 在曼哈顿联邦法院起诉 OpenAI，14 名原告覆盖 19 家报纸，指控 OpenAI 未经授权复制了数十万篇报道用于训练模型，且无视付费墙和访问限制。原告索赔 2.5 亿美元，并要求销毁用其文章训练的 GPT 模型。</p>
+          <div class="discussion"><strong>讨论点：</strong>“销毁模型”是这类诉讼里最狠的诉求。内容方和 AI 公司的版权之争越打越大，对做内容的人来说，自己的作品会不会被拿去训练、能不能拿到补偿，正在变成现实问题。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>你写的文章、做的内容会不会被拿去训练 AI，正在变成能打官司、能谈价格的事。做内容平台和品牌内容的人，可以提前想想自家内容的授权条款。</p>
+          <a class="link" href="https://x.com/rohanpaul_ai/status/2108473815445667848" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 7 · 233 万热度</span></div>
+          <h3>陶哲轩牵头号召数学界抵制 OpenAI，知乎热议 AI 数学研究走向</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <p class="summary-text">据问题描述，陶哲轩牵头的人类数学协会（AHM）发表联合声明，称 OpenAI 一次性发布 700 多份 AI 数学手稿“不算科研”，敦促数学家停止与 OpenAI 合作。新细节：OpenAI 10 月 7 日因一处符号错误撤回 3 份，现为 719 份；只有 10 份公开了推理过程，未完全达到普林斯顿高等研究院顾问小组提出的披露标准。</p>
+          <div class="discussion"><strong>讨论点：</strong>争议焦点已经从“AI 能不能做数学”转向“怎么做才算科研”：用外界无法访问的模型、不公开推理过程，成果就很难被检验。这对所有“AI 产出”的可信度都是一面镜子。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>所有“AI 批量生产、看起来像专家写的”内容都会遇到同一个问题：凭什么让人信？内容行业里，署名、出处和可验证性会越来越值钱。</p>
+          <a class="link" href="https://www.zhihu.com/question/2091831158468244988" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge x">X</span><span class="meta">166 回复 · 318 转帖 · 2,004 喜欢 · 19 万观看</span></div>
+          <h3>Anthropic 启动“网络任务”，用 Claude 帮电网、供水系统防黑客</h3>
+          <p class="author">Anthropic（@AnthropicAI） · 2026-10-09 05:04 CST</p>
+          <p class="summary-text">Anthropic 宣布启动 Anthropic Cyber Mission，目标是保护关键基础设施和开源软件。首期包括“关键基础设施防御计划”：为电网、供水等运营方的安保、制造和技术供应商提供前沿 Claude 模型、驻场工程师和最新研究；同时推出免费的开源项目漏洞扫描服务。</p>
+          <div class="discussion"><strong>讨论点：</strong>AI 正在同时站上攻守两边。据 AI Hot 收录的报道，CrowdStrike 称一名攻击者用 AI 渗透工具 ARTEX 攻击了多家韩国银行，官员认为至少 7 家金融机构受害，攻击者留下的 Claude Code 会话记录也被发现。（渗透工具：专门用来找系统漏洞、模拟入侵的软件。）</div>
+          <p class="impact"><strong>对运营/内容人：</strong>AI 工具越来越能“替人操作”，账号和数据安全就越要紧。运营同学手里的后台权限、社群和用户数据，都会是被攻击的目标，安全意识要跟上。</p>
+          <a class="link" href="https://x.com/AnthropicAI/status/2108302539498414208" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge x">X</span><span class="meta">155 回复 · 209 转帖 · 1,853 喜欢 · 2,169 书签 · 45 万观看</span></div>
+          <h3>AI 资讯博主分享 Grok Bot 自动化“例程”：每天替你在 X 上筛真用例</h3>
+          <p class="author">Rowan Cheung（@rowancheung，The Rundown 创始人） · 2026-10-09 06:46 CST</p>
+          <p class="summary-text">Rowan Cheung 说自己“彻底入坑” Grok Bot：最近更新支持原生 X 监控，他分享了 4 个可直接复制的提示词“例程”。第一个是每天早上让它在 X 上找真实的 AI 工作流用例，自动过滤“10 个提示词”这类炒作帖。</p>
+          <div class="discussion"><strong>讨论点：</strong>这条的收藏数（2,169）比点赞还多，说明大家把它当工具清单存了。当天凌晨马斯克发帖称“你可以用 Grok Bots 打造一整家公司”，这条推文浏览量超过 2,500 万。Agent 正在从“陪你聊”变成“每天定时替你干活”。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>“每天自动筛选、整理信息”正被 Agent 接手，做资讯类、聚合类内容的人要警惕：单纯搬运会越来越不值钱，判断和观点才是护城河。</p>
+          <a class="link" href="https://x.com/rowancheung/status/2108328114552000842" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">22 赞 · 4 评论 · 2 转发</span></div>
+          <h3>“别做个人 Agent，做人民的 Agent”</h3>
+          <p class="author">莫唯书Mark · 2026-10-09 16:48 CST</p>
+          <p class="summary-text">作者认为，个人 Agent 描述的“数字管家”默认用户有大量日历、邮件、文档要管，但县城厂妹、外卖骑手、城中村合租的大学生几乎没有这些。普通人真正高频的需求是吃饭、出行、购物、找工作：Agent 应该替他们在这些日常选择里找最优解，由商家为带来的客流和成交付费，用户免费用。</p>
+          <div class="discussion"><strong>讨论点：</strong>这是对“个人 Agent 热”最有力的一次反问：订阅制服务的是一线城市白领，“免费 + 高频刚需 + 商家付费”才是中国互联网验证过的路径。和梁斌前一晚说的“看谁家地多”可以对照着看。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>做用户增长的人可以对照这篇想一想：你的用户每天真正高频、刚需的选择是什么？Agent 时代，谁能替用户把这些选择做好，谁就掌握流量。</p>
+          <a class="link" href="https://m.okjike.com/originalPosts/6ac8aa55756bbb66587d1594" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 59 · IT之家</span></div>
+          <h3>OpenAI 推出 GPT-6.1 Sol Ultrafast：快 8 倍，贵 6 倍</h3>
+          <p class="author">IT之家（经 AI Hot 收录） · 2026-10-09 08:04 CST</p>
+          <p class="summary-text">OpenAI 在 API、Codex 和 ChatGPT Work 中推出 GPT-6.1 Sol 的 Ultrafast 版本，速度最高是标准版的 8 倍，价格是标准版的 6 倍：每百万 tokens 输入 12 美元、输出 60 美元。（tokens：AI 计算和计费用的文字单位。）</p>
+          <div class="discussion"><strong>讨论点：</strong>微博上有人说“贵 3 倍”，那是和之前的 Fast 版（输入 4 美元、输出 20 美元）比；和标准版比是 6 倍。#AI回答太快会影响质量吗# 也成了微博话题，博主蚁工厂认为加速方法有花钱的也有省钱的，“全凭供应商良心”。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>速度本身也成了收费项目。做 AI 产品的人，选模型时要算清“快”值多少钱：客服、实时互动场景值得用快的，写长文、做分析未必需要。</p>
+          <a class="link" href="https://www.ithome.com/1/010/768.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">CNBC · 公开报道</span></div>
+          <h3>OpenAI 坚持解雇三名安全研究员：“与提出安全担忧无关”</h3>
+          <p class="author">CNBC · 2026-10-09 15:23 CST</p>
+          <p class="summary-text">OpenAI 周五发声明，称解雇 Jasmine Wang、Tomek Korbak、Mikita Balesni 三名安全研究员，是因为调查发现他们违反了处理敏感信息的规定，属于“严重违背信任”，与他们提出安全担忧无关。三人此前致信董事会，称解雇事件让前同事不敢再发声。OpenAI 表示认同信中“保持前沿模型可监控性”的主张。</p>
+          <div class="discussion"><strong>讨论点：</strong>CNBC 提到，过去一个月 AI 安全担忧急剧升温，三人九月都曾在 X 上呼吁放慢前沿研发或强调安全担忧。公司说“是违规”，当事人说“是寒蝉效应”，双方各执一词，外界很难判断真相。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>大公司里“发声的代价”是所有从业者都关心的话题。这件事也提醒做公关和社区的人：当事人公开信 + 公司声明的“双方叙事”，正在成为舆情常态。</p>
+          <a class="link" href="https://www.cnbc.com/2026/10/09/openai-fired-researchers-ai-concerns.html" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">10 转发 · 3 评论 · 26 赞</span></div>
+          <h3>前字节工程师郭宇：软件会像牛奶一样便宜，人反而更累了</h3>
+          <p class="author">AIGC·非著名程序员 · 2026-10-09 17:51 CST</p>
+          <p class="summary-text">作者分享 Indigo Talk 对郭宇的访谈：以前小团队两周的活，现在一两个人半天就能做完，但所有决策都压在一个人身上，身边不少工程师高强度干两三个月后集体倦怠。郭宇认为软件会像超市牛奶一样便宜，成为公共品；Indigo 的回应是 “Everything is media”，真人认真讲自己做的事，反而最稀缺。</p>
+          <div class="discussion"><strong>讨论点：</strong>对内容和运营从业者，这是个好消息：当“做出来”不再稀缺，“讲出来、让人信”就成了核心能力。另一面是警告：AI 提效不等于减负，判断和决策的压力只会更集中。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>当“做出来”不再稀缺，“讲出来、让人信”就成了核心能力。真人出镜、讲自己真实做过的事，是内容人最难被 AI 替代的部分。</p>
+          <a class="link" href="https://m.weibo.cn/status/5352167022264881" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">27 转发 · 9 评论 · 69 赞</span></div>
+          <h3>特朗普给黄仁勋、马斯克等人颁国家科学奖章，英伟达当天认捐 10 亿美元</h3>
+          <p class="author">猫叔在硅谷 · 2026-10-09 07:35 CST</p>
+          <p class="summary-text">10 月 8 日，特朗普首次在任内颁发国家科学奖章，得主为马斯克、黄仁勋、谢尔盖·布林和苏姿丰；戴尔与纳德拉获国家技术与创新奖章。作者称，授勋当天英伟达向白宫打造国家级 AI 平台的“创世纪基金”认捐 10 亿美元，占科技界 24 亿美元总承诺的四成以上，AMD 认捐 5 亿美元。</p>
+          <div class="discussion"><strong>讨论点：</strong>AI 已经是国家级工程：政府给荣誉，企业给真金白银。作者还指出多数获奖者都给特朗普或共和党出过钱，政商关系与 AI 产业正在深度绑定。注：认捐金额为作者转述，本报未单独核实。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>AI 已经是国家级工程，政策和政商关系会越来越影响行业走向。做出海、跨境业务的人，需要把政策风向也纳入日常关注。</p>
+          <a class="link" href="https://m.weibo.cn/status/5352011933155730" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">105 转发 · 11 评论 · 129 赞</span></div>
+          <h3>开源工具 OhMyGame：让 AI 帮一个人撑起整个游戏工作室</h3>
+          <p class="author">蚁工厂 · 2026-10-09 08:46 CST</p>
+          <p class="summary-text">OhMyGame 是一个开源工具，目标是让一个人也能拥有完整的游戏工作室：从创意策划、美术素材生成、游戏编程，到自动试玩、调试和发布，尽量都在同一个应用里由 AI Agent 完成。</p>
+          <div class="discussion"><strong>讨论点：</strong>AIGC 正从“生成一张图”走到“交付一个完整作品”。转发数是点赞的八成，说明很多人是收藏备用。和郭宇说的一样，工具越强，真正稀缺的是创意和判断。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>一个人加 AI 就能做出完整作品，内容创作和小游戏的供给会暴增。竞争会转向创意、题材和分发，运营的价值反而更大。</p>
+          <a class="link" href="https://m.weibo.cn/status/5352029751084559" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+        </article>
+      </div>
+    </section>
 
-<section>
-<div class="sec-head"><h2>平台热榜</h2><span>3 条 · 即刻 / 微博 / 知乎</span></div>
-<div class="grid"><article class="card">
-<div class="card-top"><span class="badge b-jike">即刻</span><span class="meta"><span class="m-main">赞31 评3 转1 分享19</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>Grok 遥控 Mac mini 全流程做完一支视频</h3>
-<p class="byline">AI探索站 · 09-30 12:03</p>
-<p class="body">即刻用户转述一条在 X 上热传的视频：大雨天里 Tesla 在自己行驶，车主对车载 Grok 说了一段话，Grok 随即指挥他的 Grok bot——在 Mac mini 上建好代码仓库、上网找资料、写好脚本，再由 Cursor 调用 Claude Opus 5.5 把视频做出来，最后放进 Google Drive。发帖人指出，看完视频的第一反应如果是「我也这么干」而不只是「哇」，就说明已经看到这轮 Agent 浪潮能波及多广。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">即刻用户转述一条在 X 上热传的视频：大雨天里 Tesla 在自己行驶，车主对车载 Grok 说了一段话，Grok 随即指挥他的 Grok bot——在 Mac mini 上建好代码仓库、上网找资料、写好脚本，再由 Cursor 调用 Claude Opus 5.5 把视频做出来，最后放进 Google Drive。发帖人指出，看完视频的第一反应如果是「我也这么干」而不只是「哇」，就说明已经看到这轮 Agent 浪潮能波及多广。</p>
-<p class="why"><b>讨论点</b>这条的价值在于它把车载语音、云端 Agent、本地 Mac mini 和编码 Agent 串成了一条可复制的链路，而不是单点演示。但它没有交代任务耗时、失败重试次数和成本，属于传播性强的个例，不能当作稳定产出能力的证据。</p>
-<p class="use"><b>对你的用处</b>做内容运营可以直接把自己的产出流程对着这条拆一遍：选题、找素材、写脚本、成片、归档，哪几步已经有可自动化的接口。真要试，建议先挑一条固定格式的短视频做端到端验证，并把「人工兜底在哪一步」写清楚再放大。</p>
-</details>
-<a class="link" href="https://m.okjike.com/originalPosts/6abc89fdcfb5d08b3ecfd833" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-jike">即刻</span><span class="meta"><span class="m-main">赞21 评3 转1 分享2</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>Agent 像当年的个人电脑：缺的是杀手场景</h3>
-<p class="byline">AI探索站 · 09-29 23:48</p>
-<p class="body">发帖人理解 Red 的观点不是「Agent 有台云电脑」，而是把 Agent 类比成当年的个人电脑：PC 刚出现时更像一件时髦又昂贵的玩具，没人觉得自己真的需要，直到表格软件出现，它才第一次在办公场景证明自己的生产价值。今天的办公 Agent 正处在这个阶段；而真正把 PC 推进千家万户的，反而是多媒体、电子游戏和网络。发帖人由此推断，Agent 的普及可能也要靠娱乐与创作场景。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">发帖人理解 Red 的观点不是「Agent 有台云电脑」，而是把 Agent 类比成当年的个人电脑：PC 刚出现时更像一件时髦又昂贵的玩具，没人觉得自己真的需要，直到表格软件出现，它才第一次在办公场景证明自己的生产价值。今天的办公 Agent 正处在这个阶段；而真正把 PC 推进千家万户的，反而是多媒体、电子游戏和网络。发帖人由此推断，Agent 的普及可能也要靠娱乐与创作场景。</p>
-<p class="why"><b>讨论点</b>这是一个判断框架而不是数据：办公场景负责「证明价值」，娱乐与创作场景负责「拉动普及」。所以「Agent 什么时候爆发」这个问题，可能要看创作类场景的落地速度，而不是办公效率提升了多少。</p>
-<p class="use"><b>对你的用处</b>在评估 Agent 相关的岗位或产品方向时，这个框架能帮你排序：先看创作与娱乐类 Agent 的真实活跃度，再看办公提效类。做内容的人本身就站在这条可能的爆发口上。</p>
-</details>
-<a class="link" href="https://m.okjike.com/originalPosts/6abbddb2141b85b292f2c210" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-jike">即刻</span><span class="meta"><span class="m-main">赞8 评2 转1 分享1</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>三个个人 Agent 产品，从业者也要对照表</h3>
-<p class="byline">AI探索站 · 09-30 03:26</p>
-<p class="body">即刻用户发了一道小测验：给出三张截图，问一共展示了几个 Agent 产品，并要求说出 Grok Bot、Cue、dots 分别是哪家厂商的产品、彼此有何异同，还注明要先答对第一题才能答第二题。互动不高（赞 8），但它反映出一个现实——个人 Agent 产品的数量已经多到从业者需要靠对照表才分得清。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">即刻用户发了一道小测验：给出三张截图，问一共展示了几个 Agent 产品，并要求说出 Grok Bot、Cue、dots 分别是哪家厂商的产品、彼此有何异同，还注明要先答对第一题才能答第二题。互动不高（赞 8），但它反映出一个现实——个人 Agent 产品的数量已经多到从业者需要靠对照表才分得清。</p>
-<p class="why"><b>讨论点</b>帖子本身没给答案，价值在于点出了认知成本：同一段时间里 Cue、Muse、Grok Bot、dots 同时在跑，命名和交互高度相似，用户很难建立品牌区分。对做增长和内容的人来说，这意味着功能对齐已经换不来认知，差异化只能落在心智和体验上。</p>
-<p class="use"><b>对你的用处</b>如果你要给 AI 产品做内容或增长，这条是提醒：同质化阶段用户记住的不是功能清单，而是谁第一个把某个具体场景做成了默认选项。选题和卖点都该往场景上收，而不是往参数上堆。</p>
-</details>
-<a class="link" href="https://m.okjike.com/originalPosts/6abc10dabd0563695b722a98" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article></div>
-</section>
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">9,559 stars · 今日 +2,103</span></div>
+          <h3>storytold/artcraft</h3>
+          <p class="author">Rust</p>
+          <p class="summary-text">给艺术家用的 AI 图片和视频创作工具：在 2D 里构图、在 3D 里摆场景，再挑合适的模型生成。</p>
+          <div class="discussion"><strong>为什么值得看：</strong>AIGC 正从“抽卡碰运气”走向“精确控制”：先把构图、人物和机位定好再生成，结果才可重复。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>做视觉内容的人可以关注：AI 出图正在从“碰运气”变成“可控生产”，批量做海报、分镜会更省事。</p>
+          <a class="link" href="https://github.com/storytold/artcraft" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">27,943 stars · 今日 +392</span></div>
+          <h3>anthropics/knowledge-work-plugins</h3>
+          <p class="author">Python</p>
+          <p class="summary-text">Anthropic 官方开源的 11 个岗位插件，覆盖效率、销售、客服、产品、市场等，可接 Slack、Notion、HubSpot 等常用工具。</p>
+          <div class="discussion"><strong>为什么值得看：</strong>给知识工作者而不是程序员用的。市场插件能写内容、做活动策划、统一品牌语气，运营岗可以直接参考它的工作流设计。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>里面的市场、客服插件，本身就是一份“AI 能接手哪些运营工作”的清单，值得照着梳理自己的工作流。</p>
+          <a class="link" href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">47,241 stars · 今日 +1,160</span></div>
+          <h3>cathrynlavery/diagram-design</h3>
+          <p class="author">HTML</p>
+          <p class="summary-text">让 Claude Code、Codex 等 AI 助手画出“杂志级”图表的技能包，支持桑基图、用户旅程、看板等几十种图表，输出单个 HTML 文件。</p>
+          <div class="discussion"><strong>为什么值得看：</strong>微博博主 AIGC·非著名程序员今天也专门推荐了它（90 赞、58 转发）。做汇报、写方案时，AI 画的图终于可以不那么“AI 味”。</div>
+          <p class="impact"><strong>对运营/内容人：</strong>写方案、做复盘时，AI 画的图可以直接拿去汇报，省下排版时间。</p>
+          <a class="link" href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+        </article>
+      </div>
+    </section>
 
-<section>
-<div class="sec-head"><h2>博主观点</h2><span>3 条 · 你关注的那几个人的原帖</span></div>
-<div class="grid"><article class="card">
-<div class="card-top"><span class="badge b-jike">即刻</span><span class="meta"><span class="m-main">赞55 评6 转2 分享2</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>阑夕：用 Muse 倒推 Meta 的收购逻辑</h3>
-<p class="byline">阑夕 · 09-30 11:53</p>
-<p class="body">阑夕顺着 Meta 的个人智能体 Muse 往回倒推：收购 Manus 时外界多认为 Meta 是病急乱投医，花 20 亿美元买了一个炒作起来的网红产品；但看 Meta AI 实验室近一年的外部动作，主线就是找 Agent 技术——除了 Manus，还接触过消费级智能体平台 Dreamer，最后连人带公司一起收购。他提到 Dreamer 的联合创始人 Hugo Barra，在 2013 到 2016 年间于小米任职。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">阑夕顺着 Meta 的个人智能体 Muse 往回倒推：收购 Manus 时外界多认为 Meta 是病急乱投医，花 20 亿美元买了一个炒作起来的网红产品；但看 Meta AI 实验室近一年的外部动作，主线就是找 Agent 技术——除了 Manus，还接触过消费级智能体平台 Dreamer，最后连人带公司一起收购。他提到 Dreamer 的联合创始人 Hugo Barra，在 2013 到 2016 年间于小米任职。</p>
-<p class="why"><b>讨论点</b>这条把「Meta 收购 Manus」从单点事件改写成一整条产品路线图：Muse 是结果，Manus 和 Dreamer 是铺垫。帖子没有披露 Dreamer 的交易金额与具体条款，属于基于公开动作的反推，不是内部信息。</p>
-<p class="use"><b>对你的用处</b>判断一家大厂的真实路线，与其听发布会定位，不如数它过去一年买了谁、招了谁。这套方法在你做行业研究、判断某家公司是不是真在往 Agent 上压注时可以直接套用。</p>
-</details>
-<a class="link" href="https://m.okjike.com/originalPosts/6abc87b67a377818ba3ac885" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-jike">即刻</span><span class="meta"><span class="m-main">赞14 评6 转0 分享0</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>明浩：下一个 AI 行业 PPT 又换版本了</h3>
-<p class="byline">rosicky311_明浩 · 09-30 06:34</p>
-<p class="body">即刻用户 rosicky311（明浩）在清晨发帖，判断下一个总结性质的「AI 行业 PPT」大概率会在这个月底集中出现，并预先给主标题定了调：《不是，怎么又换版本了？》。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">即刻用户 rosicky311（明浩）在清晨发帖，判断下一个总结性质的「AI 行业 PPT」大概率会在这个月底集中出现，并预先给主标题定了调：《不是，怎么又换版本了？》。</p>
-<p class="why"><b>讨论点</b>这条的分量在节奏而不是信息：一个月内模型版本、Agent 产品和厂商格局连续换版，连专职追踪行业的人都开始用「版本号」调侃自己知识过期的速度。帖子没有给出具体版本清单。</p>
-<p class="use"><b>对你的用处</b>做内容选题或面试准备时，这是个有用的节奏提示：与其追每一个版本，不如先建一套筛选标准——哪些变化会影响你的判断，哪些只是版本号。否则信息摄入会一直跑在焦虑上。</p>
-</details>
-<a class="link" href="https://m.okjike.com/originalPosts/6abc3d09141b85b292fc992f" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-jike">即刻</span><span class="meta"><span class="m-main">赞7 评3 转0 分享0</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>莫唯书Mark：豆包还把上下文当 Query 用</h3>
-<p class="byline">莫唯书Mark · 09-29 19:59</p>
-<p class="body">即刻用户莫唯书Mark 的一句短评：豆包目前仍然把对话上下文当作检索 Query 来用，他调侃这符合「搜索团队出品」的思路。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">即刻用户莫唯书Mark 的一句短评：豆包目前仍然把对话上下文当作检索 Query 来用，他调侃这符合「搜索团队出品」的思路。</p>
-<p class="why"><b>讨论点</b>这条没有展开论证，但指出了一个具体的技术取向：把上下文降级成搜索查询，会让多轮对话更像「连续搜索」而不是「持续理解」。这恰好是个人 Agent 与聊天产品的分界线。</p>
-<p class="use"><b>对你的用处</b>评估产品体验时这是个可复用的观察点：连续追问同一个上下文，看它是在累积理解还是在重复检索。比对着功能列表看要有效得多。</p>
-</details>
-<a class="link" href="https://m.okjike.com/originalPosts/6abba821bd0563695b674d1e" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article></div>
-</section>
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>市场开始给 AI 算账。</strong> OpenAI 营收口径一改，科技股就跌；DeepSeek 却在大举融资准备上市。资本仍然追捧 AI，但开始追问“钱从哪来”，商业化能力会成为下半年的主线。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>规则正在追赶技术。</strong> 报纸要求销毁模型、数学家抵制批量 AI 证明、黑客用 AI 入侵银行：版权、验证和安全的规则都在补课。对内容从业者来说，“能证明是自己做的”会越来越值钱。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>个人 Agent：热度和质疑同时到来。</strong> 海外在比谁的 Agent 例程更多，国内有人提醒普通人要的是省钱、赚钱。对运营人来说，真正的机会在“替用户做高频决策”那一边。</p></div>
+      </div>
+    </section>
 
-<section>
-<div class="sec-head"><h2>技术圈动态</h2><span>3 个 GitHub 项目 · 6 条媒体 · GitHub 为主，媒体概述为辅</span></div>
-<div class="grid"><article class="card repo">
-<div class="card-top"><span class="badge b-github">GitHub</span><span class="meta"><span class="m-main">总 Star 3,209 · 创建于 2026-09-24</span></span></div>
-<h3 class="mono">yetone/magpie</h3>
-<p class="byline">Go</p>
-<p class="body">菜单栏里的模型路由器：Codex 跑 DeepSeek、Claude Code 跑 Kimi</p>
-<details class="more" open>
-<summary>展开 · 为什么值得看</summary>
-<p class="full">菜单栏里的模型路由器：Codex 跑 DeepSeek、Claude Code 跑 Kimi</p>
-<p class="why"><b>为什么值得看</b>它把「一个 Agent 配一个模型」做成菜单栏里的一处切换，官方一句话是「Every agent&#x27;s model. One place.」。如果你同时用多家模型、在意额度和成本，这类工具能直接省掉改配置和换 key 的时间。Star 总量不大，但方向和你的用法高度重合。</p>
-</details>
-<a class="link" href="https://github.com/yetone/magpie" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-</article><article class="card repo">
-<div class="card-top"><span class="badge b-github">GitHub</span><span class="meta"><span class="m-main">总 Star 2,930 · 创建于 2026-09-15</span></span></div>
-<h3 class="mono">mcncarl/jianying-headless</h3>
-<p class="byline">Python</p>
-<p class="body">剪映草稿的无头编辑与导出，附一个独立 Agent Skill</p>
-<details class="more" open>
-<summary>展开 · 为什么值得看</summary>
-<p class="full">剪映草稿的无头编辑与导出，附一个独立 Agent Skill</p>
-<p class="why"><b>为什么值得看</b>它把剪映的原生草稿、隔离的编辑与导出流程做成可脚本调用的形态，并附带一个独立的 Agent Skill，等于给「自动化剪片」提供接口。想把剪辑环节接进内容流水线的可以直接看；注意仓库说明写的是 Private source preview，成熟度要自己验证。</p>
-</details>
-<a class="link" href="https://github.com/mcncarl/jianying-headless" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-</article><article class="card repo">
-<div class="card-top"><span class="badge b-github">GitHub</span><span class="meta"><span class="m-main">总 Star 10,940 · 今日 +990</span></span></div>
-<h3 class="mono">NVIDIA/OpenShell</h3>
-<p class="byline">Rust</p>
-<p class="body">面向自主 Agent 的安全私有运行时</p>
-<details class="more" open>
-<summary>展开 · 为什么值得看</summary>
-<p class="full">面向自主 Agent 的安全私有运行时</p>
-<p class="why"><b>为什么值得看</b>英伟达开源的 Agent 运行环境，定位是「安全、私有」，与同一天发布的开放代理安全平台是同一套思路：把权限约束做进执行环境，而不是靠提示词约束。今日新增 990 颗 Star。如果你要让 Agent 接入真实业务系统，这类运行时值得提前评估。</p>
-</details>
-<a class="link" href="https://github.com/NVIDIA/OpenShell" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-qbitai">量子位</span><span class="meta"><span class="m-main">媒体源未公开互动数</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>OpenAI 一夜 25 项更新，上新 GPT-6.1</h3>
-<p class="byline">量子位 · 09-30 07:01</p>
-<p class="body">量子位报道，OpenAI 在一次更新中集中上线 25 项改动，并推出 GPT-6.1 Sol。Sol 是 GPT-6 阵容里面向复杂编码与 agent 任务的中档模型。候选池只提供了标题与一句导语，25 项更新的明细需要看原文核对。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">量子位报道，OpenAI 在一次更新中集中上线 25 项改动，并推出 GPT-6.1 Sol。Sol 是 GPT-6 阵容里面向复杂编码与 agent 任务的中档模型。候选池只提供了标题与一句导语，25 项更新的明细需要看原文核对。</p>
-<p class="why"><b>讨论点</b>值得注意的不是更新条数，而是同一天曝出的另一面：钛媒体称 OpenAI 因安全测试不合格取消了 GPT-6.1 Astra 的发布，这是行业里少见的「因安全门卡住出货」。叠起来看，这一轮是慢档先发、顶配延后。</p>
-<p class="use"><b>对你的用处</b>如果你在用 Codex 或 ChatGPT 做长任务，新版本上线意味着额度与路由策略可能同步变化，值得单独核一次实际消耗。做行业内容时，「发布什么」和「没发布什么」要一起写，后者信息量更大。</p>
-</details>
-<a class="link" href="https://www.qbitai.com/2026/09/499246.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-wallstreetcn">华尔街见闻</span><span class="meta"><span class="m-main">媒体源未公开互动数</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>Anthropic 向 SpaceX 租算力 845 亿美元</h3>
-<p class="byline">华尔街见闻 · 09-30 11:15</p>
-<p class="body">据路透社报道，Anthropic 的机密 IPO 招股书显示，其与 SpaceX 签订的算力租赁协议总金额上限高达 845 亿美元，期限延伸至 2029 年，几乎是此前披露的近两倍。今年 5 月 SpaceX 在自身 IPO 文件里给出的口径是：Anthropic 以每月 12.5 亿美元租赁其基于英伟达芯片的算力，最长三年，总额约 450 亿美元。新协议中大部分条款同样保留了 90 天取消条款。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">据路透社报道，Anthropic 的机密 IPO 招股书显示，其与 SpaceX 签订的算力租赁协议总金额上限高达 845 亿美元，期限延伸至 2029 年，几乎是此前披露的近两倍。今年 5 月 SpaceX 在自身 IPO 文件里给出的口径是：Anthropic 以每月 12.5 亿美元租赁其基于英伟达芯片的算力，最长三年，总额约 450 亿美元。新协议中大部分条款同样保留了 90 天取消条款。</p>
-<p class="why"><b>讨论点</b>两个月内同一份协议从 450 亿变成 845 亿，说明披露口径本身在扩大，而不是外界此前漏看。报道同时提到 Anthropic 预计未来十年在 AI 基础设施上的总支出至少 5180 亿美元。需要留意的是，绝大多数算力承诺都带 90 天取消权，账面金额与实际发生额之间可能差很远。</p>
-<p class="use"><b>对你的用处</b>判断 AI 公司的真实负担时别只看合同总额：带 90 天取消权的大额承诺更像期权而不是债务，看月度现金口径才靠得住。这条同时也说明算力供给方的议价权还在上升。</p>
-</details>
-<a class="link" href="https://wallstreetcn.com/articles/3782801" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-wallstreetcn">华尔街见闻</span><span class="meta"><span class="m-main">媒体源未公开互动数</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>腾讯、字节、阿里集体攻入个人助理</h3>
-<p class="byline">华尔街见闻 · 09-30 11:40</p>
-<p class="body">华尔街见闻梳理，AI 大厂正在争夺「个人助理」这个新入口。9 月初 Meta 正式推出个人 AI Agent 产品 Muse，为每名用户配一套独立的 Muse Secure VM——相当于一台长期在线的云端电脑，有自己的浏览器，可在用户授权后处理邮件、预约服务、填写表格，用户离开 App 后部分任务仍能继续执行。另一家个人 Agent 公司 Instinct 在 9 月 28 日宣布完成 10 亿美元融资、估值 100 亿美元。这股热潮很快传导到国内，腾讯、字节、阿里都在入场。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">华尔街见闻梳理，AI 大厂正在争夺「个人助理」这个新入口。9 月初 Meta 正式推出个人 AI Agent 产品 Muse，为每名用户配一套独立的 Muse Secure VM——相当于一台长期在线的云端电脑，有自己的浏览器，可在用户授权后处理邮件、预约服务、填写表格，用户离开 App 后部分任务仍能继续执行。另一家个人 Agent 公司 Instinct 在 9 月 28 日宣布完成 10 亿美元融资、估值 100 亿美元。这股热潮很快传导到国内，腾讯、字节、阿里都在入场。</p>
-<p class="why"><b>讨论点</b>这条把三个层次串了起来：海外产品定义了形态（长期在线 + 独立执行环境），资本给了定价（Instinct 100 亿美元估值），国内大厂跟进做功能对齐。文章没有给出国内各家产品的具体形态与进度口径。</p>
-<p class="use"><b>对你的用处</b>如果你在看 AI Agent 方向的运营岗，这是最直接的需求信号：入口之争意味着接下来半年会有大量产品冷启动、内测招募和内容运营的需求。可以按「个人助理」这条线去盯腾讯、字节、阿里的产品动态和岗位。</p>
-</details>
-<a class="link" href="https://wallstreetcn.com/articles/3782805" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-wallstreetcn">华尔街见闻</span><span class="meta"><span class="m-main">媒体源未公开互动数</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>特朗普签《白宫超级智能协议》，拒绝为 AI 立法</h3>
-<p class="byline">华尔街见闻 · 09-30 10:51</p>
-<p class="body">9 月 29 日，特朗普在白宫宴请近二十名科技行业领袖，随后与 Anthropic、谷歌、Meta、英伟达、OpenAI 及 xAI 六家公司的 CEO 共同签署了一份单页文件《白宫超级智能协议：前沿责任联合承诺》。他把这份协议定性为「道德约束」，称它「在某种程度上如同一部宪法」，行业将通过内部管控、外部审计与董事会监督等四个层次实现自律；众议院议长 Mike Johnson 则把它定性为行业「自愿原则声明」。特朗普同时表示拒绝为 AI 监管立法，并称正式把「人工智能」更名为「超级智能」。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">9 月 29 日，特朗普在白宫宴请近二十名科技行业领袖，随后与 Anthropic、谷歌、Meta、英伟达、OpenAI 及 xAI 六家公司的 CEO 共同签署了一份单页文件《白宫超级智能协议：前沿责任联合承诺》。他把这份协议定性为「道德约束」，称它「在某种程度上如同一部宪法」，行业将通过内部管控、外部审计与董事会监督等四个层次实现自律；众议院议长 Mike Johnson 则把它定性为行业「自愿原则声明」。特朗普同时表示拒绝为 AI 监管立法，并称正式把「人工智能」更名为「超级智能」。</p>
-<p class="why"><b>讨论点</b>核心分歧在约束力：白宫把监管主导权交给行业自身，签的是自愿承诺而不是法规；报道提到政府正在考虑组建一个监督委员会。对头部公司来说，这相当于用自律换掉了立法风险。</p>
-<p class="use"><b>对你的用处</b>这条影响你做海外产品合规与内容合规时的判断依据：未来一段时间美国的 AI 治理大概率靠行业自律加委员会监督，而不是明确法规。写风险提示或定内容口径时，不能假设有清晰的法律边界可以依。</p>
-</details>
-<a class="link" href="https://wallstreetcn.com/articles/3782769" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-qbitai">量子位</span><span class="meta"><span class="m-main">媒体源未公开互动数</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>DeepSeek 首次公开 Agent 训练平台 DSec</h3>
-<p class="byline">量子位 · 09-30 13:18</p>
-<p class="body">DeepSeek 在知乎独家发布技术长文，首次系统阐释其弹性计算平台 DSec（DeepSeek Elastic Compute）。按量子位给出的标题口径，这是 DeepSeek 第一次公开 V4.1 Agent 训练的「大本营」。候选池只拿到标题与一句导语，具体架构与指标需要看原文。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">DeepSeek 在知乎独家发布技术长文，首次系统阐释其弹性计算平台 DSec（DeepSeek Elastic Compute）。按量子位给出的标题口径，这是 DeepSeek 第一次公开 V4.1 Agent 训练的「大本营」。候选池只拿到标题与一句导语，具体架构与指标需要看原文。</p>
-<p class="why"><b>讨论点</b>值得注意的还有发布方式：在知乎独家发技术长文，而不是常规博客或论文。这既是技术披露，也是一次面向中文开发者社区的口径释放——DeepSeek 过去一年的技术发布多走这条路。</p>
-<p class="use"><b>对你的用处</b>如果要评估国内大模型公司的技术叙事能力，这条是样本：把训练基础设施单独拿出来讲，等于把「Agent 能力从哪来」变成可公开讨论的话题。做行业内容时可以顺着 DSec 这类基础设施词去找选题。</p>
-</details>
-<a class="link" href="https://www.qbitai.com/2026/09/499308.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article><article class="card">
-<div class="card-top"><span class="badge b-leiphone">雷锋网</span><span class="meta"><span class="m-main">媒体源未公开互动数</span><span class="m-when"> ｜ 2026-09-30 15:23 采集</span></span></div>
-<h3>自变量发布 TwinDEX：无本体数据跑通长程任务</h3>
-<p class="byline">雷锋网 · 09-30 11:53</p>
-<p class="body">雷锋网报道，自变量机器人发布的 Demo 里，一个机器人独立完成了开瓶取样、滴管操作、玻璃棒引流、混合摇匀共 24 个子动作，一镜到底做完整场化学实验；而用于训练它的数据只有数百条，且全部是无本体数据，没有一条来自机器人真机。背后的系统是自变量发布的 TwinDEX，由一套可穿戴的无本体数据采集系统和一套与之匹配的机器人末端执行器组成，中间配套完整的数据处理与策略训练流程。评测显示，用 TwinDEX 训练模型时，无本体数据近乎可 100% 替代真机遥操作数据。</p>
-<details class="more" open>
-<summary>展开 · 讨论点与对你的用处</summary>
-<p class="full">雷锋网报道，自变量机器人发布的 Demo 里，一个机器人独立完成了开瓶取样、滴管操作、玻璃棒引流、混合摇匀共 24 个子动作，一镜到底做完整场化学实验；而用于训练它的数据只有数百条，且全部是无本体数据，没有一条来自机器人真机。背后的系统是自变量发布的 TwinDEX，由一套可穿戴的无本体数据采集系统和一套与之匹配的机器人末端执行器组成，中间配套完整的数据处理与策略训练流程。评测显示，用 TwinDEX 训练模型时，无本体数据近乎可 100% 替代真机遥操作数据。</p>
-<p class="why"><b>讨论点</b>这条的意义在数据成本：真机遥操作数据一直是具身智能最贵的一环，如果无本体数据能在精细力控与双手协同这类长程任务上替代真机，整条赛道的训练成本结构会变。但这是厂商自评结果，目前没有第三方复现口径。</p>
-<p class="use"><b>对你的用处</b>看具身智能方向的机会时，可以用「数据从哪来、成本多少」这条线去区分公司：走真机数据采集的和走无本体数据的是两种完全不同的商业模型。这也解释了为什么近半年「可穿戴数采」成了热词。</p>
-</details>
-<a class="link" href="https://www.leiphone.com/category/robot/S9YPlbN9tONrBqrI.html" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-</article></div>
-</section>
-
-<section>
-<div class="sec-head"><h2>今日观察</h2><span>本报判断，非事实陈述</span></div>
-<div class="takes"><div class="take"><i>01</i><div><strong>同一天里，Agent 的能力演示和基础设施约束同时出现</strong><p>即刻上热传的一条视频里，车主对车载 Grok 口述需求，Grok 转身指挥 Mac mini 上的 Agent 建仓库、找资料、写脚本，再由 Cursor 调模型把成片做出来——这是能力侧。同一天，英伟达开源的 OpenShell 把定位写成「面向自主 Agent 的安全私有运行时」，把权限约束做进执行环境。一边在证明能替人干多少，一边在补「敢不敢让它放手干」，这两条线今年会一直并行。</p></div></div><div class="take"><i>02</i><div><strong>大厂的竞争位从「模型能力」换到「入口与上下文」</strong><p>腾讯、字节、阿里集体做个人助理，Meta 的 Muse 给每名用户配一台长期在线的云端电脑，Instinct 以 100 亿美元估值拿下 10 亿美元融资。与此同时，即刻上有人指出豆包仍把上下文当作检索 Query 用。合起来看，这一轮的胜负手不在模型分数，而在谁能让 Agent 长期在线、持续拿到用户的上下文。</p></div></div><div class="take"><i>03</i><div><strong>算力账单和治理口径在同一天被摊开</strong><p>Anthropic 与 SpaceX 的算力协议总额从 450 亿涨到 845 亿美元，招股书还显示未来十年基础设施支出至少 5180 亿美元；另一边，特朗普拒绝为 AI 监管立法，与六家公司的 CEO 签了一份自愿性质的《白宫超级智能协议》。一边是越来越长的确定性支出，一边是故意留白的监管边界——投入在加杠杆，规则却在后退。</p></div></div></div>
-</section>
-
-<footer>
-<p class="stamp">采集时间 2026-09-30T15:23:29+08:00 ｜ 页面生成 2026-09-30 15:25 ｜ 数据来自公开网页与公开 API</p>
-<details>
-<summary>数据采集说明与口径</summary>
-<p>采集口径：2026-09-30 15:23:29 一次抓取完成（+08:00），26 个源共 71 条候选。本轮覆盖 09-29 15:23 至 09-30 15:23 这 24 小时；候选池中互动不错但落在窗口外的条目一律未收录。</p><p>浏览器类源大面积不可用：X·归藏、微博·宝玉xp、微博·潘乱、微博·极客公园、X·关注流、X·推荐流、微博·关注流、知乎·人工智能话题、微博热搜 共 9 个源统一报 RuntimeError: Error: task.listTabs: Task space not found: 1（浏览器任务空间不存在），X·宝玉 返回 0 条。即刻的 4 个创作者源与 AI探索站正常。因此本轮没有 X / 微博 / 知乎条目，平台热榜与博主观点全部来自即刻——这是源可用性问题，不是当日无内容。</p><p>配额截断（非源故障）：tech_media 组限 28 条，实际被 华尔街见闻 6 + 量子位 6 + 雷锋网 6 + InfoQ 5 + 钛媒体 3 + 少数派 2 占满，爱范儿 4 条与 IT之家 6 条被整批截掉；creator 组 17 条、community 组 8 条均未触限。以上源的 sources[].ok/count 仍显示正常，只看源状态会误判成「已抓到」。</p><p>InfoQ 整源弃用：其 RSS 条目时间戳再次落在未来（采集时刻 15:23，条目标 09-30 18:00 至 23:12），按既定口径不收录。另有多家媒体摘要过短：量子位多条候选只有标题没有正文，少数派、钛媒体、爱范儿的 RSS 多为一行口号式摘要，撑不起 summary + discussion，本轮 tech_media 以华尔街见闻与雷锋网的长文为主。</p><p>互动数口径：即刻条目照抄候选池原始值（赞/评/转/分享），未做换算；新闻媒体源不提供互动数，统一写「媒体源未公开互动数」；GitHub 项目的 Star 总数与今日新增均照抄候选池，未做估算。</p><p>同批报道的交叉口径：钛媒体称 OpenAI 因安全测试不合格取消了 GPT-6.1 Astra 的发布（该条目在候选池内但未单列卡片），与量子位的 GPT-6.1 Sol 上线互为补充，已在 headlines 与对应帖子中说明。</p><p>窗口外未收录的高互动条目：即刻·AI探索站 09-29 13:17 的 Cue 宣传片帖（赞 138）、09-29 12:15 的个人 Agent 产品帖（赞 70）、09-29 10:50 的 Gall 定律帖（赞 62）互动都不错，但均超出 24 小时窗口，未收录。</p><p>数量与配额自查：帖子 12 条（community 3 / creator 3 / tech_media 6）+ GitHub 项目 3 个 = 15 条，取到硬上限。平台计数为 即刻 6 条（AI探索站 3、阑夕 1、rosicky311_明浩 1、莫唯书Mark 1，每位作者 ≤3）、华尔街见闻 3 条、量子位 2 条、雷锋网 1 条，均未超过单平台 3 条与 X/微博/即刻各自合计 6 条的限制。</p>
-</details>
-<p class="arch"><a class="link" href="index.html">查看往期日报 →</a></p>
-</footer>
-</main>
-<script>
-(function(){
-  var mq = window.matchMedia("(max-width:600px)");
-  function sync(reset){
-    var list = document.querySelectorAll("details.more");
-    for (var i = 0; i < list.length; i++){
-      if (reset) delete list[i].dataset.touched;
-      if (list[i].dataset.touched) continue;
-      list[i].open = !mq.matches;
-    }
-  }
-  sync(true);
-  document.addEventListener("click", function(e){
-    var node = e.target;
-    while (node && node !== document.body){
-      if (node.tagName === "SUMMARY" && node.parentNode.classList
-          && node.parentNode.classList.contains("more")){
-        node.parentNode.dataset.touched = "1";
-        return;
-      }
-      node = node.parentNode;
-    }
-  });
-  if (mq.addEventListener) mq.addEventListener("change", function(){ sync(true); });
-  else if (mq.addListener) mq.addListener(function(){ sync(true); });
-})();
-</script>
+    <footer>
+      <p>数据采集时间：2026-10-09 18:52 CST · 时间窗口：2026-10-08 18:52 至 2026-10-09 18:52（北京时间）</p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@Khazix0918、@zarazhangrui 和微博潘乱，过去 24 小时无新帖（置顶帖不计）。WSJ 原文为付费墙且拒绝自动访问，仅引用其标题；企业模型支出份额的数据只见于转载网站、无法核实，本期未采用。DeepSeek 融资为 10 月 6 日首发的持续热点。标注“经 AI Hot 收录”或“转述”的条目，摘要依据该转述，未逐一核对原始文件。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
 </body>
 </html>
