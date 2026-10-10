@@ -26,6 +26,7 @@ section { margin-top: 34px; }
 h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
 .section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
 .summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
 .summary h2 { margin-bottom: 12px; }
 .summary ol { margin: 0; padding-left: 22px; }
@@ -62,7 +63,7 @@ h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
 .takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
 .takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
 footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
-@media (max-width: 760px) { .page { padding: 14px 12px 40px; } .hero { padding: 30px 24px; border-radius: 22px; } .grid, .grid.cols-3, .grid.six, .takeaway-grid { grid-template-columns: 1fr; } .grid.six > .card { grid-column: auto; } .section-head { align-items: flex-start; } .card { padding: 17px; } }
+@media (max-width: 760px) { .page { padding: 14px 12px 40px; } .hero { padding: 30px 24px; border-radius: 22px; } .grid, .grid.cols-3, .grid.six, .takeaway-grid { grid-template-columns: 1fr; } .grid.six > .card { grid-column: auto; } .section-head { flex-direction: column; align-items: flex-start; gap: 2px; } .section-head span { white-space: normal; } .card { padding: 17px; } }
 
   </style>
 </head>
