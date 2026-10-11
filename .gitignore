@@ -1,17 +1,15 @@
-# Local runtime and secrets
-work/
+# 密钥和本机配置：绝不进仓库
 config/bark-key.txt
-config/bark-proxy.txt
-.env
-.env.*
-*.log
+config/local.json
 
-# Generated reports and local preview files
+# 每天产生的数据（采集到的是别人的帖子，不公开）
+raw/
+issues/
 outputs/
-public/
-tmp/
+state/
+logs/
+work/
 
-# OS/editor files
+__pycache__/
+*.pyc
 .DS_Store
-.vscode/
-.idea/

@@ -1,1 +1,1 @@
-replace-with-your-bark-key
+把这个文件复制成 bark-key.txt，内容换成你的 Bark 设备 Key（只有一行）。然后执行 chmod 600 config/bark-key.txt

@@ -1,0 +1,43 @@
+{
+  "_说明": "AI 日报信源名单。作者 2026-10-07 策展、2026-10-09 补充；各账号 ID 于 2026-10-09 实测核对。增减信源只改这个文件。",
+  "window_hours": 24,
+  "x_accounts": [
+    "OpenAI",
+    "deepseek_ai",
+    "elonmusk",
+    "xAI",
+    "AnthropicAI",
+    "rowancheung",
+    "_akhaliq",
+    "simonw",
+    "emollick",
+    "dotey",
+    "op7418",
+    "Khazix0918",
+    "zarazhangrui"
+  ],
+  "weibo_users": {
+    "宝玉xp": 1727858283,
+    "潘乱": 1673951863,
+    "极客公园": 1735559201,
+    "tombkeeper": 1401527553,
+    "张岱樾": 1890573293,
+    "梁赛": 1725941200,
+    "梁斌penny": 1497035431,
+    "猫叔在硅谷": 1644101945,
+    "AIGC·非著名程序员": 5078115336,
+    "蚁工厂": 2194035935,
+    "Sunbelife": 1675423275
+  },
+  "jike_topic": "63579abb6724cc583b9bba9a",
+  "jike_users": {
+    "阑夕": "FBAA4408-2343-45AD-9B4F-4ABD52FB84CA",
+    "莫唯书Mark": "2B192256-18E6-4D36-97B1-54759C615C85",
+    "明浩": "EE4FDFBB-C185-4D30-BB81-A0E90E814C26"
+  },
+  "sites": {
+    "aihot.news": "高优先级（卡兹克）；官方匿名 JSON 接口",
+    "aihot.today": "按来源分栏的聚合页",
+    "todayai.com.cn": "AI 日报栏目 2026-10-09 时停在 9/29，暂不采集"
+  }
+}

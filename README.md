@@ -1,205 +1,162 @@
-# AI Morning Brief
+# AI 早报 · AI Morning Brief
 
-A daily, non-technical AI briefing generator built around Codex automations, a clean HTML report, and optional Bark push notifications.
+**中文** | [English](README.en.md)
 
-See [SECURITY.md](SECURITY.md) for the public-release security and privacy policy.
+每天下午自动出一份中文 AI 日报，写给“不懂技术、但想跟上 AI”的人：自动采集 → AI 选题写稿 → 逐条自查 → 生成网页 → 发布 → 推送到手机，全程不用人管。
 
-[中文说明](#中文说明)
+**[看最新一期](https://506218109-oss.github.io/ai-morning-brief/latest.html)** · [往期列表](https://506218109-oss.github.io/ai-morning-brief/)
 
----
+| 电脑 | 手机：一屏扫完标题 | 手机：点一下展开全文 |
+|---|---|---|
+| ![电脑版](docs/desktop-top.png) | ![手机收起](docs/mobile-collapsed.png) | ![手机展开](docs/mobile-expanded.png) |
 
-## English
+## 它每天做什么
 
-### Overview
-
-AI Morning Brief collects recent AI-related discussions from Chinese and global platforms, turns them into a concise HTML report, and can push a short notification to an iPhone through Bark.
-
-The project is designed for readers who want to follow AI news without needing a technical background. It prioritizes discussion points, controversies, trends, AIGC topics, AI products, Agent tools, and startup/funding news.
-
-### Features
-
-- Collects content from Jike, Zhihu, Twitter/X, Xiaohongshu, and Weibo.
-- Selects around 10 posts, with no more than 3 posts per platform.
-- Adds 3-5 trending, popular, or newly released GitHub projects.
-- Produces a standalone, mobile-friendly HTML report.
-- Sends a short Bark notification with a clickable link to the report.
-- Supports a primary scheduled run and a later fallback run.
-- Keeps the report readable for non-technical readers.
-- Avoids marketing accounts, duplicate news, and pure advertisements.
-
-### How it works
-
-1. A Codex automation runs on a daily schedule.
-2. The agent gathers recent public content from the configured platforms.
-3. It writes a standalone HTML report to `outputs/`.
-4. The Bark script copies the report into a local public directory.
-5. A small local web server serves only that public directory.
-6. Bark sends a normal notification with three highlights and a link.
-7. Tapping the notification opens the HTML report on the iPhone.
-
-### Requirements
-
-- macOS with the Codex desktop app.
-- A Bark iOS app and device key.
-- Python 3.
-- `curl` and `zsh`.
-- The Mac and iPhone should be on the same local network for the clickable report link.
-
-### Configuration
-
-Create the local secret files:
-
-```bash
-cp config/bark-key.example.txt config/bark-key.txt
-cp config/bark-proxy.example.txt config/bark-proxy.txt
-chmod 600 config/bark-key.txt config/bark-proxy.txt
+```
+15:00  定时任务启动（Claude 桌面 App 的定时任务，每次都是全新会话）
+  │
+  ├─ 1. 采集（约 3 分钟，固定脚本）
+  │     AI Hot 接口 · aihot.today · GitHub Trending · 即刻
+  │     X 13 个账号 · 微博 11 位博主 · 知乎热榜（用本机已登录的浏览器，只读）
+  │
+  ├─ 2. 选题和写稿（AI，按运行手册里的编辑标准）
+  │     12 条资讯 + 3 个 GitHub 项目，每条附“对运营/内容人意味着什么”
+  │
+  ├─ 3. 核对和自查（AI 回到原始数据逐条核对数字、时间、引语）
+  │
+  ├─ 4. 生成网页（固定脚本，自带格式和条数检查，不通过就不出成品）
+  │
+  ├─ 5. 发布到 GitHub Pages，并等线上真的更新了再往下走
+  │
+  └─ 6. Bark 推送到手机：3 行重点 + 链接
 ```
 
-Edit `config/bark-key.txt` and put your Bark key there. The proxy file is optional; remove it or leave it empty if you do not use a local proxy.
+整轮大约 20 分钟。错过了时间（比如电脑合着盖子），下次打开会自动补跑；当天已经推送过就直接跳过，不会重复发。
 
-Test Bark:
+## 为什么要自己做
 
-```bash
-./scripts/send-bark.sh "AI Morning Brief" "Test" "This is a test notification." "https://example.com"
-```
+市面上不缺 AI 日报。我自己做，是因为之前试过三种方式都没能坚持下来，每种都死在一个具体的问题上：
 
-Run the local preview server:
+| 试过的方式 | 死因 |
+|---|---|
+| 把定时任务挂在同一个聊天对话里 | 对话越积越长，第三天请求体就超限报错了 |
+| 让云端 Agent 全自动跑 | 云端没有登录态，X、微博、知乎拿不到原帖，只能转述二手报道，链接指向首页，时间只能写“约” |
+| 能跑，但隔三差五要人去修 | 不稳定比内容差更致命：需要人盯的自动化，等于没有自动化 |
 
-```bash
-./scripts/run-preview-server.sh
-```
+所以这一版的目标排序是：**先保证不用人管，再谈内容好不好。**
 
-The server serves only the `public/` directory, not the repository root.
+## 几个关键的设计决定
 
-### Automation
+**1. 确定的事交给脚本，需要判断的事才交给 AI。**
+采集、生成网页、发布、推送都是固定脚本，每天跑的是同一套代码。AI 只做两件事：从采集到的内容里选题、写稿。这样出了问题，一眼能看出是“脚本坏了”还是“AI 判断错了”。
 
-Use `docs/automation-prompt.md` as a reference prompt for the Codex automation. Replace `<PROJECT_ROOT>` with the absolute path to this repository.
+**2. 在自己电脑上采集，云端只负责展示。**
+我挑的信源大部分是 X 和微博上的具体的人。要拿到他们的原帖、精确时间和真实互动数，必须用登录状态下的浏览器。所以采集放在本机（只读，不点赞不发帖），成品网页放在 GitHub Pages，手机在哪都能打开。
 
-The recommended schedule is:
+**3. 防止 AI 编造，设了三道关。**
+- 写稿前：每个数字、时间、引语都要回到原始数据或原文核对；只在转载站出现、找不到第二个来源的数据不用。
+- 写稿后：按清单逐条自查。最容易出错的是“评论区怎么看”“连续几天”“最大”“首次”这类原文里没有的话。到目前为止每一期都查出了要改的地方，多的时候有十几处。
+- 生成时：脚本检查条数、单平台上限、链接格式、每条是否写了“对从业者的影响”，不通过就不出成品。
+- 打不开的付费墙、登录墙不绕过，在页脚如实写明本期缺了什么。
 
-- Primary run: 12:00 local time.
-- Fallback check: 14:00 local time.
-- If today's report was already sent, stay silent.
-- If the Mac is off or asleep at both times, no report is generated.
+**4. 编辑标准写成一份“运行手册”，而不是藏在提示词里。**
+[RUNBOOK.md](RUNBOOK.md) 是每天运行的 AI 唯一要读的说明：选什么、怎么排序、怎么核实、出错怎么办。标准是在对比和试错中定下来的，比如：
+- 当天最大的商业和资本市场新闻必须有，并写清楚市场反应和出处（只报事实，不给投资建议）；
+- 按真实热度排序，不机械去重：一个话题连续几天都热，就连续几天上；
+- 每条都要回答“这对运营和内容从业者意味着什么”。
 
-### Security Notes
+**5. “无人值守”卡在很小的细节上。**
+- 权限：系统是按“命令的完整写法”记住授权的。命令里只要带日期，第二天就成了没见过的新命令，又要人点允许。解决办法是做一个统一入口 `run.py`，日期由脚本自己算，每天的命令一字不差。
+- 采集变慢：模拟鼠标滚轮在浏览器窗口不在前台时，一次要 20 多秒，整轮从 5 分钟拖到 18 分钟。改成让页面自己滚动后，回到 3 分钟以内。
+- 推送：只在 11:00–22:00 发，免得半夜吵人；同一期成功发过就不再发；必须等网页线上生效后才推，避免点开是旧页面。
 
-Do not commit:
+**6. 手机上先扫标题，再挑着看。**
+手机版是两列“标题卡”，一屏能看到 8 条；点一下，卡片在原位展开成整行显示全文。纯 CSS 实现，没有一行 JavaScript，旧浏览器会自动退回单列完整卡片。
 
-- Bark keys.
-- GitHub tokens or credentials.
-- Local proxy configuration.
-- Personal file paths.
-- Local IP addresses.
-- Logs.
-- Private configuration files.
+**7. 改动先审查，再上线。**
+手机版式上线前，让 3 个独立的 AI 审查员分别从兼容性、不同条数下的排版、真实点击三个角度找问题，再由第 4 个逐条复现核实。提出 16 条，确认 9 条，其中 2 条是我自己测试时没发现的真问题（点右列卡片，全文会掉到下一行）。
 
-The public server should serve only generated HTML reports. It must not serve the repository root.
+## 信源
 
-### Limitations
+| 来源 | 内容 | 方式 |
+|---|---|---|
+| [AI Hot](https://aihot.news/) | 中文 AI 资讯聚合，带评分和推荐理由 | 官方匿名只读接口 |
+| [aihot.today](https://aihot.today/) | TechCrunch、36氪、WSJ 等媒体分栏 | 公开页面 |
+| GitHub Trending | 当日热门项目 | 公开页面 |
+| 即刻 | AI 探索站话题 + 3 位博主 | 公开页面 |
+| X | 13 个账号（官方号、资讯聚合、中文博主） | 本机已登录浏览器，只读 |
+| 微博 | 11 位科技和 AI 博主 | 本机已登录浏览器，只读 |
+| 知乎 | 热榜里和 AI 相关的问题 | 本机已登录浏览器，只读 |
 
-- The Mac must be powered on and Codex must be running when the scheduled task executes.
-- The clickable HTML link requires the iPhone and Mac to be on the same local network.
-- If the Mac is off or asleep at both scheduled times, the daily report is skipped.
-- Some platforms may require login or block automated access. The report should note unavailable sources instead of inventing data.
+名单在 [sources.json](sources.json)，增减信源只改这一个文件。
 
----
+## 目录
 
-## 中文说明
+| 文件 | 作用 |
+|---|---|
+| `run.py` | 统一入口，每天只用它的子命令 |
+| `collect_web.py` / `collect_browser.mjs` | 采集 |
+| `digest.py` | 把采集结果整理成一份选题清单 |
+| `build.py` + `template/style.css` | 生成网页，并做自动检查 |
+| `publish.py` | 发布到 GitHub Pages |
+| `push_bark.py` | 推送到手机 |
+| `RUNBOOK.md` | 运行手册：流程、编辑标准、红线、出错处理 |
+| `sources.json` | 信源名单 |
+| `examples/` | 一期稿子（JSON）和对应的成品网页 |
+| `docs/` | 截图、定时任务提示词、权限规则示例 |
 
-### 项目简介
+## 怎么跑起来
 
-AI 早报是一个基于 Codex 自动化、HTML 报告和 Bark 推送的每日 AI 简报工具。
+需要：macOS、Python 3.9+、[GitHub CLI](https://cli.github.com/)（已登录）、[ego lite](https://lite.ego.app/) 浏览器（提供 `ego-browser` 命令）、iPhone 上的 [Bark](https://bark.day.app/)、Claude 桌面 App（用它的定时任务）。
 
-公开发布的安全与隐私说明见 [SECURITY.md](SECURITY.md)。
+1. 克隆仓库。在 ego lite 里登录你自己的 X、微博、知乎账号。
+2. 把 `config/local.example.json` 复制成 `config/local.json`，填上你用来放网页的仓库（需要有一个 `gh-pages` 分支并开启 Pages）。
+3. 把 Bark 的设备 Key 写进 `config/bark-key.txt`，然后 `chmod 600 config/bark-key.txt`。
+4. 手动跑一遍，确认每一步都通：
 
-它会从即刻、知乎、Twitter/X、小红书、微博等平台收集近期 AI 讨论，整理成适合非技术读者阅读的 HTML 报告，并可以通过 Bark 向 iPhone 推送简短提醒。
+   ```bash
+   python3 run.py status     # 看做到哪一步
+   python3 run.py collect    # 采集，约 3 分钟
+   # 让 Claude 按 RUNBOOK.md 选题写稿，存成 issues/日期.json
+   python3 run.py build      # 生成并检查
+   python3 run.py publish    # 发布
+   python3 run.py push --send
+   ```
 
-内容重点包括 AI 技术、Agent 开发工具、AI 产品、创业融资、AIGC 和讨论度较高的观点。
+5. 在 Claude 桌面 App 里建一个每天运行的定时任务，提示词见 [docs/scheduled-task-prompt.md](docs/scheduled-task-prompt.md)；再按 [docs/claude-permissions.example.json](docs/claude-permissions.example.json) 把 `run.py` 加进允许规则，之后每天就不会再弹权限确认。
 
-### 主要功能
+## 已知限制
 
-- 从即刻、知乎、Twitter/X、小红书、微博收集内容。
-- 每天筛选约 10 条帖子，每个平台最多 3 条。
-- 附加 3-5 个 GitHub 热门、流行或新发布项目。
-- 生成独立、移动端友好的 HTML 报告。
-- 通过 Bark 推送三条摘要和报告链接。
-- 支持 12:00 主发送和 14:00 兜底检查。
-- 面向不懂技术的读者，减少营销号和重复新闻。
-- 不编造数据；平台无法访问时会注明。
+- 到点时电脑要醒着、Claude App 要开着；错过了会在下次打开时补跑。
+- 依赖本机浏览器里的登录状态。掉登录时照常出报，但会少对应平台，并在结果里提醒。
+- WSJ 等付费媒体打不开时不绕过，只引用能核实的部分，或换有公开原文的来源。
+- 只在 macOS 上跑过。
 
-### 工作流程
+## 使用声明
 
-1. Codex 自动化按计划运行。
-2. 从各平台收集最近的公开内容。
-3. 生成 HTML 报告到 `outputs/`。
-4. Bark 脚本把报告复制到本地公开目录。
-5. 本地预览服务只提供该公开目录中的 HTML。
-6. Bark 发送正常提醒，包含三条摘要和链接。
-7. 点击通知后，在 iPhone 上打开 HTML 报告。
+- 这是个人学习和自用项目，非商业用途。
+- 只读取公开内容，不做点赞、发帖、关注等任何操作。请自行确认并遵守各平台的服务条款，控制访问频率，后果自负。
+- AI Hot 接口的免费范围是个人非商业使用，其他用途请先看它的[使用条款](https://aihot.news/terms)。
+- 日报里的摘要由 AI 生成，可能有错。原帖和原文的版权归原作者所有。
+- 涉及市场和股价的内容只报道事实与出处，不构成任何投资建议。
+- 仓库里不含任何密钥和账号信息，见 [SECURITY.md](SECURITY.md)。
 
-### 环境要求
+## 这个项目是怎么做出来的
 
-- macOS 和 Codex 桌面应用。
-- Bark iOS App 和设备 Key。
-- Python 3。
-- `curl` 和 `zsh`。
-- 点击 HTML 链接时，Mac 和 iPhone 应在同一个局域网内。
+我是做互联网运营的，不是程序员。这个项目里：
 
-### 配置方法
+- **我负责的**：要解决什么问题、信源名单的策展、编辑标准、版式的取舍、每一版看完之后的修改意见，以及“什么算做完了”。
+- **Claude Code 负责的**：全部代码的实现、测试，以及每天的选题和写稿（按我定的手册）。
 
-创建本地密钥文件：
+迭代过程：
 
-```bash
-cp config/bark-key.example.txt config/bark-key.txt
-cp config/bark-proxy.example.txt config/bark-proxy.txt
-chmod 600 config/bark-key.txt config/bark-proxy.txt
-```
+| 时间 | 版本 | 结果 |
+|---|---|---|
+| 2026-09 | 第 1 版：Codex 定时任务 | 跑通两期后中断：我把任务一直挂在同一个对话里，上下文越来越大 |
+| 2026-09 | 第 2 版：用 WorkBuddy 搭的流水线 | 能每天出，但我对内容不满意，也经常要手动修 |
+| 2026-10 | 第 3 版：云端 Agent | 抓不到 X、微博、知乎的原帖 |
+| 2026-10 | 现在这版：本机采集 + Claude Code 定时任务 | 每天自动运行中 |
 
-在 `config/bark-key.txt` 中填入你的 Bark Key。代理配置是可选的，不使用本地代理时可以删除或留空。
+## License
 
-测试 Bark：
-
-```bash
-./scripts/send-bark.sh "AI 早报" "测试" "这是一条测试通知。" "https://example.com"
-```
-
-启动本地预览服务：
-
-```bash
-./scripts/run-preview-server.sh
-```
-
-该服务只提供 `public/` 目录，不会暴露整个项目目录。
-
-### 自动化配置
-
-请参考 `docs/automation-prompt.md`。把其中的 `<PROJECT_ROOT>` 替换成你本机的项目绝对路径。
-
-推荐时间安排：
-
-- 12:00 主发送。
-- 14:00 兜底检查。
-- 如果当天已经发送过，则静默跳过。
-- 如果两个时间点电脑都没有开机，则当天不生成报告。
-
-### 安全说明
-
-不要提交：
-
-- Bark Key。
-- GitHub Token 或账号凭证。
-- 本地代理配置。
-- 个人文件路径。
-- 本地 IP 地址。
-- 日志。
-- 私有配置文件。
-
-本地预览服务只应提供生成的 HTML 报告，不能提供整个项目目录。
-
-### 使用限制
-
-- 定时任务执行时，Mac 必须开机且 Codex 正在运行。
-- 点击 HTML 链接需要 iPhone 和 Mac 在同一个局域网内。
-- 如果两个计划时间点电脑都没有开机，当天报告会被跳过。
-- 部分平台可能需要登录或会限制自动化访问。遇到这种情况时应注明来源不可用，而不是编造内容。
+[MIT](LICENSE)

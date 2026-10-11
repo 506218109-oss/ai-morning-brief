@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 run.py *)",
+      "Bash(python3 /绝对路径/到/项目目录/run.py *)",
+      "Edit(issues/**)"
+    ]
+  }
+}

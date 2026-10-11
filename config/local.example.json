@@ -1,0 +1,6 @@
+{
+  "pages_remote": "https://github.com/<你的用户名>/<你的仓库>.git",
+  "pages_branch": "gh-pages",
+  "site_url": "https://<你的用户名>.github.io/<你的仓库>",
+  "copy_to": ""
+}
