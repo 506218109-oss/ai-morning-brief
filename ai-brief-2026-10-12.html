@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-10-12</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 14px 12px 40px; }
+.hero { padding: 30px 24px; border-radius: 22px; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-head span { white-space: normal; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 17px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 13px; border-radius: 16px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 8px; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 8px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 12px 0; font-size: 13px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 10 月 12 日 · 周一</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>亚马逊收购</span><span>算力争夺</span><span>认知漏斗</span><span>AI 逆向</span><span>AI 短剧</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>亚马逊洽购 Decart，约 70 亿美元。</strong> WSJ 称亚马逊在谈收购这家做“跨芯片适配软件”的初创公司；国内同类公司无问芯穹同日宣布完成 23 亿元 C 轮融资。消息出在周末，美股尚未开盘。</li>
+        <li><strong>AI 认知鸿沟变“漏斗”，塔尖约 5000 人。</strong> Karpathy 估算：约 75% 的人几乎没碰过大模型，只有约 0.2% 的人在专业使用前沿模型。AI Hot 上有 7 个来源同时在谈。</li>
+        <li><strong>AI 逆向软件成潮，REA 单日涨 2.5 万星。</strong> 有开发者用 Claude Opus 5.5 重写了 Photoshop 等 7 款 Adobe 软件并开源；逆向工具 REA 在 GitHub 已有 12.2 万星。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 英文媒体 2 · AI Hot 3 · 微博 2 · X 3 · 知乎 1 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">WSJ 首发 · AI Hot 热点事件（2 个来源）</span></div>
+          <h3>亚马逊洽谈以约 70 亿美元收购 AI 初创公司 Decart，Anthropic 此前已放弃</h3>
+          <p class="author">WSJ（据 IT之家转述） · 2026-10-12 07:01 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据华尔街日报援引知情人士报道，亚马逊正就收购旧金山初创公司 Decart 展开谈判，潜在估值约 70 亿美元。Decart 做的是“跨芯片适配软件”，帮开发者在不同 AI 芯片之间无缝切换。PitchBook 数据显示，它此前从红杉资本、Benchmark 等机构累计融资逾 4 亿美元，今年 5 月融资时估值接近 40 亿美元。另据彭博社 8 月报道，Anthropic 曾洽谈以约 60 亿美元收购 Decart，9 月有报道称其已放弃。</p>
+            <div class="discussion"><strong>讨论点：</strong>5 月融资时估值近 40 亿美元，现在谈的价格约 70 亿美元，说明“让模型不挑芯片”的软件正在变成抢手货：谁都不想被单一芯片供应商卡住。AI Hot 收录的另一条转述称，英伟达与 Decart 的收购谈判也已告吹（该说法仅见一处转述，本报未单独核实）。消息在北京时间周一早晨传出，美国仍是周日，美股未开盘，本期没有市场反应数据。WSJ 原文为付费内容，本条依据 IT之家转述。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 行业的大钱正从“模型”流向“算力和它的周边软件”。做 To B 销售、行业内容的人，可以多留意“算力调度、芯片适配”这类中间层公司：它们融资多、要招人，也需要有人把复杂的东西讲明白（本报推测）。</p>
+            <a class="link" href="https://www.ithome.com/1/011/720.htm" target="_blank" rel="noopener noreferrer">阅读转述 →</a>
+            <a class="toggle-bottom" href="#ap0">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 61 · 热点事件</span></div>
+          <h3>无问芯穹完成 23 亿元 C 轮融资，据报已秘密向港交所递交上市申请</h3>
+          <p class="author">IT之家（转述证券时报，经 AI Hot 收录） · 2026-10-12 12:08 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据证券时报消息，AI 基础设施公司无问芯穹完成 23 亿元 C 轮融资，成立以来累计融资 43 亿元，单轮和累计金额都创下中国“AI 原生基础设施”赛道的最高纪录。公司成立于 2023 年，是清华大学和上海交通大学的科技成果转化企业。它不造芯片、也不做大模型，专做中间层：把多种模型和多种芯片接起来，统一调度算力。另据彭博社本月报道，公司已以保密形式向港交所递交 IPO 申请，计划募资数亿美元，目标最快 2027 年上半年挂牌。</p>
+            <div class="discussion"><strong>讨论点：</strong>这和亚马逊想买 Decart 是同一类生意，中美在同一天各有一条大新闻。IT之家称，无问芯穹的投资方包括腾讯、百度、联想、小米等产业资本，以及社保中关村基金等国资机构；客户有智谱、月之暗面、中国移动、中国联通等。上周 DeepSeek、月之暗面的上市传闻之后，国产 AI 的“上市队伍”又多了一家基础设施公司。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>国内 AI 的钱也在流向“卖水人”。找工作或找合作的运营人可以把视野放宽：除了大模型公司和应用公司，算力服务、模型服务平台这类 To B 公司也在拿大额融资，市场、内容、客户成功岗位可能跟着增加（本报推测）。</p>
+            <a class="link" href="https://www.ithome.com/1/011/849.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <a class="toggle-bottom" href="#ap1">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 66 · 精选</span></div>
+          <h3>“AI 逆向一切”：有人用 Claude 重写了 7 款 Adobe 软件并开源</h3>
+          <p class="author">数字生命卡兹克（公众号，经 AI Hot 收录） · 2026-10-12 08:26 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 AI Hot 收录的摘要，开发者 Brandon Thomas 因不满 Adobe 的订阅违约金，用 Claude Opus 5.5 以 Rust 语言逆向重写了 Photoshop、Illustrator 等 7 款 Adobe 软件的开源替代品（PhotoCraft、VectorCraft 等），其中 Photoshop 那个项目不到 10 天拿到 4.6 万 Star（GitHub 上的收藏数）。文章还介绍了“净室设计”和“反编译”两条逆向路线，并讨论原创软件的护城河问题。（逆向：没有源代码，靠观察和拆解成品弄清它怎么做出来的。）</p>
+            <div class="discussion"><strong>讨论点：</strong>逆向工具 REA 采集时在 GitHub 已有 122,090 星，单日增加 25,599 星，是本期采集到的趋势榜项目里涨得最多的。微博上宝玉连续分享用 REA 拆解 Codex、CapCut 字幕格式的案例；极客公园引用 REA 主页的话：看到别人应用里想要的功能，让智能体去调查它，“并为你的项目实现类似功能”。争议也来了：Hacker News 首页有一篇讨论“氛围编码的 Photoshop 克隆版”的帖子（本报只看到标题）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>当功能可以被 AI 快速“抄”走，产品的护城河就不在功能本身，而在品牌、用户关系、内容和社区，这些正是运营在做的事。另外提醒：逆向别人的软件可能涉及版权和协议问题，别把“能做到”当成“可以做”（本报提醒，非法律意见）。</p>
+            <a class="link" href="https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&amp;mid=2647686995&amp;idx=1&amp;sn=cc40a3488a2ea7652d2ab589056f40b4" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <a class="toggle-bottom" href="#ap2">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">18 转发 · 5 评论 · 98 赞 · AI Hot 热点事件（7 个来源）</span></div>
+          <h3>Karpathy：对 AI 的认知鸿沟成了“漏斗”，约 75% 的人几乎没碰过大模型</h3>
+          <p class="author">梁赛（转述 Andrej Karpathy） · 2026-10-12 13:54 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Karpathy 10 月 12 日凌晨在 X 上重提并扩展他 4 月的观点：外界对大模型能力的认知，正变成一个“急剧收窄的漏斗”。他的粗略估算是：约 60 亿人（约 75%）几乎没接触过大模型；约 10 到 20 亿人（约 20%）偶尔用免费版聊天；约 2000 万人（约 0.2%）在数学和代码领域专业使用前沿模型；只有约 5000 人能接触实验室内部最前沿的系统。梁赛把它画成了金字塔，并提醒 5000 人只是粗估，不必当人口普查较真。</p>
+            <div class="discussion"><strong>讨论点：</strong>Karpathy 认为差距来自三点：手里的问题够不够大、AI 能力的“锯齿状”（代码、数学、安全极强，日常写作和搜索看起来一般）、以及免费版、付费版、内部系统之间的访问差别。沃顿商学院教授 Ethan Mollick 补充：就算是那 5000 人，很多也没把模型用足，他们都在做网络安全、数学和 AI 研发，“还有很多其他领域需要推进”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>你的用户大概率在“免费版偶尔用用”那一层，别默认他们懂 Agent、懂提示词。做 AI 产品运营和内容的人，最大的机会就是把上层的用法翻译给下层的人；自己也值得花钱用一用付费版，否则判断会失真。</p>
+            <a class="link" href="https://m.weibo.cn/status/5353194365388597" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap3">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">53 回复 · 28 转帖 · 127 喜欢 · 107 书签 · 13,587 观看</span></div>
+          <h3>宝玉：AI 初创公司最想要、又最难招的，是“懂 AI 的内容人”</h3>
+          <p class="author">宝玉（@dotey） · 2026-10-12 14:08 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">宝玉发帖称，“据说”这是 AI 初创公司目前最想要又最难招聘的职位，要求有四条：长期在线（了解趋势）；有品味且能创作（新媒体）；理解 AI 和技术；能高质量执行（执行者）。他说，如果按“技术理解力”和“内容能力”分成四个象限画图，就能看出这个岗位为什么难招。</p>
+            <div class="discussion"><strong>讨论点：</strong>书签数（107）接近点赞数（127），说明很多人把它当求职或招聘参考存了下来。同一条内容在微博也有 37 转发、64 赞。它和今天 Karpathy 的“漏斗”是一体两面：懂技术的人不一定会讲，会讲的人不一定懂技术，两头都占的人很少。注：“最难招”为作者转述的说法，没有给出数据来源，本报未单独核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>这条几乎是写给运营和内容人的：你已经有“在线、会创作、能执行”三项，补上“理解 AI 和技术”就是稀缺人才。求职时可以直接按这四条组织简历和作品集。</p>
+            <a class="link" href="https://x.com/dotey/status/2109526616778895753" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap4">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 21 · 217 万热度</span></div>
+          <h3>“中国 55% 的 token 消耗指向 AI 短剧”？知乎热议，数据口径存疑</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据问题描述，中文在线在 2026 年 6 月的投资者交流中披露，AI 短剧与视频生成的 Token 消耗量已达到软件开发的两倍以上，是当前国内第一大算力消耗场景。（Token：AI 计算和计费用的文字单位。）问题描述同时提醒：55% 这个数字来自企业单方披露，不是统计部门或第三方机构的普查结果，中文在线也没有详细说明统计方法和覆盖范围。</p>
+            <div class="discussion"><strong>讨论点：</strong>同一时间，“如何评价真人化 AI 漫剧《持械入宋》”排在知乎热榜第 5（299 万热度），微博也有话题 #AI漫剧为何越看越上头#。博主蚁工厂认为这个话题“因果倒置”：只有让人上头的剧才会被算法挑出来，所以大家看到的必然是戳痛点的那批，“看多了也就腻了”。AIGC·非著名程序员则认为，AI 漫剧把短剧从“演员中心制”拉回了“故事中心制”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>不管 55% 准不准，AI 短剧和漫剧已经是国内最实在的 AIGC 生意之一。做内容的人要注意：制作门槛降下来之后，拼的是选题、故事和投放；引用这类数字时，记得注明“企业自己披露”。</p>
+            <a class="link" href="https://www.zhihu.com/question/2092571772189153120" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <a class="toggle-bottom" href="#ap5">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">86 转发 · 15 评论 · 204 赞</span></div>
+          <h3>丰田的老规矩：提效省出来的人手不能拿去裁，否则没人再琢磨怎么用好 AI</h3>
+          <p class="author">宝玉xp（转述日本博主“黔騎士”） · 2026-10-12 06:41 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">宝玉转述日本博主“黔騎士”的观点：AI 一提效就裁员的公司，员工再也不会主动琢磨怎么用好 AI。他拿丰田举例：丰田把“改善”（Kaizen，一线员工持续提小建议、优化流程）推广到海外时，讲师反复强调一条铁律，流程改善后工时减少了，也绝对不能因此裁人。因为提建议的结果如果是自己或同事丢饭碗，现场就再也不会有人提建议。</p>
+            <div class="discussion"><strong>讨论点：</strong>他认为 AI 导入是同一个道理：效率一上去就砍人，员工会把用 AI 的好点子藏起来；把省出的时间拿去想更好的企划、多陪客户、学新技能，一线才会越用越多。这条是本期采集到的宝玉微博里转发和点赞最高的一条，可见“AI 提效之后人怎么办”比工具本身更牵动人。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>带团队的人可以直接借用这条规矩：先讲清楚“省出来的时间用来干什么”，再推 AI 工具。普通员工也可以用它判断公司：提效之后是给你更有价值的活，还是只想减人。</p>
+            <a class="link" href="https://m.weibo.cn/status/5353085490694377" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap6">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">46 赞 · 2 评论 · 1 转发</span></div>
+          <h3>阑夕转述 WSJ：硅谷“算力即权力”，连风投都开始囤算力</h3>
+          <p class="author">阑夕 · 2026-10-12 12:14 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">阑夕转述华尔街日报的长文《The Desperate Hunt for AI Computing Power Is Upending Silicon Valley》：对算力的争夺已经成了硅谷当下最重要的事。文中提到，H100 已经是英伟达好几代之前的 AI 芯片，今年以来每小时租赁成本仍涨了 60% 以上；云厂商开始“挑客”，不能签长期合同、不能多预付的公司会被婉拒；风投机构也开始囤算力，Y Combinator 已经在给训练营里的创业公司补贴 GPU 集群。</p>
+            <div class="discussion"><strong>讨论点：</strong>这篇正好是今天头两条的背景：算力紧到这个程度，“让模型能在各种芯片上跑”的软件自然值钱。阑夕还转述了谷歌内部各业务线争抢算力等细节。量子位也发了《硅谷 AI 现状：谁有算力谁是爹》。注：以上为作者转述，WSJ 原文为付费内容，本报未核对原文。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>算力贵，最后会传到产品上：AI 功能涨价、限额、免费额度缩水都可能发生（本报推测）。做 AI 产品运营的人，要提前想好“额度不够用”时怎么跟用户沟通。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6acc5e8c756bbb6658e0120e" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap7">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 63</span></div>
+          <h3>FT：AI 写的论文涌入学术期刊，审稿成本逼着出版业走向并购</h3>
+          <p class="author">AI Hot 收录（Rohan Paul 转述 Financial Times） · 2026-10-12 11:31 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 Rohan Paul 转述 FT 的报道，机器写作的论文大量涌入学术期刊，筛选成本正在推动规模 220 亿美元的学术出版业走向并购。Elsevier 自 2022 年起把审稿人队伍扩充了超过三分之一，达到 190 万人；Springer Nature 因为质控成本上升、以及市场担心聊天机器人让付费研究贬值，上市两年后股价仍低于 22.50 欧元的发行价。</p>
+            <div class="discussion"><strong>讨论点：</strong>本报昨天报道过 arXiv 因 AI 论文太多而限流。Ethan Mollick 今天也在 X 上说，GPT-6 Pro 经常能在学术论文里找出错误，确认这些错误、判断它们重不重要仍然很花时间，“我们还没有建立合适的机制来应对大量更正的涌入”。一头是 AI 批量写，一头是 AI 批量挑错，中间的审核环节被两面夹击。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>学术出版是内容行业的“极端样本”：内容暴增后，最贵的环节变成了筛选和审核。内容平台、社区运营会遇到同样的问题，审核和质量把关的成本要提前算进去。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2109487106313847119" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+            <a class="toggle-bottom" href="#ap8">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">85 回复 · 20 转帖 · 353 喜欢 · 47 书签 · 29,582 观看</span></div>
+          <h3>Mollick：GPTs 说下线就下线，大公司被 AI 厂商的“突然变卦”搞懵了</h3>
+          <p class="author">Ethan Mollick（@emollick，沃顿商学院教授） · 2026-10-12 10:32 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Mollick 说，他上个月和一些大公司里很恼火的高管聊过，这些人在 GPTs 被淘汰之前还很看重它。（GPTs：OpenAI 此前推出的、可自己定制的 ChatGPT 小应用。）他承认 GPTs 确实已经没那么有用了，但大型组织的规划很复杂，而所有实验室（不只是 OpenAI）都在不断做出突然的变化，让它们无所适从。</p>
+            <div class="discussion"><strong>讨论点：</strong>他在跟帖里补充：只要大模型继续在各方面都强得不讲道理，公司总能想办法应付过去；但它们往往不擅长管理组织变革，频繁的强制切换模型（他点名谷歌）对它们来说很难。AI 厂商迭代的速度，和企业消化变化的速度，中间有一道缝。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>别把工作流押在某一个 AI 功能上。团队沉淀的提示词、流程、知识库，尽量用能迁移的方式保存（比如普通文档），哪天功能下线了也能搬走。</p>
+            <a class="link" href="https://x.com/emollick/status/2109472254417318335" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap9">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · 公开报道</span></div>
+          <h3>亚马逊跟进微软：和地方政府谈数据中心，不再签保密协议</h3>
+          <p class="author">TechCrunch（Anthony Ha） · 2026-10-12 00:52 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">TechCrunch 报道，亚马逊近期跟随微软表态，今后在与地方政府谈判数据中心项目时不再使用保密协议（NDA）。这个决定写在一篇论证“数据中心对社区有好处”的长博客里。文章提到，美国多地正在出台数据中心暂停令，包括最近的旧金山；纽约州的暂停令针对大型项目的许可，预计持续约一年。</p>
+            <div class="discussion"><strong>讨论点：</strong>TechCrunch 播客里，记者 Sean O’Kane 认为反对声这么大，一个重要原因是行业“很不会解释自己”，很多项目几乎是秘密谈成的，居民甚至不知道谁会用这座数据中心。另一位记者 Rebecca Bellan 则怀疑暂停令的实际效果：它们只有一两年，而这些数据中心本来就要两到五年后才上线。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>这是一堂公关课：技术再重要，瞒着公众做事就会引发反弹。做品牌、公关和社区的人可以参考：先公开、多解释，比事后灭火便宜得多。</p>
+            <a class="link" href="https://techcrunch.com/2026/10/11/can-the-ai-industry-persuade-data-center-opponents-by-getting-rid-of-ndas/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <a class="toggle-bottom" href="#ap10">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">84 回复 · 30 转帖 · 358 喜欢 · 259 书签 · 41,296 观看</span></div>
+          <h3>卡兹克：一段话加两个自家 Skill，20 分钟生成几十页演讲 PPT，“改无可改”</h3>
+          <p class="author">卡兹克（@Khazix0918） · 2026-10-11 19:36 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">卡兹克说，他用自己写的一段提示词，加上团队自己的“品牌 PPT Skill”和“品牌动效 Skill”，让 Claude Opus 5.5 花 20 分钟生成了第二天演讲要用的几十页完整 PPT。他的评价是：第一次觉得这个 PPT “改无可改”，太精准、太符合要求。（Skill：提前写好、交给 AI 反复调用的一套做事规范。）</p>
+            <div class="discussion"><strong>讨论点：</strong>书签数（259）是点赞数的七成，很多人想学这套做法。关键不在模型，而在那两个“自家的 Skill”：把品牌的版式、配色、动效规则提前沉淀下来，AI 才能一次做对。这和上周宝玉说的“Skill 没那么重要”可以对照着看：通用技巧会过时，自己品牌的规范不会。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做汇报、做活动物料的人可以照这个思路试：先把自己或公司的 PPT 规范（字体、配色、版式、常用页面）整理成一份文档交给 AI，以后每次只写内容要点就行。</p>
+            <a class="link" href="https://x.com/Khazix0918/status/2109246672689872921" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap11">↑ 回到本条开头</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">122,090 stars · 今日 +25,599</span></div>
+          <h3>morluto/rea</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">让 AI 智能体“逆向任何东西”的工具：没有源代码，也能调查一个应用的某个功能是怎么实现的。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">让 AI 智能体“逆向任何东西”的工具：没有源代码，也能调查一个应用的某个功能是怎么实现的。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>本期趋势榜里单日涨星最多；10 月 9 日 AI Hot 收录时还只有约 2.9 万星。它是这波“AI 逆向一切”讨论的中心。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>非技术读者不必去用，但要知道这件事：竞品的功能越来越容易被“看懂并复刻”，产品差异化要靠功能以外的东西。</p>
+            <a class="link" href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <a class="toggle-bottom" href="#ar0">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">52,311 stars · 今日 +886</span></div>
+          <h3>bilawalsidhu/gods-eye-view</h3>
+          <p class="author">JavaScript</p>
+          <p class="tagline">在浏览器里运行的“间谍卫星模拟器”，用的是真实的公开数据，把开源的空间情报实时展示出来。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">在浏览器里运行的“间谍卫星模拟器”，用的是真实的公开数据，把开源的空间情报实时展示出来。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>把公开数据做成人人能看懂、能玩的可视化作品，本身就是一个很好的内容产品范例。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做数据内容、科普内容的人可以参考它的呈现方式：公开数据加好的交互，就能做出有传播力的作品。</p>
+            <a class="link" href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <a class="toggle-bottom" href="#ar1">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">36,814 stars · 今日 +548</span></div>
+          <h3>lyogavin/airllm</h3>
+          <p class="author">Jupyter Notebook</p>
+          <p class="tagline">让只有 4GB 显存的普通显卡，也能运行 70B 级别的大模型。（70B 指模型有 700 亿个参数，通常需要昂贵的硬件。）</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">让只有 4GB 显存的普通显卡，也能运行 70B 级别的大模型。（70B 指模型有 700 亿个参数，通常需要昂贵的硬件。）</p>
+            <div class="discussion"><strong>为什么值得看：</strong>算力又贵又紧的时候，“用便宜硬件跑大模型”的项目出现在今天的趋势榜上，和算力争夺的新闻正好呼应。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>想在自己电脑上离线用 AI、不想把资料传到云端的人，可以让懂技术的同事关注这个方向。</p>
+            <a class="link" href="https://github.com/lyogavin/airllm" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <a class="toggle-bottom" href="#ar2">↑ 回到本条开头</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>钱在流向算力和它的“中间层”。</strong> 亚马逊想花约 70 亿美元买芯片适配软件，无问芯穹拿到 23 亿元，WSJ 说硅谷“算力即权力”。模型之外，让算力用得上、用得省的公司正在成为新的资本焦点。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>真正稀缺的是“翻译者”。</strong> Karpathy 说多数人还没真正用过 AI，宝玉说 AI 公司最难招的是懂技术又会做内容的人。能把前沿用法讲给普通人听，是运营和内容人眼下最值钱的能力。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>“做出来”越来越便宜，“筛出来”越来越贵。</strong> 软件能被 AI 逆向重写，论文和短剧被批量生产，期刊和平台的审核成本却在涨。内容和产品过剩之后，筛选、信任和品牌才是门槛。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-10-12 15:54 CST · 时间窗口：2026-10-11 15:54 至 2026-10-12 15:54（北京时间）</p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@AnthropicAI、@rowancheung、@_akhaliq、@zarazhangrui 页面加载超时，未采集到；@xAI、@simonw 和微博潘乱过去 24 小时无新帖。亚马逊洽购 Decart 的消息在周末传出，美股尚未开盘，本期无市场反应数据。WSJ 两篇原文为付费内容，分别依据 IT之家和阑夕的转述，未核对原文；TechCrunch 一篇关于语音 AI 的文章未能打开，本期未采用。标注“经 AI Hot 收录”或“转述”的条目，摘要依据该转述，未逐一核对原始文件；知乎条目依据问题描述。讨论点中引用的个别微博发布于采集过程中（15:54 之后）。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+</body>
+</html>
