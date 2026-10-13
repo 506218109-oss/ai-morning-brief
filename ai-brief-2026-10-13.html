@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-10-13</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 14px 12px 40px; }
+.hero { padding: 30px 24px; border-radius: 22px; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-head span { white-space: normal; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 17px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 13px; border-radius: 16px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 8px; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 8px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 12px 0; font-size: 13px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 10 月 13 日 · 周二</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>Meta Muse Wonder</span><span>X 订阅</span><span>自研芯片</span><span>反蒸馏</span><span>AI 做游戏</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>Meta 发布首个前沿大模型。</strong> Muse Wonder 和 Muse Wonder Full 上线，API 定价每百万 tokens 输入 4 美元、输出 20 美元，和 OpenAI、Anthropic 的主力模型同一档；AI Hot 统计有 16 个来源同时在报。</li>
+        <li><strong>马斯克把 Cursor 并进 X 订阅。</strong> Grok、Grok Bot、Cursor、X Premium 合成一个套餐，付费档 8 到 200 美元；新套餐月费里不再含 Claude、GPT 等第三方模型额度。</li>
+        <li><strong>微软自研芯片要挑大梁。</strong> 微软发布 Maia 300，明年起把自研芯片扩到“多吉瓦级”部署；另有消息称 Anthropic 将在大阪建 500MW 数据中心，建设成本超 1 万亿日元。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 英文媒体 2 · X 2 · AI Hot 3 · 知乎 2 · 微博 2 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · AI Hot 热点事件 16 个来源</span></div>
+          <h3>Meta 交出首个“前沿”大模型 Muse Wonder，定价直接对标 OpenAI 和 Anthropic</h3>
+          <p class="author">TechCrunch（Russell Brandom） · 2026-10-13 01:56 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Meta 超级智能实验室周一发布 Muse Wonder 和 Muse Wonder Full 两款模型，TechCrunch 称这是 Meta 第一次尝试做“前沿模型”（各家最强的那一档）。按 Meta 自己的测试，两款模型的跑分与 Fable 5.1、GPT-6 Astra 相当。Muse Wonder 通过 API 提供，每百万 tokens 输入 4 美元、输出 20 美元，价格与 GPT-6 Sol、Opus 5.5 大致同档；Wonder Full 只给 Muse Code 订阅用户，不走 API。两款模型都会用来驱动 Muse 智能体，Meta 重点宣传“主动记忆”：能长期记住用户说过的重要信息。（tokens：AI 计算和计费用的文字单位。）</p>
+            <div class="discussion"><strong>讨论点：</strong>第三方评测机构 Artificial Analysis 实测，两款模型在其智能指数上分别得 52 分和 56 分（据 AI Hot 收录）。沃顿商学院教授 Ethan Mollick 说自己拿到早期试用，测试有限，但“似乎是一个不错的模型”，并称 Meta 在短时间内进步非常快。X 上也有人感慨：一年前很多人嘲讽 Meta 花数十亿美元挖人，现在看这笔钱见效了。跑分来自 Meta 自测，独立排名（Arena）采集时尚未公布。本报在采集来源中未找到可核实的 Meta 股价反应数据，故不写涨跌。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>Meta 手里有 WhatsApp、Instagram 这样的社交入口，模型补齐后，“记得住你”的个人助理会直接进入社交和电商场景。做私域、社群和内容分发的人，要开始想：用户的助理替他筛信息时，你的内容凭什么被选中（本报推测）。</p>
+            <a class="link" href="https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <a class="toggle-bottom" href="#ap0">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">983 回复 · 2,666 转帖 · 1.2 万喜欢 · 2,574 书签 · 265 万观看</span></div>
+          <h3>马斯克系推出“X 订阅”：Grok、Grok Bot、Cursor、X Premium 四合一</h3>
+          <p class="author">xAI 官方账号（@SpaceXSI） · 2026-10-13 07:08 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">官方宣布把 Grok、Grok Bot、编程工具 Cursor 和 X Premium 合成一个套餐，未来几天向全球开放。据多位博主整理的价格页，共 Free、Plus（8 美元）、Premium（30 美元）、Super（100 美元）、Ultra（200 美元）五档。官方公告称：付费档共享一个 Grok 模型用量池，在 Grok 和 Cursor 里通用；老用户可以保留原套餐，也可以切换并按比例退款；新套餐里 Claude、GPT 等第三方模型仍可在 Cursor 的 Premium 及以上档位使用，但要按 API 原价另外充值付费。</p>
+            <div class="discussion"><strong>讨论点：</strong>讨论集中在“Cursor 老用户要不要切”。宝玉的结论是：不会被强制迁移，但新套餐月费里不再包含任何第三方模型额度。官方问答也写明，最终会把剩余用户迁到新套餐，但还没有时间表。同一天马斯克还发帖推 Grok Bot 的“记忆转移”：可以把你在 Claude 或 ChatGPT 里积累的偏好和上下文迁过来，条目需逐行人工确认后才保存（据 AI Hot 收录）。又是捆绑、又是搬家工具，看起来都是为了抢用户（本报推测）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 产品的竞争从“单个工具好不好用”变成“谁的全家桶更划算”。做会员和订阅运营的人可以把它当案例看：捆绑打包、共享额度、搬家工具、限时切换优惠，全是经典的拉新和防流失手法。</p>
+            <a class="link" href="https://x.com/SpaceXSI/status/2109783335296008414" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap1">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 65 · 热点事件 6 个来源</span></div>
+          <h3>微软发布自研芯片 Maia 300：明年起“多吉瓦级”部署，做自家产品的首选</h3>
+          <p class="author">Satya Nadella（@satyanadella，经 AI Hot 收录） · 2026-10-12 21:03 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">微软 CEO 纳德拉宣布，从明年起把自研的 Maia 芯片家族扩展到“多吉瓦级”部署，作为自家产品和服务的首选推理系统（推理：模型回答问题时的计算）。同时发布 Maia 300，官方称每瓦电能产出的 tokens 比主流 GPU 系统高 40%。上一代 Maia 200 已在美国、欧洲和澳大利亚部署，在 Teams 和 Copilot 场景中每瓦 tokens 产出提升最高 1.7 倍（官方口径）。</p>
+            <div class="discussion"><strong>讨论点：</strong>据 IT之家，Maia 300 采用台积电 N2P 工艺，计划 2027 年部署。能效数字都是微软官方口径，没有第三方实测。值得关心的是方向：大厂不想把 AI 的成本命脉全交给外部芯片商。另据转述，博通 CEO Hock Tan 表示，限制 AI 的可能不是芯片或电力，而是资本；英特尔 CEO 陈立武也说人们最终会要求看到 ROI（投入产出比）（据 Rohan Paul 转述）。本报未找到可核实的相关股价反应数据。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>算力成本降下来，最终会体现在 AI 功能的价格上。做 AI 产品运营的人，定价和“免费额度给多少”不是一锤子买卖，要按成本下降的节奏滚动调整（本报推测）。</p>
+            <a class="link" href="https://x.com/satyanadella/status/2109631106404487523" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap2">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">Ars Technica · AI Hot 评分 76</span></div>
+          <h3>据报 Epic 在迪士尼合作项目上改用“AI 先行”：代码全由 AI 写，游戏无限期延期</h3>
+          <p class="author">Ars Technica（转述 Bloomberg，经 AI Hot 收录） · 2026-10-13 04:59 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 Ars Technica 转述 Bloomberg 的报道，Epic Games 在与迪士尼 15 亿美元的合作项目中转向“AI 先行”的开发模式：由 Anthropic 的 Claude 等模型编写全部代码、指导全部美术，人类开发者负责管理和引导生成的内容。报道标题同时提到，双方合作的射击游戏已无限期延期。报道还援引了 Epic CEO Tim Sweeney 的回应。</p>
+            <div class="discussion"><strong>讨论点：</strong>这是一个相当激进的大厂案例：不是“AI 辅助”，而是“AI 主写、人来管”。今天知乎热榜上也有一个小团队版本：一位 35 岁策划用 AI 写完了整款游戏（见下文）。大厂和个人同时在试同一条路。至于延期和改用 AI 之间是什么关系，摘要里没有说明。本条依据 AI Hot 收录的摘要，Ars Technica 原文拒绝自动访问，本报未核对全文，Sweeney 回应的具体内容未能确认。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“人负责管理和引导 AI 的产出”正在变成一种正式岗位形态。内容团队也一样：以后比的不是谁写得快，而是谁能定标准、挑毛病、把 AI 的产出管到能上线。</p>
+            <a class="link" href="https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <a class="toggle-bottom" href="#ap3">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">422 回复 · 596 转帖 · 3,544 喜欢 · 1,173 书签 · 80 万观看</span></div>
+          <h3>Anthropic 公开“反蒸馏”做法：称被偷走的数据少了九成以上</h3>
+          <p class="author">Anthropic（@AnthropicAI） · 2026-10-13 07:58 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Anthropic 发文称，过去几个月它大幅削弱了针对 Claude 的“蒸馏攻击”，早期证据显示蒸馏者拿到的数据减少了约 90% 到 99%。（蒸馏：用大量虚假账号向强模型提问，再拿回答去训练自己的模型，低成本复制能力。）文章说，最值钱的是模型的“思考过程”，所以防御重点是让思考过程更难被拿到，例如只展示总结后的版本。Anthropic 承认有代价：它拒掉了相当于数万亿 tokens 的付费流量，一些正常用户也得修改接入方式。文中点名了智谱和月之暗面。</p>
+            <div class="discussion"><strong>讨论点：</strong>这篇文章对国内用户有个现实用处。博主歸藏说，很多被封的用户，很可能是被系统误认成在做蒸馏，尤其是刚注册就被封的账号；看懂文章里列的特征，可以少踩坑。另一面，文中对中国公司的指控是 Anthropic 单方面说法，本报未见相关公司回应，也无法独立核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>用海外 AI 工具做业务的人要留个心眼：批量注册、高频重复提问这类“像机器”的用法，更容易被风控误伤。重要的工作流别押在单一账号上，素材和提示词要有本地备份。</p>
+            <a class="link" href="https://x.com/AnthropicAI/status/2109795898909950247" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap4">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 2 · 258 万热度</span></div>
+          <h3>宇树王兴兴：过去十几年犯的最大错误，是对 AI 还不够相信</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据问题描述，10 月 12 日在第二十六届中国国际工业博览会开幕式的对话环节，宇树科技创始人王兴兴说，前段时间 GPT-6 的发布对具身智能（让 AI 有身体、能干活的机器人方向）行业的认知影响很大，团队把它部署到机器人上做任务测试，效果还不错。他认为行业临界点会来得比较快，快的话可能一两年；机器人要大规模应用，还得解决泛化性和效率问题。他还说：“现在我个人对 AI 的信仰反而与日俱增，过去十几年我犯的最大错误就是对 AI 还不够相信。”</p>
+            <div class="discussion"><strong>讨论点：</strong>一位以硬件见长的创始人公开“认错”，本身就是信号：机器人行业的重心正在从“身体”转向“大脑”。量子位今天的标题也提到，2026 年还没过完，已有 480 亿美元投进了“物理 AI”（仅见标题，本报未核对原文）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>连做硬件的人都在补 AI 这门课。对运营和内容人，“不够相信 AI”的代价同样存在：现在就把 AI 放进自己每天的真实工作里试，比等一个“成熟的时机”更划算。</p>
+            <a class="link" href="https://www.zhihu.com/question/2092973079471379000" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <a class="toggle-bottom" href="#ap5">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 8 · 179 万热度</span></div>
+          <h3>35 岁策划花 5 万元 token 做出纯 AI 写的游戏，放话“单人能搓《原神》”</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据问题描述（转述游戏葡萄的采访），35 岁的游戏策划“四无君”求职不顺后，和一名美术搭档，在没有程序员的情况下用 AI 开发了卡牌游戏《白蛇之子》。游戏约 30 万行代码全部由 AI 生成，开发消耗约 5 万元 token，他本人从不读 AI 写的代码。游戏 9 月 17 日上线，卖出 200 多份；玩家反馈难度偏高，但也有人两天玩了 30 多个小时。他的说法包括“单人都能搓《原神》”“用不好 AI 是人的问题”。</p>
+            <div class="discussion"><strong>讨论点：</strong>争议点很清楚：做出来了，但只卖了 200 多份。“能做出来”和“卖得出去”之间的距离，AI 没有帮他缩短。和今天 Epic 的消息放在一起看，个人和大厂都在试“AI 主写”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>制作门槛塌了之后，稀缺的是题材、定位和发行。这正是运营和内容人的主场：一个人做产品的越来越多，会“让东西被看见、被买单”的人会更抢手。</p>
+            <a class="link" href="https://www.zhihu.com/question/2088282544672458104" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <a class="toggle-bottom" href="#ap6">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 62 · Rohan Paul 转述</span></div>
+          <h3>IMF 总裁：AI 撑住了全球增长，但正在吃掉年轻人的第一份工作</h3>
+          <p class="author">AI Hot 收录（Rohan Paul 转述） · 2026-10-13 13:32 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据转述，IMF 总裁格奥尔基耶娃表示，AI 在支撑全球增长的同时，正在消除年轻人的“第一份工作”：新人通常从例行、重复的岗位起步，再逐级晋升。IMF 研究估计，AI 可能影响发达经济体约 60% 的岗位、全球约 40%；其中约一半受影响的人可能受益，另一半的关键任务可能被自动化，而这些任务往往正是入门级工作的主体。</p>
+            <div class="discussion"><strong>讨论点：</strong>有意思的是同一机构的另一个口径：据同一博主转述，IMF 最新《世界经济展望》在预测里假设 AI 不带来额外的生产率增长，并称宏观数据里还看不到 AI 对工资、就业或生产率的明显影响。一边说“还没体现在数据里”，一边说“入门岗已经在消失”，两者并不矛盾：冲击先落在最年轻的人身上。两条均为转述，本报未核对 IMF 原始文件。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>入门级的执行岗（排版、搬运、基础数据整理）最先被替代。运营新人要尽快往“能判断、能负责结果”的方向走；带团队的人也要想清楚：新人不再靠重复劳动练手，那靠什么成长。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2109879987826479501" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+            <a class="toggle-bottom" href="#ap7">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">89 转发 · 55 评论 · 559 赞</span></div>
+          <h3>微博博主 tombkeeper：对搞钱最敏感的人，两年前就在用 AI 套利了</h3>
+          <p class="author">tombkeeper · 2026-10-13 12:37 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者回忆，2024 年春天他发现群里很多人还只把 AI 当玩具，于是正式提醒大家：无论本职是什么，都该想想怎么在工作中用 AI。因为那时“一些对搞钱最敏感的人”已经在用 AI 套利，从软件开发到内容生产，而且真的赚到了钱。他观察到：2025 年春天，很多离开技术一线多年的人重新开始写程序；2026 年春天，很多一直信奉“低调”的人开始频繁在社交媒体上发声。他问读者：有没有想过这是为什么，自己该怎么做。</p>
+            <div class="discussion"><strong>讨论点：</strong>他没有给答案，但指向很明显：AI 让“做东西”变便宜之后，个人的表达和影响力变得更值钱，所以连低调的人都出来说话了。这和王兴兴今天的“认错”是同一个提醒，只是说给普通从业者听的。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“低调的人开始发声”对内容人是直接信号：行业里会说话、有真实经验的人都在下场做个人内容，竞争会变激烈；但也说明，持续输出自己真做过的事，回报正在变大。</p>
+            <a class="link" href="https://m.weibo.cn/status/5353537483834654" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap8">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">15 转发 · 9 评论 · 30 赞</span></div>
+          <h3>Anthropic 测试“AI 自我复制”：小模型现在还做不到，按趋势年底可能追上</h3>
+          <p class="author">宝玉xp · 2026-10-13 11:03 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">宝玉解读 Anthropic 红队 10 月 12 日的研究。结论先行：目前还没有能在网上自己到处复制的 AI。在简化过的实验环境里，能完整走完“传到新机器、把模型装好跑起来、再传下一台”的只有智谱的 GLM-5.2，但它太大，塞不进电视盒子这类小设备；塞得进去的小模型都没做到。Anthropic 估计今年年底就会有小模型达到这个水平。研究团队还买了 15 台约 55 美元的白牌安卓电视盒子，把一个模型拆开分到上面跑，速度只有每秒 0.39 个 token。</p>
+            <div class="discussion"><strong>讨论点：</strong>宝玉特别列了前提：实验里的入侵环节被简化到几乎没有难度，“年底追上”也只是按趋势线粗略推算。真出现了也传得慢、流量显眼，运营商能拦住一部分。量子位今天也以“实测 AI 全自主复制进智能家电”为题报道了这项研究。不必恐慌，但方向值得知道。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>对普通人最实际的一条：来路不明的廉价电视盒子、没改过默认密码的联网设备最危险（这是宝玉根据原文的推断）。公司里管账号、管后台设备的运营同学，顺手把默认密码改掉。</p>
+            <a class="link" href="https://m.weibo.cn/status/5353513870954041" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap9">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">41 赞 · 2 评论 · 2 转发</span></div>
+          <h3>歸藏：用“Anatomy”技能包做科普视频，把“芯片怎么造”讲成会动的立体图</h3>
+          <p class="author">歸藏（AI探索站） · 2026-10-13 00:18 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">歸藏说 Anatomy “应该是这周最火的 Skill”（技能包：给 AI 编程助手加的一套现成做法），它能把复杂的机械结构变成风格独特的等轴立体动画。他想到用这个风格做科普视频，于是结合 Grok Bot，再用即梦生成一些图片和视频，做了一条“芯片是如何制造的”科普视频，并称“讲解得挺清楚的”。同一内容他在 X 上的帖子有 254 喜欢、321 书签。</p>
+            <div class="discussion"><strong>讨论点：</strong>微博博主 AIGC·非著名程序员今天也详细介绍了它：用一句话描述一个概念，Claude 就“发明一台机器”来表达它，画成可以拖、可以按的互动立体图；项目开源。X 上书签数比点赞多，说明大家是当工具存下来的。AIGC 的玩法正从“出一张图”变成“出一套讲解”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做科普、教程和产品讲解内容的人可以直接试：以前要动画师做几天的“原理演示”，现在一句话就能出初稿。差异化会回到选题和讲法上。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6acd0850cfb5d08b3e832dd6" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <a class="toggle-bottom" href="#ap10">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 56 · IT之家</span></div>
+          <h3>消息称 Anthropic 首座日本数据中心将落地大阪：500MW，建设成本超 1 万亿日元</h3>
+          <p class="author">IT之家（转述《日经亚洲》，经 AI Hot 收录） · 2026-10-13 14:18 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 IT之家转述《日经亚洲》，Anthropic 与 NTT DATA 关于其首座在日数据中心的谈判已进入最后阶段，预计本财年内达成最终协议，最早 2028 年部分投运。设施将落户大阪，规模预计 500MW，仅建设成本就超过 1 万亿日元（IT之家按现汇率折算约 422.91 亿元人民币），之后还要装大量芯片。初期将用燃料电池等现场发电方式供电，给配套电网留出建设时间。</p>
+            <div class="discussion"><strong>讨论点：</strong>“先自己发电、再等电网”说明 AI 公司抢算力已经抢到了电力这一层。和微软今天的自研芯片消息一样，头部公司都在把算力的关键环节握到自己手里。WSJ 今天也有一篇《算力淘金热》（仅见标题，原文付费）。本报未见 Anthropic 或 NTT DATA 的官方确认。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 巨头在亚洲本地建算力，意味着本地化的产品、销售和运营团队会跟着来。关注出海和外企机会的人，可以留意这些公司在日本及亚太的招聘动向（本报推测）。</p>
+            <a class="link" href="https://www.ithome.com/1/012/333.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <a class="toggle-bottom" href="#ap11">↑ 回到本条开头</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">174,285 stars · 今日 +45,327</span></div>
+          <h3>morluto/rea</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">让 AI 智能体“逆向一切”：没有源代码，也能分析一个应用的功能是怎么实现的，从应用行为一直拆到底层程序。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">让 AI 智能体“逆向一切”：没有源代码，也能分析一个应用的功能是怎么实现的，从应用行为一直拆到底层程序。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>还在猛涨。极客公园今天发文泼冷水：拆开来参考，和照着做一个，在法律上是两件事；多数商业软件的用户协议禁止反编译，风险最后落在发指令的用户身上。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做产品和竞品分析的人别一时兴起拿它去拆别人的软件，尤其是客户交付的、签过保密协议的东西；想借鉴功能，先问法务。</p>
+            <a class="link" href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <a class="toggle-bottom" href="#ar0">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">155,331 stars · 今日 +157</span></div>
+          <h3>open-webui/open-webui</h3>
+          <p class="author">Python</p>
+          <p class="tagline">一个好上手的 AI 聊天界面，可以接本地模型工具 Ollama，也可以接 OpenAI 等接口。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一个好上手的 AI 聊天界面，可以接本地模型工具 Ollama，也可以接 OpenAI 等接口。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>相当于给团队自己搭一个“ChatGPT 式”的入口，模型可以自己选、自己换。在各家订阅越捆越紧的时候，这类中立入口更受关注。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>小团队想统一管理 AI 工具、又不想被某一家套餐绑住，可以让技术同事评估一下这类自建入口。</p>
+            <a class="link" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <a class="toggle-bottom" href="#ar1">↑ 回到本条开头</a>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">41,027 stars · 今日 +97</span></div>
+          <h3>microsoft/BitNet</h3>
+          <p class="author">C++</p>
+          <p class="tagline">微软官方的“1-bit 大模型”推理框架，用来运行把参数压到极简的模型。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">微软官方的“1-bit 大模型”推理框架，用来运行把参数压到极简的模型。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>方向是让模型又小又省。Ethan Mollick 今天说，已经有 19 款能在现代智能手机上运行的模型超过了当年的 GPT-4。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“手机本地就能跑的 AI”越来越现实：不联网、不传数据的 AI 功能，会成为 App 的新卖点，做产品宣传的人可以提前了解。</p>
+            <a class="link" href="https://github.com/microsoft/BitNet" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <a class="toggle-bottom" href="#ar2">↑ 回到本条开头</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>模型之战变成入口之战。</strong> Meta 用“记得住你”的模型去喂社交产品，马斯克把聊天、干活、编程和社交平台捆成一个订阅，还送“记忆搬家”。大家抢的已经不是跑分第一，而是用户每天打开谁。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>“AI 主写、人来管”开始落地。</strong> Epic 据报让 AI 写全部代码，35 岁策划用 5 万元做出一款游戏。但前者的游戏同时被报无限期延期，后者只卖了 200 多份：做出来不难了，做好和卖好仍然靠人。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>算力往上游抢，冲击往新人身上落。</strong> 微软自研芯片、Anthropic 在大阪自建数据中心，头部公司都在把成本握到自己手里；另一头，IMF 提醒入门级岗位最先消失。对个人来说，尽早从“执行”走向“判断”是最稳的应对。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-10-13 15:07 CST · 时间窗口：2026-10-12 15:07 至 2026-10-13 15:07（北京时间）</p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@rowancheung、@Khazix0918 和微博潘乱、极客公园，过去 24 小时无新帖（置顶帖不计）。本期未能在采集来源中找到可核实的美股指数及个股涨跌数据，因此头条及相关条目未写市场反应。Ars Technica 原文拒绝自动访问，Epic 一条依据 AI Hot 收录的摘要；WSJ 为付费墙，仅引用标题；36Kr 页面未能读取正文，相关选题本期未采用。X 订阅各档价格来自多位博主对官方价格页的整理。标注“经 AI Hot 收录”或“转述”的条目，摘要依据该转述，未逐一核对原始文件；IMF 两条、博通与英特尔 CEO 言论均为 Rohan Paul 转述。Anthropic 文中对中国公司的指控为其单方面说法，本报未能独立核实。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+</body>
+</html>
