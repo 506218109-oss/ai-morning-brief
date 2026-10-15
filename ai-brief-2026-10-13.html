@@ -99,7 +99,7 @@ html { overflow-anchor: none; }
 .tg:checked ~ .toggle::before { display: none; }
 .tg:checked ~ .toggle .t-open { display: none; }
 .tg:checked ~ .toggle .t-close { display: inline; }
-.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
 .grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
 }
 }
@@ -139,7 +139,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>第三方评测机构 Artificial Analysis 实测，两款模型在其智能指数上分别得 52 分和 56 分（据 AI Hot 收录）。沃顿商学院教授 Ethan Mollick 说自己拿到早期试用，测试有限，但“似乎是一个不错的模型”，并称 Meta 在短时间内进步非常快。X 上也有人感慨：一年前很多人嘲讽 Meta 花数十亿美元挖人，现在看这笔钱见效了。跑分来自 Meta 自测，独立排名（Arena）采集时尚未公布。本报在采集来源中未找到可核实的 Meta 股价反应数据，故不写涨跌。</div>
             <p class="impact"><strong>对运营/内容人：</strong>Meta 手里有 WhatsApp、Instagram 这样的社交入口，模型补齐后，“记得住你”的个人助理会直接进入社交和电商场景。做私域、社群和内容分发的人，要开始想：用户的助理替他筛信息时，你的内容凭什么被选中（本报推测）。</p>
             <a class="link" href="https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
-            <a class="toggle-bottom" href="#ap0">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
@@ -153,7 +153,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>讨论集中在“Cursor 老用户要不要切”。宝玉的结论是：不会被强制迁移，但新套餐月费里不再包含任何第三方模型额度。官方问答也写明，最终会把剩余用户迁到新套餐，但还没有时间表。同一天马斯克还发帖推 Grok Bot 的“记忆转移”：可以把你在 Claude 或 ChatGPT 里积累的偏好和上下文迁过来，条目需逐行人工确认后才保存（据 AI Hot 收录）。又是捆绑、又是搬家工具，看起来都是为了抢用户（本报推测）。</div>
             <p class="impact"><strong>对运营/内容人：</strong>AI 产品的竞争从“单个工具好不好用”变成“谁的全家桶更划算”。做会员和订阅运营的人可以把它当案例看：捆绑打包、共享额度、搬家工具、限时切换优惠，全是经典的拉新和防流失手法。</p>
             <a class="link" href="https://x.com/SpaceXSI/status/2109783335296008414" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap1">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap2" style="--ord:4;--ord-open:1">
@@ -167,7 +167,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>据 IT之家，Maia 300 采用台积电 N2P 工艺，计划 2027 年部署。能效数字都是微软官方口径，没有第三方实测。值得关心的是方向：大厂不想把 AI 的成本命脉全交给外部芯片商。另据转述，博通 CEO Hock Tan 表示，限制 AI 的可能不是芯片或电力，而是资本；英特尔 CEO 陈立武也说人们最终会要求看到 ROI（投入产出比）（据 Rohan Paul 转述）。本报未找到可核实的相关股价反应数据。</div>
             <p class="impact"><strong>对运营/内容人：</strong>算力成本降下来，最终会体现在 AI 功能的价格上。做 AI 产品运营的人，定价和“免费额度给多少”不是一锤子买卖，要按成本下降的节奏滚动调整（本报推测）。</p>
             <a class="link" href="https://x.com/satyanadella/status/2109631106404487523" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap2">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap3" style="--ord:6;--ord-open:3">
@@ -181,7 +181,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>这是一个相当激进的大厂案例：不是“AI 辅助”，而是“AI 主写、人来管”。今天知乎热榜上也有一个小团队版本：一位 35 岁策划用 AI 写完了整款游戏（见下文）。大厂和个人同时在试同一条路。至于延期和改用 AI 之间是什么关系，摘要里没有说明。本条依据 AI Hot 收录的摘要，Ars Technica 原文拒绝自动访问，本报未核对全文，Sweeney 回应的具体内容未能确认。</div>
             <p class="impact"><strong>对运营/内容人：</strong>“人负责管理和引导 AI 的产出”正在变成一种正式岗位形态。内容团队也一样：以后比的不是谁写得快，而是谁能定标准、挑毛病、把 AI 的产出管到能上线。</p>
             <a class="link" href="https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
-            <a class="toggle-bottom" href="#ap3">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap4" style="--ord:8;--ord-open:5">
@@ -195,7 +195,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>这篇文章对国内用户有个现实用处。博主歸藏说，很多被封的用户，很可能是被系统误认成在做蒸馏，尤其是刚注册就被封的账号；看懂文章里列的特征，可以少踩坑。另一面，文中对中国公司的指控是 Anthropic 单方面说法，本报未见相关公司回应，也无法独立核实。</div>
             <p class="impact"><strong>对运营/内容人：</strong>用海外 AI 工具做业务的人要留个心眼：批量注册、高频重复提问这类“像机器”的用法，更容易被风控误伤。重要的工作流别押在单一账号上，素材和提示词要有本地备份。</p>
             <a class="link" href="https://x.com/AnthropicAI/status/2109795898909950247" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap4">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap5" style="--ord:10;--ord-open:7">
@@ -209,7 +209,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>一位以硬件见长的创始人公开“认错”，本身就是信号：机器人行业的重心正在从“身体”转向“大脑”。量子位今天的标题也提到，2026 年还没过完，已有 480 亿美元投进了“物理 AI”（仅见标题，本报未核对原文）。</div>
             <p class="impact"><strong>对运营/内容人：</strong>连做硬件的人都在补 AI 这门课。对运营和内容人，“不够相信 AI”的代价同样存在：现在就把 AI 放进自己每天的真实工作里试，比等一个“成熟的时机”更划算。</p>
             <a class="link" href="https://www.zhihu.com/question/2092973079471379000" target="_blank" rel="noopener noreferrer">查看问题 →</a>
-            <a class="toggle-bottom" href="#ap5">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap6" style="--ord:12;--ord-open:9">
@@ -223,7 +223,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>争议点很清楚：做出来了，但只卖了 200 多份。“能做出来”和“卖得出去”之间的距离，AI 没有帮他缩短。和今天 Epic 的消息放在一起看，个人和大厂都在试“AI 主写”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>制作门槛塌了之后，稀缺的是题材、定位和发行。这正是运营和内容人的主场：一个人做产品的越来越多，会“让东西被看见、被买单”的人会更抢手。</p>
             <a class="link" href="https://www.zhihu.com/question/2088282544672458104" target="_blank" rel="noopener noreferrer">查看问题 →</a>
-            <a class="toggle-bottom" href="#ap6">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap7" style="--ord:14;--ord-open:11">
@@ -237,7 +237,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>有意思的是同一机构的另一个口径：据同一博主转述，IMF 最新《世界经济展望》在预测里假设 AI 不带来额外的生产率增长，并称宏观数据里还看不到 AI 对工资、就业或生产率的明显影响。一边说“还没体现在数据里”，一边说“入门岗已经在消失”，两者并不矛盾：冲击先落在最年轻的人身上。两条均为转述，本报未核对 IMF 原始文件。</div>
             <p class="impact"><strong>对运营/内容人：</strong>入门级的执行岗（排版、搬运、基础数据整理）最先被替代。运营新人要尽快往“能判断、能负责结果”的方向走；带团队的人也要想清楚：新人不再靠重复劳动练手，那靠什么成长。</p>
             <a class="link" href="https://x.com/rohanpaul_ai/status/2109879987826479501" target="_blank" rel="noopener noreferrer">查看转述 →</a>
-            <a class="toggle-bottom" href="#ap7">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap8" style="--ord:16;--ord-open:13">
@@ -251,7 +251,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>他没有给答案，但指向很明显：AI 让“做东西”变便宜之后，个人的表达和影响力变得更值钱，所以连低调的人都出来说话了。这和王兴兴今天的“认错”是同一个提醒，只是说给普通从业者听的。</div>
             <p class="impact"><strong>对运营/内容人：</strong>“低调的人开始发声”对内容人是直接信号：行业里会说话、有真实经验的人都在下场做个人内容，竞争会变激烈；但也说明，持续输出自己真做过的事，回报正在变大。</p>
             <a class="link" href="https://m.weibo.cn/status/5353537483834654" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap8">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap9" style="--ord:18;--ord-open:15">
@@ -265,7 +265,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>宝玉特别列了前提：实验里的入侵环节被简化到几乎没有难度，“年底追上”也只是按趋势线粗略推算。真出现了也传得慢、流量显眼，运营商能拦住一部分。量子位今天也以“实测 AI 全自主复制进智能家电”为题报道了这项研究。不必恐慌，但方向值得知道。</div>
             <p class="impact"><strong>对运营/内容人：</strong>对普通人最实际的一条：来路不明的廉价电视盒子、没改过默认密码的联网设备最危险（这是宝玉根据原文的推断）。公司里管账号、管后台设备的运营同学，顺手把默认密码改掉。</p>
             <a class="link" href="https://m.weibo.cn/status/5353513870954041" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap9">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap10" style="--ord:20;--ord-open:17">
@@ -279,7 +279,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>微博博主 AIGC·非著名程序员今天也详细介绍了它：用一句话描述一个概念，Claude 就“发明一台机器”来表达它，画成可以拖、可以按的互动立体图；项目开源。X 上书签数比点赞多，说明大家是当工具存下来的。AIGC 的玩法正从“出一张图”变成“出一套讲解”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>做科普、教程和产品讲解内容的人可以直接试：以前要动画师做几天的“原理演示”，现在一句话就能出初稿。差异化会回到选题和讲法上。</p>
             <a class="link" href="https://m.okjike.com/originalPosts/6acd0850cfb5d08b3e832dd6" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap10">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap11" style="--ord:22;--ord-open:19">
@@ -293,7 +293,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>“先自己发电、再等电网”说明 AI 公司抢算力已经抢到了电力这一层。和微软今天的自研芯片消息一样，头部公司都在把算力的关键环节握到自己手里。WSJ 今天也有一篇《算力淘金热》（仅见标题，原文付费）。本报未见 Anthropic 或 NTT DATA 的官方确认。</div>
             <p class="impact"><strong>对运营/内容人：</strong>AI 巨头在亚洲本地建算力，意味着本地化的产品、销售和运营团队会跟着来。关注出海和外企机会的人，可以留意这些公司在日本及亚太的招聘动向（本报推测）。</p>
             <a class="link" href="https://www.ithome.com/1/012/333.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
-            <a class="toggle-bottom" href="#ap11">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
           </div>
         </article>
       </div>
@@ -314,7 +314,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>还在猛涨。极客公园今天发文泼冷水：拆开来参考，和照着做一个，在法律上是两件事；多数商业软件的用户协议禁止反编译，风险最后落在发指令的用户身上。</div>
             <p class="impact"><strong>对运营/内容人：</strong>做产品和竞品分析的人别一时兴起拿它去拆别人的软件，尤其是客户交付的、签过保密协议的东西；想借鉴功能，先问法务。</p>
             <a class="link" href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar0">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
@@ -329,7 +329,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>相当于给团队自己搭一个“ChatGPT 式”的入口，模型可以自己选、自己换。在各家订阅越捆越紧的时候，这类中立入口更受关注。</div>
             <p class="impact"><strong>对运营/内容人：</strong>小团队想统一管理 AI 工具、又不想被某一家套餐绑住，可以让技术同事评估一下这类自建入口。</p>
             <a class="link" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar1">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ar2" style="--ord:4;--ord-open:1">
@@ -344,7 +344,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>方向是让模型又小又省。Ethan Mollick 今天说，已经有 19 款能在现代智能手机上运行的模型超过了当年的 GPT-4。</div>
             <p class="impact"><strong>对运营/内容人：</strong>“手机本地就能跑的 AI”越来越现实：不联网、不传数据的 AI 功能，会成为 App 的新卖点，做产品宣传的人可以提前了解。</p>
             <a class="link" href="https://github.com/microsoft/BitNet" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar2">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
           </div>
         </article>
       </div>
@@ -364,5 +364,12 @@ html { overflow-anchor: none; }
       <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@rowancheung、@Khazix0918 和微博潘乱、极客公园，过去 24 小时无新帖（置顶帖不计）。本期未能在采集来源中找到可核实的美股指数及个股涨跌数据，因此头条及相关条目未写市场反应。Ars Technica 原文拒绝自动访问，Epic 一条依据 AI Hot 收录的摘要；WSJ 为付费墙，仅引用标题；36Kr 页面未能读取正文，相关选题本期未采用。X 订阅各档价格来自多位博主对官方价格页的整理。标注“经 AI Hot 收录”或“转述”的条目，摘要依据该转述，未逐一核对原始文件；IMF 两条、博通与英特尔 CEO 言论均为 Rohan Paul 转述。Anthropic 文中对中国公司的指控为其单方面说法，本报未能独立核实。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
     </footer>
   </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
 </body>
 </html>
