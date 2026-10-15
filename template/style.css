@@ -92,7 +92,7 @@ html { overflow-anchor: none; }
 .tg:checked ~ .toggle::before { display: none; }
 .tg:checked ~ .toggle .t-open { display: none; }
 .tg:checked ~ .toggle .t-close { display: inline; }
-.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
 .grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
 }
 }

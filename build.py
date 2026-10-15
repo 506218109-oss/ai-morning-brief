@@ -2,7 +2,7 @@
 输入：issues/日期.json（当期选题与文案）+ template/style.css（9/10 版样式 + 版式修正）
 输出：outputs/ai-brief-日期.html（config/local.json 里配了 copy_to 的话，再另存一份到那里）
 怎么跑：python3 build.py 2026-10-09
-生成后自动检查：标签闭合、无 <script>、条数上限、单平台不超过 3 条、链接都是 http(s)。
+生成后自动检查：标签闭合、只有一段内置的小脚本（不引外部脚本）、条数上限、单平台不超过 3 条、链接都是 http(s)。
 """
 import json, shutil, sys
 from collections import Counter
@@ -37,7 +37,7 @@ def card(cls, cid, head, more):
           <input type="checkbox" class="tg" id="c{cid}" hidden>{head}
           <label class="toggle" for="c{cid}"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
           <div class="more">{more}
-            <a class="toggle-bottom" href="#a{cid}">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="c{cid}">收起 ▴</label>
           </div>
         </article>'''
 
@@ -121,6 +121,13 @@ page = f'''<!DOCTYPE html>
       <p>说明：{e(d["footer_note"])}</p>
     </footer>
   </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {{
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () {{ b.closest("article").scrollIntoView({{ block: "start" }}); }}, 0);
+  }});
+  </script>
 </body>
 </html>
 '''
@@ -140,15 +147,15 @@ class Checker(HTMLParser):
 
 c = Checker(); c.feed(page); c.close()
 problems = c.errors + ([f"未闭合: {c.stack}"] if c.stack else [])
-if "<script" in page: problems.append("含 <script>")
+if page.count("<script") != 1 or "<script src" in page: problems.append("脚本异常：只允许页面底部那一段内置的小脚本")
 import re as _re
 _ids = _re.findall(r'<input type="checkbox" class="tg" id="(c[pr]\d+)" hidden>', page)
 _fors = _re.findall(r'<label class="toggle" for="(c[pr]\d+)">', page)
 _arts = _re.findall(r'<article class="card[^"]*" id="a([pr]\d+)" style="--ord:\d+;--ord-open:-?\d+">', page)
-_backs = _re.findall(r'<a class="toggle-bottom" href="#a([pr]\d+)">', page)
+_backs = _re.findall(r'<label class="toggle-bottom" for="(c[pr]\d+)">', page)
 _n = len(posts) + len(repos)
-if not (len(_ids) == len(set(_ids)) == _n and _ids == _fors and ["c" + x for x in _arts] == _ids and _arts == _backs):
-    problems.append(f"卡片的展开/收起结构不完整（应有 {_n} 张：勾选框 {len(_ids)}、展开按钮 {len(_fors)}、卡片 {len(_arts)}、回到开头 {len(_backs)}）")
+if not (len(_ids) == len(set(_ids)) == _n and _ids == _fors and ["c" + x for x in _arts] == _ids and _backs == _ids):
+    problems.append(f"卡片的展开/收起结构不完整（应有 {_n} 张：勾选框 {len(_ids)}、展开按钮 {len(_fors)}、卡片 {len(_arts)}、底部收起 {len(_backs)}）")
 if len(posts) + len(repos) > 15: problems.append(f"总条数 {len(posts) + len(repos)} > 15")
 if not 3 <= len(repos) <= 5: problems.append(f"GitHub 项目 {len(repos)} 个，应为 3–5")
 problems += [f"{k} 有 {v} 条 > 3" for k, v in plat.items() if v > 3]

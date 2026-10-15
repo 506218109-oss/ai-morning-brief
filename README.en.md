@@ -75,7 +75,7 @@ Most of my sources are specific people on X and Weibo. Getting their original po
 - Notifications: sent only between 11:00 and 22:00, never twice for the same issue, and only after the live page has updated, so the link never opens a stale page.
 
 **6. On a phone: scan first, then read what you choose.**
-The mobile layout is a two-column grid of headline cards, about eight to a screen. Tapping a card expands it in place to full width. It is pure CSS with no JavaScript, and older browsers fall back to a single column of full cards.
+The mobile layout is a two-column grid of headline cards, about eight to a screen. Tapping a card expands it in place to full width. Expanding and collapsing are pure CSS. The only script is a few lines on the bottom "collapse" button, which scrolls the page back to the card after it closes. Older browsers fall back to a single column of full cards.
 
 **7. Review before shipping.**
 Before the mobile layout went live, three independent AI reviewers examined it from different angles (browser compatibility, layouts with different item counts, and real click testing), and a fourth reproduced each finding. They raised 16 issues, and 9 were confirmed. Two of them were real bugs my own testing had missed, including one where tapping a right-column card made its content drop to the next row.
