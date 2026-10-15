@@ -99,7 +99,7 @@ html { overflow-anchor: none; }
 .tg:checked ~ .toggle::before { display: none; }
 .tg:checked ~ .toggle .t-open { display: none; }
 .tg:checked ~ .toggle .t-close { display: inline; }
-.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
 .grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
 }
 }
@@ -139,7 +139,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>市场开始认真追问“AI 的钱到底赚回来没有”。OpenAI 自报第三季度营收增速 77%、企业业务增速 107%，增长并不差，但“口径”一变，估值预期就被打折。同日 WSJ 发文《AI 价格战愈演愈烈，OpenAI 正在缩小与 Anthropic 的差距》（仅见标题，原文付费）。CNBC 也报道英伟达、甲骨文、CoreWeave 等 AI 概念股走低。</div>
             <p class="impact"><strong>对运营/内容人：</strong>AI 行业的叙事正从“谁的模型更强”转向“谁能赚到钱”。做 AI 产品运营和商业化的人，接下来会被更频繁地问 ROI（投入产出比）；看任何“年化收入”数字，先问口径。</p>
             <a class="link" href="https://www.ithome.com/1/010/751.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
-            <a class="toggle-bottom" href="#ap0">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
@@ -153,7 +153,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>知乎“DeepSeek 估值接近 5000 亿元”问题今天凌晨仍在热榜；同时字节 Seed 论文指出 DeepSeek V4 长文本有“性能漂移”，今天凌晨冲上知乎热榜第 2（323 万热度）。一边是资本狂热，一边是同行挑刺。月之暗面也被曝以约 500 亿美元估值冲刺港股 IPO，国产大模型进入“上市竞赛”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>大模型公司钱多了，就会大规模买流量、做生态、招人。接下来半年，国产 AI 产品在增长运营、内容营销和开发者社区上的岗位和预算可能会增加（本报推测）。</p>
             <a class="link" href="https://the-decoder.com/catl-and-tencent-back-deepseeks-ballooning-funding-round-as-the-ai-startup-eyes-a-2027-ipo/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
-            <a class="toggle-bottom" href="#ap1">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap2" style="--ord:4;--ord-open:1">
@@ -167,7 +167,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>“销毁模型”是这类诉讼里最狠的诉求。内容方和 AI 公司的版权之争越打越大，对做内容的人来说，自己的作品会不会被拿去训练、能不能拿到补偿，正在变成现实问题。</div>
             <p class="impact"><strong>对运营/内容人：</strong>你写的文章、做的内容会不会被拿去训练 AI，正在变成能打官司、能谈价格的事。做内容平台和品牌内容的人，可以提前想想自家内容的授权条款。</p>
             <a class="link" href="https://x.com/rohanpaul_ai/status/2108473815445667848" target="_blank" rel="noopener noreferrer">查看转述 →</a>
-            <a class="toggle-bottom" href="#ap2">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap3" style="--ord:6;--ord-open:3">
@@ -181,7 +181,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>争议焦点已经从“AI 能不能做数学”转向“怎么做才算科研”：用外界无法访问的模型、不公开推理过程，成果就很难被检验。这对所有“AI 产出”的可信度都是一面镜子。</div>
             <p class="impact"><strong>对运营/内容人：</strong>所有“AI 批量生产、看起来像专家写的”内容都会遇到同一个问题：凭什么让人信？内容行业里，署名、出处和可验证性会越来越值钱。</p>
             <a class="link" href="https://www.zhihu.com/question/2091831158468244988" target="_blank" rel="noopener noreferrer">查看问题 →</a>
-            <a class="toggle-bottom" href="#ap3">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap4" style="--ord:8;--ord-open:5">
@@ -195,7 +195,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>AI 正在同时站上攻守两边。据 AI Hot 收录的报道，CrowdStrike 称一名攻击者用 AI 渗透工具 ARTEX 攻击了多家韩国银行，官员认为至少 7 家金融机构受害，攻击者留下的 Claude Code 会话记录也被发现。（渗透工具：专门用来找系统漏洞、模拟入侵的软件。）</div>
             <p class="impact"><strong>对运营/内容人：</strong>AI 工具越来越能“替人操作”，账号和数据安全就越要紧。运营同学手里的后台权限、社群和用户数据，都会是被攻击的目标，安全意识要跟上。</p>
             <a class="link" href="https://x.com/AnthropicAI/status/2108302539498414208" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap4">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap5" style="--ord:10;--ord-open:7">
@@ -209,7 +209,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>这条的收藏数（2,169）比点赞还多，说明大家把它当工具清单存了。当天凌晨马斯克发帖称“你可以用 Grok Bots 打造一整家公司”，这条推文浏览量超过 2,500 万。Agent 正在从“陪你聊”变成“每天定时替你干活”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>“每天自动筛选、整理信息”正被 Agent 接手，做资讯类、聚合类内容的人要警惕：单纯搬运会越来越不值钱，判断和观点才是护城河。</p>
             <a class="link" href="https://x.com/rowancheung/status/2108328114552000842" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap5">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap6" style="--ord:12;--ord-open:9">
@@ -223,7 +223,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>这是对“个人 Agent 热”最有力的一次反问：订阅制服务的是一线城市白领，“免费 + 高频刚需 + 商家付费”才是中国互联网验证过的路径。和梁斌前一晚说的“看谁家地多”可以对照着看。</div>
             <p class="impact"><strong>对运营/内容人：</strong>做用户增长的人可以对照这篇想一想：你的用户每天真正高频、刚需的选择是什么？Agent 时代，谁能替用户把这些选择做好，谁就掌握流量。</p>
             <a class="link" href="https://m.okjike.com/originalPosts/6ac8aa55756bbb66587d1594" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap6">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap7" style="--ord:14;--ord-open:11">
@@ -237,7 +237,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>微博上有人说“贵 3 倍”，那是和之前的 Fast 版（输入 4 美元、输出 20 美元）比；和标准版比是 6 倍。#AI回答太快会影响质量吗# 也成了微博话题，博主蚁工厂认为加速方法有花钱的也有省钱的，“全凭供应商良心”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>速度本身也成了收费项目。做 AI 产品的人，选模型时要算清“快”值多少钱：客服、实时互动场景值得用快的，写长文、做分析未必需要。</p>
             <a class="link" href="https://www.ithome.com/1/010/768.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
-            <a class="toggle-bottom" href="#ap7">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap8" style="--ord:16;--ord-open:13">
@@ -251,7 +251,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>CNBC 提到，过去一个月 AI 安全担忧急剧升温，三人九月都曾在 X 上呼吁放慢前沿研发或强调安全担忧。公司说“是违规”，当事人说“是寒蝉效应”，双方各执一词，外界很难判断真相。</div>
             <p class="impact"><strong>对运营/内容人：</strong>大公司里“发声的代价”是所有从业者都关心的话题。这件事也提醒做公关和社区的人：当事人公开信 + 公司声明的“双方叙事”，正在成为舆情常态。</p>
             <a class="link" href="https://www.cnbc.com/2026/10/09/openai-fired-researchers-ai-concerns.html" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
-            <a class="toggle-bottom" href="#ap8">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap9" style="--ord:18;--ord-open:15">
@@ -265,7 +265,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>对内容和运营从业者，这是个好消息：当“做出来”不再稀缺，“讲出来、让人信”就成了核心能力。另一面是警告：AI 提效不等于减负，判断和决策的压力只会更集中。</div>
             <p class="impact"><strong>对运营/内容人：</strong>当“做出来”不再稀缺，“讲出来、让人信”就成了核心能力。真人出镜、讲自己真实做过的事，是内容人最难被 AI 替代的部分。</p>
             <a class="link" href="https://m.weibo.cn/status/5352167022264881" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap9">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap10" style="--ord:20;--ord-open:17">
@@ -279,7 +279,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>AI 已经是国家级工程：政府给荣誉，企业给真金白银。作者还指出多数获奖者都给特朗普或共和党出过钱，政商关系与 AI 产业正在深度绑定。注：认捐金额为作者转述，本报未单独核实。</div>
             <p class="impact"><strong>对运营/内容人：</strong>AI 已经是国家级工程，政策和政商关系会越来越影响行业走向。做出海、跨境业务的人，需要把政策风向也纳入日常关注。</p>
             <a class="link" href="https://m.weibo.cn/status/5352011933155730" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap10">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap11" style="--ord:22;--ord-open:19">
@@ -293,7 +293,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>AIGC 正从“生成一张图”走到“交付一个完整作品”。转发数是点赞的八成，说明很多人是收藏备用。和郭宇说的一样，工具越强，真正稀缺的是创意和判断。</div>
             <p class="impact"><strong>对运营/内容人：</strong>一个人加 AI 就能做出完整作品，内容创作和小游戏的供给会暴增。竞争会转向创意、题材和分发，运营的价值反而更大。</p>
             <a class="link" href="https://m.weibo.cn/status/5352029751084559" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap11">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
           </div>
         </article>
       </div>
@@ -314,7 +314,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>AIGC 正从“抽卡碰运气”走向“精确控制”：先把构图、人物和机位定好再生成，结果才可重复。</div>
             <p class="impact"><strong>对运营/内容人：</strong>做视觉内容的人可以关注：AI 出图正在从“碰运气”变成“可控生产”，批量做海报、分镜会更省事。</p>
             <a class="link" href="https://github.com/storytold/artcraft" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar0">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
@@ -329,7 +329,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>给知识工作者而不是程序员用的。市场插件能写内容、做活动策划、统一品牌语气，运营岗可以直接参考它的工作流设计。</div>
             <p class="impact"><strong>对运营/内容人：</strong>里面的市场、客服插件，本身就是一份“AI 能接手哪些运营工作”的清单，值得照着梳理自己的工作流。</p>
             <a class="link" href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar1">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ar2" style="--ord:4;--ord-open:1">
@@ -344,7 +344,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>微博博主 AIGC·非著名程序员今天也专门推荐了它（90 赞、58 转发）。做汇报、写方案时，AI 画的图终于可以不那么“AI 味”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>写方案、做复盘时，AI 画的图可以直接拿去汇报，省下排版时间。</p>
             <a class="link" href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar2">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
           </div>
         </article>
       </div>
@@ -364,5 +364,12 @@ html { overflow-anchor: none; }
       <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@Khazix0918、@zarazhangrui 和微博潘乱，过去 24 小时无新帖（置顶帖不计）。WSJ 原文为付费墙且拒绝自动访问，仅引用其标题；企业模型支出份额的数据只见于转载网站、无法核实，本期未采用。DeepSeek 融资为 10 月 6 日首发的持续热点。标注“经 AI Hot 收录”或“转述”的条目，摘要依据该转述，未逐一核对原始文件。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
     </footer>
   </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
 </body>
 </html>
