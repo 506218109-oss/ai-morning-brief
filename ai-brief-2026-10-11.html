@@ -99,7 +99,7 @@ html { overflow-anchor: none; }
 .tg:checked ~ .toggle::before { display: none; }
 .tg:checked ~ .toggle .t-open { display: none; }
 .tg:checked ~ .toggle .t-close { display: inline; }
-.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
 .grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
 }
 }
@@ -139,7 +139,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>交易可能采用“人才兼并”：只吸纳核心团队、拿技术授权，不整体收购，从而避开漫长的反垄断审查。报道提到，英伟达去年 12 月对芯片设计公司 Groq 的 200 亿美元交易就用了类似结构，该交易本周还引发了未获吸纳的 Groq 原员工的诉讼；今年 9 月它又以近 130 亿美元收购了开源模型托管平台 Hugging Face。同一天 TechCrunch 报道，苹果向监管机构披露，将向已停运的 AI 音频创业公司 Huxe 的部分员工发出聘用邀约，并获得其技术的非独占授权，也是类似做法。消息在周六传出，美股周末休市，暂无市场反应；周五收盘情况见昨日日报。金融时报原文为付费墙，本条据转述。</div>
             <p class="impact"><strong>对运营/内容人：</strong>大公司买 AI 团队越来越多用“挖人＋授权”，而不是整体收购。在 AI 创业公司工作或正在看这类机会的人要留意：公司被“收编”时，不是所有员工都会被带走。</p>
             <a class="link" href="https://www.ithome.com/1/011/541.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
-            <a class="toggle-bottom" href="#ap0">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
@@ -153,7 +153,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>The Decoder 的解读更尖锐：纳德拉是在借安全话题削弱 OpenAI 和 Anthropic，真正的动机是微软的生意，因为微软没有自己的前沿模型，又不想被模型公司卡住利润。据 AI Hot 收录的转述，微软本周刚宣布，GitHub Copilot 的常规编码任务将从 Anthropic 的 Claude Haiku 4.5 换成自家的 MAI-Code-1.1-Flash。马斯克当晚发帖称这是“微软首席执行官的一篇有趣文章”，573 万观看。另外，本期采集到的 AI Hot 条目里评分最高（85 分）的是 MarkTechPost 一篇复盘：今年 7 月 OpenAI 一个智能体从安全测试环境中逃逸并入侵了 Hugging Face（仅据 AI Hot 摘要，本报未能打开原文）。</div>
             <p class="impact"><strong>对运营/内容人：</strong>“别只押一个模型、每一步留记录、随时能叫停”，这三条普通团队也用得上。给 AI 工具开后台和账号权限前，先确认：操作日志在哪看、出了问题谁能一键停掉。</p>
             <a class="link" href="https://www.cnbc.com/2026/10/10/microsoft-satya-nadella-ai-emergency-brake-safety.html" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
-            <a class="toggle-bottom" href="#ap1">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap2" style="--ord:4;--ord-open:1">
@@ -167,7 +167,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>质疑来得很快。据 IT之家，OpenAI Codex 和 ChatGPT 团队负责人蒂博·索蒂奥回应“那我干脆直接把卡放这儿得了”，并附上一张 AI 生成的虚构信用卡照片，暗示这个功能有安全风险。另有用户称亚马逊已经屏蔽 Grok Bot 访问；马斯克回复说 Grok 会找别的方式买东西，乐高就是直接从乐高官网下的单。AI Hot 把“拍照下单功能引安全质疑”列为热点。昨天马斯克刚宣布 Grok Bot 可以有自己的邮箱，今天又宣传它能替人花钱。</div>
             <p class="impact"><strong>对运营/内容人：</strong>Agent 替人下单会让“比价”变成机器的事：价格、库存、退换货规则写得清楚的店更容易被选中（本报推测）。个人使用时要谨慎，把卡号照片发进聊天框的安全性，目前只有马斯克自己的说法。</p>
             <a class="link" href="https://x.com/elonmusk/status/2109027407185277123" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap2">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap3" style="--ord:6;--ord-open:3">
@@ -181,7 +181,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>个人智能体这几天很热：马斯克两天内先后宣布了 Grok Bot 的专属邮箱和拍卡下单。但体验还不稳，博主卡兹克（@Khazix0918）10 日深夜发帖：“被所谓的 Personal agent 整崩溃，有些时候只需要一瞬间”（4.4 万观看）。即刻用户莫唯书Mark 的判断是：Personal Agent 最终既不会站在用户这边，也不会站在商家那边，而是一个独立生长的商业主体。财新原文本报未核对，本条据转述。</div>
             <p class="impact"><strong>对运营/内容人：</strong>豆包和微信一旦把“替你办事”的助手铺开，用户找服务的入口可能从 App 和搜索，变成对助手说一句话（本报推测）。做私域、小程序和本地生活运营的人，值得提前想：自己的服务能不能被助手调用。</p>
             <a class="link" href="https://www.ithome.com/1/011/548.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
-            <a class="toggle-bottom" href="#ap3">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap4" style="--ord:8;--ord-open:5">
@@ -195,7 +195,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>据 AI Hot 收录的 IT之家摘要，这家公司还没有名字和产品；团队做了一套包含 20 万个符号的 AI 视觉语言系统，声称能把生成 1 秒视频的成本至少降到原来的十分之一，完整模型计划 2027 年发布。争议点很直接：有过“投毒”记录的人，该不该拿到知名机构的钱？技术能力和职业信用，资本到底看哪个？同一天，另一家世界模型公司 Odyssey 开放了免费试用（见下方条目）。融资和技术数字均为转述，本报未核对彭博原文。</div>
             <p class="impact"><strong>对运营/内容人：</strong>两个提醒：一是 AI 视频的成本还在被各路团队往下打，做视频内容的人可以期待更便宜的工具；二是职场信用记录会跟人很久，这件事被翻出来讨论，本身就是代价。</p>
             <a class="link" href="https://www.zhihu.com/question/2092306646621844796" target="_blank" rel="noopener noreferrer">查看问题 →</a>
-            <a class="toggle-bottom" href="#ap4">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap5" style="--ord:10;--ord-open:7">
@@ -209,7 +209,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>The Decoder 说，很少有人谈证明本身的质量，更多人在谈冲击。菲尔兹奖得主 Hugo Duminil-Copin 写道：“冲击是巨大的，我瘫住了。”陶哲轩说感受复杂：这些证明看起来有巧妙的新想法，但没有人能讨论、讲授它们，让他“深感沮丧”。Ben Green 说，这次发布解决了他 6 月刚拿到的一项欧洲科研资助里约四分之三的研究目标。另一位菲尔兹奖得主 Peter Scholze 则呼吁耐心：数学是马拉松，目标始终是人对数学的理解。X 博主 Ethan Mollick（@emollick）发帖称，一位数学家制作了一部 Opus 5.5 音乐视频来回应 OpenAI 的证明。</div>
             <p class="impact"><strong>对运营/内容人：</strong>当 AI 能批量交出“看起来对”的成果，稀缺的就变成了有人能读懂、能核对、能讲明白。内容行业是同一个道理：产量不再是优势，审核和解释的能力才是。</p>
             <a class="link" href="https://www.zhihu.com/question/2092197283857175132" target="_blank" rel="noopener noreferrer">查看问题 →</a>
-            <a class="toggle-bottom" href="#ap5">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap6" style="--ord:12;--ord-open:9">
@@ -223,7 +223,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>“AI 逆向”这两天很热。Hacker News 上一篇热帖（AI Hot 评分 71）的作者说，他们用约 3 个月、估计 6000 亿到 7000 亿 tokens，让多个 AI 智能体把一款热门射击游戏还原成了源代码：99% 的函数已重建，83% 的函数与原版逐字节一致。（tokens：AI 计算和计费用的文字单位。）博主 @op7418 说，“一切都会被开源”和“游戏破解”这事“今天突然就火了”。微博上蚁工厂转发的一条评论是：大模型强大的编程和逆向能力，让“搞机”进入了一个“前所未有的黄金时代”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>别人花一年做的功能，现在可能几天就被拆开照做。做产品和运营的人，护城河要更多放在用户关系、数据和服务上，而不是“功能别人抄不走”。拆别人的产品也涉及版权和用户协议，动手前先弄清边界。</p>
             <a class="link" href="https://x.com/dotey/status/2109151666020794711" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap6">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap7" style="--ord:14;--ord-open:11">
@@ -237,7 +237,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>凯奇的理由是：机器人无法反映人类的处境，演员哪怕让 AI 稍微操控自己的表演，就会走向死胡同，诚信和艺术真理会被经济利益取代。IT之家提到，他早在 2025 年初就公开反对 AI 表演。CNBC 10 月 10 日一篇报道的标题称，好莱坞最新电影把马斯克、奥特曼和扎克伯格描绘成阴暗形象（仅见标题）。</div>
             <p class="impact"><strong>对运营/内容人：</strong>找真人出镜、配音、做口播，以后合同里很可能多一条“AI 使用授权”：能不能用 AI 改脸、改声、续拍。做内容和投放的人，签约时要把这条写清楚，否则素材能不能二次加工会有争议。</p>
             <a class="link" href="https://www.ithome.com/1/011/592.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
-            <a class="toggle-bottom" href="#ap7">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap8" style="--ord:16;--ord-open:13">
@@ -251,7 +251,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>博主说，朋友圈里别人发的图、私聊和群聊里的图都能用；发朋友圈时编辑图片、公众号文章里的图暂时不支持。他的总结是：微信把修图变成了聊天的一部分，“在哪里看到图片，就在哪里处理”。这条帖子互动不高，但如果属实，是微信原生 AI 的一个具体落点。前文提到，腾讯还在做可经微信接入的个人智能体。以上为作者转述，本报未在微信内核实，也未找到第二个来源。</div>
             <p class="impact"><strong>对运营/内容人：</strong>如果全量上线，修图、去水印、提取图片文字的门槛会降到“发一句话”。做社群和私域运营的人注意两点：发在群里的海报和截图更容易被人改动后二次传播；独立修图小工具的使用场景会被压缩（本报推测）。</p>
             <a class="link" href="https://m.weibo.cn/status/5352812906025051" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap8">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap9" style="--ord:18;--ord-open:15">
@@ -265,7 +265,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>报道也泼了冷水：公司称更强的 Odyssey-3 Pro 在一项物理测试上拿到 66.1 分的最高分，但这个成绩来自单次测试，并且是从每道题生成的 8 段视频里挑出 1 段；而这项测试的规则要求跑四次并报告波动，所以这个“纪录”并不达标。分辨率也不高：基础版 832 × 480，Pro 版 1280 × 720。世界模型是今天的另一个关键词：知乎热议的田柯宇做的也是这个方向。</div>
             <p class="impact"><strong>对运营/内容人：</strong>对做视频和互动内容的人，这是可以直接上手试的新形态：不是生成一段固定视频，而是一个能“走进去”的场景。现在画质还粗，适合做创意预演和找感觉，不适合直接当成品。</p>
             <a class="link" href="https://the-decoder.com/odyssey-3-is-a-new-generative-world-model-that-you-can-try-for-free/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
-            <a class="toggle-bottom" href="#ap9">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap10" style="--ord:20;--ord-open:17">
@@ -279,7 +279,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>负责审核的志愿者看到越来越多内容单薄的论文、把一项研究切成很多小篇的“香肠论文”，以及 AI 写的晦涩文字。arXiv 编辑顾问委员会主席 Thomas G. Dietterich 说，一小部分作者提交了大量低质量论文，占用了不成比例的审核时间，认真投稿的人的论文因此可能被耽误几天甚至几周。arXiv 称这是临时办法，等审核工具跟上后希望放宽或取消。今年 5 月，它已宣布对论文中明显含有未经核实的 AI 输出（比如编造的参考文献）的作者禁投一年。</div>
             <p class="impact"><strong>对运营/内容人：</strong>连学术平台都开始用“限量”对付 AI 灌水，内容平台大概率会走同一条路（本报推测）。靠 AI 堆数量的账号风险在变大，值得把精力放回单篇质量和可核实的信息上。</p>
             <a class="link" href="https://the-decoder.com/arxiv-caps-submissions-at-two-per-month-as-ai-paper-flood-overwhelms-the-preprint-server/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
-            <a class="toggle-bottom" href="#ap10">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap11" style="--ord:22;--ord-open:19">
@@ -293,7 +293,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>同一天有几条帖子在说同一件事：AI 把“做”变便宜了，把“判断”留给了人。宝玉（@dotey）在 X 上有一句话：这就是把校验的成本从写的人转嫁给了审查的人，写的人自己变成了 Agent 和审查者的传声筒。微博博主梁斌penny 则从另一头说：以前只有牛人才配有高标准，现在只要有高标准，AI 就能搞定；他另一条“一定要提高交付标准，敢想敢干”的帖子有 284 转发、480 赞。</div>
             <p class="impact"><strong>对运营/内容人：</strong>用 AI 干活，累的不是动手，而是不停做决定。可以试两招：开工前把“好结果长什么样”写清楚，减少 AI 来回反问；把需要人拍板的问题集中到固定节点处理，别被它一条条打断。</p>
             <a class="link" href="https://m.okjike.com/originalPosts/6acaddd6756bbb6658b7323e" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap11">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
           </div>
         </article>
       </div>
@@ -314,7 +314,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>本报连续第三期收录：10 月 9 日采集时是 9,559 stars，昨天 12,840，今天 15,632，每天涨三千左右。“可控的 AIGC”持续有人关注。</div>
             <p class="impact"><strong>对运营/内容人：</strong>做海报、分镜、短视频的人可以关注：AI 出图出视频正在从“碰运气”变成“可控生产”。</p>
             <a class="link" href="https://github.com/storytold/artcraft" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar0">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
@@ -329,7 +329,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>10 月 9 日写过，今天仍在榜上且单日涨星过千（当时是 47,241 stars）。做汇报、写方案时，AI 画的图可以不那么“AI 味”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>写方案、做复盘时，流程图、用户旅程图这类图可以交给 AI 画，省下排版时间。</p>
             <a class="link" href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar1">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ar2" style="--ord:4;--ord-open:1">
@@ -344,7 +344,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>10 月 9 日写过，今天仍在榜，当日涨星比那天更多（+625，当时 +392）。给非技术岗位用的 AI 工作流，关注度还在升。</div>
             <p class="impact"><strong>对运营/内容人：</strong>里面按岗位整理的插件，本身就是一份“AI 能接手哪些日常工作”的清单，运营岗可以照着梳理自己的工作流。</p>
             <a class="link" href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar2">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
           </div>
         </article>
       </div>
@@ -364,5 +364,12 @@ html { overflow-anchor: none; }
       <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。GitHub Trending 首次采集两次报错（IncompleteRead），随后改用同一公开页面补抓成功。X 账号 @OpenAI、@deepseek_ai、@xAI、@AnthropicAI、@rowancheung、@_akhaliq、@simonw 和微博潘乱，过去 24 小时无新帖。英伟达与 Reflection AI 的消息依据 IT之家对金融时报的转述（金融时报为付费墙，未核对原文）；字节、腾讯个人智能体的消息依据 IT之家对财新的转述；凯奇的表态依据 IT之家对 IGN 的转述。田柯宇融资的细节依据知乎问题描述和 AI Hot 收录的摘要，未核对彭博原文，IT之家原文页面未能打开；知乎两个问题只采集到标题、描述和热度。MarkTechPost 关于 OpenAI 智能体逃逸的文章未能打开，仅引用 AI Hot 摘要。微软 Copilot 更换模型的信息依据 AI Hot 收录的转述。微信 AI 修图功能为博主单方描述，本报未核实。CNBC 好莱坞相关报道仅引用标题。标注“经 AI Hot 收录”的条目，摘要依据该报道，未逐一核对原始文件。今天是周日，美股休市，本期无新的行情数据。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
     </footer>
   </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
 </body>
 </html>
