@@ -99,7 +99,7 @@ html { overflow-anchor: none; }
 .tg:checked ~ .toggle::before { display: none; }
 .tg:checked ~ .toggle .t-open { display: none; }
 .tg:checked ~ .toggle .t-close { display: inline; }
-.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
 .grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
 }
 }
@@ -139,7 +139,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>5 月融资时估值近 40 亿美元，现在谈的价格约 70 亿美元，说明“让模型不挑芯片”的软件正在变成抢手货：谁都不想被单一芯片供应商卡住。AI Hot 收录的另一条转述称，英伟达与 Decart 的收购谈判也已告吹（该说法仅见一处转述，本报未单独核实）。消息在北京时间周一早晨传出，美国仍是周日，美股未开盘，本期没有市场反应数据。WSJ 原文为付费内容，本条依据 IT之家转述。</div>
             <p class="impact"><strong>对运营/内容人：</strong>AI 行业的大钱正从“模型”流向“算力和它的周边软件”。做 To B 销售、行业内容的人，可以多留意“算力调度、芯片适配”这类中间层公司：它们融资多、要招人，也需要有人把复杂的东西讲明白（本报推测）。</p>
             <a class="link" href="https://www.ithome.com/1/011/720.htm" target="_blank" rel="noopener noreferrer">阅读转述 →</a>
-            <a class="toggle-bottom" href="#ap0">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
@@ -153,7 +153,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>这和亚马逊想买 Decart 是同一类生意，中美在同一天各有一条大新闻。IT之家称，无问芯穹的投资方包括腾讯、百度、联想、小米等产业资本，以及社保中关村基金等国资机构；客户有智谱、月之暗面、中国移动、中国联通等。上周 DeepSeek、月之暗面的上市传闻之后，国产 AI 的“上市队伍”又多了一家基础设施公司。</div>
             <p class="impact"><strong>对运营/内容人：</strong>国内 AI 的钱也在流向“卖水人”。找工作或找合作的运营人可以把视野放宽：除了大模型公司和应用公司，算力服务、模型服务平台这类 To B 公司也在拿大额融资，市场、内容、客户成功岗位可能跟着增加（本报推测）。</p>
             <a class="link" href="https://www.ithome.com/1/011/849.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
-            <a class="toggle-bottom" href="#ap1">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap2" style="--ord:4;--ord-open:1">
@@ -167,7 +167,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>逆向工具 REA 采集时在 GitHub 已有 122,090 星，单日增加 25,599 星，是本期采集到的趋势榜项目里涨得最多的。微博上宝玉连续分享用 REA 拆解 Codex、CapCut 字幕格式的案例；极客公园引用 REA 主页的话：看到别人应用里想要的功能，让智能体去调查它，“并为你的项目实现类似功能”。争议也来了：Hacker News 首页有一篇讨论“氛围编码的 Photoshop 克隆版”的帖子（本报只看到标题）。</div>
             <p class="impact"><strong>对运营/内容人：</strong>当功能可以被 AI 快速“抄”走，产品的护城河就不在功能本身，而在品牌、用户关系、内容和社区，这些正是运营在做的事。另外提醒：逆向别人的软件可能涉及版权和协议问题，别把“能做到”当成“可以做”（本报提醒，非法律意见）。</p>
             <a class="link" href="https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&amp;mid=2647686995&amp;idx=1&amp;sn=cc40a3488a2ea7652d2ab589056f40b4" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
-            <a class="toggle-bottom" href="#ap2">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap3" style="--ord:6;--ord-open:3">
@@ -181,7 +181,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>Karpathy 认为差距来自三点：手里的问题够不够大、AI 能力的“锯齿状”（代码、数学、安全极强，日常写作和搜索看起来一般）、以及免费版、付费版、内部系统之间的访问差别。沃顿商学院教授 Ethan Mollick 补充：就算是那 5000 人，很多也没把模型用足，他们都在做网络安全、数学和 AI 研发，“还有很多其他领域需要推进”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>你的用户大概率在“免费版偶尔用用”那一层，别默认他们懂 Agent、懂提示词。做 AI 产品运营和内容的人，最大的机会就是把上层的用法翻译给下层的人；自己也值得花钱用一用付费版，否则判断会失真。</p>
             <a class="link" href="https://m.weibo.cn/status/5353194365388597" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap3">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap4" style="--ord:8;--ord-open:5">
@@ -195,7 +195,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>书签数（107）接近点赞数（127），说明很多人把它当求职或招聘参考存了下来。同一条内容在微博也有 37 转发、64 赞。它和今天 Karpathy 的“漏斗”是一体两面：懂技术的人不一定会讲，会讲的人不一定懂技术，两头都占的人很少。注：“最难招”为作者转述的说法，没有给出数据来源，本报未单独核实。</div>
             <p class="impact"><strong>对运营/内容人：</strong>这条几乎是写给运营和内容人的：你已经有“在线、会创作、能执行”三项，补上“理解 AI 和技术”就是稀缺人才。求职时可以直接按这四条组织简历和作品集。</p>
             <a class="link" href="https://x.com/dotey/status/2109526616778895753" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap4">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap5" style="--ord:10;--ord-open:7">
@@ -209,7 +209,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>同一时间，“如何评价真人化 AI 漫剧《持械入宋》”排在知乎热榜第 5（299 万热度），微博也有话题 #AI漫剧为何越看越上头#。博主蚁工厂认为这个话题“因果倒置”：只有让人上头的剧才会被算法挑出来，所以大家看到的必然是戳痛点的那批，“看多了也就腻了”。AIGC·非著名程序员则认为，AI 漫剧把短剧从“演员中心制”拉回了“故事中心制”。</div>
             <p class="impact"><strong>对运营/内容人：</strong>不管 55% 准不准，AI 短剧和漫剧已经是国内最实在的 AIGC 生意之一。做内容的人要注意：制作门槛降下来之后，拼的是选题、故事和投放；引用这类数字时，记得注明“企业自己披露”。</p>
             <a class="link" href="https://www.zhihu.com/question/2092571772189153120" target="_blank" rel="noopener noreferrer">查看问题 →</a>
-            <a class="toggle-bottom" href="#ap5">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap6" style="--ord:12;--ord-open:9">
@@ -223,7 +223,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>他认为 AI 导入是同一个道理：效率一上去就砍人，员工会把用 AI 的好点子藏起来；把省出的时间拿去想更好的企划、多陪客户、学新技能，一线才会越用越多。这条是本期采集到的宝玉微博里转发和点赞最高的一条，可见“AI 提效之后人怎么办”比工具本身更牵动人。</div>
             <p class="impact"><strong>对运营/内容人：</strong>带团队的人可以直接借用这条规矩：先讲清楚“省出来的时间用来干什么”，再推 AI 工具。普通员工也可以用它判断公司：提效之后是给你更有价值的活，还是只想减人。</p>
             <a class="link" href="https://m.weibo.cn/status/5353085490694377" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap6">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap7" style="--ord:14;--ord-open:11">
@@ -237,7 +237,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>这篇正好是今天头两条的背景：算力紧到这个程度，“让模型能在各种芯片上跑”的软件自然值钱。阑夕还转述了谷歌内部各业务线争抢算力等细节。量子位也发了《硅谷 AI 现状：谁有算力谁是爹》。注：以上为作者转述，WSJ 原文为付费内容，本报未核对原文。</div>
             <p class="impact"><strong>对运营/内容人：</strong>算力贵，最后会传到产品上：AI 功能涨价、限额、免费额度缩水都可能发生（本报推测）。做 AI 产品运营的人，要提前想好“额度不够用”时怎么跟用户沟通。</p>
             <a class="link" href="https://m.okjike.com/originalPosts/6acc5e8c756bbb6658e0120e" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap7">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap8" style="--ord:16;--ord-open:13">
@@ -251,7 +251,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>本报昨天报道过 arXiv 因 AI 论文太多而限流。Ethan Mollick 今天也在 X 上说，GPT-6 Pro 经常能在学术论文里找出错误，确认这些错误、判断它们重不重要仍然很花时间，“我们还没有建立合适的机制来应对大量更正的涌入”。一头是 AI 批量写，一头是 AI 批量挑错，中间的审核环节被两面夹击。</div>
             <p class="impact"><strong>对运营/内容人：</strong>学术出版是内容行业的“极端样本”：内容暴增后，最贵的环节变成了筛选和审核。内容平台、社区运营会遇到同样的问题，审核和质量把关的成本要提前算进去。</p>
             <a class="link" href="https://x.com/rohanpaul_ai/status/2109487106313847119" target="_blank" rel="noopener noreferrer">查看转述 →</a>
-            <a class="toggle-bottom" href="#ap8">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap9" style="--ord:18;--ord-open:15">
@@ -265,7 +265,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>他在跟帖里补充：只要大模型继续在各方面都强得不讲道理，公司总能想办法应付过去；但它们往往不擅长管理组织变革，频繁的强制切换模型（他点名谷歌）对它们来说很难。AI 厂商迭代的速度，和企业消化变化的速度，中间有一道缝。</div>
             <p class="impact"><strong>对运营/内容人：</strong>别把工作流押在某一个 AI 功能上。团队沉淀的提示词、流程、知识库，尽量用能迁移的方式保存（比如普通文档），哪天功能下线了也能搬走。</p>
             <a class="link" href="https://x.com/emollick/status/2109472254417318335" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap9">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap10" style="--ord:20;--ord-open:17">
@@ -279,7 +279,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>TechCrunch 播客里，记者 Sean O’Kane 认为反对声这么大，一个重要原因是行业“很不会解释自己”，很多项目几乎是秘密谈成的，居民甚至不知道谁会用这座数据中心。另一位记者 Rebecca Bellan 则怀疑暂停令的实际效果：它们只有一两年，而这些数据中心本来就要两到五年后才上线。</div>
             <p class="impact"><strong>对运营/内容人：</strong>这是一堂公关课：技术再重要，瞒着公众做事就会引发反弹。做品牌、公关和社区的人可以参考：先公开、多解释，比事后灭火便宜得多。</p>
             <a class="link" href="https://techcrunch.com/2026/10/11/can-the-ai-industry-persuade-data-center-opponents-by-getting-rid-of-ndas/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
-            <a class="toggle-bottom" href="#ap10">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ap11" style="--ord:22;--ord-open:19">
@@ -293,7 +293,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>讨论点：</strong>书签数（259）是点赞数的七成，很多人想学这套做法。关键不在模型，而在那两个“自家的 Skill”：把品牌的版式、配色、动效规则提前沉淀下来，AI 才能一次做对。这和上周宝玉说的“Skill 没那么重要”可以对照着看：通用技巧会过时，自己品牌的规范不会。</div>
             <p class="impact"><strong>对运营/内容人：</strong>做汇报、做活动物料的人可以照这个思路试：先把自己或公司的 PPT 规范（字体、配色、版式、常用页面）整理成一份文档交给 AI，以后每次只写内容要点就行。</p>
             <a class="link" href="https://x.com/Khazix0918/status/2109246672689872921" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
-            <a class="toggle-bottom" href="#ap11">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
           </div>
         </article>
       </div>
@@ -314,7 +314,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>本期趋势榜里单日涨星最多；10 月 9 日 AI Hot 收录时还只有约 2.9 万星。它是这波“AI 逆向一切”讨论的中心。</div>
             <p class="impact"><strong>对运营/内容人：</strong>非技术读者不必去用，但要知道这件事：竞品的功能越来越容易被“看懂并复刻”，产品差异化要靠功能以外的东西。</p>
             <a class="link" href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar0">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
@@ -329,7 +329,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>把公开数据做成人人能看懂、能玩的可视化作品，本身就是一个很好的内容产品范例。</div>
             <p class="impact"><strong>对运营/内容人：</strong>做数据内容、科普内容的人可以参考它的呈现方式：公开数据加好的交互，就能做出有传播力的作品。</p>
             <a class="link" href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar1">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
           </div>
         </article>
         <article class="card" id="ar2" style="--ord:4;--ord-open:1">
@@ -344,7 +344,7 @@ html { overflow-anchor: none; }
             <div class="discussion"><strong>为什么值得看：</strong>算力又贵又紧的时候，“用便宜硬件跑大模型”的项目出现在今天的趋势榜上，和算力争夺的新闻正好呼应。</div>
             <p class="impact"><strong>对运营/内容人：</strong>想在自己电脑上离线用 AI、不想把资料传到云端的人，可以让懂技术的同事关注这个方向。</p>
             <a class="link" href="https://github.com/lyogavin/airllm" target="_blank" rel="noopener noreferrer">打开项目 →</a>
-            <a class="toggle-bottom" href="#ar2">↑ 回到本条开头</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
           </div>
         </article>
       </div>
@@ -364,5 +364,12 @@ html { overflow-anchor: none; }
       <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@AnthropicAI、@rowancheung、@_akhaliq、@zarazhangrui 页面加载超时，未采集到；@xAI、@simonw 和微博潘乱过去 24 小时无新帖。亚马逊洽购 Decart 的消息在周末传出，美股尚未开盘，本期无市场反应数据。WSJ 两篇原文为付费内容，分别依据 IT之家和阑夕的转述，未核对原文；TechCrunch 一篇关于语音 AI 的文章未能打开，本期未采用。标注“经 AI Hot 收录”或“转述”的条目，摘要依据该转述，未逐一核对原始文件；知乎条目依据问题描述。讨论点中引用的个别微博发布于采集过程中（15:54 之后）。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
     </footer>
   </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
 </body>
 </html>
