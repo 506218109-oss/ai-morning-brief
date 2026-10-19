@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-10-19</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 14px 12px 40px; }
+.hero { padding: 30px 24px; border-radius: 22px; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-head span { white-space: normal; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 17px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 13px; border-radius: 16px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 8px; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 8px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 12px 0; font-size: 13px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 10 月 19 日 · 周一</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>Anthropic 公益基金</span><span>DeepSeek</span><span>Character.AI</span><span>AI 算力</span><span>AI 味</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>Anthropic 拿出 5% 股份做公益基金。</strong> 估值每涨 50% 最多再追加 2%，算上已有安排约 20% 股份用于公共目的；同时据 FT 报道，它正以超 10% 的收益率借 600 亿美元买芯片。</li>
+        <li><strong>DeepSeek 新模型登顶开源编程榜。</strong> V4.1-Flash 在 Arena 网页开发榜开源模型中排第一、成本约为第二名的十分之一；知乎“梁文锋和 DeepSeek 为什么配得上国运级”冲到热榜第 2。</li>
+        <li><strong>迪士尼收编 Character.AI 大部分员工。</strong> 破产文件显示，迪士尼将向至少 60 名员工发出录用邀请，年薪总额约 6000 万美元；曾经的明星 AI 陪聊公司以这种方式收场。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · X 3 · 知乎 2 · 英文媒体 1 · AI Hot 2 · 微博 2 · 即刻 2</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">1,580 回复 · 2,342 转帖 · 16,061 喜欢 · 430 万观看</span></div>
+          <h3>Anthropic 冲刺上市前宣布：拿出 5% 股份成立公益基金</h3>
+          <p class="author">Anthropic（@AnthropicAI） · 2026-10-19 02:07 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Anthropic 宣布成立全资持有的“Anthropic 公益基金”，起步投入公司 5% 的股份；公司价值相对设定基准每增长 50%，董事会可酌情再追加最多 2%。据 TechCrunch 转述（经 AI Hot 收录），基金可向传统非营利组织大额捐赠，也可直接向特定人群发放，具体结构和治理细节将在未来几个月公布。据 IT之家，算上这只基金，Anthropic 累计约 20% 的股份专门用于公共目的。</p>
+            <div class="discussion"><strong>讨论点：</strong>同一天另一条资本消息更受金融圈关注：据 IT之家援引央视财经、英国《金融时报》报道，Anthropic 正以超过 10% 的收益率为芯片交易筹集 600 亿美元债务融资，其中约 420 亿美元优先级债务由博通担保，黑石旗下基金认购 90 亿美元次级债、票息 10%；四个月前它发类似债务的收益率还是 8.5%。一边“捐股份”，一边“高息借钱买芯片”，说明 AI 公司在上市前既要讲公益故事，也要扛巨大的算力账单。WSJ 也发文讨论“笼罩在 Anthropic IPO 之上的信托”（付费墙，仅见标题）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 公司上市前的“价值观叙事”正在变成融资的一部分。做品牌和公关的人可以留意：公益承诺、治理结构这些“软内容”，正在被当成资本市场故事来讲；而借钱成本上升，也意味着 AI 产品后续涨价或收紧免费额度的可能性在增加（本报推测）。</p>
+            <a class="link" href="https://x.com/AnthropicAI/status/2111881963657412903" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 2 · 1,335 万热度</span></div>
+          <h3>知乎热议“梁文锋和 DeepSeek 为什么配得上国运级”，新模型同日登顶开源编程榜</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">这个问题冲到知乎热榜第 2，问题描述称中国人工智能从“追赶者”变成“并行者”。同一时段，模型评测平台 Arena 宣布 DeepSeek-V4.1-Flash-20261017（Max）成为 Code Arena 网页开发榜的第一开源模型，超过 Kimi K3（Max），成本约低 10 倍（据 AI Hot 收录的 Arena 原帖）。</p>
+            <div class="discussion"><strong>讨论点：</strong>DeepSeek 已经连续多天是热点：上周宕机近 5 小时、随后发布 V4.1-Flash、开放搜索 API。博主张岱樾在微博转发称，V4.1 是 Vals Index 上新的第一开源权重模型；微博博主蚁工厂解读 LobsterAI 报告时也调侃大家都在“夸 DeepSeek Flash”。“国运级”这种宏大叙事和“又便宜又好用”的口碑叠加，是它热度持续的原因。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>便宜又好用的国产模型，会继续压低 AI 工具的使用成本。做 AI 内容、AI 客服或自动化的运营，可以定期对比一下模型价格，同样效果下换模型可能省下一大笔预算。</p>
+            <a class="link" href="https://www.zhihu.com/question/2093628371448217836" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · 公开报道</span></div>
+          <h3>Character.AI 破产后，迪士尼同意接收它大部分员工</h3>
+          <p class="author">TechCrunch（据 Bloomberg 发现的法律文件） · 2026-10-19 00:30 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 TechCrunch，Character.AI 本月中旬申请破产后，法律文件显示迪士尼同意向至少 60 名 Character.AI 员工（占员工大多数）发出录用邀请，预计年薪总额约 6000 万美元，收到邀请的员工“绝大多数”已接受。Character.AI 前 CEO Karandeep Anand 近期已出任迪士尼首位 CTO，迪士尼此前同意以 2000 万美元收购其部分资产。这是一份“底价竞标”，其他公司仍可出更高价。</p>
+            <div class="discussion"><strong>讨论点：</strong>文件称，Character.AI 尽管有“庞大且活跃的用户群”，却被高成本和潜在诉讼、监管压力拖垮：它曾被一名 14 岁少年的母亲起诉，称孩子沉迷其聊天机器人后自杀，还面临儿童安全方面的政府调查。据 AI Hot 收录的 404 Media 报道，破产文件显示公司收入有限、烧钱严重。用户多不等于能活下来，这是 AI 陪伴赛道的一记警钟。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 陪伴、AI 角色类产品的风险已经从“好不好玩”变成“出事谁负责”。做社区和内容产品的人，未成年人保护、心理健康风险提示要提前设计进产品，而不是出事后补救。</p>
+            <a class="link" href="https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 收录 · IT之家</span></div>
+          <h3>微软终止与英国数据中心公司 Nscale 的项目，后者数十亿美元上市计划受挫</h3>
+          <p class="author">IT之家（转述《每日电讯报》，经 AI Hot 收录） · 2026-10-18 18:42 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据《每日电讯报》报道，微软终止了与英国数据中心企业 Nscale 在埃塞克斯郡劳顿的数据中心项目。微软是 Nscale 最大的两家客户之一，另一家是 Anthropic。Nscale 上个月已在美国提交 IPO 申请，两年半内合同总金额从 1 亿美元增长到超过 1,030 亿美元。双方均未回应置评请求。</p>
+            <div class="discussion"><strong>讨论点：</strong>这和 Anthropic 高息借钱买芯片放在一起看：AI 算力基建的钱越来越贵，大客户也开始挑项目。AI Hot 同日还收录了 All In 播客对 CoreWeave 融资结构和“算力泡沫”风险的讨论；CNBC 则有节目标题称市场对“AI 盈利见顶”的担忧是“反应过度”。多空观点都在，市场尚无定论。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 基建的钱在变紧，下游 AI 产品的成本和稳定性都可能受影响。做 AI 产品运营的，选供应商时别只看价格，也要看对方的算力是否稳定、会不会突然限流（本报推测）。</p>
+            <a class="link" href="https://www.ithome.com/1/014/574.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">1,598 回复 · 1,538 转帖 · 11,097 喜欢 · 293 万观看</span></div>
+          <h3>马斯克吐槽：SpaceX 想找 AWS、谷歌云租推理算力，体验很糟</h3>
+          <p class="author">Elon Musk（@elonmusk） · 2026-10-19 05:21 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">马斯克发帖称这是“试图租用 AI/SI 计算资源的体验”，随后 11:05 补充说明：这描述的是 SpaceX 试图从 AWS、GCP 或其他任何人那里租用推理算力时的对话，目的是把负载从自己的训练集群上转移走。（推理：AI 回答用户问题时消耗的计算；训练：造模型时消耗的计算。）</p>
+            <div class="discussion"><strong>讨论点：</strong>连马斯克都说租不到合适的算力，说明推理需求增长快于供给。同一时段他还连发多条帖子推 Grok Bot，称它能“打电话给餐厅为你订桌”，而前一天卡兹克刚发帖说因回答敷衍卸载了 Grok Bot。用户越多，算力越紧，体验越难保证。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>算力紧张会直接体现在 AI 工具的高峰期变慢、限额收紧上。依赖 AI 工具批量做内容的团队，最好准备一个备用工具，别把关键流程押在单一产品上。</p>
+            <a class="link" href="https://x.com/elonmusk/status/2111930742615802163" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">7 转发 · 0 评论 · 7 赞</span></div>
+          <h3>“国内超一半算力在造爽剧”？豆包负责人刘星：字节只有约 10% 用于视频生成</h3>
+          <p class="author">蚁工厂（转发豆包刘星） · 2026-10-19 11:23 CST</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 IT之家，中文在线在一份投资者关系活动记录表中披露：国内 AI Token 消耗 55% 用在短剧和视频生成，24% 用在电商广告，真正用于研发的只有 15%。豆包公关负责人刘星发文回应，称这个算力数据“有些不靠谱”，就字节来说，公司总算力中只有约 10% 用于视频生成模型的训练和推理。蚁工厂转发时称网传数据“为不实消息”。（Token：AI 计算和计费用的文字单位。）</p>
+            <div class="discussion"><strong>讨论点：</strong>两边口径不同：中文在线说的是“全国 Token 消耗”，刘星说的是“字节一家的总算力”，并不能直接互相否定。但这场争论本身说明，AI 短剧、AI 视频到底用了多少资源，已经成了行业关心的话题。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 短剧和视频生成是不是“第一大场景”，数据还有争议，但内容行业已经被看作 AI 的主要消耗方。做短剧、短视频的运营，看到这类“占比”数据先问清口径再引用。</p>
+            <a class="link" href="https://m.weibo.cn/status/5355693025788279" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 9 · 123 万热度</span></div>
+          <h3>DeepSeek 开放自研搜索接口后，知乎追问：它对百度搜索冲击有多大</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">“DeepSeek 对百度搜索的冲击有多大？”在知乎热榜第 9。同榜第 16 是“如何评价 DeepSeek 开放自研搜索 API，单价为每 1000 次成功请求 5 元”（103 万热度）。据问题中引用的官方原文，DeepSeek 搜索是 AI 原生的通用搜索引擎，索引全球千亿级网页，每天处理来自全球的数亿次搜索请求，并称会对 SEO 作弊、GEO 操纵和低质 AIGC 内容做过滤。（API：让别的软件调用这项能力的接口。）</p>
+            <div class="discussion"><strong>讨论点：</strong>搜索 API 本报 10 月 17 日起已连续报道；今天讨论从“价格”转向“会不会抢百度的饭碗”。官方点名要过滤 SEO 作弊和 GEO 操纵，等于告诉做营销的人：靠堆关键词、刷 AI 引用的玩法会被识别。（GEO：针对 AI 搜索结果做的优化，类似 SEO。）</div>
+            <p class="impact"><strong>对运营/内容人：</strong>越来越多人通过 AI 搜索找信息，做内容和品牌的人要开始关心“AI 会不会引用我”。但 DeepSeek 已明确要过滤 GEO 操纵，靠真实、权威、及时的内容被引用才是长久办法。</p>
+            <a class="link" href="https://www.zhihu.com/question/13453602540" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 77 · 精选</span></div>
+          <h3>德国法院判定：谷歌要为 AI 搜索摘要里的错误内容负责</h3>
+          <p class="author">The Decoder（经 AI Hot 收录） · 2026-10-18 18:52 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 AI Hot 收录的 The Decoder 文章，德国已有两家法院先后裁定谷歌须为其 AI Overview（搜索结果顶部的 AI 摘要）内容负责。其中慕尼黑地区法院 I 在五月底认定，AI 搜索摘要属于谷歌自己的陈述，而不是对网页的中立转述，谷歌须为错误内容担责；谷歌公开宣布上诉，但实际以和解结案，没有拿到上级法院裁决。</p>
+            <div class="discussion"><strong>讨论点：</strong>文章认为两起判例指向同一法律逻辑，并分析谷歌用和解回避判例对 AI 搜索商业模式的潜在影响。如果“AI 摘要＝平台自己说的话”成为通行看法，AI 搜索平台就不能再用“我只是转述”来免责。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 摘要说错了，平台可能要担责，这会让平台对引用来源更挑剔。对品牌方来说，被 AI 摘要误读时，维权有了参考依据；对内容方来说，权威、准确的内容更可能被优先引用（本报推测）。</p>
+            <a class="link" href="https://the-decoder.com/two-german-courts-now-hold-google-liable-for-what-its-ai-overviews-say/" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">26 转发 · 20 评论 · 54 赞</span></div>
+          <h3>《中国办公 Agent 用户行为报告》9 月版：国庆假期别的岗位用得少了，写代码的反而多了</h3>
+          <p class="author">蚁工厂 · 2026-10-19 10:30 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者解读 LobsterAI 更新的《中国办公 Agent 用户行为报告》9 月版（含国庆假期）：十一假期其他岗位使用 Agent 的比例都在下降，编程占比反而升高；目前最大的 Agent 应用场景仍是编程，但占比不到一半，很多任务类型在升温；Agent 越来越多地被用来做长时间任务；在 IM（即时通讯）里，其他所有 IM 的占比加起来都不如微信。</p>
+            <div class="discussion"><strong>讨论点：</strong>作者自己说“码农假期加班”是调侃，原因可能是非技术人员也开始用 AI 写程序，或者程序员假期在做自己的项目。长任务变多，说明用户开始愿意把更完整的工作交给 Agent。作者还提到，自己 9 月让妻子用 Agent 办公后“一用就停不下来”。报告数据为作者转述，本报未单独核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>办公 Agent 正从程序员扩散到普通岗位，且主要入口在微信。做 To B 产品或企业服务运营的，可以关注“在微信里交付 Agent 能力”这条路。</p>
+            <a class="link" href="https://m.weibo.cn/status/5355679684757765" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">27 回复 · 4 转帖 · 24 喜欢 · 4,072 观看</span></div>
+          <h3>播客观点：AI 把一个东西做到 60 分，它就变成 0 分</h3>
+          <p class="author">歸藏（@op7418） · 2026-10-19 11:26 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">歸藏分享《Next Token》播客里的核心观点：嘉宾橘子认为，只要 AI 把一个东西做到了 60 分，这个东西就变成了 0 分，所以一个东西越火，越容易变成“AI slop”（AI 批量生产的低质内容）然后被大家抛弃；另一个观点是，所有 skill、prompt（提示词）类软件，唯一的价值其实就是流量价值。</p>
+            <div class="discussion"><strong>讨论点：</strong>微博博主 AIGC·非著名程序员转发表示“很同意这两点”。这和即刻上玉伯“AI 味的源头是你”的说法可以对照看：大家都在讨论，当 AI 把及格线内容变得廉价，人的价值在哪里。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 能做到 60 分的内容会迅速贬值：模板化的爆款文案、通用教程、千篇一律的封面都会被淹没。内容人要往 AI 做不到的方向走：真实经历、独家信息和鲜明观点。</p>
+            <a class="link" href="https://x.com/op7418/status/2112022611228230108" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">55 赞 · 3 评论 · 5 转发</span></div>
+          <h3>玉伯：AI 味的源头不是 AI，而是你</h3>
+          <p class="author">玉伯 · 2026-10-18 23:03 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">玉伯认为，避免 AI 味的唯一办法是回归人的局限性，比如人有偏见、有情绪、容易一叶障目。先认识自己，再把认识的自己告诉 AI，AI 才有机会“用你的眼去看见、用你的心去感受”，最后替你写。但这很难，不认识自己就是最大的局限；而 AI 最大的用途之一，恰恰是当镜子照见你。</p>
+            <div class="discussion"><strong>讨论点：</strong>在本报看来，这是把“去 AI 味”从文字技巧拉回到作者本人：问题在于有没有自己的立场和视角。次日即刻博主莫唯书也发帖自嘲“和 AI 口癖的重合度有点高”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>用 AI 写文案时，与其花时间“洗稿去 AI 味”，不如先把自己的观点、偏好、经历写成一份“我是谁”的说明喂给 AI，产出会更像你。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6ad4dfc7cfb5d08b3e53dd91" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">15 赞 · 1 评论 · 2 转发</span></div>
+          <h3>“AI 手机是一场硬造的伪需求”：超级 App 不会让 Agent 替你操作</h3>
+          <p class="author">莫唯书Mark · 2026-10-18 16:32 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者认为，字节找努比亚代工、阶跃星辰亲自发手机，都在兜售“AI 硬件革命”，但手机的散热和电池撑不住千亿参数模型常驻；现在的 AI 功能多是消除照片路人、通话翻译，不足以让人换机；更关键的是，AI 手机主打“替你操作一切”，但发消息、订外卖、买东西都要穿过超级 App 的“城墙”，超级 App 不会容忍自己被降级成后台接口。作者认为真正的下一代硬件是更轻、全天佩戴、把重度计算交给云端的设备。</p>
+            <div class="discussion"><strong>讨论点：</strong>这和本报 10 月 15 日报道的豆包手机助手放开“AI 替你点屏幕”、上百款 App 拒绝配合的新闻呼应：Agent 能不能真正“替你办事”，卡点不在技术，而在平台愿不愿意开放。属于作者个人观点。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做 App 运营的人要想清楚：当 AI 助手想替用户操作你的 App 时，你是开放还是封堵？这会直接影响未来的流量入口归属。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6ad48405141b85b2927f1146" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">54,342 stars · 今日 +2,232</span></div>
+          <h3>MadsLorentzen/ai-job-search</h3>
+          <p class="author">Python</p>
+          <p class="tagline">在自己电脑上运行的 AI 求职框架，基于 Claude Code 搭建，可以评估招聘岗位、辅助完成求职申请。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">在自己电脑上运行的 AI 求职框架，基于 Claude Code 搭建，可以评估招聘岗位、辅助完成求职申请。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>今日 GitHub 涨星第一，连续多天上榜。数据在本机运行，不用把简历交给第三方平台。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>正在找工作的运营人可以参考它的思路：让 AI 先帮你筛岗位、对照 JD 判断匹配度，再决定投哪家，省下大量海投时间。</p>
+            <a class="link" href="https://github.com/MadsLorentzen/ai-job-search" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">216,912 stars · 今日 +1,414</span></div>
+          <h3>anomalyco/opencode</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">开源的 AI 编程助手，可以在命令行里让 AI 帮你读代码、写代码。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">开源的 AI 编程助手，可以在命令行里让 AI 帮你读代码、写代码。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>它最近因遭攻击、Anthropic 撤销受影响密钥而上了 AI Hot 热点（6 个来源），热度和争议同时在涨。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>非技术人员也越来越多地用这类工具做小网页、小脚本。想自己动手做轻量工具的运营可以了解一下，但注意别把账号密钥随便填进不熟悉的工具。</p>
+            <a class="link" href="https://github.com/anomalyco/opencode" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">2,596 stars · 今日 +115</span></div>
+          <h3>Kruk2/jasna</h3>
+          <p class="author">Python</p>
+          <p class="tagline">一个视频修复工具。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一个视频修复工具。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>今天 GitHub Trending 里少见的面向视频内容的项目，项目简介只有“视频修复工具”一句，具体效果需自行查看仓库说明。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做视频内容的人可以留意这类开源修复工具，老素材、低清素材翻新可能不再需要付费软件（本报推测，未实测）。</p>
+            <a class="link" href="https://github.com/Kruk2/jasna" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>AI 的钱越来越贵，也越来越“讲故事”。</strong> Anthropic 一边以超 10% 收益率借 600 亿美元买芯片，一边拿出 5% 股份做公益；微软终止 Nscale 项目，马斯克说租不到推理算力。算力账单正在成为 AI 公司最大的压力。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>用户多不等于活得下来。</strong> Character.AI 有庞大活跃用户，仍被成本和诉讼拖进破产；德国法院让谷歌为 AI 摘要担责。AI 产品的风险和责任，正在变成商业模式的一部分。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>60 分内容在贬值，“你是谁”在升值。</strong> 播客说 AI 做到 60 分的东西就变成 0 分，玉伯说 AI 味的源头是你，DeepSeek 搜索点名过滤低质 AIGC。对内容人来说，真实视角和独家信息是最难被替代的部分。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-10-19 15:07 CST · 时间窗口：2026-10-18 15:07 至 2026-10-19 15:07（北京时间）</p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@xAI、@rowancheung、@_akhaliq、@simonw、@zarazhangrui 和微博潘乱、极客公园、梁赛，过去 24 小时无新帖。CNBC、TechCrunch 的 Anthropic 报道和 The Decoder 原文本次未能打开，相关内容依据 AI Hot 收录的摘要；WSJ 为付费墙，仅引用标题。Anthropic 600 亿美元债务融资依据 IT之家转述的 FT 报道，FT 原报道为 10 月 16 日；Nscale、豆包算力、德国法院判例依据 AI Hot / IT之家转述，未逐一核对原始文件。本期为周一，美股尚未开盘，未找到上述消息对应的股价反应数据；网传的 Anthropic 估值换算金额只有单一来源，本期未采用。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
