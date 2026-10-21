@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-10-21</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 14px 12px 40px; }
+.hero { padding: 30px 24px; border-radius: 22px; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-head span { white-space: normal; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 17px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 13px; border-radius: 16px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 8px; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 8px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 12px 0; font-size: 13px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 10 月 21 日 · 周三</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>SpaceX 财报</span><span>Anthropic 招股书</span><span>DeepSeek 开源</span><span>OpenAI 融资</span><span>AI 内容治理</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>SpaceX 靠 AI 扭亏，季度净赚 44 亿美元。</strong> 三季度营收约 146 亿美元，AI 业务已占收入 52%；据知乎热榜问题描述，股价周二盘后小幅上涨。</li>
+        <li><strong>Anthropic 招股书泄露，半年亏 807 亿美元。</strong> 据 WSJ 看到的 S-1 草案，上半年收入 163 亿美元；三大云厂商开始把它当对手，算力不够用。</li>
+        <li><strong>DeepSeek 开源推理框架，顺手晒出账本。</strong> 单集群每天处理 155 万亿 Token、每卡每小时收入 38 美元，知乎热榜第 1、1232 万热度。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 英文媒体 3 · 知乎 2 · AI Hot 2 · 微博 2 · X 2 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · AI Hot 评分 77 · 知乎热榜第 26（111 万热度）</span></div>
+          <h3>SpaceX 三季度扭亏为盈，AI 业务收入占比过半</h3>
+          <p class="author">TechCrunch（Tim Fernholz、Kirsten Korosec） · 2026-10-21 04:40 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">SpaceX 监管文件显示，三季度营收约 146 亿美元，净利润 44 亿美元，去年同期亏损约 10 亿美元。改名为“Super Intelligence”的 AI 业务线（含收购来的 Cursor、Grok 机器人和算力出租业务）收入 75 亿美元，占公司收入的 52%，算力规模 1.7 GW。CFO 预计 2027 年一季度营收 330 亿至 370 亿美元，四季度资本开支 350 亿至 400 亿美元。前三季度合计仍净亏损 4.13 亿美元。</p>
+            <div class="discussion"><strong>讨论点：</strong>市场反应：知乎热榜问题描述称该股周二盘后小幅上涨，CNBC 视频标题称股价因三季度超预期“继续攀升”，具体涨幅本报未能核实。AI Hot 收录的 Rohan Paul 电话会笔记把 AI 收入记为 76 亿美元，与 TechCrunch 的 75 亿略有出入，并称算力出租客户包括 Anthropic 和 Google。马斯克发帖说“2028 年 SpaceX 收入达到 1 万亿美元已不再不可能”，获 6 万多赞。另一边，CNBC 报道韩国 AI 算力公司 Elice 上市首日暴跌 32%，投资者开始挑剔“谁真能把算力投入赚回来”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“火箭公司”过半收入来自 AI，说明 AI 算力已是最赚钱的生意之一。做科技内容的人，写 SpaceX、特斯拉这类公司时，AI 已经是绕不开的主线。</p>
+            <a class="link" href="https://techcrunch.com/2026/10/20/spacexs-ai-business-is-beating-expectations/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · AI Hot 评分 85 / 76 · WSJ 首发</span></div>
+          <h3>Anthropic 招股书草案泄露：半年收入 163 亿美元、亏损 807 亿美元，云厂商把它当对手</h3>
+          <p class="author">TechCrunch（转述 WSJ 看到的 S-1 文件） · 2026-10-21 05:25 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 WSJ 看到的 S-1（美国上市申请文件）草案，Anthropic 今年上半年收入 163 亿美元、净亏损 807 亿美元，两个客户贡献了约五分之一的销售额。文件称它很难从 AWS、Google、微软拿到足够算力，这些厂商越来越把它视为竞争对手；云合同支出可能超过 7500 亿美元（含仍在谈判的部分），同时也在自租数据中心。上周它告诉潜在投资者，三季度收入已达 168 亿美元，环比增长 45%。据报计划 11 月上市。</p>
+            <div class="discussion"><strong>讨论点：</strong>算力承诺的口径不一：TechCrunch 写“可能超过 7500 亿美元的云合同”，AI Hot 收录的 Rohan Paul 转述为“约 4500 亿美元算力承诺”，差异可能来自是否计入仍在谈判的合同，本报未能核实。文件还警告，AI 造成的损害赔偿可能超出保险覆盖。36氪等中文媒体同步跟进。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 公司的账本第一次大规模公开：收入涨得快，亏得更快。做 AI 产品的人可以预期，“控成本、提价、限量”会成为接下来一年各家的常态（本报推测）。</p>
+            <a class="link" href="https://techcrunch.com/2026/10/20/anthropics-cloud-partnerships-are-getting-messy/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 1 · 1232 万热度</span></div>
+          <h3>DeepSeek 开源内部推理框架，还公开了“单卡每小时赚 38 美元”</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">DeepSeek 10 月 20 日把支撑自家线上服务的推理框架 DeepInfer 开源（Apache 2.0 许可，可免费商用）。推理框架，就是“把模型跑起来、跑得又快又省”的那套软件。DeepSeek 同时披露：基于这套框架，V4.1 Flash 单个集群每天处理 155 万亿 Token；据 AI Hot 收录的转述，按非高峰价格计算，每张卡每小时收入 38 美元。框架同时支持英伟达和华为昇腾芯片。</p>
+            <div class="discussion"><strong>讨论点：</strong>DeepSeek 官方 X 帖获 3.6 万赞、491 万观看。Databricks 员工 Yuchen Jin 推算，即使按每小时 7 美元租英伟达 B300，毛利率也约 82%（为作者推算，本报未单独核实）。微博博主梁赛认为，用上这套框架，算力租赁的回本周期会大大缩短；AIGC·非著名程序员则认为，开源让整个行业推理成本下降，最终用 DeepSeek 的人也会更多。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>推理成本继续下降，意味着 AI 功能会更便宜、更快地塞进各类产品。做 AI 产品运营的人，可以预期“按次收费”的 AI 功能会越来越多地变成免费标配（本报推测）。</p>
+            <a class="link" href="https://www.zhihu.com/question/2095938083422262957" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 77</span></div>
+          <h3>路透：OpenAI 赶在 Anthropic 上市前融资约 300 亿美元，估值超 1.4 万亿美元</h3>
+          <p class="author">AI Hot 收录（Rohan Paul 转述 Reuters） · 2026-10-20 16:06 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 Reuters 报道，OpenAI 正赶在 Anthropic 上市前洽谈约 300 亿美元的新融资，估值超过 1.4 万亿美元，比今年 3 月的 8520 亿美元至少高 64%。</p>
+            <div class="discussion"><strong>讨论点：</strong>两家头部公司在抢资本市场的“窗口期”。作为对照，据 IT之家 10 月 16 日转述路透，部分投资者已把 Anthropic 的 IPO 估值预期从约 2 万亿美元下调到约 1.5 万亿美元。融资信息依据转述，未核对 Reuters 原文。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>OpenAI 和 Anthropic 一个融资一个上市，接下来几周两家都需要好看的增长故事，新功能、新合作的密集发布可以预期（本报推测）。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2112455383356989598" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · Sensor Tower 数据</span></div>
+          <h3>Meta 的 AI 助手 Muse 上线 40 天美国下载破 1000 万，史上只有 11 款应用做到过</h3>
+          <p class="author">TechCrunch（Sarah Perez） · 2026-10-21 01:12 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 Sensor Tower，Muse 9 月上线以来下载 1090 万次，其中美国 1020 万；上线 40 天美国破千万的应用此前只有 11 款，最近一款是 2023 年的 Threads。美国 7 日留存 30%、14 日留存 23%，高于 ChatGPT、Claude、Grok 的平均水平（19%、16%）。10 月 16 日日活首次达到 250 万。Meta 10 月把 39% 的广告预算用来推广 Muse。</p>
+            <div class="discussion"><strong>讨论点：</strong>作为对比，ChatGPT 上线前 40 天美国下载 370 万，Grok 和 Claude 分别是 50 万和 20 万。但 Meta 有 36 亿日活的产品矩阵导流，又砸了大量广告，起量方式和其他 AI 应用不可比。Hacker News 上还有一条标题为“Muse 在用户分享对话时泄露个人及商业机密”的讨论（仅见标题）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>Meta 证明了“大流量入口 + 重金投放”能把 AI 应用快速推上榜首。做增长的人可以关注它的留存数据：拉新靠钱，留存才看产品。</p>
+            <a class="link" href="https://techcrunch.com/2026/10/20/metas-muse-hits-10m-u-s-downloads-in-40-days-a-milestone-reached-by-only-11-other-apps/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">7 转发 · 2 评论 · 14 赞</span></div>
+          <h3>被质问“是做安全还是抢超级智能”，Anthropic CEO 认了三处失误，但路线不改</h3>
+          <p class="author">宝玉xp · 2026-10-21 11:56 CST</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">AI 安全组织 Encode 的法律总顾问 Nathan Calvin 10 月 19 日发长文，质问 Anthropic 更像在赛跑而不是做安全。导火索是据 Politico 报道的一份 Anthropic 法案草案：政府要叫停一个模型，得证明它迫在眉睫地可能造成 50 人以上死亡或重伤、或超过 10 亿美元损失。CEO Dario Amodei 回应，承认一封给国会的信、一句“没法在第二名的位置上做安全”和这份草案处理不当，作为 CEO 负责；但坚持“向上竞争”路线，并列举了生物安全过滤、不向中国控股公司卖服务、拿出 5% 股份成立公益基金等代价。</p>
+            <div class="discussion"><strong>讨论点：</strong>Calvin 最尖锐的问题是：为什么 Anthropic 每次犯错，都恰好对自己有利？AI Hot 收录的 Rohan Paul 转述与该帖内容一致。TechCrunch 也以“可能因 50 人死亡风险叫停模型”为题报道了这份法案。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>在计划上市前，CEO 亲自下场回应批评、先认错再讲立场，是一份标准的危机公关样本。做公关和品牌的人值得研究它的写法。</p>
+            <a class="link" href="https://m.weibo.cn/status/5356426244394272" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 68 · IT之家</span></div>
+          <h3>Spotify 一年从推荐流里清掉 5000 多万首低质 AI 歌，优先推真人</h3>
+          <p class="author">IT之家（经 AI Hot 收录） · 2026-10-21 12:53 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Spotify 公告称，过去一年已从推荐流移除超过 5000 万首被认定为 AI 生成的低质或刷量歌曲，并调整推荐系统，优先展示真人创作者。它没有强制所有 AI 歌曲打标签，但给使用虚拟 AI 身份的创作者加了“AI Persona”标识，且不推荐这类音乐。判断依据包括收听行为和反馈、上传特征、元数据和第三方 AI 检测工具。</p>
+            <div class="discussion"><strong>讨论点：</strong>各平台尺度不一：YouTube Music 给 AI 歌曲加标签，Deezer 让用户自己过滤，Bandcamp 直接全面禁止。Spotify 一边限流 AI 垃圾，一边和环球音乐、Believe 合作做 AI 混音工具，态度是“管住低质，不反对 AI”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>平台开始用推荐算法“惩罚”批量 AI 内容。做内容的人要注意：靠 AI 堆量换流量的打法，在各平台都可能被限流，真人和原创会拿到更多推荐权重（本报推测）。</p>
+            <a class="link" href="https://www.ithome.com/1/015/804.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">383 回复 · 864 转帖 · 6,080 喜欢 · 58 万观看</span></div>
+          <h3>OpenAI 收购药物研发协调平台 Orchestra Bio</h3>
+          <p class="author">OpenAI（@OpenAI） · 2026-10-21 02:10 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">OpenAI 宣布收购 Orchestra Bio，这家公司做的软件帮药企管理新药开发中的复杂流程。双方将基于 OpenAI 的生命科学 AI 模型和工具 Rosalind，简化这些流程，让新疗法更快到达患者手中。据微博博主宝玉转述，收购金额未公开。</p>
+            <div class="discussion"><strong>讨论点：</strong>同一天 Anthropic 也发布了用 Claude 设计抗蝎毒蛋白的研究（见下一条）。两家头部公司都在往生物医药这种“高价值、重流程”的行业里扎，而不只是做通用聊天。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 公司正在通过收购切进垂直行业的流程软件。对 B 端运营来说，“行业 know-how + AI”比“通用 AI 工具”更有议价能力。</p>
+            <a class="link" href="https://x.com/OpenAI/status/2112607347688583586" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">401 回复 · 761 转帖 · 5,947 喜欢 · 125 万观看</span></div>
+          <h3>Anthropic：Claude 64 小时生成 30 万个抗蝎毒蛋白设计，211 个送进实验室</h3>
+          <p class="author">Anthropic（@AnthropicAI） · 2026-10-21 00:18 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Anthropic 在科学博客发文：每年约 120 万人被蝎子蜇伤，抗毒血清往往昂贵或短缺。它和合作方让 Claude 设计能结合五种蝎毒素的蛋白质，64 小时内生成了超过 30 万个设计，其中 211 个送到 Adaptyv Bio 和 Twist Bioscience 做实验室测试。Anthropic 称这是寻找新疗法的“第一步”。</p>
+            <div class="discussion"><strong>讨论点：</strong>这是 Anthropic 在招股书泄露、安全路线被质疑的同一周发出的“AI 做好事”案例，传播量（125 万观看）不小。目前只是设计和送检，离真正的药还很远。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 公司越来越多用“科学突破”讲品牌故事。做科技内容的人转述时要分清：送检、实验有效、上市成药是完全不同的阶段。</p>
+            <a class="link" href="https://x.com/AnthropicAI/status/2112579251555721573" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">9 转发 · 12 评论 · 35 赞</span></div>
+          <h3>OpenAI 把“缓存”延长到 12 小时：隔几小时回来接着聊，不用再多花钱</h3>
+          <p class="author">宝玉xp · 2026-10-21 13:17 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">OpenAI 开发者官方账号宣布，API 的提示缓存（把你之前发过的长内容先存起来，下次复用更便宜）现在可保留 12 小时，默认仍是 30 分钟。OpenAI 的 Tibo 补充：Codex 和 Work 的登录用户，缓存永久保留，回到几小时前的旧对话也保证命中。据宝玉转述，首次写入收原价 2.5 倍，之后读缓存只收一成。</p>
+            <div class="discussion"><strong>讨论点：</strong>宝玉称这是“这些天以来 Codex 最有价值的更新”。有网友转发时指出，长任务的用法会变：隔几小时回来接着聊，不用心疼 Token。价格倍数为作者转述，本报未单独核对官方文档。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>用 AI 做长期项目（比如一个持续几天的方案、选题库）的成本在下降。运营同学可以放心把一个长对话当“项目工作台”反复回来用（本报推测）。</p>
+            <a class="link" href="https://m.weibo.cn/status/5356446696083755" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">95 赞 · 24 评论 · 3 转发</span></div>
+          <h3>阑夕：对红果短剧威胁最大的，是红果漫剧</h3>
+          <p class="author">阑夕 · 2026-10-20 22:02 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者写道：对今日头条威胁最大的产品是抖音，对抖音威胁最大的是红果短剧，对红果短剧威胁最大的是红果漫剧。“卷死自己，就不会被别人卷。”</p>
+            <div class="discussion"><strong>讨论点：</strong>字节的做法是自己孵化下一代产品来替代上一代。漫剧大量借助 AI 生成画面，制作成本远低于真人短剧，这可能是它能威胁短剧的原因（本报推测）。阑夕次日又发帖称，按 QM（通常指 QuestMobile）的统计口径，腾讯 WorkBuddy 月活已快超过元宝，同样是“新产品追上老产品”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 漫剧正在成为短剧之后的下一个内容品类。做短剧、内容投放的人，可以开始关注 AI 漫剧的题材和投流玩法。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6ad7745dbd0563695b47f4ab" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 19 · 187 万热度</span></div>
+          <h3>国家数据集团在雄安成立，新央企主业是数据开发利用</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据问题描述，10 月 20 日，国家数据集团有限公司在河北雄安新区成立，是一家以数据资源开发利用为主责主业的中央企业。成立目的包括推进数据资源开发利用、释放数据要素价值、服务人工智能发展、繁荣数据产业生态。</p>
+            <div class="discussion"><strong>讨论点：</strong>知乎讨论集中在它会如何重塑国内数据产业格局。AI 训练和应用都离不开高质量数据，国家层面成立专门央企，说明数据被当作和算力同等重要的基础设施。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>公共数据的开放和交易可能加速。做政务、本地生活、行业数据类产品的运营，可以关注后续开放哪些数据、以什么方式授权（本报推测）。</p>
+            <a class="link" href="https://www.zhihu.com/question/2095952438779983313" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">162,583 stars · 今日 +562</span></div>
+          <h3>msitarzewski/agency-agents</h3>
+          <p class="author">Shell</p>
+          <p class="tagline">一整套“AI 代理公司”角色包：从前端开发到 Reddit 社区运营，每个角色是一个可直接调用的 AI 智能体。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一整套“AI 代理公司”角色包：从前端开发到 Reddit 社区运营，每个角色是一个可直接调用的 AI 智能体。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>把一家公司里的岗位拆成一个个 AI 角色，其中就有社区运营这类非技术岗位，适合用来理解“AI 能接手哪些岗位”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>可以把它当成一份“岗位拆解清单”，对照看看自己的运营工作里哪些环节可以交给 AI。</p>
+            <a class="link" href="https://github.com/msitarzewski/agency-agents" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">130,632 stars · 今日 +802</span></div>
+          <h3>Graphify-Labs/graphify</h3>
+          <p class="author">Python</p>
+          <p class="tagline">把一个项目里的代码、文档、配置、PDF 整理成可以提问的知识图谱（把信息之间的关系连成一张网）。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">把一个项目里的代码、文档、配置、PDF 整理成可以提问的知识图谱（把信息之间的关系连成一张网）。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>资料一多就找不到东西，是每个团队的痛点。这类工具让 AI 先把资料“理清关系”，再回答问题。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>团队知识库、历史方案、PDF 报告越来越多时，这类工具能让新人直接问 AI 找到答案，减少反复问人。</p>
+            <a class="link" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">42,484 stars · 今日 +733</span></div>
+          <h3>shiyu-coder/Kronos</h3>
+          <p class="author">Python</p>
+          <p class="tagline">一个专门学习金融市场 K 线数据的基础模型，把行情走势当成一种“语言”来学。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一个专门学习金融市场 K 线数据的基础模型，把行情走势当成一种“语言”来学。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>大模型思路正被搬到文字以外的领域。注意：这是研究项目，不代表能用来稳定赚钱，本报不构成任何投资建议。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做财经内容的人可以了解这类“AI 看盘”项目的原理，写相关内容时避免夸大其效果。</p>
+            <a class="link" href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>AI 公司的账本被摊开了。</strong> SpaceX 靠 AI 扭亏，Anthropic 半年亏 807 亿美元，DeepSeek 晒出单卡收入，OpenAI 抢在对手上市前融资。市场的问题从“谁更强”变成“谁赚得回来”，韩国 Elice 上市首日暴跌就是提醒。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>平台开始管 AI 内容的“量”。</strong> Spotify 一年清掉 5000 多万首低质 AI 歌，同时红果漫剧这类 AI 新品类在崛起。AI 内容不会被禁，但“低质堆量”会被算法限流，有创意的 AI 内容反而有机会。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>头部 AI 公司往垂直行业扎。</strong> OpenAI 收购药物研发平台、Anthropic 用 Claude 设计抗毒蛋白、国家成立数据央企：AI 的下一阶段在具体行业里落地，懂行业的人价值在上升。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-10-21 15:07 CST · 时间窗口：2026-10-20 15:07 至 2026-10-21 15:07（北京时间）</p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @xAI、@rowancheung 和微博潘乱，过去 24 小时无新帖。本期各来源均采集成功。WSJ 原文为付费墙，Anthropic 招股书内容依据 TechCrunch 转述；CNBC 的 SpaceX 股价视频页未能打开，股价反应依据知乎问题描述和 CNBC 标题，具体涨幅未能核实。OpenAI 融资依据 Rohan Paul 转述 Reuters，未核对原文。标注“转述”或“经 AI Hot 收录”的条目，摘要依据该转述。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
