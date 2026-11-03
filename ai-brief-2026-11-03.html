@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-03</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 14px 12px 40px; }
+.hero { padding: 30px 24px; border-radius: 22px; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-head span { white-space: normal; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 17px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 13px; border-radius: 16px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 8px; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 8px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 12px 0; font-size: 13px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 3 日 · 周二</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>Anthropic 财务</span><span>Marvell 收购</span><span>Palantir 财报</span><span>权重编程</span><span>DeepSeek Harness</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>Anthropic 季度收入涨十二倍，亏 233 亿美元。</strong> 据 Bloomberg 与 The Information，经 The Decoder 转述：营收近 170 亿美元，运营成本 175 亿美元；算力合同承诺总额约 8954 亿美元。</li>
+        <li><strong>Marvell 800 亿美元全股票收购 Lumentum。</strong> WSJ 标题称这是 AI 光互联领域的大并购；博主认为 AI 集群的瓶颈正在从单卡算力转向高速光互联。</li>
+        <li><strong>Palantir 美国商业收入首超政府业务。</strong> CNBC：第三季度营收首次突破 20 亿美元，美国商业收入同比涨 148% 到 9.84 亿美元；盘后股价约跌 3%。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · AI Hot 2 · 英文媒体 1 · 微博 3 · X 3 · 知乎 2 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 77 + 86 · 热点事件</span></div>
+          <h3>Anthropic 首次披露三季度业绩：收入涨十二倍，但亏损扩大到 233 亿美元</h3>
+          <p class="author">The Decoder、Rohan Paul（经 AI Hot 收录） · 2026-11-03 00:26 CST / 05:28 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 The Decoder 转述 Bloomberg 与 The Information：Anthropic 本季度营收近 170 亿美元，为一年前的十二倍；运营成本 175 亿美元，季度净亏损 233 亿美元，去年同期为 121 亿美元。另据 Rohan Paul 解读其更新的 IPO（首次公开募股）文件，算力与基础设施合同承诺总额约 8954 亿美元，其中 4475 亿美元须在 2031 年前支付，仅 2138 亿美元可取消或附带条件。AI Hot 热点事件显示，Anthropic 此前已递交 S-1 招股书，拟以 ANT 在纳斯达克上市。</p>
+            <div class="discussion"><strong>讨论点：</strong>增长和亏损同时放大，市场在问“算力承诺能不能被收入撑住”。WSJ 今天的一条标题称，Anthropic 投资者推动估值趋于谨慎、接近 1.5 万亿美元（仅见标题，原文付费）。即刻博主 Diiiii 也提到，看着已经很平缓的月收入增长曲线，再看各大厂的投入，不禁怀疑是否站在“愚昧之巅”（这是个人判断）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 行业的叙事继续从“谁更强”转向“谁撑得住”。做 AI 产品的运营人，要为“收入能否覆盖成本”准备好答案；用 Claude 做业务的团队，也要留意上游价格和套餐政策的变化（本报推测）。</p>
+            <a class="link" href="https://the-decoder.com/anthropic-grows-revenue-twelvefold-but-posts-23-billion-loss/" target="_blank" rel="noopener noreferrer">阅读转述 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">CNBC · 公开报道</span></div>
+          <h3>Palantir 三季度超预期：美国商业收入首次超过政府业务</h3>
+          <p class="author">CNBC · 2026-11-03 05:09 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">CNBC 报道，Palantir 周一盘后发布的第三季度业绩好于华尔街预期，营收同比近乎翻倍、首次突破 20 亿美元，净利润增至 11.3 亿美元。美国商业收入同比涨 148% 到 9.84 亿美元，首次超过美国政府收入 9.53 亿美元（增 96%）。公司上调全年指引：美国商业收入预计超 35.6 亿美元，全年营收约 85.3 亿美元。盘后股价约跌 3%。</p>
+            <div class="discussion"><strong>讨论点：</strong>这条被当作“企业真的在为 AI 付钱”的证据：美国商业收入两年里翻了五倍多。CEO Karp 称公司没有销售人员也能做到这样。他还重申应把 AI 实验室国有化，称这是管理责任的“唯一现实办法”，这是他本人的观点。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>企业买 AI 的预算正在从政府转向商业客户，做 B 端产品运营和内容的人会更容易讲出“客户付费买了什么结果”的故事。（本报推测）</p>
+            <a class="link" href="https://www.cnbc.com/2026/11/02/palantir-pltr-earnings-q3-2026.html" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">50 转发 · 23 评论 · 314 赞</span></div>
+          <h3>Marvell 全股票收购光通信公司 Lumentum，金额约 800 亿美元</h3>
+          <p class="author">梁赛 · 2026-11-02 20:25 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">博主称，Marvell 用全股票方式收购光通信龙头 Lumentum，认为这笔交易有可能进入全球科技与电信并购史前十。WSJ 的标题（经 aihot.today 收录）写的是“芯片制造商 Marvell 同意以 800 亿美元收购 Lumentum”，链接里标明为全股票交易。博主称 Lumentum 的高端磷化铟激光器（光通信的核心发光元件）订单已排到 2029 年初。</p>
+            <div class="discussion"><strong>讨论点：</strong>博主的判断是：AI 大模型训练的瓶颈正在从单卡算力转向集群内部的高速光互联，这笔交易本质是买产能。他还担心 Marvell 既卖芯片又做模块，原有客户可能转向博通、Credo 等对手。订单排期和客户反应为博主个人判断，本报未单独核实；本期未采集到交易当天的股价表现。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 基础设施的上游（光模块、激光器）正在成为资本追逐的地方。关注 AI 概念的运营和内容人，可以多写“看不见的硬件环节”，这类选题讨论度正在上升。（本报推测）</p>
+            <a class="link" href="https://m.weibo.cn/status/5360902987842800" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">174 回复 · 55 转帖 · 251 喜欢 · 225 书签 · 4.4 万观看</span></div>
+          <h3>MIT 论文：让 AI 直接改另一个模型的“权重”，不训练就把数学成绩提高约 6 倍</h3>
+          <p class="author">宝玉（@dotey）转述 · 2026-11-03 08:06 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据宝玉转述 MIT CSAIL 的研究：GPT-6 Astra 不经训练、不算梯度，直接修改 Qwen3.5-0.8B 约 0.016% 的权重（模型里存放“知识”的数字，据 IT之家为 131072 个），数学题 MATH-500 的正确率从 7.9% 涨到 48.1%。另据 AI Hot 收录的 X 帖，GSM8K 从 13.8 涨到 67.1，指令遵循提升 3 倍。</p>
+            <div class="discussion"><strong>讨论点：</strong>X 博主 op7418 称这是昨晚 X 上 AI 圈最热门的研究，微博上同一条有 161 转发。但冷静的声音也很多：即刻博主莫唯书Mark提醒，目前只能算修复了小模型在特定场景下的推理循环问题，能否泛化、会不会有副作用、能否迁移到大模型都还没论证。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“让 AI 改 AI”从概念走近了一步，但目前只是小模型上的实验。写这类内容时，要把“实验结果”和“已经能用”分开，别替论文把话说满。</p>
+            <a class="link" href="https://x.com/dotey/status/2117408133773705525" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 75 · 19 回复 · 87 喜欢 · 98 书签</span></div>
+          <h3>DeepSeek Harness 开出微博官号，“养鱼”教程和创造模式一起刷屏</h3>
+          <p class="author">数字生命卡兹克（经 AI Hot 收录） · 2026-11-03 12:12 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">AI Hot 收录：卡兹克分享了用 DeepSeek Harness（DeepSeek 官方 Agent 产品）在 QQ、微信、飞书里养出会聊天的“大肥鱼”的完整教程。同日 DeepSeek Harness 官方入驻微博，介绍“创造模式”：通过对话把想法变成插件，写好就能直接用，例子包括设计工作台、沙盒游戏、模型可视化工具。</p>
+            <div class="discussion"><strong>讨论点：</strong>极客公园今天还有专文《DeepSeek，怎么就变成了一条“大肥鱼”》（仅见标题）。微博博主张岱樾把 Harness 概括为“Agent 的执行层”：管任务、管工具、管流程，而不是模型本身。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>DeepSeek 正在把模型做成“人人能改造的个人 Agent”，并且开始自己做社交媒体运营。做社群和内容的人可以观察：官方怎么发“教程 + 人设玩法”带动用户自发传播。</p>
+            <a class="link" href="https://x.com/Khazix0918/status/2117469879787982932" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 11 · 337 万热度</span></div>
+          <h3>李佳琦直播间半小时卖出约 2 万亿 Token</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据问题描述引用的报道，11 月 2 日李佳琦天猫双 11 直播间首次开卖 AI 算力商品“千问办公 Token”，半小时售出 10 万份千问办公个人会员月卡，累计约 2 万亿 Token（AI 计算和计费用的文字单位）。阿里巴巴副总裁、千问办公 CEO 陈宇森做客，称 AI 取代不了李佳琦。</p>
+            <div class="discussion"><strong>讨论点：</strong>热榜问题在问：Token 会不会成为直播带货的热销品？微博博主 AIGC·非著名程序员也转发了这条（301 赞）。“把算力当商品卖给普通消费者”是新鲜做法，评论区刷出的“321，上 Token”说明大众开始接受这个概念。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 订阅进入了“直播间爆款”的玩法，运营可以关注：怎样把“看不见的 AI 能力”包装成普通人愿意下单的套餐和权益。</p>
+            <a class="link" href="https://www.zhihu.com/question/2100704253669069587" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">702 回复 · 1,986 转帖 · 22,281 喜欢 · 27,997 书签 · 585 万观看</span></div>
+          <h3>Anthropic 开放“驻留计划”：不要求机器学习背景，11 月 22 日截止</h3>
+          <p class="author">Anthropic（@AnthropicAI） · 2026-11-03 03:51 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Anthropic 官方宣布驻留计划开放申请：带薪、固定期限的研究项目，面向希望让 AI 安全且有益的学者、技术创始人和资深工程师，不需要机器学习背景，11 月 22 日前申请。据宝玉转述，年薪折合约 35 万到 50 万美元。宝玉另有一条转述称，Anthropic 还在招 Claude 平台传播经理，年薪 26.5 万到 29.5 万美元。</p>
+            <div class="discussion"><strong>讨论点：</strong>这条收藏数（近 2.8 万）比点赞还多，说明不少人先存起来再看。TechCrunch 11 月 2 日有一条标题称 Anthropic 警告其已非常接近 RSI（自己改进自己的 AI），量子位标题则说其紧急修改了招股书（仅见标题，未核对原文）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>头部 AI 公司开始从非技术背景的人里招“AI 安全”人才，还单独招传播岗位。想转 AI 行业的运营和内容人，不一定要先学代码。</p>
+            <a class="link" href="https://x.com/AnthropicAI/status/2117343929960112486" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">12 转发 · 3 评论 · 18 赞</span></div>
+          <h3>OpenAI 自研 Git 服务器 Pando：AI agent 写代码太多，传统 Git 扛不住</h3>
+          <p class="author">宝玉xp、蚁工厂（同一话题） · 2026-11-03 13:15 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">宝玉转述：OpenAI 11 月 2 日发文介绍 Pando，一套自研的 Git（程序员管理代码版本的工具）服务器后端；Anthropic 上月 13 日也发文介绍了自研的源代码管理系统 Scion。另据蚁工厂对 OpenAI 博客《Scaling Git at OpenAI》的转述：Codex 让工程师同时运行大量 AI Agent，带来海量并发分支和推送请求；Pando 用 Rust 写成，兼容 Git 协议，上线后推送的中位延迟降低约 80%，每天分发约 1 PB 数据。</p>
+            <div class="discussion"><strong>讨论点：</strong>两家头部公司几乎同时遇到同一个问题：以前一个人写代码的速度，现在变成了一群 AI 同时写。Hacker News 上“在 OpenAI 扩展 Git”也在榜。数字来自微博转述，本报未单独核对 OpenAI 原文。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 写代码的量大到连基础工具都要重造，说明“AI 产出”正在冲击所有为人设计的流程。运营同学也可以想想：你的内容审核和发布流程，扛得住 AI 十倍的产出量吗？（本报推测）</p>
+            <a class="link" href="https://m.weibo.cn/status/5361157202247810" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 8 · 531 万热度</span></div>
+          <h3>红果短剧登顶台湾 App 下载榜，有人退订 Netflix</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据问题描述：十月中下旬，红果短剧同时登上台湾 AppStore 与 Google Play 两个应用商店免费应用下载榜首位。台湾社交媒体上有网友称“Netflix 一集还没看完，红果已经重生、复仇、离婚、闪婚三次了”，也有人看到天亮、直接退订 Netflix。</p>
+            <div class="discussion"><strong>讨论点：</strong>热榜在问“背后的原因是什么”。微博博主梁赛认为，这是大众娱乐注意力迁移之后的水到渠成；梁斌penny则调侃自己反对群众刷短剧。红果是否因 AI 而火，本条未涉及。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>短剧平台的下载排名已经能压过海外流媒体应用。内容运营的人可以看看：短节奏、强反转的叙事，正在怎样挤占长视频的时间（本报推测）。</p>
+            <a class="link" href="https://www.zhihu.com/question/2100527984583222149" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">56 转发 · 56 评论 · 186 赞</span></div>
+          <h3>Anthropic 招股书称：故意不做图片和视频生成，只专注代码</h3>
+          <p class="author">AIGC·非著名程序员 · 2026-11-02 21:59 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">博主称，他看到 Anthropic 招股书里写：故意不做图片生成，也不做视频。理由有三条：代码输出可以验证，能跑测试；图片和视频好不好很难用同样方式判断；一家公司选择不做什么，才看出判断。这是博主对招股书内容的转述，本报未核对招股书原文。</p>
+            <div class="discussion"><strong>讨论点：</strong>对比之下，同一天 X 和微博上都在传 Fable 5.5 纯代码生成日本动画风格视频的效果（博主称“太牛”）。“专注代码”和“多模态大而全”两条路线，在同一天的讨论里碰在了一起。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>对做内容的人，这提醒你：AI 工具的强项和你的工作流要对得上。写代码、写文案可验证的任务，AI 更靠谱；审美类任务，仍然需要人来拍板。</p>
+            <a class="link" href="https://m.weibo.cn/status/5360926735991469" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">579 回复 · 709 转帖 · 5,716 喜欢 · 1,320 书签 · 59 万观看</span></div>
+          <h3>OpenAI 推出 LifeVal：用 ChatGPT 用户的真实需求给 AI 助手出考题</h3>
+          <p class="author">OpenAI（@OpenAI） · 2026-11-03 01:27 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">OpenAI 官方称，LifeVal 是一个由数千名 ChatGPT 用户反馈塑造的新基准（测试 AI 的考题集），反映用户最希望个人助理帮忙的领域，从寻找托儿服务、获取政府服务到管理个人财务。帖子原文被截断，各模型得分本期未采集到。</p>
+            <div class="discussion"><strong>讨论点：</strong>AI Hot 热点事件显示这条有 3 家来源同时报道。基准从“做数学题、写代码”转向“普通人的日常事务”，也说明 OpenAI 想把个人助理做成下一个主战场。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 助手的“考题”开始贴近托儿、办事、理财这类日常需求。做用户研究和产品运营的人，可以把它当作一份“用户最想让 AI 帮忙做什么”的参考清单。（本报推测）</p>
+            <a class="link" href="https://x.com/OpenAI/status/2117307611338997846" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">20 赞 · 1 评论 · 3 转发</span></div>
+          <h3>“编程之后，下一个大场景是什么？”一篇小作文引发的追问</h3>
+          <p class="author">Diiiii（AI探索站） · 2026-11-03 12:44 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者推荐一篇小作文，概括两点：一，现在看不到编程之后的下一个巨大落地场景；二，国产模型与美国前沿模型的差距会拉大，本质是算力不够。作者补充：coding 已基本榨干，视频生成体量不够大；AI 制药算力消耗有限、瓶颈在临床流程；个人 Agent 更多是切电商和旅游的蛋糕。这些是作者的个人判断。</p>
+            <div class="discussion"><strong>讨论点：</strong>作者结合 Anthropic 今天公布的第三季度数据，说看着平缓的月收入曲线，再看大厂的投入，怀疑是否站在“加德纳曲线（新技术炒作周期）的愚昧之巅”。同时他认为字节和 DeepSeek 选了“难而正确”的长期道路。梁赛微博也提到 DeepSeek V5 计划基于华为昇腾训练。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“下一个杀手级场景是什么”会越来越频繁地被问到。做 AI 产品运营的人，最好有自己的答案：你的用户到底为哪个具体场景付钱？</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6ae96692320fd7e1b52e9929" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">10,840 stars · 今日 +2,275</span></div>
+          <h3>vercel-labs/agent-desktop</h3>
+          <p class="author">Rust</p>
+          <p class="tagline">给 AI agent 用的“电脑操作”命令行工具（Computer use CLI），让 AI 能像人一样操作桌面软件。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">给 AI agent 用的“电脑操作”命令行工具（Computer use CLI），让 AI 能像人一样操作桌面软件。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>今天涨星最快的项目之一。AI 从“只会聊天”走向“直接帮你操作电脑”，这类基础工具正在变多。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>以后很多重复的后台操作（填表、导数据、整理文件）可能交给 AI 代做，运营同学可以先想想哪些活适合交出去。</p>
+            <a class="link" href="https://github.com/vercel-labs/agent-desktop" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">110,583 stars · 今日 +412</span></div>
+          <h3>paperclipai/paperclip</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">开源应用，用来在工作中管理一群 AI agent。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">开源应用，用来在工作中管理一群 AI agent。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>星标已超过 11 万。“管理一群 AI 同事”正在成为独立的需求，而不只是“用一个聊天机器人”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>当 AI 同事变多，如何分配任务、检查结果就成了新技能，这和带小团队的运营经理很像。</p>
+            <a class="link" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">111,062 stars · 今日 +1,803</span></div>
+          <h3>thedotmack/claude-mem</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">让 AI agent 跨对话保留上下文：记录 agent 在各次会话中做过的事，下次接着用。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">让 AI agent 跨对话保留上下文：记录 agent 在各次会话中做过的事，下次接着用。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>持续上榜，今天仍新增 1,803 星。“AI 记不住上次聊了什么”是很多人的共同痛点，这类记忆工具需求稳定。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做长期项目或内容系列时，AI 能否记住你的风格和进度，会直接影响提效的天花板。</p>
+            <a class="link" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>市场在给 AI 算总账。</strong> Anthropic 收入涨十二倍、亏损也扩大到 233 亿美元，Marvell 800 亿美元买光互联，Palantir 商业收入首超政府。资本仍在加码，但开始关心“算力承诺、收入能否撑住”。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>AI 写得太多，基础工具开始重造。</strong> OpenAI 的 Pando、Anthropic 的 Scion、AI 改 AI 的 MIT 实验，说明 AI 产出量已经冲击到代码托管这样的底层环节。对运营人来说，提升审核、验证和署名能力比单纯提速更重要。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>AI 正在被包装成大众商品。</strong> 李佳琦直播间卖 Token、DeepSeek Harness 开微博并推“养鱼”玩法、OpenAI 用日常事务给助手出考题。谁能把 AI 讲成普通人听得懂、愿意买的东西，谁就占了先手。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-03 15:07 CST · 时间窗口：2026-11-02 15:07 至 2026-11-03 15:07（北京时间）</p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @deepseek_ai、@xAI、@rowancheung、@zarazhangrui 和微博潘乱，过去 24 小时无新帖。The Decoder 与 TechCrunch 原文本次未能打开（读取中断），Anthropic 财务数据依据 AI Hot 收录的转述，未核对原始文件；WSJ 条目仅引用标题，原文为付费墙，未读取；Marvell 收购的交易当天股价表现未采集。标注“转述”的条目，摘要依据该转述，未逐一核对原始文件。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
