@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-09</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 14px 12px 40px; }
+.hero { padding: 30px 24px; border-radius: 22px; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-head span { white-space: normal; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 17px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 13px; border-radius: 16px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 8px; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 8px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 12px 0; font-size: 13px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 9 日 · 周一</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>英伟达风波</span><span>Anthropic IPO</span><span>Grok Bot</span><span>DeepSeek Harness</span><span>Token 价格战</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>英伟达 CEO 风波，波及全球芯片股。</strong> 董事会启动独立调查；周一台湾加权指数盘中最高涨 6.7%，英伟达盘后价格比周五收盘低约 3.4%（路透经 CNBC 转述）。</li>
+        <li><strong>Anthropic 仍冲感恩节前 IPO，估值预期下调。</strong> 据 FT 转述，拟募资 800–1000 亿美元，目标估值 1.25–1.75 万亿美元，低于此前传的最高 2 万亿。</li>
+        <li><strong>AI 工具平台在洗牌，价格和生态同时变。</strong> 腾讯元器今天停服；DeepSeek Harness 称日活 154 万；阿里云 Token Plan 加量，Pro 档降到 312 元。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 英文媒体 2 · AI Hot 3 · X 3 · 微博 3 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">CNBC · 公开报道</span></div>
+          <h3>英伟达受审查，亚洲芯片股周一却大涨，英伟达自己盘后价走低</h3>
+          <p class="author">CNBC（文中引述路透社） · 2026-11-09 13:06 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">CNBC 报道，周一亚洲科技股从周五的跌势中反弹：台湾加权指数盘中最高涨 6.7%，台积电涨超 6%，鸿海涨超 8%；韩国三星电子、SK 海力士分别涨 2.7% 和 4.77%（两家都是英伟达供应商）。路透称，英伟达在 Hyperliquid 交易所的期货和 Blue Ocean 盘后交易显示价格约 180.30 美元，比周五纳斯达克收盘价 186.64 美元低约 3.4%。据报道，韩国科技部副部长称，已签约的英伟达 GPU（显卡芯片）交付预计不受影响。</p>
+            <div class="discussion"><strong>讨论点：</strong>同一条消息，供应链股票涨、英伟达自己的盘后价下跌，市场在分开定价“英伟达的人事风险”和“AI 芯片的需求”。英伟达发言人表示黄仁勋会继续担任 CEO。文中涨幅的原因，原文没有逐一解释，本报不做推断。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>英伟达是整个 AI 行业的上游，它的治理风险会传导到算力价格和供给上。做 AI 产品运营和商业化的人，近期看算力成本预算时多留一点余量（本报推测）。</p>
+            <a class="link" href="https://www.cnbc.com/2026/11/09/asia-chip-stocks-south-korea-taiwan-nvidia.html" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 84 · 热点榜（5 家来源同时在报）</span></div>
+          <h3>英伟达董事会宣布独立调查：CEO 黄仁勋被指成为外国情报行动的目标</h3>
+          <p class="author">Rohan Paul（@rohanpaul_ai）转述，经 AI Hot 收录 · 2026-11-09 05:21 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据转述，英伟达董事会 11 月 8 日发声明：由独立董事组成委员会、在外部独立律师协助下调查，黄仁勋全力配合；董事会称没有理由认为国家安全或英伟达机密已受损。另据转述的 NYT 报道（AI Hot 另一条，09:47 CST），黄仁勋承认与 Alice Huang 有亲密关系；她领导新加坡数据中心公司 Megaspeed，自 2024 年 6 月起买了超过 48 亿美元的英伟达芯片，美国官员一年多前开始监视她，调查她是否协助向中国走私受限 AI 芯片。TechCrunch 补充：中国使馆 10 月底称指控是“毫无根据的诽谤”，目前无人被起诉。</p>
+            <div class="discussion"><strong>讨论点：</strong>舆论焦点已从“出轨”转到“国家安全”。微博博主宝玉转述：特朗普称“我认为他是一个正直的人”，还没和黄仁勋谈过，想听他解释。极客公园微博称马斯克发文回应，同意黄仁勋对美国 AI 产业不可或缺（仅见标题）。即刻博主阑夕则认为，承认有染意味着黄仁勋对这家公司的情况完全知情或被攻陷（这是个人观点）。NYT 的细节为转述，本报未单独核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>一场“人设加国家安全”的舆情，会同时在财经、科技、社交平台发酵。做品牌和公关的人可以看一个样本：公开信怎么写、董事会声明怎么措辞，各方再怎么转述。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2119540787147059491" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · AI Hot 评分 83</span></div>
+          <h3>耶鲁教授估计黄仁勋保住 CEO 位置的概率“大约五五开”，英伟达没有现成接班人</h3>
+          <p class="author">TechCrunch（Connie Loizos） · 2026-11-09 13:26 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">TechCrunch 采访耶鲁管理学院教授 Jeffrey Sonnenfeld：他认为此事是“极其糟糕的判断”，但黄仁勋的职业生涯还有救，去留概率“大约五五开”。文章指出：黄仁勋保持扁平管理，约有 60 个直接汇报对象，内部很难看出接班人；英伟达约 4.2 万名员工；英伟达还投资了 OpenAI、Anthropic、xAI、CoreWeave 和 Nebius。NYT 称，美国情报官员约一年前向特朗普通报过担忧，未具名的高级官员怀疑黄仁勋不可能一直不知情；董事会称没有迹象显示机密被泄露。</p>
+            <div class="discussion"><strong>讨论点：</strong>“五五开”是专家的一家之言，不是事实。这篇的价值在于说明：英伟达既是芯片卖家，又是很多 AI 公司的投资方，CEO 的去留会牵动整条 AI 融资链。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做 AI 公司对外沟通的人要留意：上游供应商和投资方的重大变动，会让下游的融资、采购节奏一起摇晃。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/08/is-jensen-huangs-job-on-the-line-yales-jeffrey-sonnenfeld-estimates-its-about-a-50-50/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 71 · 热点榜（2 家来源）</span></div>
+          <h3>Anthropic 仍推进感恩节前 IPO：拟募资 800–1000 亿美元，估值预期被压低</h3>
+          <p class="author">IT之家（转述 Financial Times，经 AI Hot 收录） · 2026-11-08 08:44 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 FT 转述，多位投资者称 Anthropic 仍计划在感恩节前上市，预计募资 800–1000 亿美元，目标估值 1.25–1.75 万亿美元，高于目前的 9650 亿美元，但与一个月前投资者预期的翻倍水平差距不小；有投资者预计定价约 1.5 万亿或 1.3 万亿美元。IT之家称，周四美股单日蒸发约 3.2 万亿美元市值，OpenAI 也把寻求的估值从 1.4 万亿下调到 1.25 万亿美元。七位联合创始人已承诺把个人股权的 80% 捐给慈善事业。</p>
+            <div class="discussion"><strong>讨论点：</strong>这条本报 11 月 7 日已报过估值被压价，今天是最新进展：不是取消，而是“降价照上”。路透（经 IT之家）称，还有机构认为合理区间在 1.5–1.6 万亿美元，更大的投资者甚至认为接近 1 万亿。即刻博主莫唯书 Mark 也在 11-08 说“Anthropic 顶多只值 5000 亿”，属个人看法。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 公司上市，意味着很快会有一波“招股书式”的公开数据，行业对手的收入结构、亏损、用户增长都会公开。做竞品分析和行业研究的运营同学，可以提前准备拆这类材料（本报推测）。</p>
+            <a class="link" href="https://www.ithome.com/1/023/854.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">4,678 回复 · 3,777 转帖 · 39,678 喜欢 · 651 万观看</span></div>
+          <h3>马斯克：Grok Bot 正在修复，要提升“令牌效率”、让它更聪明</h3>
+          <p class="author">Elon Musk（@elonmusk） · 2026-11-08 21:17 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">马斯克发帖称，Grok Bot 的修复工作正在进行，目标是提升令牌效率（token efficiency：同样的任务少花多少计费单位）并让它的行为更聪明。博主歸藏（@op7418）今天 11:52 说，这几天 Grok Bot 质量“相当离谱”，老出低级错误和幻觉，并转述“他们说今晚效果应该就会变好”；他 12:24 又说，自己用的老套餐，用量很难用满。</p>
+            <div class="discussion"><strong>讨论点：</strong>这条帖子 651 万次观看，用户抱怨和官方回应都在公开场合发生。GitHub 今天的热榜上，一个“开源版 Grok Bot 替代品”一天涨了 1,439 颗星，和这个争议同时出现（二者关系本报未核实）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 产品的质量波动会被用户当天放大到几百万人面前，对产品运营的启示是：出问题时，创始人亲自、公开地回应，比事后补公告更能稳住舆论。</p>
+            <a class="link" href="https://x.com/elonmusk/status/2119419126045454531" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">13 转发 · 5 评论 · 35 赞</span></div>
+          <h3>DeepSeek Harness 被推荐为“Agent 时代的操作系统”，称日活 154 万、插件 3.5 万个</h3>
+          <p class="author">AIGC·非著名程序员 · 2026-11-09 11:56 CST</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者深度体验两周后称，爱折腾的人可能更喜欢 DeepSeek Harness，他把自己的 Skill（把工作流程写给 AI 的说明）都做成了插件。他引用的数据是：上线不到三个月，日活 154 万，3.5 万个第三方插件，六成用户主动参与生态建设；还举了创作者“蜗牛”做“自媒体创作者工作台”的例子。博主宝玉转述的官方说法是“希望 DeepSeek Harness 成为 Agent 时代的操作系统”。</p>
+            <div class="discussion"><strong>讨论点：</strong>日活 154 万在 11 月 6 日本报也报过，今天新增的是“插件生态”的数字。作者另发一条说，WorkBuddy 像国外的 Codex，DeepSeek Harness 更像 Claude Code，是个人类比。上述数据为作者引用，本报未单独核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>平台有了插件市场，做垂直工作台、模板、Skill 的人就多了一个分发渠道。运营和自媒体人可以把自己重复做的流程做成插件，试试能不能变成一个可以被别人用的小产品（本报推测）。</p>
+            <a class="link" href="https://m.weibo.cn/status/5363311686452254" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">133 回复 · 75 转帖 · 627 喜欢 · 353 书签 · 8.1 万观看</span></div>
+          <h3>博主称被灰度到 GPT-6.2 Sol：审美“强到爆炸”，疑似新模型要来了</h3>
+          <p class="author">数字生命卡兹克（@Khazix0918） · 2026-11-09 03:09 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">卡兹克说自己的账号被“灰度路由”（小范围试用）到了 GPT-6.2 Sol，简单测试后觉得审美很强、防御性问题有明显改善，还说“要提前开香槟恭喜 OpenAI 回归”。他用的测试是让模型用 Three.js 做一个主题为《时间的尽头》的 3D 交互网页。博主宝玉 05:16 发帖说“猜测是 GPT-6.2 要来了”。</p>
+            <div class="discussion"><strong>讨论点：</strong>这是个人体验，本期采集范围内没有看到 OpenAI 官方发布，按未证实处理。收藏数（353）高于一般帖子，说明大家在存提示词和测试方法。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>新模型常先在小范围灰度测试，口碑往往先在博主圈传开。做 AI 内容的人，可以准备一套固定的测试题，新模型一出就能当天做对比内容。</p>
+            <a class="link" href="https://x.com/Khazix0918/status/2119507514459144677" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 68 · IT之家</span></div>
+          <h3>阿里云 Token Plan 加量：三档月费不变，Pro 额度升到 20 万、月费降到 312 元</h3>
+          <p class="author">IT之家（经 AI Hot 收录） · 2026-11-09 14:31 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">阿里云上调 Token Plan 个人版额度：Lite、Essential、Standard 三档月费不变，月度额度分别从 1.15 万、2.55 万、4.5 万 Credits 升到 2 万、4.5 万、8 万；Pro 档额度从 18 万升到 20 万，月费从 499 元降到 312 元。（Token：AI 计算和计费用的文字单位。）</p>
+            <div class="discussion"><strong>讨论点：</strong>同一天，腾讯 WorkBuddy 因 DeepSeek-V4.1 Flash 的折扣活动调整没有及时公告而道歉：11 月 5 日 14:00 恢复原价，对 11 月 5 日 14:00 至 8 日 23:59 的用量，按 5 折结算并自动返还差额（极客公园微博引述 IT之家）。订阅价格和额度正在变成竞争手段。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做 AI 工具推广的人要盯价格与额度的变化：调整优惠要提前公告，否则用户会直接觉得被坑。价格和额度的变化本身，也是一类天然的内容话题。</p>
+            <a class="link" href="https://www.ithome.com/1/024/250.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">极客公园 · 微博热点播报</span></div>
+          <h3>腾讯元器今天正式停止服务，明年 1 月 9 日后删除用户数据</h3>
+          <p class="author">极客公园（引述 IT之家） · 2026-11-09 13:00 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">腾讯元器平台 11 月 9 日起停止对公众的所有服务，包括应用访问、数据读写、API 调用和控制台；经元器发布到公众号、服务号、微信客服等渠道的智能体，不再响应用户对话。10 月 29 日起已停止创建新智能体和分发 API Key。2027 年 1 月 9 日后不再受理数据导出申请，之后将删除全部用户数据（法律要求留存的日志除外）。未用完的资源包可到腾讯云申请退款。官方建议改用腾讯云智能体开发平台（ADP）和公众号智能回复。</p>
+            <div class="discussion"><strong>讨论点：</strong>元器是 2024 年 5 月发布的智能体平台，主打“低门槛创建、全域分发”。同一天另一个平台在宣传插件生态，一关一开，是对比。关停原因，原文没有说明，本报不做推断。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>如果你的账号、社群或客服用了元器做的智能体，现在要尽快导出数据，并迁移到官方建议的替代产品。靠单一平台做的自动化，最好有备份方案。</p>
+            <a class="link" href="https://m.weibo.cn/status/5363327565300934" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">217 转发 · 61 评论 · 1,054 赞</span></div>
+          <h3>“时间矿”理论：AI 降低了做内容的门槛，但没有增加人们的时间</h3>
+          <p class="author">tombkeeper · 2026-11-08 22:46 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者用“时间矿”解释为什么看 AI 短剧的人多、做 AI 短剧却不赚钱：中国十亿网民，哪怕不睡觉，每天最多约 240 亿人时，这是内容消费的上限。AI 让更多人能挖矿、挖得更快，但“矿”的储量没变，所以人均分到的会变少；供给大于需求之后，投流（花钱买流量）比内容质量更重要，不亏的团队赚的钱也大多花在了投流上。他还推测，可能有人用认知神经科学让短剧更“上瘾”。</p>
+            <div class="discussion"><strong>讨论点：</strong>这是作者的个人推演，不是行业数据。帖子 1,054 赞，抓住了做内容的人最真实的焦虑：生产变容易之后，竞争转移到分发。最后一段关于“让短剧更上瘾”是作者自己的推测。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>内容生产成本下降后，运营的核心工作会更多落在分发、投放效率和选题判断上。这类帖子适合拿来对照自己团队的“投流占比”。</p>
+            <a class="link" href="https://m.weibo.cn/status/5363112712867238" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">41 赞 · 26 评论 · 5 转发</span></div>
+          <h3>AI 陪伴替代不了真实关系，是因为人需要你回应</h3>
+          <p class="author">Melodyue（AI探索站） · 2026-11-08 21:19 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者认为：以前常听说 AI 陪伴难替代人，是因为人有“不确定性”；但他现在觉得更关键的区别是，人有自己的需求，也需要你的回应。和 AI 聊天可以被倾听、被安慰，聊完立刻退出，不用顾虑它的感受，这种轻松很珍贵，也让人上瘾；而真实关系里，你要走出自己的世界去关心对方，这种付出本身会带来快乐，还会像“复利”一样积累信任和默契。</p>
+            <div class="discussion"><strong>讨论点：</strong>评论区 26 条，说明这个角度引起了讨论。它回应了 Personal AI 的核心争议：做“好用的陪伴”和做“有意义的关系”，可能是两件事。极客公园今天也有文章称“陪伴注定是 Personal AI 的核心”（仅见标题）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做 AI 陪伴类、社区类产品的人可以想一个问题：产品是让用户“用完就走”，还是创造出需要互相回应的关系？这决定了留存的类型。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6af076cdb8cb8d00dd08cd93" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">199 回复 · 38 转帖 · 449 喜欢 · 39 书签 · 2.5 万观看</span></div>
+          <h3>“vibe coding”一词带贬义，创作者呼吁换个更好的说法</h3>
+          <p class="author">@zarazhangrui · 2026-11-09 08:45 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者说自己几乎不再用“vibe coding”（凭感觉、让 AI 写代码）这个词，因为它暗示人没有投入心血、只是 AI 的粗制滥造；但很多人用 AI 编码工具时确实是把心血倾注进去了，两者并不矛盾，需要一个更好的词来描述。</p>
+            <div class="discussion"><strong>讨论点：</strong>帖子有 199 条回复，在本期采集的非马斯克 X 帖子中回复最多，说明“用 AI 做东西算不算认真做”仍是个有争议的身份问题。本报没有逐条核对回复内容。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>对外介绍“用 AI 做的作品”时，措辞会影响别人对你投入程度的判断。写简历、做作品集、发作品时，可以多讲清楚自己做了哪些判断和取舍。</p>
+            <a class="link" href="https://x.com/zarazhangrui/status/2119592080318341128" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">18,791 stars · 今日 +1,439</span></div>
+          <h3>milind-soni/OpenMausBot</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">开源的 Grok Bot 替代品，自带一台机器人可以使用的虚拟机。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">开源的 Grok Bot 替代品，自带一台机器人可以使用的虚拟机。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>和今天 Grok Bot 的质量争议同时冲上热榜，说明有人想要一个不受单一厂商质量波动影响的选择（二者关系本报未核实）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>想自己试“机器人替你干活”的运营同学，可以关注它的玩法，但需要一定技术基础才能部署。</p>
+            <a class="link" href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">189,937 stars · 今日 +792</span></div>
+          <h3>anthropics/skills</h3>
+          <p class="author">Python</p>
+          <p class="tagline">Anthropic 官方的 Agent Skills（把工作流程写成说明让 AI 照做）公开仓库。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Anthropic 官方的 Agent Skills（把工作流程写成说明让 AI 照做）公开仓库。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>今天 DeepSeek Harness 的讨论里，“把 Skill 做成插件”是热点；Skill 这种写法正在成为各家 Agent 的通用做法。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>可以直接拿来参考，学习怎么把自己的重复工作流程写成 AI 能照做的说明。</p>
+            <a class="link" href="https://github.com/anthropics/skills" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">17,703 stars · 今日 +875</span></div>
+          <h3>meta/astryx</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">可完全自定义、并且为 Agent 做了适配的开源设计系统。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">可完全自定义、并且为 Agent 做了适配的开源设计系统。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>设计系统要让 AI 能读懂、能用，才能保证 AI 生成的页面风格统一。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做页面和活动页的人可以关注：品牌规范写成 AI 能读的形式，会让批量出图出页更不容易跑偏。</p>
+            <a class="link" href="https://github.com/meta/astryx" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>英伟达的风险，已是全行业的风险。</strong> 它既是 AI 芯片的最大卖家，又投资了 OpenAI、Anthropic、xAI 等公司。CEO 的去留和国家安全调查，会同时影响芯片供应、融资和股价，亚洲供应链与英伟达自身的价格走势已经分开。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>AI 公司的估值在往下调，上市还在继续。</strong> Anthropic 预计 1.25–1.75 万亿美元估值上市，低于此前最高的 2 万亿；OpenAI 也把融资估值从 1.4 万亿降到 1.25 万亿。资本没有撤退，但出价更保守。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>Agent 平台和 Token 订阅进入洗牌期。</strong> 腾讯元器停服，DeepSeek Harness 称日活 154 万，阿里云加量降价，WorkBuddy 因折扣调整道歉。能留住用户的，是插件生态、价格透明度和稳定的体验。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-09 15:08 CST · 时间窗口：2026-11-08 15:08 至 2026-11-09 15:08（北京时间）</p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@xAI、@AnthropicAI、@rowancheung、@_akhaliq 和微博潘乱，过去 24 小时无新帖。知乎热榜本次未能抓到，本期没有知乎条目。标注“经 AI Hot 收录”或“转述”的条目（英伟达董事会声明及 NYT 细节、Anthropic IPO 的 FT 报道），摘要依据该转述，未逐一核对原文；CNBC 中英伟达盘后价格为路透报道，经 CNBC 转引。WSJ 原文为付费墙，仅作标题参考，未采用。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
