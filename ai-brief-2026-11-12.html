@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-12</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 14px 12px 40px; }
+.hero { padding: 30px 24px; border-radius: 22px; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-head span { white-space: normal; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 17px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 13px; border-radius: 16px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 8px; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 8px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 12px 0; font-size: 13px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 12 日 · 周四</p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>黄仁勋去留</span><span>Anthropic IPO</span><span>OpenAI 营收</span><span>AI 做游戏</span><span>大厂组织变革</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>英伟达董事会或罢免黄仁勋，盘后跌约 8%。</strong> WSJ 称董事会最快周三（美国时间）开会决定黄仁勋去留；《纽约时报》又曝第二段婚外情。TechCrunch 称英伟达周三盘后跌约 8%，5 天累计跌约 11%。</li>
+        <li><strong>Anthropic IPO 认购火爆，或成史上最大上市。</strong> 据彭博报道，订单达发行份额数倍，IPO 加私募最高募资 904 亿美元，超过 SpaceX 的 857 亿美元纪录，股票代码 ANT。</li>
+        <li><strong>AI 做游戏一下午出成品，争议也在升温。</strong> 博主歸藏用 Fable 5.2 一下午做出 3D 动作游戏，打包成一个 30 兆的网页；Ethan Mollick 则说游戏圈的反 AI 情绪主要伤害独立工作室。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 英文媒体 2 · 微博 3 · AI Hot 3 · X 3 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · 公开报道 · AI Hot 评分 89</span></div>
+          <h3>英伟达董事会据报准备罢免黄仁勋，股价盘后跌约 8%</h3>
+          <p class="author">TechCrunch（援引 WSJ、《纽约时报》、彭博） · 2026-11-12 07:28 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 WSJ 报道，英伟达董事会最快周三（美国时间）开会，决定联合创始人、执掌公司 33 年的 CEO 黄仁勋的去留。黄仁勋周日承认与一名被美国情报部门指为中国间谍的女子有婚外情；周三《纽约时报》又报道他与一名向他汇报的高管有婚外关系。TechCrunch 称，英伟达股价周三盘后下跌约 8%，过去 5 天累计下跌约 11%。据彭博报道，英伟达正与外部机构合作物色可能的 CEO 人选。</p>
+            <div class="discussion"><strong>讨论点：</strong>据宝玉转述《纽约时报》，第二段关系的对象是英伟达医疗健康副总裁 Kimberly Powell，黄仁勋、Powell 和英伟达都没有证实。TechCrunch 提到黄仁勋约有 60 名直接下属，公司没有明显的接班人或接班计划。极客公园转述彭博称，董事会还在考虑临时 CEO 方案。CNBC 今天多档节目在讨论“关键人物风险”（公司价值过度依赖一个人的风险）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>一家公司的品牌和信任高度绑定在创始人个人身上时，个人风波会直接变成市值波动。做品牌和公关的人可以拿它当案例：危机里，公司的公开回应节奏和口径同样会被市场定价。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/11/nvidias-stock-drops-as-board-reportedly-preps-to-oust-ceo-jensen-huang/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">4 转发 · 6 评论 · 23 赞</span></div>
+          <h3>“库克接班黄仁勋”是以讹传讹：博主梳理传言链</h3>
+          <p class="author">猫叔在硅谷 · 2026-11-12 13:09 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">作者称，没有任何报道说英伟达董事会在考虑库克。源头是耶鲁管理学院教授 Jeffrey Sonnenfeld 在 CNBC-TV18 采访中说，若黄仁勋下台，英伟达“可以考虑”库克和前谷歌 CEO Eric Schmidt，原报道明确写了这只是他的建议。之后 Polymarket 的帖子写成库克“据传正在被考虑”，交易账号转发时去掉限定词，再被做成“库克有望接替黄仁勋”的图文。作者称 Kalshi 上库克的赔率一度被炒到 91%，现回落到 10%。</p>
+            <div class="discussion"><strong>讨论点：</strong>作者列出分析师提到的内部人选：Ian Buck、CFO Colette Kress（临时 CEO 人选）和联合创始人 Chris Malachowsky。今天微博上“库克可能成英伟达 CEO 人选”的说法仍在流传（如梁赛的帖子有 157 赞）。预测市场赔率和人选为作者转述，本报未单独核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>一句“可以考虑”经过三次转发就变成“据传正在考虑”，这是标准的谣言放大路径。做内容的人追热点时，转发前回到第一手出处看一眼限定词，能少翻很多车。</p>
+            <a class="link" href="https://m.weibo.cn/status/5364416994083514" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 78 · 热点事件 7 个来源</span></div>
+          <h3>Anthropic IPO 获数倍认购，最高募资 904 亿美元，或成史上最大上市</h3>
+          <p class="author">AI Hot 收录（Rohan Paul 转述彭博） · 2026-11-11 22:38 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据彭博报道，Anthropic IPO 已获得数倍于发行份额的订单，主要来自大型机构投资者。公司通过 IPO 加私募配售寻求最高 904 亿美元，将超过 SpaceX 的 857 亿美元纪录，成为史上最大上市；完全稀释后的估值目标约 1.4 万亿美元。高盛和摩根士丹利牵头，共 22 家银行参与，股票将以 ANT 为代码在纳斯达克交易。</p>
+            <div class="discussion"><strong>讨论点：</strong>这是本周持续的热点：上一期已报道 Anthropic 启动路演，最新进展是认购火爆。AI Hot 热点事件标题称估值预期回落至 1.25–1.75 万亿美元；极客公园标题称创始人将套现 17.5 亿美元（仅见标题）。另据张岱樾转述，Anthropic 在路演中披露 Claude Mythos 三天把核心 GPU 内核移植到 AMD 平台，为作者转述，本报未单独核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>史上最大 IPO 意味着 Anthropic 接下来要按上市公司节奏披露数据、讲增长故事。Claude 相关的生态、插件和内容创作机会可能会继续变多（本报推测）。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2120526677247939001" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 76 · The Decoder</span></div>
+          <h3>OpenAI 三季度营收 100 亿美元，环比涨约五成，但亏损也在扩大</h3>
+          <p class="author">The Decoder（援引 WSJ、The Information，经 AI Hot 收录） · 2026-11-11 20:12 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 WSJ 和 The Information 报道，OpenAI 第三季度营收环比增长约 50%，达到 100 亿美元；调整后经营亏损从 101 亿美元升至 109 亿美元。The Decoder 称其经营效率仍落后于 Anthropic。</p>
+            <div class="discussion"><strong>讨论点：</strong>同一天 Anthropic 的 IPO 认购火爆，两家公司被拿来直接对比：营收都在快速增长，但谁更接近赚钱，正在成为资本市场的核心问题。此前（11 月 7 日）OpenAI 刚到账首批 110 亿美元融资。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“营收翻倍但亏损也在扩大”说明 AI 服务的成本还很高。普通用户能感受到的，可能是会员价格、免费额度和使用限制会继续调整，做 AI 产品运营的人要提前准备好定价沟通（本报推测）。</p>
+            <a class="link" href="https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">The Information 首发 · AI Hot 评分 72</span></div>
+          <h3>美国拟要求七国出口许可，堵住中国 AI 公司“远程租用”英伟达芯片</h3>
+          <p class="author">The Information（据 Rohan Paul 转述，经 AI Hot 收录） · 2026-11-12 13:27 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 The Information 报道，美国商务部一项新规将要求对新加坡、马来西亚、泰国、印尼、巴西、挪威和南非出口芯片需获许可，阻止中国 AI 公司通过这些国家的数据中心租用 Blackwell 及更新的英伟达芯片。买家须披露芯片接收方和用途，并接受持续监控；新规同时针对远程访问和走私。</p>
+            <div class="discussion"><strong>讨论点：</strong>极客公园同日转述外媒称，英伟达正在加强对东南亚 AI 加速器的出货监控，要求接入芯片追踪系统。微博博主梁赛认为，这叠加英伟达风波，会强化国产算力自主可控的叙事。The Information 原文为付费内容，本条依据转述。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>国内 AI 公司“借海外机房用好卡”的路可能被收紧，算力成本和产品上线节奏会受影响。关注国产大模型的人，接下来可以多留意国产芯片和价格战的变化（本报推测）。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2120750427914514731" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">微博话题 #曝腾讯裁员传闻挤崩同事圈#</span></div>
+          <h3>腾讯“裁员 50%”传闻刷屏，腾讯张军回应：纯属误读</h3>
+          <p class="author">AIGC·非著名程序员（转发腾讯张军回应） · 2026-11-12 15:07 CST</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">腾讯张军在微博回应称，“裁员 50%”是误会和谣言。他还原说，在腾讯 28 周年的 Linktime 线上直播中，管理层表示要加快组织变革，并强调这次和几年前的“降本增效”不同，更偏“增效”：50% 的人像“陆军”守住现有核心业务，另 50% 像“海军”去探索 AI Native（以 AI 为原生能力的新产品），中间管理层要更扁平。他称这是资源调度的比喻，“裁员 50%”完全不属实。</p>
+            <div class="discussion"><strong>讨论点：</strong>据转发内容，相关言论让“同事圈”因流量过大一度挂掉。博主 AIGC·非著名程序员认为腾讯在大模型上“有一点点落后”，WorkBuddy 算是挽回了一些颜面。梁斌penny 则判断大厂裁员不可避免，程序员需求会压缩到目前的五分之一（个人判断，273 赞）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>大厂把人按“守现有业务”和“做 AI 新业务”重新分组，会是接下来的普遍做法。运营岗要想清楚自己在哪一边：守业务就拼提效，去新业务就要能讲清楚 AI 产品怎么增长。</p>
+            <a class="link" href="https://m.weibo.cn/status/5364446713086535" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">2 转发 · 3 评论 · 9 赞</span></div>
+          <h3>字节“豆包工作”接入 Kimi、GLM、DeepSeek 等第三方模型</h3>
+          <p class="author">蚁工厂（转发新浪科技） · 2026-11-12 12:46 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据新浪科技，11 月 12 日豆包工作宣布更新：在自研的豆包 2.1 Lite 和 Pro 之外，新增 Kimi K3.1 Pro、GLM 5.3、DeepSeek V4.1 Flash 等第三方模型。豆包工作是豆包推出的 AI Agent（能自己执行多步任务的 AI 助手）办公产品，面向生产力场景，围绕用户目标执行任务并交付成果。</p>
+            <div class="discussion"><strong>讨论点：</strong>AIGC·非著名程序员称这次给出了很大的优惠力度，认为字节对办公 Agent 投入坚决；蚁工厂说火山引擎的 coding plan 里本来就有这些模型，联手“好像也正常”。同一天腾讯被传组织变革、元宝搜索上线（36Kr 标题），办公 Agent 正成为大厂抢入口的新战场。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>大厂办公 Agent 开始“不只卖自家模型”，用户可以在一个入口里切换不同模型。对运营人来说，选工具时少了一个顾虑；对做模型的公司，渠道和入口的话语权在上升。</p>
+            <a class="link" href="https://m.weibo.cn/status/5364411441088354" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">1,913 回复 · 2,209 转帖 · 19,507 喜欢 · 4,531 万观看</span></div>
+          <h3>xAI 发布 Grok Bot 1.0，马斯克：把它招为同事</h3>
+          <p class="author">Elon Musk（@elonmusk）/ xAI · 2026-11-12 02:28 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">xAI 发布 Grok Bot 1.0，官方介绍称这些机器人可以共享，比以往更具协作性和能力。马斯克随后发帖：“把 Grok Bot 招为同事，把最难的任务交给它！”这条帖子观看量超过 4,500 万。</p>
+            <div class="discussion"><strong>讨论点：</strong>同一时期 xAI 也有负面：据 IT之家转述彭博，多名未成年受害者就 Grok 被用来把普通照片篡改成儿童性虐待材料，对 xAI 提起多起集体诉讼，律师估计符合条件的受害者可能多达数千人（AI Hot 评分 86）。一边是“AI 同事”的宣传，一边是生成内容的责任之争。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“AI 同事”这个说法正在被大厂集体推广，团队协作工具会越来越像“人 + 几个 AI 成员”的群聊。做内容和社区的人也要注意：AI 生成图像的滥用风险，平台和品牌都可能被追责。</p>
+            <a class="link" href="https://x.com/elonmusk/status/2120584535423565889" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">138 回复 · 29 转帖 · 154 喜欢 · 2.7 万观看</span></div>
+          <h3>谷歌推出“只做判断不写回答”的 AI 接口：输出不收钱</h3>
+          <p class="author">宝玉（@dotey） · 2026-11-12 06:39 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">谷歌在 Gemini API 上线 Decisions API，配套新模型 Gemini Decision 1。它不生成文字，只回答是非题、单选题和打分题，并给出 0 到 1 的置信度。一次最多挂 1,000 个问题，输入每百万 tokens 0.1 美元，输出不收费（tokens：AI 计费用的文字单位）。谷歌称输入在 1.6 万 tokens 以内时，延迟 150 到 250 毫秒。</p>
+            <div class="discussion"><strong>讨论点：</strong>宝玉的长文指出，OpenAI 早一个月推出了同名产品，同样每百万输入 tokens 0.1 美元、输出免费，但一次最多 400 个问题。谷歌博客的对比表里，Gemini Decision 1 在 9 项测试中 7 项第一，但跑分都是谷歌自己测的。AI Hot 把它列为热点事件（11 个来源同时在报）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>内容审核、客服分流、评论打标签这类“只要一个判断”的活，用 AI 做会越来越便宜、越来越快。做社区和客服运营的人，可以开始想哪些人工审核能交给它，哪些必须留给人。</p>
+            <a class="link" href="https://x.com/dotey/status/2120647659388031454" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">31 赞 · 9 评论 · 3 转发</span></div>
+          <h3>博主用 Fable 5.2 一下午做出 3D 动作游戏，整个游戏只是一个网页</h3>
+          <p class="author">歸藏（AI探索站） · 2026-11-12 09:50 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">歸藏称，Fable 5.2 只用一下午、4.5 亿 tokens，就做出了一个 3D 动作游戏，模型、场景设计、动作设计和优化都由 AI 完成，最后被打包进一个 30 兆的 HTML 文件，可以直接在浏览器里玩。</p>
+            <div class="discussion"><strong>讨论点：</strong>他在 X 上还说，网页是最方便的游戏分发方式，“4399 即将迎来复兴”，需要一个以网页为基础的游戏分发平台。即刻博主莫唯书Mark 则建议 AI 大厂考虑收购游戏或 3D 引擎公司，也吐槽有人把 Claude 员工做的 Demo 汉化后自称“国产 3A 大作”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>一个人一下午就能做出可玩的小游戏，H5 小游戏、互动营销页的制作成本会大幅下降。做活动运营和品牌营销的人，可以把“小游戏”重新放进方案库。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6af51b623ce945612e972464" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">170 回复 · 82 转帖 · 1,093 喜欢 · 3.5 万观看</span></div>
+          <h3>沃顿教授 Mollick：游戏圈的反 AI 情绪，主要伤害的是独立工作室</h3>
+          <p class="author">Ethan Mollick（@emollick） · 2026-11-11 20:30 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Mollick 认为，在几乎所有编程都会用到 AI 的世界里，坚持“不用 AI 写代码”是一个不可能的标准。如果粉丝在乎人类的作品，应该奖励以人类艺术家和设计师为中心的游戏，而不是去监管 AI 的使用。</p>
+            <div class="discussion"><strong>讨论点：</strong>他在另一条帖子里说，几乎每个独立工作室和游戏设计师都会隐瞒自己在用 AI，因为害怕粉丝，而大型工作室不会受到同样的惩罚。他另一条帖子（3,770 喜欢）说，再也不会有《GTA 6》这种规模的 3A 游戏在没有 AI 协助的情况下诞生。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“用没用 AI”正在变成内容的声誉问题。做内容的团队要提前想好对外怎么说：与其藏着，不如讲清楚哪些部分是人做的、AI 帮了什么。</p>
+            <a class="link" href="https://x.com/emollick/status/2120494284499554691" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 61 · 热点事件 4 个来源</span></div>
+          <h3>美联航禁止 AI 助手替旅客买机票：可以查航班，不能下单</h3>
+          <p class="author">IT之家（经 AI Hot 收录） · 2026-11-12 09:39 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">美国联合航空出于隐私和监管考虑，不允许个人 AI 助手代旅客购买机票，AI 仍可展示航班但不能替用户完成交易。美联航担心智能体泄露客户信息、误解用户意愿下单，行李确认等合规程序也难由 AI 代办；CEO 斯科特·柯比表示不想再多一个交易中间人。</p>
+            <div class="discussion"><strong>讨论点：</strong>The Verge 指出 eBay 和多家大型银行也有类似限制。WSJ 今天也以《美联航禁止 AI 机器人预订航班》为题报道（原文付费，仅见标题）。另一篇 WSJ 标题在问：科技巨头希望人人都用 AI 智能体，但谁来承担成本？</div>
+            <p class="impact"><strong>对运营/内容人：</strong>Agent 能不能替用户“下单”，决定权在平台手里。做电商、本地生活的运营要关注：当 AI 成为新的“客户”，自家平台要不要对它开放、怎么分利，会是很快就要回答的问题。</p>
+            <a class="link" href="https://www.ithome.com/1/025/879.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">25,534 stars · 今日 +2,776</span></div>
+          <h3>meta/astryx</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">Meta 开源的设计系统，可完全自定义，并且“为 AI Agent 准备好”：AI 助手可以直接调用它来搭界面。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Meta 开源的设计系统，可完全自定义，并且“为 AI Agent 准备好”：AI 助手可以直接调用它来搭界面。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>近几天多次登上 GitHub 热榜，今天在热榜里单日涨星最多。大公司开始把设计规范写成 AI 能直接读懂的形式。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>以后让 AI 做活动页、落地页，风格统一会更容易。运营同学提需求时，可以直接要求“按某套设计系统来”。</p>
+            <a class="link" href="https://github.com/meta/astryx" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">11,168 stars · 今日 +361</span></div>
+          <h3>shadcn/improve</h3>
+          <p class="author">未标注</p>
+          <p class="tagline">用最强的模型检查整个项目，写出改进计划，再交给更便宜的模型去执行。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">用最强的模型检查整个项目，写出改进计划，再交给更便宜的模型去执行。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>“贵模型做规划、便宜模型干活”是一种省钱思路。AI Hot 今天也收录了 Artificial Analysis 对 Claude 模型选档的实测：升一档模型比把 effort（思考力度）拉满更省钱高效。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>同样的思路可以用在内容生产上：用好模型定选题和大纲，用便宜模型批量出稿，成本能省下一大截。</p>
+            <a class="link" href="https://github.com/shadcn/improve" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">116,161 stars · 今日 +787</span></div>
+          <h3>addyosmani/agent-skills</h3>
+          <p class="author">JavaScript</p>
+          <p class="tagline">给 AI 编程助手用的一套“技能包”，把成熟的工程做法写成 AI 能直接照着做的步骤。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">给 AI 编程助手用的一套“技能包”，把成熟的工程做法写成 AI 能直接照着做的步骤。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>“技能包”（skill）正在成为 AI 时代的新型知识资产：把经验写成说明书，AI 就能反复照做。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>运营也可以把自己的 SOP（标准作业流程）写成 skill，让 AI 按你的方法做周报、写文案、做复盘。</p>
+            <a class="link" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>AI 公司的“人”开始被资本市场定价。</strong> 英伟达因创始人风波盘后大跌，Anthropic 上市被疯抢，OpenAI 营收与亏损同步增长。AI 行业正从拼技术走向拼治理、拼财务透明度。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>谣言比事实跑得快。</strong> “库克接班”和“腾讯裁员 50%”都是一句话被层层转发变了味。热点越大，回到第一手出处核实就越值钱，这是内容人的基本功。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>AI 能做得出来，但谁让它进门还没定。</strong> AI 一下午能做出游戏、谷歌让判断题几乎免费，可美联航不让 AI 下单、游戏玩家抵制 AI。接下来真正的竞争在“规则和接受度”，不只在能力。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-12 15:08 CST · 时间窗口：2026-11-11 15:08 至 2026-11-12 15:08（北京时间）</p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期知乎热榜页面加载超时，未采集到，知乎内容缺席。X 账号 @OpenAI、@deepseek_ai、@AnthropicAI、@rowancheung、@simonw、@Khazix0918 和微博潘乱，过去 24 小时无新帖（置顶帖不计）。WSJ、The Information 原文为付费内容，相关条目依据 TechCrunch、The Decoder、AI Hot 收录的转述；Anthropic IPO 数字依据 Rohan Paul 转述彭博，未核对原文。谷歌博客正文未能自动读取，Gemini Decisions API 的数据依据宝玉的转述与 AI Hot 收录。预测市场赔率、内部接班人选为博主转述，本报未单独核实。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
