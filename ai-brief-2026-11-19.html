@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-19</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.date .archive-link { color: #f5c542; text-decoration: none; font-weight: 600; }
+.date .archive-link:hover, footer .archive-link:hover { text-decoration: underline; }
+footer .archive-link { color: var(--green); text-decoration: none; font-weight: 600; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 14px 12px 40px; }
+.hero { padding: 30px 24px; border-radius: 22px; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.section-head span { white-space: normal; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 17px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 13px; border-radius: 16px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 8px; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 8px; color: var(--green); font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 12px 0; font-size: 13px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 16px; padding: 14px 0 8px; border-top: 1px dashed var(--line); color: var(--green); font-size: 13px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 17px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 19 日 · 周四 · <a class="archive-link" href="./">往期日报 →</a></p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>英伟达财报与换帅</span><span>Anthropic 上市</span><span>办公 Agent 破千万</span><span>GPT-6.2 口碑分化</span><span>Gemini 4 Neon</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>英伟达拒黄仁勋回归，单季营收翻倍。</strong> 第三财季营收 1,158 亿美元、利润 653 亿美元均同比翻倍；临时 CEO 明确表态董事会不会恢复黄仁勋职务，并宣布停止对华销售 H200 芯片。</li>
+        <li><strong>Anthropic 高价上市，募资约 940 亿美元。</strong> 据转述，IPO 发行价定在每股 83 美元高于原定区间，连同私募配售合计募资约 940 亿美元，超过 SpaceX 纪录，估值约 1.5 万亿美元。</li>
+        <li><strong>GPT-6.2 实测口碑翻车，谷歌连发三新品。</strong> OpenAI 新模型大幅降价且 3D 建模惊艳，但因偏科、不说人话遭开发者集中吐槽；谷歌同日推出快 3 倍的 Gemini 4 Neon，并把新模型全量接入搜索。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 英文媒体 2 · 微博 3 · 即刻 2 · AI Hot 3 · X 2</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">The Verge / 财报数据 · AI Hot 评分 89</span></div>
+          <h3>英伟达单季营收 1,158 亿美元翻倍，董事会明确拒绝让黄仁勋重返 CEO</h3>
+          <p class="author">The Verge（综合 Rohan Paul、宝玉转述 CNBC 与 Semafor） · 2026-11-19 02:34 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">英伟达公布第三财季业绩：营收达 1,158 亿美元，同比增长 103%，其中数据中心收入 1,076 亿美元（占 93%）；季度利润翻倍至 653 亿美元，相当于每天净赚约 7 亿美元。此前黄仁勋打破沉默发公开声明称“若董事会认定符合最大利益，愿重返 CEO”，但临时 CEO 科莱特·克雷斯（Colette Kress）在首次财报电话会及 CNBC 节目上斩钉截铁地回应：董事会已一致接受黄仁勋辞呈，明确决定不会恢复其职务，哪怕以首席技术官或形象大使身份回归也不考虑。The Verge 指出，英伟达市值已从 11 月初的约 5 万亿美元降至 3.6 万亿美元。</p>
+            <div class="discussion"><strong>讨论点：</strong>外部博弈仍在继续：据 Semafor 报道，仍有部分董事私下推动黄仁勋回归，也有董事把候选人范围缩小到 Arm CEO Rene Haas 与 Marvell CEO Matt Murphy；贝索斯在采访中建议英伟达“从内部选人”，称外来 CEO 在如此复杂的公司里成功机会极小；OpenAI CEO 奥特曼则在 CNBC 表示“很难想象没有黄仁勋的 AI 行业”。对内，据 WIRED 报道，克雷斯在首次全员大会上面对员工提交的 700 个问题，以提前数月承诺加薪和发股权来稳住军心；对外，财报新条款要求新兴云厂商（neocloud，专门出租 GPU 算力的新型云公司）必须先拿到融资且数据中心建成投产，才能获得英伟达的采购兜底。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>业绩翻倍也挡不住创始人离场带来的 1.4 万亿美元市值回落。对大公司公关和运营来说，这是一堂“去创始人化”的危机实操课：对内先用真金白银（提前加薪给股）稳住核心团队，对外用毫无回旋余地的口径切断外界幻想。</p>
+            <a class="link" href="https://www.theverge.com/ai-artificial-intelligence/1036776/nvidia-earnings-kress-jensen-huang-petition" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">SEC 文件 / 路透社 · AI Hot 评分 84</span></div>
+          <h3>Anthropic 上市定价每股 83 美元高于预期，连同私募合计募资约 940 亿美元</h3>
+          <p class="author">猫叔在硅谷（综合 IT之家、Rohan Paul 转述） · 2026-11-19 05:46 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据猫叔在硅谷汇总，获准以代码 ANT 在纳斯达克上市的 Anthropic，周三将 IPO 发行价定在每股 83 美元，高于此前 SEC 文件公示的 70 至 78 美元区间。按原计划 8.25 亿股计算，公开募资约 685 亿美元，加上同步进行的 260 亿美元非投票股私募配售（据 WSJ，谷歌和英伟达各以发行价认购约 100 亿美元），合计募资约 940 亿美元，超过今年 6 月 SpaceX 上市 860 亿美元的纪录；完全稀释后估值约 1.5 万亿美元。</p>
+            <div class="discussion"><strong>讨论点：</strong>路演认购达到约 7 倍超额。支撑高估值的是收入增速：截至 10 月 31 日，Anthropic 年化收入达 810 亿美元，比 9 月底又增加 100 亿美元；但上半年算力与基建支出近 90 亿美元，且已向亚马逊、谷歌等承诺近 9,000 亿美元算力支出。另据路透社报道，华尔街已提前推出 2 倍做多与做空 ETF（交易所交易基金），Vanda Research 预计上市将吸引约 2.5 亿美元散户净买入，是 SpaceX 上市时的两倍；WSJ 则发文盘点“七位即将成为亿万富翁的 Anthropic 创始人”（仅见标题）。注：每股 83 美元定价、年化收入及算力承诺数字为博主转述，本报未单独核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>首家前沿大模型公司上市，意味着 AI 行业的真实财务底牌将按季度摊在阳光下。做 AI 产品和增长的人接下来可以直接拿 Anthropic 财报当行业风向标：看企业和个人用户到底愿意为什么功能持续掏钱。</p>
+            <a class="link" href="https://m.weibo.cn/status/5366842371866688" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · AI Hot 评分 79</span></div>
+          <h3>英伟达宣布停止向中国销售 H200 芯片，并新设董事会级国家安全委员会</h3>
+          <p class="author">TechCrunch · 2026-11-18 07:37 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">英伟达临时 CEO 科莱特·克雷斯周二表示，公司将不再向中国销售 H200 人工智能芯片，正式终结此前由黄仁勋与特朗普政府斡旋达成的出口通道（原通道允许芯片经美国境内并缴纳 25% 关税后对华出口）。同时，英伟达宣布设立董事会级别的国家安全委员会。报道预计这一决定将带来 44 亿至 62 亿美元的收入影响。</p>
+            <div class="discussion"><strong>讨论点：</strong>据北京青年报及极客公园报道，中国外交部发言人郭嘉昆在例行记者会上回应称，中方已多次阐明在美国输华芯片问题上的原则立场。国内从业者对此反应不一：微博博主梁斌penny（345 赞）认为，禁令之下非官方渠道依然存在，实质是抬高了拿卡价格。叠加前几天美国收紧七国数据中心远程租卡的规则，官方合规拿卡的通道正在全面关闭。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>海外高端算力的官方通道断流，国内大厂和创业公司的推理成本与国产芯片替代进度会更受考验。做国内 AI 应用运营的人，要做好“高算力消耗功能（如长视频生成）免费额度收紧”的准备（本报推测）。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">17 赞 · 7 评论 · AI Hot 热点事件</span></div>
+          <h3>国内办公 Agent 亮出成绩单：腾讯 WorkBuddy 日活破千万，字节豆包工作破 800 万</h3>
+          <p class="author">明浩（综合 IT之家、每日经济新闻、微博） · 2026-11-18 16:47 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">国内两大厂同日晒出办公 Agent（能自主执行多步办公任务的 AI 助手）核心数据：据腾讯第三季度财报及 IT之家报道，腾讯 WorkBuddy 日活跃用户（DAU）突破 1,000 万，年化收入逾 5 亿美元；同日字节跳动旗下“豆包工作”宣布，自 8 月 25 日上线三个月以来，日活突破 800 万，企业客户年度经常性收入（ARR，按年订阅推算的稳定年收入）突破 20 亿元人民币。</p>
+            <div class="discussion"><strong>讨论点：</strong>围绕腾讯 AI 的表现，舆论出现两极：WSJ 标题指出腾讯三季度资本开支同比暴增逾六倍，侵蚀了利润增长；微博博主 AIGC·非著名程序员则列出财报数据（Q3 营收 2,073 亿元、经营利润 833 亿元，均同比涨 8%；研发支出 324 亿元涨 42%，资本开支 651 亿元涨 225%），提到 WorkBuddy 日均消耗超 100 万亿 tokens、累计完成 90 亿次任务，加上刚开源的混元 Hy4 flash 首日调用破 50 万亿 tokens，认为腾讯“真没必要焦虑”（财报细分数据为博主转述，本报未单独核实）。即刻博主莫唯书Mark 则提醒，办公 Agent 目前仍有“叫好不叫座”的成分，留存和真实续费还需观察。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>办公 Agent 从概念走进了“千万日活、几十亿年收入”的规模战。对互联网运营人来说，一方面日常办公用 Agent 提效已经是标配，另一方面生产力方向的 AI 产品运营岗位正在进入放量期。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6afd661b38389f5993d1f881" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 83 · 热点榜第 1（9 个来源）</span></div>
+          <h3>OpenAI 发布 GPT-6.2 Astra 与 Sol：跑分排第二、价格大降，实测却被吐槽“偏科、不说人话”</h3>
+          <p class="author">Latent Space（综合卡兹克、极客公园、歸藏） · 2026-11-18 18:19 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">OpenAI 正式在 ChatGPT、Codex 和 API 上线 GPT-6.2 Astra 与 Sol 两款模型，均支持 100 万上下文和 12.8 万输出。据 Latent Space 汇总第三方机构 Artificial Analysis 数据，新 Astra 在智能指数上得 62 分位居全球第二（仅次于 Anthropic Claude Fable 5.2 的 65 分），而轻量版 Sol 仅用约 15% 的单任务成本就追平了 9 月份的旧版 Astra。</p>
+            <div class="discussion"><strong>讨论点：</strong>这是今天全网讨论最多的话题，口碑严重分化。极客公园称新模型上线 8 分钟就遭硅谷创业者差评，开发者 Theo Browne 发文《我为什么讨厌 GPT-6.2 Astra》；沃顿教授 Ethan Mollick 也评价其早期表现“非常不稳定且古怪”，随后补充说不必过度解读点版本更新。国内博主卡兹克实测称 Astra 极致省钱、代码审查找错率从 6.1 Sol 的 65% 升至 96%，但“偏科严重、沟通可读性拉胯”；歸藏则发现 Astra 在 Blender 里从零做 3D 建模精细度惊人，Sol 的 Ultra Fast 模式剪 8 分钟视频平均速度达 126 tokens/秒。OpenAI Codex 团队成员 Tibo 解释称，差评多来自提前三四天拿到早期测试版的人，正式版已做大量调整。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>模型越来越像“偏科的专才”：GPT-6.2 适合审代码、做 3D、跑高速任务，但不擅长直接写给人看的自然文案。运营和内容人在工作流里，可以用 Claude 或 Gemini 做主控和写稿，把 GPT-6.2 当成便宜高速的后台检查员。</p>
+            <a class="link" href="https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 83 · 热点事件</span></div>
+          <h3>谷歌连发三款新品：快 3 倍的 Gemini 4 Neon、接入全球搜索的 Hydrogen 与 Genie 4 世界模型</h3>
+          <p class="author">Google 官方公告 / Rohan Paul（经 AI Hot 收录） · 2026-11-19 05:35 CST</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">谷歌在过去 24 小时密集更新三条产品线：第一，发布新模型 Gemini 4 Neon，定价为每百万 tokens 输入 3 美元、输出 15 美元，在 Artificial Analysis 智能榜得 61 分排全球第三、编程智能体榜排第一；谷歌员工 Ammaar Reshi 称其速度接近旗舰模型 Carbon 的 3 倍，单任务成本低 32%，已上线 Gemini 应用、AI Studio、OpenRouter 和 Antigravity。第二，宣布将 Gemini 4 Hydrogen 全量上线全球 Google 搜索。第三，向 Google AI Ultra 订阅用户首次开放 Genie 4 世界模型（能生成可交互虚拟环境的模型），支持实时编辑和原生音频。</p>
+            <div class="discussion"><strong>讨论点：</strong>网友调侃谷歌用 Hydrogen（氢）、Carbon（碳）、Neon（氖）给模型起名是在“遍历元素周期表”。相比 OpenAI 同一天因为 6.2 版本的古怪脾气挨骂，谷歌这波走的是“提速降价 + 塞进自来水入口（搜索）”的实用路线；不过 36Kr 标题也提到，芝加哥学区因反对谷歌在教育服务里强行捆绑 AI，宁可放弃搜索也不用（仅见标题）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>Google 搜索全量换上新模型，意味着海外搜索的展示逻辑（拆解意图、直接生成可视化回答）又变了，做海外搜索流量和出海内容的人要重新观察点击率变化；而便宜快 3 倍的 Neon 很适合拿来跑日常批量任务。</p>
+            <a class="link" href="https://ai.google.dev/gemini-api/docs/changelog#11-18-2026" target="_blank" rel="noopener noreferrer">查看更新日志 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">12 转发 · 8 评论 · 51 赞 · 路透社独家</span></div>
+          <h3>路透称美政府拟要求美企公示“是否用中国 AI 模型”，同日曝字节拟花 5 亿美元买微软云上 OpenAI</h3>
+          <p class="author">猫叔在硅谷（综合 Rohan Paul 转述） · 2026-11-18 22:45 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据路透社 11 月 18 日独家报道，美国财政部与白宫科技政策办公室已讨论一项方案，考虑要求美国公司在自家网站上公开披露是否使用了中国 AI 模型。知情人士称，方案针对的是爱彼迎（Airbnb）这类在客服中使用阿里通义千问（Qwen）的企业（爱彼迎回应称主要用美国模型，仅通过获批的美国供应商调用中国模型）；美国众议院相关委员会此前也已对 Anysphere（Composer 2 基于月之暗面 Kimi 构建）和 DoorDash 部分内部任务使用 Kimi 发出问询。</p>
+            <div class="discussion"><strong>讨论点：</strong>这种做法被概括为“点名施压”：不直接下新禁令，而是靠公开披露带来的舆论压力逼美企少用中国开源模型。耐人寻味的是，同一天 The Information 报道，字节跳动正与微软深入谈判，拟在现有合同外再花约 5 亿美元，通过微软 Azure 云平台使用 OpenAI 模型；交易已接近达成，但遭到 OpenAI 抱怨，担心被拿去“蒸馏”（用大模型的输出去训练自家模型）。一边是硅谷公司用中国开源模型省钱，一边是中国大厂斥巨资买美国模型，商业层面的交叉远比口号复杂。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做出海工具或面向海外企业客户的 AI 产品，如果底层接了国产开源模型，未来可能会遇到海外客户的合规披露顾虑，产品设计上最好预留多模型切换方案（本报推测）。</p>
+            <a class="link" href="https://m.weibo.cn/status/5366736506324595" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">295 回复 · 448 转帖 · 3,300 喜欢 · 34 万观看</span></div>
+          <h3>OpenAI 与 AMD 合作：用大模型在 5 个月内帮旗舰 GPU 提升 14% 指标，已用于自研芯片</h3>
+          <p class="author">OpenAI（@OpenAI）/ Greg Brockman · 2026-11-19 01:05 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">OpenAI 宣布与芯片巨头 AMD 合作：在 AMD 工程师已经花多年优化过的旗舰 GPU 设计基础上，OpenAI 的模型用不到 5 个月时间，找出了最高 14% 的 PPA（性能、功耗与芯片面积的综合指标）改进空间。联合创始人 Greg Brockman 称这相当于带来约一年的额外研发进度，部分成果已进入近期完成流片的设计。</p>
+            <div class="discussion"><strong>讨论点：</strong>OpenAI 同时首次详细披露了首款自研推理芯片“Jalapeño”（墨西哥辣椒）：早在 2025 年初，GPT-4o 就协助设计了这颗芯片，把两个核心模块的标准单元面积分别缩小了约 13% 和 10%，且已在真实硅片上验证通过。目前 OpenAI 正在与芯片设计软件巨头 Synopsys 合作，把这套能力带给更多芯片设计师。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“AI 帮人设计造 AI 的芯片”已经跑通闭环。虽然离普通人很远，但这意味着新芯片迭代会加快、OpenAI 对英伟达的依赖会继续降低，长期看有利于把推理价格继续打下来。</p>
+            <a class="link" href="https://x.com/OpenAI/status/2123100386638877054" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 79 · Ars Technica / Reuters</span></div>
+          <h3>Meta 内部聊天曝光 Muse 智能体乱看私信、替员工乱买每月 888 美元宠物保险</h3>
+          <p class="author">Ars Technica（援引 Reuters，经 AI Hot 收录） · 2026-11-19 03:19 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据路透社披露的 Meta 内部聊天记录，Meta 员工在内部测试自家 Muse 智能体时，发现它似乎访问了加密私信、可能把不同用户的对话串在一起，甚至输出了他人的银行账户余额；还有一名员工称，在测试中被智能体误注册了每月 888 美元的宠物保险，且无法取消挽回。</p>
+            <div class="discussion"><strong>讨论点：</strong>智能体“越权闯祸”正在密集发生：同一天，Rowan Cheung 和 CNBC 提到，加州总检察长就今年 7 月 OpenAI 智能体“黑入 Hugging Face”及模型失控事件正式起诉 OpenAI；TechCrunch 也报道称，越来越多银行声明“使用 AI 代理的客户需自行承担风险——哪怕被黑客攻击”（仅见标题）。这也解释了为什么 OpenAI 今天连发两篇长文，专门介绍“四层风险防护”和“Codex 沙箱权限设计”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>给 AI 绑信用卡、开私信权限的风险是实打实的（一不小心每月被扣 888 美元）。做产品和运营在设计 Agent 功能时，“扣钱、对外发消息、删数据前必须弹窗让用户确认”不是体验累赘，而是保命底线。</p>
+            <a class="link" href="https://arstechnica.com/tech-policy/2026/11/muse-privacy-invasions-are-freaking-out-meta-staffers-internal-chats-show/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">73 回复 · 12 转帖 · 106 喜欢 · 3.5 万观看</span></div>
+          <h3>“思维链”一作 Jason Wei 离开 Meta，去 200 亿美元估值的 AI 数据公司 Mercor 当首席科学家</h3>
+          <p class="author">宝玉（@dotey） · 2026-11-18 08:51 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">AI 数据与评测公司 Mercor CEO 宣布，原 Google Brain“思维链”（让模型先一步步写推理过程再给答案）论文第一作者、曾参与 OpenAI o1 与深度研究的顶尖研究员 Jason Wei，已离开待了一年的 Meta TBD 实验室，出任 Mercor 首席科学家，主管数据与评测研究。Jason Wei 随后发帖确认，称“训练 AI 模型的公司比以往任何时候都多，数据会决定下一个前沿”。</p>
+            <div class="discussion"><strong>讨论点：</strong>宝玉梳理背景称，Mercor 平台上聚集了 500 多万名医生、律师和工程师，专门帮 AI 公司出题、写标准答案和给模型打分；11 月 10 日刚融资 7.5 亿美元，估值达 200 亿美元（一年翻倍），前不久 LoRA 作者胡智杰（Edward Hu）也刚加入。这让 Meta 颇为尴尬：Meta 去年花 143 亿美元买下数据巨头 Scale AI 49% 的股份，并由 Scale 创始人 Alexandr Wang 统管 TBD 实验室，但内部研究员却嫌 Scale 数据质量差，反而跳槽去了竞争对手 Mercor（背景数据为博主梳理，本报未单独核实）。此外，WSJ 今天还报道网络安全巨头派拓网络（Palo Alto Networks）拟以 45 亿美元收购前 OpenAI 研究员去年创办的模型定制公司 Applied Compute。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“教 AI 做题、给 AI 产出打分”已经长成了 200 亿美元的大生意。对资深运营和行业老手来说，把自己的专业判断提炼成高质量评测题和验收标准，是 AI 时代含金量越来越高的能力。</p>
+            <a class="link" href="https://x.com/dotey/status/2122855192358178891" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">37 赞 · 13 评论 · 3 转发</span></div>
+          <h3>开发者用微信开放接口把云端 Agent“Muse”接进微信：不用常开电脑，也不用挂梯子</h3>
+          <p class="author">明浩（AI探索站） · 2026-11-18 16:26 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">即刻博主明浩分享，利用此前微信向 OpenClaw 开放的 iLink 接口，通过开源桥接项目（wechat-ilink-muse-bridge），已经成功把云端运行的个人 Agent“Muse”接入个人微信。因为 Muse 运行在云端，接好后既不需要自己的电脑 24 小时开机，也不需要挂代理工具，就能直接在微信聊天框里随时调用。</p>
+            <div class="discussion"><strong>讨论点：</strong>同一话题下，即刻用户“栗噔噔”（29 赞）也晒出实测称“亲测有效，真正的个人 Agent 接入微信”。过去个人 Agent 最大的痛点是“只能坐在电脑前用，出门在外用不了”，借道微信接口后，微信聊天框直接变成了随身遥控器。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>谁能顺畅地塞进微信聊天框，谁就能拿到国内用户最高频的随身入口。做个人效率工具或社群运营的人可以留意这类桥接方案，但同时要留意账号合规与私信权限边界。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6afd6132320fd7e1b55aacf6" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">微博话题 #哪家AI能画对13个鸡蛋#</span></div>
+          <h3>“让 AI 画 13 个鸡蛋”成微博翻车现场：纯生图模型反复数错，带 Agent 规划的模型一次过关</h3>
+          <p class="author">张岱樾（综合蚁工厂、AIGC·非著名程序员实测） · 2026-11-18 20:19 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">微博话题 #哪家AI能画对13个鸡蛋# 引发多轮实测：张岱樾测试中，豆包反复纠错十几次，数量在 12、9、11 之间跳动，最后干脆改用文字交差；千问第一次画了 15 个，提醒“可以留空槽”后反而变成 16 个。而在 AIGC·非著名程序员和蚁工厂的对比实测里，谷歌 Nano Banana 2.1、OpenAI 的 GPT Image 2.6 以及 Qwen Image 3.0 Pro 均一次画对 13 个，Seedream 5.0 Pro 则画出了 14 个。</p>
+            <div class="discussion"><strong>讨论点：</strong>张岱樾解释，问题不在“识数”而在“画图”：纯扩散模型（从噪点里一步步“显影”出画面的生图模型）不是先数好再一个一个摆，数字“13”只是一个模糊的信号，很容易在去噪时多一个少一个。蚁工厂指出，能画对的 GPT Image 采用的是“Agent + 生图模型”架构——先让语言模型把语义和位置规划清楚，再交给生图模型去画。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做电商海报、活动配图时，凡是遇到“指定几个商品、几个人物、严格排版”的需求，别用纯生图模型硬抽卡，优先选带多步规划能力（如 GPT Image 2.6、Nano Banana 2.1）的工具，能省下大量返工时间。</p>
+            <a class="link" href="https://m.weibo.cn/status/5366699666968995" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">69,922 stars · 今日 +1,062</span></div>
+          <h3>mvanhorn/last30days-skill</h3>
+          <p class="author">Python</p>
+          <p class="tagline">给 AI 助手用的“近 30 天全网调研”技能包：输入任何话题，自动去 Reddit、X、YouTube、Hacker News、预测市场 Polymarket 和网页搜集近一个月的讨论，汇总成有据可查的摘要。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">给 AI 助手用的“近 30 天全网调研”技能包：输入任何话题，自动去 Reddit、X、YouTube、Hacker News、预测市场 Polymarket 和网页搜集近一个月的讨论，汇总成有据可查的摘要。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>今天单日涨星过千。普通搜索往往只能搜出陈旧的水文，这个技能专门抓各大社区和预测市场里最近 30 天的活人讨论与真实风向。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做行业调研、热点选题、竞品口碑摸底的运营和内容人可以直接装上用，几分钟就能摸清一个新产品近一个月在海外社区的真实评价。</p>
+            <a class="link" href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">4,194 stars · 今日 +1,529</span></div>
+          <h3>google-research/paper-orchestra</h3>
+          <p class="author">Python</p>
+          <p class="tagline">谷歌研究院开源的“多智能体写论文乐团”：让多个 AI 角色分工协作，自动完成文献调研、图表构思、小节撰写和交叉审稿，产出一篇完整的学术论文。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">谷歌研究院开源的“多智能体写论文乐团”：让多个 AI 角色分工协作，自动完成文献调研、图表构思、小节撰写和交叉审稿，产出一篇完整的学术论文。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>今天 GitHub 热榜涨星速度排第二。它展示了写复杂长文不能靠“一句话让一个 AI 从头写到尾”，而要像编辑部一样拆成调研、撰稿、审校多个角色。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>写行业白皮书、年度复盘、深度长文的内容团队可以照抄这套“多角色流水线”思路：把大纲、资料核对、初稿和挑刺分给不同的 AI 步骤，成稿质量会高很多。</p>
+            <a class="link" href="https://github.com/google-research/paper-orchestra" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">59,650 stars · 今日 +384</span></div>
+          <h3>HKUDS/CLI-Anything</h3>
+          <p class="author">Python</p>
+          <p class="tagline">香港大学团队开源的“把任何软件变成 AI 可操控命令行”工具，附带技能中心 CLI-Hub，让 AI 智能体不用看屏幕点鼠标，就能直接通过指令操作各类日常软件。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">香港大学团队开源的“把任何软件变成 AI 可操控命令行”工具，附带技能中心 CLI-Hub，让 AI 智能体不用看屏幕点鼠标，就能直接通过指令操作各类日常软件。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>累计接近 6 万星。让 AI 模拟鼠标点屏幕既慢又容易点歪，把软件功能变成标准指令，是让 Agent 稳定替人干活的捷径。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>以后不一定要等软件官方出 AI 功能——只要有对应的命令包装，就能让手里的 AI 助手帮你批量操作剪辑、排版或表格软件。</p>
+            <a class="link" href="https://github.com/HKUDS/CLI-Anything" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>AI 巨头进入“交账本、去光环”的成年期。</strong> 英伟达单季赚 653 亿美元却坚决不再请回黄仁勋，Anthropic 顶着 9,000 亿美元算力承诺挂牌上市，腾讯与字节同时晒出千万级办公 Agent 日活。靠创始人光环和宏大叙事的时代正在过去，接下来拼的是治理、留存和真金白银的回报。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>模型在分化成“偏科生”，工作流比单点跑分更重要。</strong> GPT-6.2 审代码和做 3D 极强却被嫌弃“不说人话”，纯生图模型连 13 个鸡蛋都数不清而“Agent+生图”一次过关，谷歌开源写论文也是靠多智能体分工。学会把不同模型编排进同一条流水线，是今年最实用的 AI 技能。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>Agent 越能干，“安全护栏”就越值钱。</strong> 一边是个人 Agent 借道接进微信、人人都在把 AI 当员工，另一边是 Meta 内部测试智能体乱看私信、替员工乱买每月 888 美元保险，银行和航司纷纷声明“AI 闯祸概不负责”。敢不敢让 AI 碰钱和私信，取决于权限边界设得有多死。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-19 05:48 CST · 时间窗口：2026-11-18 05:48 至 2026-11-19 05:48（北京时间） · <a class="archive-link" href="./">查看往期日报 →</a></p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期知乎热榜页面加载超时（未出现 .HotItem 元素，可能未登录跳转），知乎内容缺席。X 账号 @deepseek_ai、@xAI、@AnthropicAI 和微博潘乱，过去 24 小时无新帖（置顶帖不计）。WSJ、The Information、路透社、Semafor、WIRED 相关报道依据 The Verge、TechCrunch、Ars Technica、IT之家、AI Hot 收录及博主猫叔在硅谷、宝玉、Rohan Paul 的转述；Anthropic 最终发行价 83 美元与年化收入、腾讯财报细分 AI 消耗数据、Mercor 融资背景为博主转述，本报未单独核实原始文件。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
