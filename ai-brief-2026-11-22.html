@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-22</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.date .archive-link { color: #f5c542; text-decoration: none; font-weight: 600; }
+.date .archive-link:hover, footer .archive-link:hover { text-decoration: underline; }
+footer .archive-link { color: var(--green); text-decoration: none; font-weight: 600; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 12px 10px 36px; }
+.hero { padding: 20px 16px; border-radius: 20px; }
+.hero h1 { margin: 8px 0 4px; font-size: 32px; }
+.date { margin: 0 0 10px; font-size: 13.5px; }
+.lead { font-size: 14px; line-height: 1.55; }
+.hero-tags { gap: 5px; margin-top: 12px; }
+.hero-tags span { padding: 3px 8px; font-size: 11.5px; line-height: 1.35; }
+section { margin-top: 18px; }
+.summary { padding: 14px 12px; border-radius: 18px; }
+.summary h2 { font-size: 18px; margin-bottom: 6px; }
+.summary ol { padding-left: 16px; }
+.summary li { margin: 5px 0; font-size: 13.5px; line-height: 1.55; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 1px; margin-bottom: 8px; }
+.section-head h2 { font-size: 18px; }
+.section-head span { white-space: normal; font-size: 11.5px; line-height: 1.4; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 13px 12px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 10px 10px 8px; border-radius: 13px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 5px; gap: 6px; }
+.badge { padding: 2px 7px; font-size: 10.5px; line-height: 1.35; }
+.meta { font-size: 11px; line-height: 1.35; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 13.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 4px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 5px; color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.4; }
+.tg:checked ~ .author { margin: 0 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 6px 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .summary-text { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; }
+.tg:checked ~ .more .discussion { margin-top: 10px; padding-top: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .impact { margin-top: 10px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .link { margin-top: 10px; font-size: 13px; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 12px; padding: 10px 0 4px; border-top: 1px dashed var(--line); color: var(--green); font-size: 12.5px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 13px 12px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 22 日 · 周日 · <a class="archive-link" href="./">往期日报 →</a></p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>英伟达暴跌</span><span>黎曼猜想</span><span>腾讯 AI 开支</span><span>算力限建</span><span>AI 隐私与作弊</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>英伟达单日跌 14%，纳指年内转跌。</strong> 周五收盘英伟达单周挫逾 22%、市值回落至约 3.03 万亿美元，纳指跌 5.28%；周末再发酵 H200 停售中国、FT 芯片走私调查与前 CEO 罢免风波。</li>
+        <li><strong>AI 证明黎曼猜想，通过代码核验。</strong> Anthropic 数学家与 Claude 合作的 1,700 万行 Lean 证明获社区编译确认；同日纯人类 12 年手稿公开，8 小时后被 AI 挑出漏洞。</li>
+        <li><strong>腾讯 AI 开支 814 亿，拖累利润 152 亿。</strong> Q3 资本开支同比猛增 527% 致自由现金流转负 691 亿，但 WorkBuddy 年化超 5 亿美元，微信“小微”将接 30 余触点。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 英文媒体 2 · X 2 · AI Hot 3 · 微博 3 · 知乎 1 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · 公开报道 · 知乎第 16（107 万热度）</span></div>
+          <h3>英伟达单周挫逾 22%、市值回落至 3.03 万亿美元：H200 停售中国、走私调查与高层风波共振</h3>
+          <p class="author">TechCrunch（综合新浪财经、FT 等公开报道） · 2026-11-22 05:07 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">美股周五收盘（北京时间 11 月 21 日晨），纳指跌 5.28% 报 22,617.73 点、年内转跌 2.7%，纳指 100 跌 5.6% 盘中触及技术性熊市；标普 500 跌 3.70%、道指跌 1.93% 双双步入回调区间；英伟达单日暴跌 14%、单周重挫逾 22%，总市值回落至约 3.03 万亿美元，费城半导体指数狂泻 10.73%，AMD 跌逾 13%，比特币跌破 6 万美元（据新浪财经收盘报道）。11 月 22 日发酵的最新报道中，TechCrunch 播客指出市场正出现“两个英伟达”：一边是三季报大涨、临时 CEO Colette Kress 宣布不再向中国销售 H200 芯片，一边是马斯克等人请愿呼吁前 CEO 黄仁勋回归。</p>
+            <div class="discussion"><strong>讨论点：</strong>多重负面信息在周末集中发酵：FT 调查报道称，与黄仁勋存在情感关系的 Alice Huang 牵涉通过数百家空壳公司向中国走私英伟达芯片的网络（据 X @rohanpaul_ai 转述，经 AI Hot 收录，本报未单独核实原报道）；极客公园引述《连线》及新浪财经报道称，董事会罢免黄仁勋主因是“缺乏坦诚与撒谎”；新浪财经及微博亦提及市场传出监管层对其会计处理展开调查（尚无官方证实）。知乎“本轮跨市场金融冲击何时止”以 107 万热度持续在榜。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 硬件的“单边上涨周期”正在承受估值与合规双重挤压。做 AI 商业化或算力相关业务的人，接下来会更频繁地面对客户和资本方对投入产出比与供应链合规的追问。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">22 回复 · 9 转帖 · 45 喜欢 · 5,541 观看 · AI Hot 65 分</span></div>
+          <h3>亚马逊接近以约 75 亿美元收购 AI 优化公司 Decart，估值几乎翻倍</h3>
+          <p class="author">Rohan Paul（@rohanpaul_ai，经 AI Hot 收录） · 2026-11-22 08:10 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据博主 Rohan Paul 转述，亚马逊即将达成协议，以约 75 亿美元收购 AI 初创公司 Decart，几乎是其最新 40 亿美元估值的两倍。报道称，Decart 的优化技术能让亚马逊自研芯片每千瓦算力产出更多 tokens（AI 计算和计费用的文字单位）；Decart 此前已获亚马逊 Trainium3 芯片早期访问权限，亚马逊称该芯片运行其实时视频模型速度比 GPU 快 4 倍、成本减半。</p>
+            <div class="discussion"><strong>讨论点：</strong>尽管二级市场抛售算力股，一级市场与巨头并购仍围绕“降本提效”和头部公司展开。同日 WSJ 报道 Databricks 正就以 2,250 亿美元估值融资进行早期谈判（原文为付费墙，仅见标题）；极客公园引述彭博社称，前阿里 AI 负责人林俊旸创办的语用科技在数月内估值由 20 亿美元升至 50 亿美元。注：Decart 收购细节为作者转述，本报未单独核实。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>能把推理（大模型生成答案的过程）速度和算力成本真正打下来的技术依然值高价。内容与产品团队选型时不必盲追最贵旗舰模型，看重性价比和吞吐效率更容易跑通商业模型。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2124294348712092061" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">aihot.today 极客公园榜 · 腾讯三季报深度拆解</span></div>
+          <h3>腾讯 Q3 资本开支猛增 527% 至 814 亿，新 AI 净拖累利润 152 亿、小微将接 30 余微信触点</h3>
+          <p class="author">极客公园（经 aihot.today 收录） · 2026-11-22 16:56 收录</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">极客公园今日深度拆解腾讯 11 月 18 日发布的 2026 年 Q3 财报：单季营收 2,073.4 亿元（同比增 8%），Non-IFRS（剔除一次性项目后的非国际会计准则）经营利润 681 亿元（同比降 6%）；若剔除混元、元宝、WorkBuddy、小微等新 AI 业务，老业务经营利润为 833 亿元（同比增 8%），即新 AI 业务单季净拖累利润约 152 亿元。本季资本开支达 814 亿元（同比增 527%），大额算力预付款令自由现金流（经营现金扣除必要支出的可支配现金）转为 -691 亿元；财报后腾讯股价一度跌破 350 港元，年内跌约 37%。</p>
+            <div class="discussion"><strong>讨论点：</strong>重投入之下已有明确变现抓手：刘炽平在电话会披露，WorkBuddy 日活破 1,000 万，按过去 7 天收入折算年化超 5 亿美元，中国百强企业已有 60% 成为客户；微信 AI 助手“小微”日活达 3,000 万，下一步将接入朋友圈、公众号、视频号等 30 余个触点；“元宝”则因未达预期已大幅削减支出。此外，腾讯混元负责人姚顺雨 11 月 21 日在 Reddit AMA（公开问答）称团队 9 个月重建底座，下一代将继续扩参。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>微信“小微”接入朋友圈、公众号、视频号等 30 多个触点，直接关系到微信生态的内容分发与搜一搜入口重构，做公众号、私域和视频号运营的人必须重点跟踪。</p>
+            <a class="link" href="https://www.geekpark.net/news/374302" target="_blank" rel="noopener noreferrer">阅读分析 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">30 转发 · 15 评论 · 94 赞</span></div>
+          <h3>大厂猛烧钱投 AI 时拼多多反其道而行：Q3 营收仅增 0.1%，仍靠保守策略保住 30% 利润率</h3>
+          <p class="author">梁斌penny（转发李成东点评） · 2026-11-22 07:45 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">微博博主梁斌转发行业分析《拼多多 2026Q3：营收停滞仅增 0.1%，为何股价大涨？》（称其依旧是利润率 30% 的赚钱狂魔），并评论称：当所有平台都在看好 AI、激进猛投入时，唯独拼多多保持保守——就像当年大家赌消费升级而拼多多看准消费降级一样，这轮可能又是“等大家杀得差不多了，带着现金来扫荡战场”。</p>
+            <div class="discussion"><strong>讨论点：</strong>这一观点与腾讯单季砸下 814 亿元资本开支、自由现金流转负的财报形成鲜明对比，也呼应了眼下资本市场对 AI 投入产出比的普遍审视：并不是所有业务都需要自己下场烧算力，等技术成熟、成本打下来再切入，往往是现金流充沛公司的另一套打法。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>中小团队和业务运营不用被“全员必须重金上 AI”的焦虑绑架：先看清自己的核心转化链条，等基础设施降价再直接采买成熟方案，往往比盲目自研更划算。</p>
+            <a class="link" href="https://m.weibo.cn/status/5367959452126047" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 6（190 万热度）· 第 9（125 万热度）· AI Hot 82 分</span></div>
+          <h3>Claude 黎曼猜想证明获 Lean 社区核验通过；人类 12 年手稿同日公开但被 AI 挑出漏洞</h3>
+          <p class="author">知乎热榜 · 综合 IT之家、The Decoder、量子位 · 采集时在榜</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">“AI 攻克黎曼猜想”迎来关键核验进展：Anthropic 数学家 Levent Alpöge 与 Claude 合作给出的证明（约 1,700 万行 Lean 代码，打印超 25 万页；Lean 是一种逐步检查数学推导是否合乎逻辑的验证语言），已于 11 月 21 日获 Lean 与 Mathlib 社区联合声明核验编译通过（据 IT之家及 X @op7418）。几乎同时，美国数学学会主席 Ravi Vakil 紧急公开了数学家 Alessandro Maria Masullo 花近 12 年独立撰写的 940 页无 AI 广义黎曼猜想证明草稿；约 8 小时后，Vakil 更新称已有学者借助不同 AI 模型报告该草稿存在问题。</p>
+            <div class="discussion"><strong>讨论点：</strong>22 日据每日经济新闻及 IT之家报道，2022 年菲尔兹奖得主詹姆斯·梅纳德受访称，他相信 Alpöge 的证明正确，但强调“理解定理为何成立远比形式化验证重要”。知乎热榜第 9（125 万热度）与微博刷屏陶哲轩博客一条评论：过去纯数学只需黑板粉笔最公平，如今变成“F1 赛车”，没进 Anthropic 厂队用内部模型连尾灯都看不见。此外 Alpöge 同日还发布另一千禧难题 Navier–Stokes 方程爆破论文，同样全程使用 Claude，但数值证书尚未公开。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>“AI 跑通了机器校验，但人类还没看懂为什么对”会成为高频现象。在日常内容生产和业务方案里，能把 AI 产出的结论讲透、对逻辑兜底的人，价值反而更高。</p>
+            <a class="link" href="https://www.zhihu.com/question/2107333891975599000" target="_blank" rel="noopener noreferrer">查看热议 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">39 转发 · 18 评论 · 159 赞</span></div>
+          <h3>算力扩张三条线收紧：五国远程禁令生效、美地方公投 45 场限建 44 场、AI 债务超 6,800 亿</h3>
+          <p class="author">梁赛 · 2026-11-22 12:32 CST</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">针对特朗普 11 月 20 日口头表态禁止美企海外建数据中心，博主梁赛指出真正压制市场的是另外三条线：第一，新加坡、马来西亚、泰国、印尼、巴西五国数据中心对中国的远程算力禁令已生效，跨境租算力通道受阻；第二，美国本土审批收紧，纽约州暂停大型项目许可，地方公投 45 场中有 44 场通过限建；第三，美联储数据显示 AI 相关债务超 6,800 亿美元（含远期租赁与担保约 3 万亿美元），10 月 AI 杠杆融资仅 50 亿美元。</p>
+            <div class="discussion"><strong>讨论点：</strong>博主张岱樾同日转述硅谷投资人观点：David Sacks 预计规则不明下 500 亿美元级吉瓦数据中心新项目将停滞；Chamath 则认为数据中心冻结反而利好已建好电力和机房的亚马逊、微软、谷歌等超级云巨头，却会切断新云厂商与模型实验室的新算力来源。注：上述数字及机构口径为博主转述，本报未逐一核查原始报告。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>算力正从“只要有钱就能无限扩建”变成受审批、电力和债务约束的稀缺资源。依赖海外云服务或高算力视频生成的国内团队，需提前评估供应链稳定性与成本波动。</p>
+            <a class="link" href="https://m.weibo.cn/status/5368031786044132" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">1,787 回复 · 3,589 转帖 · 31,734 喜欢 · 242 万观看 · 知乎第 22</span></div>
+          <h3>特斯拉推送 FSD V15：车载 AI 实时重渲染“天空箭头”街景，马斯克称驾驶超越人类</h3>
+          <p class="author">Elon Musk（@elonmusk） · 2026-11-22 04:26 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">北京时间 11 月 22 日，特斯拉监督式 FSD V15 开始向首批用户推送，计划 12 月扩大范围。新版本上线 Tesla Reality View 实时驾驶可视化功能：不依赖传统游戏引擎，而是用搭载的 AI4 芯片一半算力实时生成街景视频，并在“天空”用箭头指示转弯；车主可直接在生成的界面上点击目标位置让车开过去。特斯拉宣称安全关键场景处理能力提升 25 倍，但尚未公布可独立验证的完整测试数据。</p>
+            <div class="discussion"><strong>讨论点：</strong>该话题以 103 万热度登上知乎热榜第 22。微博博主 Sunbelife 转发多伦多夜间实拍称，中控界面已像在“实时重建整个世界”；安全专家 tombkeeper 科普称，FSD 15 运行在双芯片总算力约 300–500 TOPS 的 HW4 硬件上，单颗约相当于 RTX 3070 至 3080 显卡水平。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>车载屏幕正在从“二维电子地图”进化成“AI 实时生成的 3D 世界交互面”。做智能硬件或本地生活服务的运营人，可以留意“在真实场景画面上直接点选下单/导航”的新交互形态。</p>
+            <a class="link" href="https://x.com/elonmusk/status/2124238164512714925" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 61 · 热点事件（4 家报道）</span></div>
+          <h3>Signal 更新默认禁用手机截图防系统级 AI 偷看聊天；OpenRouter 与 Together AI 同日曝数据隐患</h3>
+          <p class="author">IT之家（结合 TechCrunch、OpenRouter 与 Together AI 公告） · 2026-11-22 07:28 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">加密通讯软件 Signal 近日更新 iOS（8.37）与 Android（8.35.1+）版本，默认阻止应用内截图和录屏，以防止 Siri AI、Gemini 等操作系统内置智能体在用户不知情时读取私人对话。Signal 总裁 Meredith Whittaker 对 TechCrunch 表示，系统级 AI 扫描屏幕是对隐私机制的“生存威胁”；macOS 版因缺少系统接口暂无法拦截，官方建议将其移出 Siri 范围。</p>
+            <div class="discussion"><strong>讨论点：</strong>同日 AI 基础设施连续出现两起数据安全通报：模型聚合平台 OpenRouter 公告称，安全研究员测试发现部分推理服务商未遵守“零数据保留（ZDR，承诺不保存用户提示词）”政策，平台已下架 3 家提供商并移除 125 个 ZDR 端点；Together AI 也通报因 AI 编码助手在公开 GitHub 仓库误提交私有凭证，导致 2026 年 6–7 月提交给 MiniMax M3、GLM-5.2、Kimi K2.6 的部分提示词样本泄露。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>当 AI 智能体能“看屏幕”且底层工具链自动上传代码，企业与个人泄密风险骤增。运营和内容团队用第三方 AI 工具处理未公开方案或客户信息时，务必检查数据留存与权限设置。</p>
+            <a class="link" href="https://www.ithome.com/1/030/517.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 73</span></div>
+          <h3>韩国高考查出 111 名考生违规携带智能设备，教育部长因防 AI 作弊不力引咎辞职</h3>
+          <p class="author">IT之家·人工智能（经 AI Hot 收录） · 2026-11-22 11:21 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据韩联社及 IT之家 11 月 22 日消息，韩国教育部长官崔教振当天辞职，为 2027 年度大学修学能力考试（韩国高考）防范 AI 作弊措施不力引发的混乱承担责任。尽管韩国高考明确禁止携带 AI 眼镜、手机、蓝牙耳机等电子设备，并规定佩戴 AI 眼镜即取消当年成绩与下一年报考资格，仍在全国查处 111 名违规携带智能设备的考生，其中包括使用智能眼镜（1 起）、微型摄像头与无线耳机（1 起）等 5 起现场作弊案。</p>
+            <div class="discussion"><strong>讨论点：</strong>由于考前几天反 AI 作弊指南反复修改引发考生与教育界混乱，引发韩国社会强烈不满；韩国总统李在明 11 月 20 日已呼吁全面改革高考制度，教育部计划在 12 月 11 日成绩公布前完成违规处置。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 眼镜等轻量化硬件普及后，“防作弊、防偷拍、防泄密”从线上软件变成线下活动与考核现场的现实难题。办线下封闭沙龙、考试认证或新品内测的团队需要提前升级安检规则。</p>
+            <a class="link" href="https://www.ithome.com/1/030/558.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · 公开报道 · 知乎第 24（88 万热度）</span></div>
+          <h3>好莱坞演员开始向 AI 微短剧“卖脸”，美国初创平台推肖像授权、国内已有成熟行情</h3>
+          <p class="author">TechCrunch · 2026-11-22 00:00 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">TechCrunch 报道称，美国微短剧平台 Shortical（订阅制，前 7–10 集免费）首页已被 AI 生成内容占据，近期其全 AI 微短剧《Inevitable》在洛杉矶首映，曾出演《24 小时》的演员 Aki Avni 将自己的肖像权授权给平台生成数字分身。平台称部分 AI 短剧播放量达数百万次，并在官网挂出“授权你的脸（LICENSE YOUR FACE）”页面招募普通创作者。</p>
+            <div class="discussion"><strong>讨论点：</strong>报道援引 Rest of World 调查指出，人脸授权在中国微短剧行业早已流行，但普通人脸授权费仅在 15 至 700 美元之间。国内同期讨论热度不减：知乎第 24（88 万热度）热议“为什么看完 AI 短剧后看不进真人剧”；极客公园今日引述网易 Q3 财报电话会称，丁磊坦言今年短剧爆发式发展对用户注意力吸引力巨大，短期内已对游戏业务形成冲击（网易 Q3 游戏收入同比降 1.7%）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 短剧不仅在压缩制作成本，还在真金白银地抢走游戏与长视频的用户时长。做内容买量、IP 运营和互动娱乐的团队，可密切跟踪“数字人授权+高频爽点短剧”的投放与变现效率。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">18 转发 · 2 评论 · 37 赞</span></div>
+          <h3>LangChain 创始人：公司里 AI 干不好活，不是模型不够强，而是缺“知识工厂”</h3>
+          <p class="author">AIGC·非著名程序员 · 2026-11-22 18:14 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">微博博主解读 LangChain（主流 AI 智能体开发框架）创始人 Harrison Chase 的最新长文：很多团队总想等更强模型，实际问题在于“公司老员工脑子里的规矩没写下来”。Chase 提出要建设涵盖三类内容的“知识工厂”——做事流程（Skills）、业务常识（Domain Knowledge）和数据查询指引（Data Access Guidance），并把“干活 AI”和“管知识的管理员 AI（Curator Agent）”彻底分开：前者遇到卡点自动标记，后者每晚巡检 Notion、Slack 和对话记录自动更新知识库。</p>
+            <div class="discussion"><strong>讨论点：</strong>Chase 建议别等文档全写完再上 AI，而是先挑一个高频重复任务跑起来，“卡一次补一条”。同日该博主另一条高赞观点（54 赞）则提醒非技术人员：少沉迷学写代码做小软件，多用 AI 做产品分析、找客户和打造个人 IP；X 博主数字生命卡兹克同日亦吐槽体验了 20 多款 Agent 调度工具，认为界面太极客、认知成本过高（4.2 万观看）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>运营团队完全可以照抄这套“干活 AI + 夜间复盘改错的管理员 AI”分工，用来持续维护活动 SOP（标准作业流程）、客服话术库和周报口径，每跑一次任务就更顺手一次。</p>
+            <a class="link" href="https://m.weibo.cn/status/5368117851324489" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">21 赞 · 5 评论</span></div>
+          <h3>行业节奏冲击：上月底 PPT 里的“未来大问号”，一个月后已被黎曼猜想刷新</h3>
+          <p class="author">明浩（综合即刻话题圈讨论） · 2026-11-22 10:18 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">即刻博主明浩感叹自己上月底刚做的一页 PPT：当时把 AI 数学演进排成三幕——2024 年还分不清 0.99 和 0.9 谁大、2025 年拿 IMO（国际数学奥林匹克）满分、2026 年发数学论文，往后只敢画个巨大的问号；结果刚过一个月就出现了“第四幕”黎曼猜想证明，“PPT 已经不知道该画更大的问号，还是直接换成省略号”。</p>
+            <div class="discussion"><strong>讨论点：</strong>即刻话题圈同日也在追问“结果可校验但过程像黑盒”的边界：liupc 认为编程可以靠程序跑通来校验，数学却需要人类理解“为什么是对的”；莫唯书Mark 则反问如果代码编译通过就算证明，数学家以后是否只需做“翻译”。而在商业落地一侧，极客公园今日刊发的 AI 视频公司达瓦科技专访（年化收入约 1 亿美元）则提醒：比起追逐极限能力，真实片场和客户更在意可控性和稳定交付。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 能力的迭代速度已经快到“月度复盘的行业认知下个月就过时”。做业务和内容规划时，与其押注静态的工具技巧，不如把精力放在不变的用户需求、审美判断与场景交付上。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6b0250f1320fd7e1b5e1ae72" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">11,632 stars · 今日 +326</span></div>
+          <h3>google-labs-code/stitch-skills</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">Google Labs 开源的界面设计工作流技能包，打通 Stitch 设计工具与主流 AI 编程助手，支持从设计稿直出网页组件和产品演示视频。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Google Labs 开源的界面设计工作流技能包，打通 Stitch 设计工具与主流 AI 编程助手，支持从设计稿直出网页组件和产品演示视频。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>微博博主 AIGC·非著名程序员今日专门推荐，解决“改个颜色、加个页面就要在设计稿和代码间反复同步”的痛点，一句话就能生成多页网站。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>运营或市场人员做活动落地页、产品原型和演示视频时，可以少等研发排期，先用现成技能快速拼出可看可测的页面。</p>
+            <a class="link" href="https://github.com/google-labs-code/stitch-skills" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">323,957 stars · 今日 +883</span></div>
+          <h3>obra/superpowers</h3>
+          <p class="author">Shell</p>
+          <p class="tagline">一套高人气的 Agent（AI 智能体）技能框架与工作流方法论，把写方案、拆任务、核对测试做成可复用的标准化流程。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一套高人气的 Agent（AI 智能体）技能框架与工作流方法论，把写方案、拆任务、核对测试做成可复用的标准化流程。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>32 万多星标仍保持每日近千增长，核心理念不是“让 AI 自由发挥”，而是像带新员工一样给 AI 配齐标准作业流程，与今日热议的“知识工厂”思路高度一致。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做业务流程标准化的人可以参考它的思路：把“需求拆解—执行—自查”拆成固定步骤，AI 干活才不容易跑偏。</p>
+            <a class="link" href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">16,610 stars · 今日 +1,803</span></div>
+          <h3>elementalsouls/Claude-BugHunter</h3>
+          <p class="author">Python</p>
+          <p class="tagline">面向 Claude Code 的安全体检技能包，内置 82 个找漏洞技能与 15 个快捷指令，用于红队测试（模拟黑客主动找系统漏洞）。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">面向 Claude Code 的安全体检技能包，内置 82 个找漏洞技能与 15 个快捷指令，用于红队测试（模拟黑客主动找系统漏洞）。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>今日 GitHub Trending 增长最快的项目（单日新增 1,803 星），说明随着 AI 写代码越来越快，用 AI 自动查漏补缺成了刚需。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>现在很多运营也会用 AI 搭小工具或活动页，上线前务必让技术或 AI 安全工具帮忙做一次漏洞检查，避免隐私或接口裸奔。</p>
+            <a class="link" href="https://github.com/elementalsouls/Claude-BugHunter" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>AI 行业进入“算总账”和“硬约束”阶段。</strong> 英伟达单周大跌与芯片走私、合规传闻并至，腾讯单季砸下 814 亿资本开支吞噬百亿利润，美欧与东南亚的数据中心审批、算力禁令和债务也在同步收紧。资本还在投 AI，但开始严苛审视现金流、功耗效率与合规边界。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>能力越接近“黑盒突破”，人越要守住“可理解”和“可控性”。</strong> 无论是 1,700 万行代码验证过的黎曼猜想证明被菲尔兹奖得主提醒“仍需人类读懂”，还是 Signal 屏蔽系统级 AI 截屏、OpenRouter 下架违规服务商，都在提醒一件事：机器能跑通结果不等于让人放心，可控、可追溯与隐私边界正变成产品核心门槛。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>落地方法论正在从“等强模型”转向“立规矩与抢注意”。</strong> LangChain 提倡靠管理员 AI 维护公司知识库，好莱坞与国内短剧靠 AI 数字人压低成本抢占用户时长。对运营和内容从业者而言，与其焦虑模型更新太快，不如尽早把团队经验沉淀成 AI 能读懂的流程，并用更低的生产成本测试内容变现。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-22 19:25 CST · 时间窗口：2026-11-21 17:00 至 2026-11-22 19:25（北京时间） · <a class="archive-link" href="./">查看往期日报 →</a></p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @deepseek_ai、@xAI、@rowancheung、@_akhaliq、@emollick、@dotey 采集超时未抓到；X 账号 @OpenAI、@AnthropicAI 与微博潘乱、极客公园过去 24 小时无新帖（置顶帖不计）。WSJ（Databricks 融资）原文因付费墙拒绝访问，仅引用其标题；36Kr 部分页面需交互加载未取到正文，本期未采用。标注“转述”“经 AI Hot 收录”或“本报未单独核实”的条目（包括亚马逊收购 Decart 传闻、FT 关于 Alice Huang 的调查报道、英伟达 SEC 调查传闻及算力限建统计口径等），摘要与讨论依据公开转述，本报未逐一核对原始文件。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
