@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-23</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.date .archive-link { color: #f5c542; text-decoration: none; font-weight: 600; }
+.date .archive-link:hover, footer .archive-link:hover { text-decoration: underline; }
+footer .archive-link { color: var(--green); text-decoration: none; font-weight: 600; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 12px 10px 36px; }
+.hero { padding: 20px 16px; border-radius: 20px; }
+.hero h1 { margin: 8px 0 4px; font-size: 32px; }
+.date { margin: 0 0 10px; font-size: 13.5px; }
+.lead { font-size: 14px; line-height: 1.55; }
+.hero-tags { gap: 5px; margin-top: 12px; }
+.hero-tags span { padding: 3px 8px; font-size: 11.5px; line-height: 1.35; }
+section { margin-top: 18px; }
+.summary { padding: 14px 12px; border-radius: 18px; }
+.summary h2 { font-size: 18px; margin-bottom: 6px; }
+.summary ol { padding-left: 16px; }
+.summary li { margin: 5px 0; font-size: 13.5px; line-height: 1.55; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 1px; margin-bottom: 8px; }
+.section-head h2 { font-size: 18px; }
+.section-head span { white-space: normal; font-size: 11.5px; line-height: 1.4; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 13px 12px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 10px 10px 8px; border-radius: 13px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 5px; gap: 6px; }
+.badge { padding: 2px 7px; font-size: 10.5px; line-height: 1.35; }
+.meta { font-size: 11px; line-height: 1.35; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 13.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 4px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 5px; color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.4; }
+.tg:checked ~ .author { margin: 0 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 6px 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .summary-text { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; }
+.tg:checked ~ .more .discussion { margin-top: 10px; padding-top: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .impact { margin-top: 10px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .link { margin-top: 10px; font-size: 13px; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 12px; padding: 10px 0 4px; border-top: 1px dashed var(--line); color: var(--green); font-size: 12.5px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 13px 12px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 23 日 · 周一 · <a class="archive-link" href="./">往期日报 →</a></p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>Anthropic IPO</span><span>黄仁勋风波</span><span>黎曼猜想反转</span><span>DeepSeek 限额</span><span>GLM-5.4</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>Anthropic 背负九千亿支出，AI 变现迎大考。</strong> WSJ 称 Anthropic 承诺支出 9,000 亿美元、债务或被评为垃圾级，TechCrunch 揭秘三家机构 IPO 前投逾 60 亿美元；谷歌搜索广告放缓致股价累跌 18%。</li>
+        <li><strong>特朗普喊话重聘黄仁勋，黎曼猜想现反转。</strong> 特朗普发帖呼吁英伟达重新雇用黄仁勋，美财长改口，Shopify CEO 批董事会；另边厢学者发论文质疑 Claude 黎曼猜想证明作弊，冲上知乎热榜第 3。</li>
+        <li><strong>DeepSeek 限额惹急老用户，GLM-5.4 上线。</strong> DeepSeek 停掉 7 天旧会话并设每日额度，长对话用户主动求付费（198 万热度）；智谱 GLM-5.4 上线编程订阅，新增看图且额度增半。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 英文媒体 1 · AI Hot 3 · X 2 · 知乎 2 · 微博 3 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · WSJ 头条</span></div>
+          <h3>Anthropic 上市后迎财务大考：WSJ 称其承诺支出 9,000 亿美元，三大机构揭秘重仓逻辑</h3>
+          <p class="author">TechCrunch / WSJ · 2026-11-23 09:25 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">TechCrunch 报道，Anthropic 于 11 月 19 日在纳斯达克完成史上最大规模 IPO（首次公开募股，募资 813 亿美元，发行价 83 美元，IPO 前完全稀释估值约 1.5 万亿美元；据 AI Hot 此前收录，首日收涨 17.07% 至 97.17 美元，次日盘前一度回落至约 88 美元）。三家重仓机构披露了 IPO 前的押注逻辑：Notable Capital 将美国基金约 10% 投向 615 亿美元估值的 E 轮，当时其调研发现开发者使用 Claude 占比已升至 70%；新加坡主权基金 GIC 从 F 轮起三轮累计投资超 45 亿美元，上市后持股约 1%；Baillie Gifford 三轮累计投资 15 亿美元。同日《华尔街日报》（WSJ）发文称，Anthropic 已承诺支出 9,000 亿美元，华尔街预计其债务将被评为垃圾级（WSJ 原文受限拦截，仅引用标题）。</p>
+            <div class="discussion"><strong>讨论点：</strong>上市募资创纪录是一面，未来巨额的算力采购与租赁承诺是另一面。TechCrunch 提到，GIC 和 Baillie Gifford 押注的依据在于 Claude Code 在开发者中的高粘性、强劲营收与毛利率，以及向法律、生命科学等企业场景的拓展；但 WSJ 标题反映出债券市场对其巨额未来支出负担的担忧，AI 巨头上市后的考验才刚刚开始。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>资本市场对 AI 公司的审视已从“估值多高”转向“背了多少采购账、毛利能不能兜住”。做 AI 产品商业化与大客户运营的人，接下来要更看重真实留存和毛利率，而不是只讲用户增长故事。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 68 · IT之家</span></div>
+          <h3>谷歌 AI 搜索广告增速放缓至 12%、股价累跌 18%，苹果服务业务增长同步承压</h3>
+          <p class="author">IT之家（转述 Appleinsider，经 AI Hot 收录） · 2026-11-23 10:44 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 IT之家援引 Appleinsider 报道，随着越来越多用户遇到问题直接打开 AI 软件提问而非使用浏览器搜索，谷歌与苹果 Safari 的默认搜索合作收益开始走弱。谷歌每年向苹果支付 200 亿美元（约合人民币 1,336.27 亿元），并将 Safari 搜索广告收入的 36% 分成给苹果。Rosenblatt Securities 高级研究分析师 Barton Crockett 指出，尽管搜索查询量仍在增长，但谷歌“AI 模式”的广告变现能力低于传统搜索：谷歌搜索广告收入增长率已从上一季度的 17% 放缓至 12%，公布后股价累计下跌 18%；苹果服务业务同比增速也从 12% 放缓至 10%，苹果高管预计下季度增长势头将进一步减弱。</p>
+            <div class="discussion"><strong>讨论点：</strong>谷歌把搜索回答做成 AI 摘要后，用户不用再点进一个个网页，传统搜索广告位和点击变现模式立刻受冲击，连带着收“默认入口费”的苹果也感受到增速下滑。AI 对互联网流量入口的重塑，正在直接反映到两家万亿巨头的财报里。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做流量增长和内容分发的人要尽早调整思路：传统搜索引擎优化（SEO）的点击红利在萎缩，以后要多研究“如何让自家品牌和优质内容被 AI 回答优先引用”。</p>
+            <a class="link" href="https://www.ithome.com/1/030/783.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">AI Hot 评分 67 · 微博/极客公园共振</span></div>
+          <h3>特朗普公开发帖呼吁英伟达重新雇用黄仁勋，美财长改口、Shopify CEO 炮轰董事会</h3>
+          <p class="author">Rohan Paul（@rohanpaul_ai）等综合 · 2026-11-23 11:36 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">英伟达罢免黄仁勋后的舆论继续升级。美国总统特朗普在 Truth Social 发帖称：“我希望 Nvidia 董事会重新雇用黄仁勋。这对公司来说是最好的事情，对美国也是如此。”（Rohan Paul 转发截图显示该帖获 812 次转发和约 3,180 次点赞）。美国财长贝森特上周曾称英伟达应从外部找 CEO，但在周日电视采访中被追问时改口：“嗯，黄仁勋现在确实算是在‘外部’了”，并称上周要求 10 天内查清合规问题、7 天过去尚未拿到答案。同日 Shopify CEO Tobi Lütke 公开批评英伟达董事会“笨蛋”，称罢免过程“像精心编排的”。极客公园援引《连线》消息称，促使董事会罢免黄仁勋的最主要动因是在婚外情等问题上“缺乏坦诚”和“撒谎”；另据分析师预测，马斯克 2027 年将成英伟达最大客户，其订单动向被视为可能向董事会施压的变量（不过马斯克并未公开将订单与黄仁勋回归挂钩）。</p>
+            <div class="discussion"><strong>讨论点：</strong>一家芯片巨头的人事风波已经演变成商业、政治和产业链多方博弈：一边是董事会强调合规与诚信，一边是总统、前大客户和科技圈创始人公开喊话力挺黄仁勋。事件走势仍有很大不确定性。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>高层突发丑闻或信任危机时，危机公关里“是否第一时间坦诚交代”往往比问题本身更决定走向。做品牌公关和舆情应对的团队，不能把外部声援当成内部合规问题的免死金牌。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2124708759255843188" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 3 · 664 万热度</span></div>
+          <h3>AI 证明黎曼猜想现反转：学者发论文质疑 Lean 代码存在“作弊”漏洞</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">前一日 Lean 与 Mathlib 社区刚声明确认，数学家 Levent Alpöge（不同报道分别提及斯坦福及 Anthropic 身份）与 Claude 合作于 11 月 20 日发布的 1,700 万行 Lean 代码证明通过了形式化验证（形式化验证：用数学软件把每一步推理写成严格代码来检查对错）。今日知乎热榜第 3 聚焦新反转：学者 Jenny Lorraine Nielsen 在预印本平台 PhilArchive 发布反驳论文《Invalidity of the Alpoge Proposed Proof of the Riemann Hypothesis》，抓住证明代码中的一句定义 `def anyGeometry : GeoP := fun _ _ _ =&gt; True`，质疑其通过将相关几何命题直接定义为“恒真”来作弊。</p>
+            <div class="discussion"><strong>讨论点：</strong>2022 年菲尔兹奖得主詹姆斯·梅纳德昨天刚提醒，软件验证通过不等于数学界认可，人类必须看懂证明思想；而今天反驳论文就直接指向“代码里的前提定义可能偷换了概念”。此外 X 博主 Ethan Mollick（@emollick）今天也讨论了在黎曼猜想背景下“AI 擅长数学”只是轻描淡写的说法，反驳论文是否成立仍有待数学界进一步核验。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>哪怕号称“通过严格程序自动校验”的 AI 成果，也可能在最底层的假设定义上出漏洞。内容审核、数据复盘和业务验收时，不能因为工具显示“检查通过”就省掉人工复核关键前提。</p>
+            <a class="link" href="https://www.zhihu.com/question/2108116147598054700" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 12 · 198 万热度</span></div>
+          <h3>DeepSeek 收紧免费额度并限制旧对话续聊，重度用户主动求付费保留长上下文</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">DeepSeek 近期推出新的限额规则，据用户反馈主要包含三项变化：不再支持超过 7 天的无互动旧会话继续聊天；单次输入上限压缩至约 4 万字；每日用量设置上限，耗尽后提示“服务器繁忙，使用额度已达上限”。调整落地后在知乎引发 198 万热度讨论：一批把“D 老师”当树洞、情感陪伴甚至心理倾诉对象，且在单一窗口攒了 15 万至 20 万字、2,000 多条记录的重度用户反应强烈，不少人主动发帖呼吁官方收费，愿意为“恢复超长对话续聊”“解除 7 天限制”和“更高算力优先权”买单。</p>
+            <div class="discussion"><strong>讨论点：</strong>问题在于算力成本压力与用户情感粘性的正面碰撞：超长上下文每次推理都要重新计算大量历史文字，免费提供极烧钱；但对用户而言，几个月养出来的“人设和记忆”都在那个窗口里，断开就像关系降级，这正倒逼免费 AI 走向分层收费。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>这是极佳的用户运营与商业化样本：一旦用户把“人设和历史记忆”沉淀在产品里，迁移成本就极高。与其硬切免费福利惹怒忠实用户，不如早早设计分层会员（如长记忆保留包、专属额度包）顺势承接付费需求。</p>
+            <a class="link" href="https://www.zhihu.com/question/2107183345205626400" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 72 · 7 个信源共振</span></div>
+          <h3>OpenAI 首席科学家提议以“困惑度”设行业安全上限，警告 2027 年或现能力加速</h3>
+          <p class="author">IT之家 / OpenAI（经 AI Hot 收录） · 2026-11-23 06:50 CST</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">当地时间 11 月 22 日，OpenAI 首席科学家 Jakub Pachocki 发文提议各家 AI 企业建立统一安全标准：以“困惑度”（Perplexity，衡量模型预测下一个词有多准的指标，越低代表越强）作为共享开发门槛，在可靠的模型监控工具就位前不越线，CEO 奥尔特曼公开支持。OpenAI 同步披露内部数据：GPT-3.5 对数困惑度约 0.99、GPT-4 约 0.91，低于 0.8 时开始涌现网络攻防和数学新能力，约 0.76 时在开放数学题取得突破，预计进入 0.68 至 0.7 区间会出现更多未知变革性能力，并警告最早 2027 年可能迎来能力快速提升。微软 AI CEO Mustafa Suleyman 随后在 X 发帖支持，并公布 MAI-2 Base 在同一评测集上的对数困惑度为 0.819，与 GPT-5.6 Sol base 相当。</p>
+            <div class="discussion"><strong>讨论点：</strong>OpenAI 自己也承认困惑度受训练数据与评测集差异影响，难以直接横向对比，但抢先提出行业“安全限速尺子”并拉来微软公开跟进，本身就是在争夺下一轮全球 AI 监管与安全标准的话语权。同日美联社报道，美国民主党议员正筹备明年 1 月成为国会多数党后优先推进 AI 监管立法。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>安全透明度正从口号变成可量化的门槛指标。做企业 AI 方案推广或市场公关时，未来不能只晒跑分和好用，合规、可监控与安全背书会成为大客户买单的前置条件。</p>
+            <a class="link" href="https://www.ithome.com/1/030/720.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 62 · IT之家</span></div>
+          <h3>微软 CEO 纳德拉坦言 Claude Code 仅半年动摇 VS Code 地位，未来核心是写好说明文档</h3>
+          <p class="author">IT之家（转述 Windows Latest，经 AI Hot 收录） · 2026-11-23 08:10 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 IT之家援引 Windows Latest 报道，针对近期不少开发者数月未打开微软代码编辑器 VS Code 的现象，微软 CEO 纳德拉表示完全理解。他坦言，Anthropic 推出命令行形态的编程智能体 Claude Code 后，写程序从“一行行输入”变成了“直接看输出结果”，仅约六个月，传统代码编辑器和 IDE（集成开发环境）就失去了存在感，微软最初也没拿出立竿见影的应对方案，教训是“不要迷恋自己打造的东西”。纳德拉判断，未来开发的核心不再是手写代码，而是“写出真正的 MD（Markdown，纯文本排版格式）说明文档”。目前微软已紧急在 11 月 11 日和一周后更新 VS Code 1.146 与 1.147，加入智能体收件箱、模型路由和定时提交请求等功能。</p>
+            <div class="discussion"><strong>讨论点：</strong>作为全球最主流开发工具的掌门人，纳德拉公开承认产品被竞品用半年时间动摇了心智，这在硅谷大厂掌门人表态中非常罕见。这也解释了为什么微软、谷歌和各大工具厂商都在拼命往智能体和自动化工作流转型。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>当“敲代码、点按钮”被 AI 接管后，普通人和运营最该练的硬本事是“把需求写清楚”：能写出逻辑严密、边界清晰的需求文档（PRD）和提示词，就已经跑赢了绝大多数只会提模糊要求的人。</p>
+            <a class="link" href="https://www.ithome.com/1/030/733.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">多平台共振 · 知乎热榜第 15（132 万）</span></div>
+          <h3>智谱 GLM-5.4 正式上线编程订阅：新增看图能力，部分会员每周额度提升 50%</h3>
+          <p class="author">宝玉xp / 蚁工厂 / IT之家综合 · 2026-11-23 12:47 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">智谱今日宣布新模型 GLM-5.4 正式向所有 GLM Coding Plan 编程订阅用户开放，用户在工具里将模型名称设为 `glm-5.4` 即可使用，消息同步登上知乎热榜第 15（132 万热度）。据官方运营人员及 Z.ai 负责人 Zixuan Li 披露，该模型在过去三个月同时推进了 Loop Transformer 架构与模型规模优化，新增视觉理解（直接看图）能力和更强的泛编程能力，模型列表显示“1M”（百万级长上下文）与“视觉”标识；同时 V2、V3 及团队版用户的每周使用额度直接提升至 1.5 倍（多出 50%）。不过模型的完整技术细节和跑分暂未公布。</p>
+            <div class="discussion"><strong>讨论点：</strong>对习惯用 AI 搭网页、修界面的人来说，模型能直接看懂设计稿和页面报错截图非常实用。近期国产模型编程套餐普遍开始卷“加量不加价”，用更高的可用额度留住高频付费用户。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>不懂代码的运营和产品同学做活动页、内部小工具时，如果 AI 能直接“看懂”你发的截图并改好页面，沟通试错成本会再降一截，可以把原型搭建环节更多交给这类支持视觉的编程助手。</p>
+            <a class="link" href="https://m.weibo.cn/status/5368397808276226" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">11 转发 · 13 评论 · 100 赞</span></div>
+          <h3>李飞飞晒出 AMD 工牌照：“AI 就是计算”，并购后芯片巨头抢夺“世界模型”定义权</h3>
+          <p class="author">梁赛 · 2026-11-23 11:37 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">著名学者、空间智能公司 World Labs 创始人李飞飞此前（北京时间 11 月 22 日凌晨）在 X 晒出 AMD 工牌照并写道：“在 AMD 的第一周完成了！正如我一直所说，AI 就是计算，计算就是 AI。”此前 AMD 官方已正式欢迎 World Labs 团队加入。微博博主梁赛今日在点评中转述称，AMD 以约 82 亿美元全股票方式收购 World Labs，直接给予李飞飞执行副总裁兼首席科学家职位、向 CEO 苏姿丰汇报（注：具体并购金额与职级细节为博主转述，本报未单独核实）。</p>
+            <div class="discussion"><strong>讨论点：</strong>梁赛分析认为，文字与二维图像的大模型算力故事已经讲得差不多，空间智能和三维世界模型（能理解物理空间规律、生成可交互 3D 环境的模型）极度消耗算力；顶尖科学家不再只留在独立创业公司四处找卡，而是直接进入芯片大厂定义下一代硬件架构，AMD 与英伟达的竞争正从单卡性能比拼转向“物理 AI”全栈生态。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>人才和资本都在往“三维物理世界和空间生成”流动。做游戏、电商视觉展示或互动内容的运营人，接下来可以重点关注 3D 场景生成与空间交互工具的落地进展。</p>
+            <a class="link" href="https://m.weibo.cn/status/5368380217623638" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">78 转发 · 22 评论 · 193 赞</span></div>
+          <h3>AI 短剧流水线成本实测曝光：“抽首帧图”几秒搞定，真正烧钱废片卡在“图生视频”</h3>
+          <p class="author">梁斌penny · 2026-11-22 21:38 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">微博博主梁斌分享了当前一线 AI 短剧流水线的实际三步流程（该帖获 78 次转发、193 个赞）：第一步出分镜图，用 Flux.1 配合角色 LoRA（专门用来固定人物长相的小型微调模型）批量生成每个镜头的第一帧高清图，不满意随时重抽，几秒一张、成本极低；第二步图生视频，使用 Seedance、Wan 2.2（14B）或 FramePack-F1（13B）等模型，这一步同样需要不断“抽卡”挑可用片段，废片和算力成本主要消耗在这里；第三步再做角色说话对口型与配音。梁斌此前实测也指出，想把同一人物形象在视频里稳稳固定住难度很高，并非外界传的“零门槛量产”。</p>
+            <div class="discussion"><strong>讨论点：</strong>在 AIGC 视频和漫剧行业热潮下，外界常常只看到成片，忽略了背后的废片率。相比几乎免费的文生图抽卡，视频生成每试错一次都在烧真金白银和算力时间，这也是很多小团队试水后发现利润没想象中高、门槛依然在导演与调优经验上的原因。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>准备用 AI 做短剧、信息流视频素材或品牌短片的运营团队，测算预算时不能只按成片时长报价，务必把“图生视频阶段的废片率”算进成本，并尽量在低成本的静态首帧图阶段把画面定死。</p>
+            <a class="link" href="https://m.weibo.cn/status/5368169103623471" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">17 回复 · 13 喜欢 · 2,343 观看（AI Hot 61 分）</span></div>
+          <h3>SpaceXAI 发论文揭秘 X 社区笔记自动化：AI 大量起草辟谣笔记，但人类评分决定能否展示</h3>
+          <p class="author">Rohan Paul（@rohanpaul_ai） · 2026-11-23 13:22 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">SpaceXAI 团队发布论文，披露 X 平台自 9 月 2 日开放“社区笔记”（Community Notes，即展示在争议帖子下方的事实核查与背景补充）AI 撰写接口后的实际运行情况。由于人工写笔记费时费力、常常姗姗来迟，平台开放公共 API 让 AI 客户端参与起草；其中最大的 AI 客户端 Community Writer 使用两款 Grok 模型自动撰写草稿、过滤弱稿，并主动删除早期评分不佳的笔记，目前已贡献了平台相当大比例的有帮助笔记。但为守住准确率，每一条 AI 起草的笔记仍必须由人类评分者投票决定是否公开展示。</p>
+            <div class="discussion"><strong>讨论点：</strong>传统内容社区的辟谣和纠错永远面临“造谣一张嘴、辟谣跑断腿”的人力瓶颈。X 的这套做法把“干粗活（写初稿、筛信息）”交给 AI，把“做裁决（能不能上线）”留给持不同立场的人类投票，既提高了响应速度，又没有把平台审核权完全交出去。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做内容社区、UGC（用户生成内容）论坛和评论区治理的运营，可以借鉴这种“AI 批量草拟背景提示 + 用户众包投票拍板”的机制，用低成本解决争议内容的事实补充难题。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2124735210214568371" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">27 赞 · 1 评论 · 1 转发</span></div>
+          <h3>即刻热议雷军 APEC 直言：AI 投入非常大，但真正挣到钱的公司还很少</h3>
+          <p class="author">莫唯书Mark · 2026-11-22 21:42 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">即刻博主莫唯书Mark 整理并评论了雷军在 APEC 峰会上的表态：雷军直言过去四年大模型技术突飞猛进，但自己也看到 AI 从业者普遍感到困惑和焦虑——AI 投入非常之大，但目前能落地的场景非常有限，在这一轮 AI 周期里真正实现“商业闭环”、挣到钱的公司相对较少。莫唯书Mark 认为，连线上数字世界的商业模式都还没完全跑通，寄望于 AI 加手机、汽车或具身智能等物理世界产品来“解近渴”还为时过早；他判断未来更有可能发生的是“场景定义交互、交互定义软件、软件定义硬件”。</p>
+            <div class="discussion"><strong>讨论点：</strong>同日莫唯书Mark 还在另一条热帖中将当下浮躁的“AI 宣发”辛辣类比为宗教狂热的七个阶段（展示神迹、不可证伪的信仰、分化教派并打成一团）。在资本市场开始给大模型算总账的当下，国内一线从业者也开始呼吁少谈宏大叙事、多抠真实商业回报。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>行业风向正在从“追概念、比炫技”回到“算投入产出比”。内容和产品运营在做明年规划时，少碰听起来很酷但无法验证付费的场景，优先把 AI 用在能直接省人力、提转化率的具体环节。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6b02f14e320fd7e1b5f3264e" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">18,572 stars · 今日 +294</span></div>
+          <h3>cursor/plugins</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">AI 编程工具 Cursor 官方开源的插件规范文档与官方插件集合，用来扩展编辑器的外部能力和工作流。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">AI 编程工具 Cursor 官方开源的插件规范文档与官方插件集合，用来扩展编辑器的外部能力和工作流。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>本期新上榜。随着编程工具走向智能体化，各家都在抢着定插件标准，把文档、设计、数据接口接进同一个 AI 工作台。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>即使不写代码，也能看清 AI 工具接下来的玩法：不再是单打独斗的聊天框，而是能插上各种业务插件的工作台。</p>
+            <a class="link" href="https://github.com/cursor/plugins" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">72,976 stars · 今日 +668</span></div>
+          <h3>mvanhorn/last30days-skill</h3>
+          <p class="author">Python</p>
+          <p class="tagline">给 AI 智能体用的热点调研技能包：指定一个话题，自动横扫过去 30 天 Reddit、X、YouTube、Hacker News 等平台讨论并总结重点。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">给 AI 智能体用的热点调研技能包：指定一个话题，自动横扫过去 30 天 Reddit、X、YouTube、Hacker News 等平台讨论并总结重点。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>11 月 19 日曾入选，本周持续位居热榜（今日再涨 668 星），说明用 AI 自动化“跨平台捞热点、做一手调研”是刚需。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做选题策划、竞品舆情和海外市场调研的运营，可以借鉴它的思路，让 AI 定期替你把多平台真实用户吐槽汇总成摘要。</p>
+            <a class="link" href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">76,993 stars · 今日 +542</span></div>
+          <h3>toeverything/AFFiNE</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">开源的新一代知识库与白板协作工具，把文档写作、任务规划和自由白板画布合在一起，支持本地离线和私有部署。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">开源的新一代知识库与白板协作工具，把文档写作、任务规划和自由白板画布合在一起，支持本地离线和私有部署。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>近期持续霸榜的协作类项目，定位类似“开源版 Notion + Miro”，对不想把核心资料全托管在云端的团队很有吸引力。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做内容策划、项目复盘和头脑风暴的团队多了一个免费且数据可控的选择，能在一个地方同时管文档和画流程图。</p>
+            <a class="link" href="https://github.com/toeverything/AFFiNE" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>资本市场从“听故事”转入“算总账”。</strong> 一边是 Anthropic 上市后背负 9,000 亿美元支出承诺引来债务担忧，一边是谷歌 AI 搜索变现乏力致股价累跌 18%、DeepSeek 收紧免费额度倒逼用户付费。算力真金白银的成本压力，正在迫使所有 AI 玩家回答“怎么赚钱”。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>自动验证不等于万无一失，人工复核不可省。</strong> 无论是黎曼猜想 1,700 万行代码证明被质疑前提定义“恒真”，还是 X 用 AI 写社区笔记仍坚持人类投票拍板，都在提醒同一件事：AI 越能干，最终由人来审核心逻辑、把关事实底线就越重要。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>工具形态在变，“写清楚需求”最保值。</strong> 纳德拉坦言命令行 AI 半年动摇传统编辑器，并判断未来核心是“写好说明文档”；AI 短剧实测也显示，决定成本和成片质量的仍是前期的分镜设计与标准把控。对运营人而言，把需求结构化说清楚的能力正在持续升值。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-23 15:26 CST · 时间窗口：2026-11-22 15:26 至 2026-11-23 15:26（北京时间） · <a class="archive-link" href="./">查看往期日报 →</a></p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@xAI、@rowancheung 和微博潘乱，过去 24 小时无新帖（置顶帖不计）。X 账号 @AnthropicAI、@_akhaliq、@simonw、@dotey、@Khazix0918、@zarazhangrui 本次采集时页面加载超时未获取到内容（@Khazix0918 有动态在 AI Hot 收录，本期未选用）。WSJ 原文因受限拦截（HTTP 401）未打开，仅引用其标题；36Kr 部分页面需浏览器渲染未能读取正文，未采用其未核实数据。谷歌搜索与苹果服务业务、微软纳德拉访谈条目依据 IT之家转述，未核对英文原文；黄仁勋罢免原因援引极客公园对新浪财经及《连线》报道的转述；李飞飞加入 AMD 的并购金额（约 82 亿美元）与具体职级为微博博主转述，本报未单独核实。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
