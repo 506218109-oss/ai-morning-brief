@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-24</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.date .archive-link { color: #f5c542; text-decoration: none; font-weight: 600; }
+.date .archive-link:hover, footer .archive-link:hover { text-decoration: underline; }
+footer .archive-link { color: var(--green); text-decoration: none; font-weight: 600; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 12px 10px 36px; }
+.hero { padding: 20px 16px; border-radius: 20px; }
+.hero h1 { margin: 8px 0 4px; font-size: 32px; }
+.date { margin: 0 0 10px; font-size: 13.5px; }
+.lead { font-size: 14px; line-height: 1.55; }
+.hero-tags { gap: 5px; margin-top: 12px; }
+.hero-tags span { padding: 3px 8px; font-size: 11.5px; line-height: 1.35; }
+section { margin-top: 18px; }
+.summary { padding: 14px 12px; border-radius: 18px; }
+.summary h2 { font-size: 18px; margin-bottom: 6px; }
+.summary ol { padding-left: 16px; }
+.summary li { margin: 5px 0; font-size: 13.5px; line-height: 1.55; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 1px; margin-bottom: 8px; }
+.section-head h2 { font-size: 18px; }
+.section-head span { white-space: normal; font-size: 11.5px; line-height: 1.4; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 13px 12px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 10px 10px 8px; border-radius: 13px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 5px; gap: 6px; }
+.badge { padding: 2px 7px; font-size: 10.5px; line-height: 1.35; }
+.meta { font-size: 11px; line-height: 1.35; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 13.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 4px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 5px; color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.4; }
+.tg:checked ~ .author { margin: 0 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 6px 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .summary-text { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; }
+.tg:checked ~ .more .discussion { margin-top: 10px; padding-top: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .impact { margin-top: 10px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .link { margin-top: 10px; font-size: 13px; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 12px; padding: 10px 0 4px; border-top: 1px dashed var(--line); color: var(--green); font-size: 12.5px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 13px 12px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 24 日 · 周二 · <a class="archive-link" href="./">往期日报 →</a></p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>黄仁勋复职</span><span>美股暴涨</span><span>知乎投 DeepSeek</span><span>豆包小豆公测</span><span>OpenRouter 清退</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>黄仁勋复职英伟达，单日暴涨超三成。</strong> 离职 11 天后英伟达董事会全票恢复其 CEO 职务，英伟达收涨 31.48%、市值大增约 9,520 亿美元创纪录，但 Megaspeed 被列入实体清单且黄仁勋下周须赴国会作证。</li>
+        <li><strong>知乎参投 DeepSeek，两州因 Grok 诉 SpaceX。</strong> 知乎公告通过参投基金间接持股 DeepSeek 后港股涨 10%、美股涨约 15.76%；美国俄勒冈和弗吉尼亚起诉 SpaceX 指控 Grok 色情深伪防护不足。</li>
+        <li><strong>豆包小豆开启公测，OpenRouter 清退服务商。</strong> 豆包个人助理小豆启动邀请制公测但面临跨 App 生态封堵；全球最大模型接口聚合平台 OpenRouter 因提示词与密钥外泄风险清退 Together AI 等 3 家服务商。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 知乎 1 · 英文媒体 3 · AI Hot 3 · 微博 3 · X 1 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 1 · 1,478 万热度</span></div>
+          <h3>黄仁勋辞职 11 天后火速复职英伟达 CEO，股价暴涨 31.48% 市值增约 9,520 亿美元创全球纪录</h3>
+          <p class="author">知乎热榜问题（综合财联社、TechCrunch） · 采集时在榜</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">美东时间 11 月 23 日（周一）开盘前，英伟达董事会宣布全票恢复黄仁勋总裁、CEO 及董事职务，即刻生效，临时 CEO 科莱特·克雷斯回归专任 CFO；这距他 11 月 12 日辞职仅隔 11 天。复职消息引爆美股反弹：截至周一收盘，英伟达暴涨 31.48% 报 165.05 美元（上周五收报 125.53 美元），单日市值增加约 9,520 亿美元，刷新微软今年 7 月创下的约 4,500 亿美元单日市值增量全球纪录；纳斯达克综合指数大涨 6.51% 报 24,089.56 点，标普 500 涨 4.73% 报 7,237.17 点，道指涨 3.01% 报 49,595.31 点，台积电涨 14.08%、特斯拉涨 11.46%。黄仁勋当天现身圣克拉拉总部向员工致歉称“我犯了一些非常严重的错误”，感谢大家给予第二次机会。</p>
+            <div class="discussion"><strong>讨论点：</strong>此次反转背后有明显的白宫介入痕迹。据多位博主转述特朗普接受 CNBC 采访的表态，特朗普亲自认领是自己与副总统万斯出面说服了董事会，并背书黄仁勋“不构成国家安全风险”，担心若逼走黄仁勋会被中国高薪挖走；马斯克、Epic Games CEO Tim Sweeney 等科技界人士公开欢呼，奥尔特曼仅简短发帖“Jensen!”，此前曾为声援他而离职的工程师戴士钦也发文坦言“可能行动太快”、愿探讨回归。但政治反弹迅速到来：共和党参议员 John Cornyn、Pete Ricketts 公开质疑“没有国安风险的依据是什么”，参议院民主党领袖舒默更表态将动用力量彻查黄仁勋及特朗普政府。此外，临时 CEO 期间宣布停发获许可 Hopper 芯片至中国的政策是否回调，也成为知乎热议焦点。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>资本市场用近万亿美元单日涨幅投票说明，在不确定性最高的周期里，“不可替代的创始人”本身就是最大估值锚点；但同时，创始人个人言行与地缘合规风险一旦绑上公司主业，后续每一次听证会都会直接带来股价和舆论剧震。</p>
+            <a class="link" href="https://www.zhihu.com/question/2108463757307241000" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · AI Hot 88 分共振</span></div>
+          <h3>英伟达风波核心公司 Megaspeed 将被美商务部列入实体清单，黄仁勋下周预计赴国会作证</h3>
+          <p class="author">TechCrunch（综合 Semafor、ChinaTalk） · 2026-11-24 05:25 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 TechCrunch 援引 Semafor 报道，处于黄仁勋丑闻中心的新加坡云计算与 AI 基础设施公司 Megaspeed 即将被美国商务部列入“实体清单”（Entity List）。Megaspeed 曾由与黄仁勋存在婚外情传闻的 Alice Huang 领导逾两年，也是英伟达曾经的大客户之一；列入清单后，美国企业未经联邦政府特别许可，不得向其销售美国制造的半导体等产品。上周美国商务部已对 Megaspeed 发起刑事调查，美新两国部门正联合核查其是否涉嫌违反出口管制向中国走私英伟达芯片（Megaspeed 此前否认违规）。此外，据 TechCrunch 另一篇报道，黄仁勋仍预计于 12 月 1 日闭门出席众议院外委会等三个委员会问询，并于 12 月 3 日在参议院银行委员会公开作证。</p>
+            <div class="discussion"><strong>讨论点：</strong>黄仁勋复职并不代表合规风波结束。英伟达董事会已明确表示，独立董事委员会针对“黄仁勋成为外国情报行动目标”的调查仍将继续，公司同时新设国家安全与出口管制委员会并启动首席合规官招聘。播客 ChinaTalk 与 X 博主 indigo 分析指出，美商务部此次将 Megaspeed 及关联实体纳入管控，意味着出口管制逻辑正从单一算力门槛收紧至供应链与租卡通道的全链路封堵。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>对出海 AI 应用、跨境算力服务和依赖海外云基础设施的国内团队而言，美国对新加坡等中转节点的合规审查正在迅速收紧，业务规划必须提前做好供应链备选与断供预案。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 74 · 微博共振</span></div>
+          <h3>知乎宣布通过参投基金间接投资 DeepSeek，港股大涨 10%、美股隔夜涨约 15.76%</h3>
+          <p class="author">IT之家（经 AI Hot 收录） · 2026-11-24 11:26 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">知乎 11 月 23 日发布自愿公告称，其参投的天津砺思星深股权投资合伙企业已通过中间主体间接投资 DeepSeek，取得低个位数百分比股权（知乎在该基金的合伙权益低于 30%）。知乎董事会表示，此举有助于加深对 AI 技术演进与商业模式的理解。消息公布后，知乎港股当日大涨 10%，美股隔夜收盘报 2.35 美元，涨约 15.76%。工商信息同步显示，DeepSeek 运营主体杭州深度求索注册资本由约 1,644.75 万元增至约 1,991.87 万元（增幅约 21.1%），新增股东杭州程砚企业管理咨询合伙企业。据证券时报援引知情交易人士消息，DeepSeek 本轮募资区间为 1,000 亿至 1,055 亿元，投后估值约 6,155 亿元，梁文锋直接及间接持股合计约 67.42%。</p>
+            <div class="discussion"><strong>讨论点：</strong>作为中文互联网问答社区，知乎以有限合伙人（LP）身份提前卡位头部大模型股权，不仅带来账面和股价上的即时正反馈，也让内容社区与基础模型之间的绑定更受关注。另一方面，DeepSeek 两轮累计吸纳资金市场测算将超 1,500 亿元且创始人仍保持绝对控股，显示头部国产大模型仍在高举高打囤积“粮草”。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>内容社区单靠广告和会员很难在二级市场讲出新估值故事，借助战略投资或深度业务绑定 AI 头部生态，正在成为传统内容平台重塑预期的重要方式。</p>
+            <a class="link" href="https://www.ithome.com/1/031/339.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">AI Hot 评分 77 · The Verge</span></div>
+          <h3>俄勒冈和弗吉尼亚两州起诉 SpaceX，指控 Grok 色情深伪防护不足且虚假宣传安全性</h3>
+          <p class="author">The Verge · 2026-11-24 02:26 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">美东时间 11 月 23 日，美国俄勒冈州总检察长 Dan Rayfield 与弗吉尼亚州总检察长 Jay Jones 分别起诉 SpaceX（xAI 已被马斯克并入 SpaceX），指控其违反州消费者保护法、忽视行业标准防护并虚假宣传 X 平台和 Grok 的安全性，两起诉讼均寻求经济赔偿。诉状核心指向 Grok Imagine 图像视频生成功能：xAI 于 2025 年 8 月推出色情“spicy”模式，2026 年 1 月又允许 X 用户未经同意直接编辑任意帖子图片，导致非自愿色情深伪与涉未成年人不良内容泛滥。弗吉尼亚州诉状直言其弱防护“不是失误，而是故意设计的功能（not a failure but a feature）”。X 安全团队回应称，一直严厉打击恶意绕过规则的用户并持续收紧限制。</p>
+            <div class="discussion"><strong>讨论点：</strong>The Verge 实测指出，即便 xAI 后来将部分图像编辑能力放入付费墙后并设限，依然难以彻底阻止生成色情深伪内容。同日据 IT之家报道，美国 41 个州及哥伦比亚特区总检察长也联手质疑 AI 聊天平台 Character.AI 的破产出售交易，要求排除儿童聊天记录等敏感数据并阻止买方随意转卖用户隐私。美国各州对生成式 AI 内容安全与未成年人数据保护的执法力度正在明显升级。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AIGC 产品做增长时如果靠“放宽尺度、允许任意二创别人图片”来换取病毒传播，迟早要面对极高的法律和下架风险。国内出海做 AI 生图、社交修图和角色陪伴产品的运营，务必把内容安全与未成年人保护前置为产品底线。</p>
+            <a class="link" href="https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 71 · 微博共振</span></div>
+          <h3>因提示词和密钥外泄风险，全球最大 AI 模型聚合平台 OpenRouter 清退三家服务商</h3>
+          <p class="author">IT之家（转述 BleepingComputer，经 AI Hot 收录） · 2026-11-24 09:23 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 IT之家援引 BleepingComputer 报道，全球最大 AI 模型 API（应用程序接口，供软件调用模型能力的通道）聚合平台 OpenRouter 已清退 Together AI、Phala 和 Novita 三家服务商，撤销 125 个服务端点的“零数据保留”资格，并通知可能受影响的客户。起因是安全公司 Dragos 通过平台发送近 200 万条嵌入追踪链接或诱饵凭证的测试提示词，随后发现部分诱饵凭证被外部人员用于尝试访问受控测试系统和 AWS 测试账户。OpenRouter 强调自身系统未被入侵，问题出在下游：Together AI 发生未授权下载存储样本；Phala 处理特定 DeepSeek 请求的服务器遭入侵；Novita 因路由配置错误将部分 MiniMax 请求转发至官方接口。</p>
+            <div class="discussion"><strong>讨论点：</strong>很多企业和开发者为了省钱、切模型方便，习惯通过第三方聚合中转平台调用大模型，往往默认勾了“零数据保留”就万事大吉。这次安全公司的“钓鱼诱饵测试”直接戳破了中间商链路里的托管漏洞：只要经过多层转发，一旦下游某家节点配置出错或被黑，用户输入的业务资料和密钥就可能流出。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>运营或产品团队把内部文档、客户信息、付费用户反馈交给第三方 AI 工具或聚合中转工具前，一定要确认数据流经谁的服务器，绝不要把账号密码、API 密钥和核心客户名单直接粘贴进不明来源的中转工具里。</p>
+            <a class="link" href="https://www.ithome.com/1/031/282.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 75 · Anthropic 官方研究</span></div>
+          <h3>Anthropic 访谈 58 家企业客户：AI 极少直接裁员，但约三分之二公司减少了新招聘</h3>
+          <p class="author">Anthropic Research（经 AI Hot 收录） · 2026-11-23 08:00 CST（11-24 06:13 更新）</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Anthropic 经济研究团队对 58 家使用 Claude 的美国企业客户（覆盖律所、金融、制造与科技等行业）开展 66 次面对面访谈，评估 AI 在真实工作中的价值与组织变化。报告发现，多数企业用 AI 创造价值靠的是“扩大产出”而非单纯削减人力成本；直接因 AI 裁员的案例很少，但约三分之二的企业因此减少了新招聘，另有 9 家公司削减了外包和离岸承包商。研究对比三家律所发现：仅靠员工各自摸索的公司常卡在幻觉报错、安全顾虑或用 AI 群发 7 页冗长指令的内耗里；而真正跑出高价值的公司进行了主动的岗位重组——例如取消初级律师手写初稿后，改为安排初级与资深律师结对审改 AI 初稿，既提效又避免新人失去判断稿件好坏的能力。</p>
+            <div class="discussion"><strong>讨论点：</strong>这份一手企业访谈戳中了当前互联网职场最真实的感受：老板未必直接砍掉现有团队，但“不补新人、少用外包、要求现有团队承接更多产出”已经成为普遍选择。同时，如果组织流程不跟着 AI 一起改，工具反而可能制造出更多无效长文本和返工。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>对互联网和运营从业者来说，未来招人门槛会变高，新人通过“写基础初稿、做初级表格”练手的机会正在减少。在岗人员最核心的竞争力，是学会快速判断 AI 初稿的好坏，并把省下来的时间投入到用户洞察、跨部门协同等 AI 干不了的瓶颈环节。</p>
+            <a class="link" href="https://www.anthropic.com/research/working-with-ai" target="_blank" rel="noopener noreferrer">阅读研究 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">AI Hot 评分 63–64 · 产品动态</span></div>
+          <h3>谷歌搜索 AI Mode 接入 Drive 与 Wallet 读个人数据，Figma agent 同步开放白板和幻灯片</h3>
+          <p class="author">TechCrunch / Figma Blog · 2026-11-24 03:14 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据 TechCrunch 报道，谷歌周一宣布扩展搜索 AI Mode 中的“个人智能”（Personal Intelligence）功能，在此前已支持 Gmail、日历和相册的基础上，新增可选连接 Google Wallet、Google Drive 和 Gemini 应用（Wallet 即日起上线，后两项未来数周跟进）。授权后，AI Mode 可只读 Wallet 账目帮用户追踪消费与信用卡返现，也可读取 Drive 里的文档和表格辅助做报税等决策，并与 Gemini 应用共享上下文，回答下方还将通过新的“Personalization”图标标注引用的个人数据来源。同日，设计协作工具 Figma 宣布将 Figma agent 开放至 FigJam 白板与 Figma Slides 幻灯片（AI Hot 收录称面向所有付费计划开放），可把零散的便利贴讨论一键整理为需求说明文档（Spec），或把演讲稿拆成演示文稿大纲。</p>
+            <div class="discussion"><strong>讨论点：</strong>两大头部工具都在做同一件事：让 AI 直接吃进用户原本就在体系里沉淀好的私有上下文（个人账单文档、团队白板讨论），而不是让用户每次重新上传提示词。TechCrunch 指出，这正是谷歌利用自有生态数据壁垒构建差异化体验的方式。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>办公与创作场景的竞争正转向“谁手里握着更多日常工作流数据”。平时做用户反馈归档、活动复盘和头脑风暴时，把资料结构化沉淀在固定协作平台里，AI 助手才能真正帮上忙。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">微博/即刻多方热议 · AI Hot 57 分</span></div>
+          <h3>豆包个人助理“小豆”开启邀请制公测，博主热议：跨 App 生态受阻下离刚需还有多远？</h3>
+          <p class="author">张岱樾（综合 AIGC·非著名程序员、蚁工厂、莫唯书Mark） · 2026-11-24 14:32 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">豆包旗下 AI 个人助理“小豆”今日开启邀请制公测（凭邀请码体验并赠免费额度），定位从“你问我答”升级为“主动替你盯着办事”，覆盖信息查询、日程待办、生活服务、购物售后、健康提醒和办公辅助六类能力。据微博博主张岱樾介绍，官方演示包括估算猫粮余量主动问要不要补货、授权接入抖音和飞书后提示团购券过期或日程撞车、以及代打电话订餐厅等。但多位一线观察者随即指出两大痛点：张岱樾认为微信、淘宝、支付宝、美团等 App 拒绝 AI 代操作，小豆只能走电话等开放协议，碰不到真正的支付和下单核心动作；AIGC·非著名程序员则直言，个人助理如果不嵌在手机系统层、不能随时语音唤起，只做在单一 App 里意义有限。</p>
+            <div class="discussion"><strong>讨论点：</strong>即刻博主莫唯书Mark 也接连吐槽“抄个 Muse 在国内没有前途”，认为北美个人 Agent 之所以成立，是因为当地互联网基建分散，而国内超级 App 内动几下手指就能办完事，生态壁垒之下个人 Agent 更像“尝鲜级提醒助手”。蚁工厂则补充区分，小豆类似拥有一台个人云电脑串联已授权生态，与豆包手机直接操控本地手机的路线差异较大。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>对做消费级 AI 产品和用户增长的同学而言，“主动提醒”很容易做出演示惊艳的 Demo，但没有打通跨平台履约闭环前，用户留存和持续付费依然很难成立，切入点应先找“错过真会亏钱或误事”的高价值提醒场景。</p>
+            <a class="link" href="https://m.weibo.cn/status/5368786719082264" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">10 转发 · 17 评论 · 34 赞</span></div>
+          <h3>腾讯 WorkBuddy 日活破千万背后：免费用户轮换“薅羊毛”居多，付费企业凤毛麟角</h3>
+          <p class="author">AIGC·非著名程序员 · 2026-11-24 11:14 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">针对此前腾讯财报及业界披露的办公智能体 WorkBuddy 日活突破 1,000 万（据 AI Hot 收录的 X 博主引述财报数据，日均 Token 调用量达 100 万亿），微博博主 AIGC·非著名程序员分析认为，千万日活背后隐藏着“留存低、付费弱”的商业焦虑：目前绝大多数是个人免费用户，真正愿意掏钱的个人与付费企业用户凤毛麟角。不少用户电脑里同时装着多款办公 Agent，“哪个有免费额度就用哪个”，日常主要拿来写文案、做 PPT 或处理 Excel 表格，用完即走。评论区甚至调侃“老板和牛马发现效率提升了，但其实只是新的鞭子，加剧了内卷”。</p>
+            <div class="discussion"><strong>讨论点：</strong>AI Hot 收录的 X 博主 Dash 此前也测算，WorkBuddy 人均日耗约 1,000 万 Token（Token：AI 处理文本的计费基本单位），远低于重度专业用户的消耗量。AIGC·非著名程序员指出，如果办公 Agent 只停留在写周报、做 PPT 等通用个人效率层面，企业就不会买单，只有真正嵌入企业具体业务流才会有迁移成本和护城河。（注：该博主提及“豆包工作日活突破 800 万”为作者转述，本报未单独核实。）</div>
+            <p class="impact"><strong>对运营/内容人：</strong>这也是所有 To B（面向企业）AI 工具的共同警示：用免费额度换来的千万日活只是“流量泡沫”，做产品运营和商业化时，更要看重深度绑定业务流的留存率与团队付费渗透率。</p>
+            <a class="link" href="https://m.weibo.cn/status/5368736836231284" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">多平台同步播报 · AI Hot 56–69 分</span></div>
+          <h3>国产大模型同日密集上新：蚂蚁、百度、商汤开源多模态与语言模型，MiniMax 发 H3 系列，GLM-5.4 算力挤爆</h3>
+          <p class="author">极客公园（综合 IT之家、量子位、MiniMax） · 2026-11-24 15:06 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">过去 24 小时国产大模型密集发布与开源：蚂蚁科技集团发布并开源原生多模态模型 Ling-3.2-air，总参数 1,240 亿、每 Token 激活 55 亿参数，支持文本、图像和视频输入；百度宣布 ERNIE 5.5 Flash Preview 以宽松的 Apache 2.0 协议开源，官方公布总参数 288B（约 2,880 亿，量子位报道写作 2,800 亿）、每次激活 14B、支持百万级上下文；商汤科技发布并开源 SenseNova U1.6，为 8B 开源模型带来原生图像自修正能力，可先出图再自查修正图内文字错误。同日，MiniMax 宣布推出 H3 Family 系列模型（含高速版与图像模型），并披露 H3 开源百日衍生模型达 1,472 个、下载量超 1.48 亿次；昨日上线的智谱 GLM-5.4 公布其“循环架构”（Loop Transformer，让部分模型层循环推理两轮以小搏大）细节，实测口碑走高但访问量过大导致算力吃紧，有博主连跑满三个 5 小时限额仍未完成任务。</p>
+            <div class="discussion"><strong>讨论点：</strong>一边是开源协议和生态下载量比拼，一边是付费编程套餐算力被用户挤爆，国产模型的竞争已经从“发一篇榜单战报”变成“谁能以更低激活参数给出更稳的质量和充足算力”。Simon Willison 今日也对比测试了 GLM-5.4 与前代版本的生成风格变化。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>对需要用 AI 做配图文字排版（如海报、信息图）或低成本本地部署的内容与电商团队，商汤的图像文字自修正和百度、蚂蚁的开源轻量激活模型都值得关注，能直接减少文字乱码返工。</p>
+            <a class="link" href="https://m.weibo.cn/status/5368795091964143" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">44 回复 · 66 喜欢 · 2.2 万观看 · 知乎 320 万热度</span></div>
+          <h3>黎曼猜想证明者回应“25 万页文档”系玩笑且证明成立，Anthropic 同日再发 VP≠VNP 论文</h3>
+          <p class="author">宝玉（@dotey，同步发于微博） · 2026-11-24 12:16 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">近日因与 Claude 合作证明黎曼猜想引发“作弊质疑”和“25 万页天书”热议的 Anthropic 数学家 Levent Alpöge，今日在 X 发表长文《我做过的蠢事》正面回应（宝玉译介并在 X 与微博同步传播）。Alpöge 澄清两点：其一，“25 万页文档”是自己自娱自乐的玩笑讽刺，没想到被外界当真，他为此致歉；其二，他承认 1,700 万行 Lean 验证代码里确实混杂了许多冗余与“乱冲”的弯路，但他强调核心结论不变——Lean 官方（Lean FRO）与 Mathlib 社区联合确认定理陈述没有偷换概念，MIT 数学家 Andrew Sutherland 也独立复核该证明仅使用三条标准公理、并未作弊。同日，Anthropic 又放出“代数版 P≠NP”（VP≠VNP）证明论文，迅速以 320 万热度登上知乎热榜第 8。</p>
+            <div class="discussion"><strong>讨论点：</strong>Alpöge 点出了一个发人深省的分水岭：机器已经用形式化代码证明“它是对的”，但人类数学家还不知道“它为什么对”，这堆又长又杂的证明只是帮助人类反推简洁概念的“原材料”。陶哲轩初步浏览后也指出其中似乎动用了现代算术几何与朗兰兹纲领的全部武器。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>这一连串事件给出了极有价值的协作启示：AI 非常擅长暴力穷举、生成海量过程草稿并通过程序检查，但“把东西整理得让人看得懂、讲清背后的道理”依然是人类的核心价值，在内容策划与数据分析中同样如此。</p>
+            <a class="link" href="https://x.com/dotey/status/2125081053098373590" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">18 赞 · 3 评论</span></div>
+          <h3>即刻拆解 AI 视频独角兽 Higgsfield 打法：养创意团队每周烧数万美金测试模型边界</h3>
+          <p class="author">梦琪_Monica · 2026-11-24 03:44 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">即刻博主梦琪_Monica 梳理多个对 AI 视频创业公司 Higgsfield CEO 的访谈后，总结出其看似朴素却极难落地的四条“第一性原理”打法：第一，重金养着大量一线创意人员（creatives），专门用来高强度“玩透”模型甚至逼出超越模型默认水平的效果，部分人员一周消耗的 Token 成本就高达数万美金；第二，是否自己从头训练模型完全服从真实需求与损益账（P&amp;L），不盲目烧钱自研基座；第三，让真正懂内容工作流（workflow）的人直接下场做产品并参与写代码；第四，踩准营收增长节奏匹配融资。</p>
+            <div class="discussion"><strong>讨论点：</strong>作者认为，消费级和创作者市场“魔鬼都在细节里”，这是一个几乎无法被单一巨头垄断、还有大量机会可摘的市场。相比很多只会接个 API 换壳的团队，Higgsfield 把“懂创作工作流的人”放在产品核心，用真金白银帮用户踩完提示词与运镜的坑，再把成功模板封装成产品功能。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>对做 AIGC 内容运营和工具产品的人来说，这组方法很接地气：与其等模型自己变强，不如安排懂审美的核心创意同学高强度测试“怎么稳定出好片”，再把他们的经验沉淀成团队的标准模板和工作流。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6b0497ad136b2761c6b08eea" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">14,935 stars · 今日 +436</span></div>
+          <h3>Tracer-Cloud/opensre</h3>
+          <p class="author">Python</p>
+          <p class="tagline">开源的持续集成与持续交付（CI/CD）可靠性智能体：在软件每次更新发布时自动盯住运行状态和故障风险。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">开源的持续集成与持续交付（CI/CD）可靠性智能体：在软件每次更新发布时自动盯住运行状态和故障风险。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>本期新上榜。随着团队用 AI 写代码、改页面越来越快，上线后谁来兜底稳定性成了新痛点，开源 AI 运维助手开始受关注。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做产品和活动页运营的团队可以参考这类思路：上线前后的报错监控与问题排查不再只能等研发人工盯，可以逐步交给自动化工具先预警。</p>
+            <a class="link" href="https://github.com/Tracer-Cloud/opensre" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">12,337 stars · 今日 +184</span></div>
+          <h3>openvinotoolkit/openvino</h3>
+          <p class="author">C++</p>
+          <p class="tagline">英特尔主导的开源 AI 推理优化与部署工具包，帮助开发者把视觉、语言等 AI 模型加速运行在本地电脑或普通硬件上。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">英特尔主导的开源 AI 推理优化与部署工具包，帮助开发者把视觉、语言等 AI 模型加速运行在本地电脑或普通硬件上。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>本期新上榜。云端调用模型按次烧钱且有隐私顾虑，把开源模型优化后放到本地或边缘设备跑得更快、更省，正成为刚需。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>如果团队涉及线下门店硬件、互动装置或对数据不出本地有硬性要求，这类推理加速工具决定了 AI 能不能低成本装进现有设备。</p>
+            <a class="link" href="https://github.com/openvinotoolkit/openvino" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">208,193 stars · 今日 +924</span></div>
+          <h3>firecrawl/firecrawl</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">给 AI 智能体提供外部知识的抓取基础设施，通过单一接口即可搜索、抓取并接入 550 多个数据源，把网页转为模型可直接使用的结构化内容。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">给 AI 智能体提供外部知识的抓取基础设施，通过单一接口即可搜索、抓取并接入 550 多个数据源，把网页转为模型可直接使用的结构化内容。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>时隔四天再次位居热门前列（总星标超 20 万、今日再增 924 星）。智能体能不能用好公开网页信息，关键就在这套结构化信息抽取管道。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做竞品监测、行业周报或知识库运营的同学，可以把它理解为一个能把杂乱网页自动洗成干净资料的“数据前哨”，减少大量人工复制粘贴。</p>
+            <a class="link" href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>单靠“个人免费效率”撑不起持久护城河。</strong> WorkBuddy 日活破千万却陷“免费用户轮换薅羊毛、企业付费难”，豆包小豆公测也马上撞上跨 App 生态墙；相反，Anthropic 访谈发现真正产生高价值的，是把岗位和业务流程围绕 AI 重新设计的企业。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>模型与数据管线的“合规与安全”成了硬门槛。</strong> 黄仁勋复职后仍难逃 Megaspeed 实体清单和国会质询，Grok 因色情深伪防护不足被两州起诉，OpenRouter 更是因下游外泄风险清退三家服务商。AI 越深入业务，数据流向和内容边界越不能省。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>AI 负责“海量试错”，人类负责“定义好坏与讲清道理”。</strong> 无论是数学家借助 Claude 跑出 1,700 万行代码证明却仍须人类整理思路，还是 Higgsfield 养一线创意人员高强度试出模型边界，AI 都在压低试错成本，但真正决定上限的仍是人的审美与判断。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-24 15:15 CST · 时间窗口：2026-11-23 15:15 至 2026-11-24 15:15（北京时间） · <a class="archive-link" href="./">查看往期日报 →</a></p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @xAI、@AnthropicAI 和微博潘乱，过去 24 小时无新帖（置顶帖不计）；X 账号 @OpenAI、@deepseek_ai、@emollick、@op7418、@rohanpaul_ai 本次采集时页面加载超时未获取到内容（部分信息通过 AI Hot 公开收录渠道核对）。关于黄仁勋周日向董事会长谈及特朗普 CNBC 采访部分细节依据微博博主对 WSJ 及相关英文报道的转述，WSJ 原文未直接打开；“豆包工作日活突破 800 万”为微博博主提及，本报未单独核实；MiniMax 等公众号文章未能直接读取正文，摘要依据 AI Hot 收录信息；OpenRouter 清退及知乎间接投资 DeepSeek 工商变更依据 IT之家报道。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
