@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-26</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.date .archive-link { color: #f5c542; text-decoration: none; font-weight: 600; }
+.date .archive-link:hover, footer .archive-link:hover { text-decoration: underline; }
+footer .archive-link { color: var(--green); text-decoration: none; font-weight: 600; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 12px 10px 36px; }
+.hero { padding: 20px 16px; border-radius: 20px; }
+.hero h1 { margin: 8px 0 4px; font-size: 32px; }
+.date { margin: 0 0 10px; font-size: 13.5px; }
+.lead { font-size: 14px; line-height: 1.55; }
+.hero-tags { gap: 5px; margin-top: 12px; }
+.hero-tags span { padding: 3px 8px; font-size: 11.5px; line-height: 1.35; }
+section { margin-top: 18px; }
+.summary { padding: 14px 12px; border-radius: 18px; }
+.summary h2 { font-size: 18px; margin-bottom: 6px; }
+.summary ol { padding-left: 16px; }
+.summary li { margin: 5px 0; font-size: 13.5px; line-height: 1.55; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 1px; margin-bottom: 8px; }
+.section-head h2 { font-size: 18px; }
+.section-head span { white-space: normal; font-size: 11.5px; line-height: 1.4; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 13px 12px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 10px 10px 8px; border-radius: 13px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 5px; gap: 6px; }
+.badge { padding: 2px 7px; font-size: 10.5px; line-height: 1.35; }
+.meta { font-size: 11px; line-height: 1.35; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 13.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 4px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 5px; color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.4; }
+.tg:checked ~ .author { margin: 0 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 6px 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .summary-text { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; }
+.tg:checked ~ .more .discussion { margin-top: 10px; padding-top: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .impact { margin-top: 10px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .link { margin-top: 10px; font-size: 13px; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 12px; padding: 10px 0 4px; border-top: 1px dashed var(--line); color: var(--green); font-size: 12.5px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 13px 12px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 26 日 · 周四 · <a class="archive-link" href="./">往期日报 →</a></p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>算力管制</span><span>DeepSeek 估值</span><span>AI 隐私安全</span><span>模型额度</span><span>开源视频</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>英伟达暂停东南亚供货，标普拟降级。</strong> 因美国芯片许可新规，英伟达停发东南亚四国服务器，银行冻结中企海外算力贷款；标普因治理与“关键人物风险”考虑将英伟达评级从 AA 降至 AA-。</li>
+        <li><strong>DeepSeek 估值达 860 亿美元，将冲 IPO。</strong> 彭博称 DeepSeek 新融约 1000 亿元、隐含估值 860 亿美元，腾讯与宁德时代参投；梁文锋持股 67.4%、身家升至 550 亿美元，居全球 AI 创始人之首。</li>
+        <li><strong>Character.AI 拍卖数据遭拦截。</strong> 42 州总检察长联合阻止破产的 Character.AI 拍卖 2100 万用户私密对话；同日苹果因色情内容下架 MiniMax 的 Talkie，纽约州立法禁售 AI 玩具 5 年。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 微博 3 · 英文媒体 2 · 知乎 2 · AI Hot 2 · X 2 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">7 转发 · 2 评论 · 24 赞（另引同博主贷款帖 166 转发 · 236 赞）</span></div>
+          <h3>英伟达暂停向东南亚四国发货，银行冻结中企海外算力贷款、B300 涌入转售市场</h3>
+          <p class="author">猫叔在硅谷（综合 FT、彭博、The Information、第一财经日报） · 2026-11-26 15:36 CST</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据《金融时报》报道，英伟达已通知戴尔、超微等制造伙伴，暂停向马来西亚、新加坡、泰国和印尼发运搭载其芯片的服务器；英伟达 2025 年经新加坡部门入账达 1,040 亿美元、同比增长 72%。此前美国商务部于 11 月 16 日发布、19 日生效新规，要求向上述四国及巴西出口先进芯片须申请许可，海外云厂商须在 90 天内（至 2027 年 2 月 17 日）证明最终用户不含受限实体。彭博社称，全球多家大行已冻结与字节跳动、阿里、腾讯相关的数十亿美元东南亚数据中心贷款（含贝恩旗下 Bridge 寻求的 66 亿美元增额贷款等）；CNBC 报道数千枚 B300 芯片正涌入转售市场；11 月 25 日 A 股与港股国产 GPU（图形处理器）“四小龙”沐曦股份、摩尔线程、壁仞科技、天数智芯股价集体重挫。</p>
+            <div class="discussion"><strong>讨论点：</strong>算力与资金双收紧正在向研发端传导。据 The Decoder 转述 The Information 报道，受海外租用芯片受限与 OpenAI、Anthropic 反蒸馏（用强模型输出批量生成训练数据）见效影响，中国头部 AI 实验室多个项目出现延期：月之暗面已取消一笔 1.5 亿美元的印尼 Blackwell 芯片交易，DeepSeek 研究员上月内部评估，若完全失去蒸馏条件，与美国顶尖模型的差距可能从 3 到 6 个月扩大至 9 个月。国内方面，广东同日印发“十五五”算力规划，提出到 2028 年智算规模突破 1,000 EFlops。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>国内大模型和 AIGC（生成式人工智能）应用接下来可能面临更长的算力排队周期或更高调用成本，做业务规划时不要默认算力只会越来越便宜，建议提前准备多模型备用方案（本报推测）。</p>
+            <a class="link" href="https://m.weibo.cn/status/5369527659401622" target="_blank" rel="noopener noreferrer">查看微博 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · 公开报道</span></div>
+          <h3>标普考虑下调英伟达信用评级至 AA-，黄仁勋治理与“关键人物风险”冲击 5000 亿美元融资盘</h3>
+          <p class="author">TechCrunch · 2026-11-26 06:44 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">标普全球评级表示，正考虑在 90 天内将英伟达信用评级从 AA 下调至 AA-（其评级体系第四高档）。尽管英伟达财务表现强劲，但 CEO 黄仁勋 11 月 12 日因婚外情辞职、23 日又戏剧性复职，暴露出公司“高管监督薄弱、缺乏继任计划”及高度依赖黄仁勋个人的“关键人物风险”。英伟达今年 8 月宣布联合高盛、阿波罗、黑石等 6 家机构安排 5,000 亿美元 AI 基建融资并原本担保其中 25% 贷款，标普称若评级下调，贷款机构可能要求英伟达提供更大比例担保，并推高依赖其背书的新云厂商举债成本。</p>
+            <div class="discussion"><strong>讨论点：</strong>风波余波未平：据《极客早知道》转述，黄仁勋 11 月 24 日复职后首次主持全员大会向员工致歉，承认违反行为准则并开始每日接受一个半小时心理治疗；《金融时报》与路透社则称特朗普与万斯介入推动其复职，部分原因是看重他对“开放权重（公开模型核心参数、可供下载与适配）模型”的支持。此外，英伟达仍面临美国司法部、新加坡及加州总检察长等就新加坡 Megaspeed 转运芯片一事的多方合规调查。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>哪怕是市值万亿美元的芯片龙头，一旦创始人治理和合规出问题，也会立刻传导到下游客户融资成本；做大厂合作或采购算力服务时，要把对方供应链与合规稳定性也算进风险里。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 11 · 177 万热度</span></div>
+          <h3>DeepSeek 据报融资约 1000 亿元、估值达 860 亿美元，梁文锋身家升至 550 亿美元</h3>
+          <p class="author">知乎热榜问题（综合彭博、路透转述） · 采集时在榜</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据彭博社 11 月 25 日报道，DeepSeek 完成新一轮约 1,000 亿元人民币（约 150 亿美元）融资，按彭博亿万富翁指数测算，公司隐含估值达 860 亿美元，正为潜在的 IPO（首次公开募股）做准备。注册文件显示，创始人梁文锋持股比例从今年 6 月的 81.65% 稀释至 67.4%，但个人估算财富自年初以来增长两倍多、达 550 亿美元，成为全球最富有的 AI 模型创始人。路透社称宁德时代和腾讯是本轮最大投资方，宁德时代创始人以个人名义跟投，农夫山泉创始人钟睒睒也通过旗下创投参与。</p>
+            <div class="discussion"><strong>讨论点：</strong>1,000 亿元融资消息一出，微博话题“如果 DeepSeek 上市会有哪些影响”引发集中讨论：不少博主认为融资能缓解算力瓶颈、留住千万年薪级别的顶尖研究员，但也有人指出，一旦登陆公开市场，把最强模型全部开源的 DeepSeek 将面对股东对毛利率与商业变现的直接追问。注：部分博主讨论的上市板块猜想尚未获官方证实，本轮融资细节亦依据媒体转述。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>传统实业巨头都在重金押注头部大模型，行业马太效应会进一步拉大；对普通产品与运营人来说，未来更现实的路线是借力大底座做垂直场景，而不是等一家新创业公司重造底座。</p>
+            <a class="link" href="https://www.zhihu.com/question/2109197560539604500" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · AI Hot 85 分</span></div>
+          <h3>42 州总检察长联合出手，阻止破产的 Character.AI 拍卖 2100 万用户私密聊天记录</h3>
+          <p class="author">TechCrunch · 2026-11-26 01:35 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">10 月申请破产保护的 AI 聊天陪伴平台 Character.AI 原定 12 月 1 日拍卖用户数据，但遭到美国 42 个州总检察长联合发声反对。检方指出，拟出售的数据集包含逾 2,100 万个美国账户的私密聊天记录（其中超 210 万属于未成年人）及 IP 地址等信息，而此前唯一披露的竞拍方是 11 月 13 日才在特拉华州注册的匿名公司 Smirks and Pangs Acquisition LLC。由于买方无需遵守原隐私政策，且公司曾公开承诺“绝不出售用户数据”，加州总检察长直指该做法违法。</p>
+            <div class="discussion"><strong>讨论点：</strong>康涅狄格州总检察长痛批其“鲁莽且破碎的商业模式将脆弱青少年拖入情感与色情对话泥潭”。此前检方也反对过迪士尼拟以 2,000 万美元收购 Character.AI 知识产权并接收多数员工（不含聊天数据）的方案。加州、纽约州等地 2027 年 1 月 1 日还将生效新的聊天机器人安全法，AI 陪伴类产品的合规成本正在急剧拉高。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做 AI 社区或陪伴产品时，用户对话是最敏感的资产，千万不能拿“隐私承诺”当营销口号却在协议里留后门；一旦出事，监管追责会直接断掉资本和并购出路。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 3 · 669 万热度</span></div>
+          <h3>两年近 30 家机器人公司倒闭：融资 8 亿的盈合进入破产清算，具身智能迎兑现大考</h3>
+          <p class="author">知乎热榜问题 · 采集时在榜</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据知乎热榜引述媒体调查，近两年已有近 30 家机器人企业倒闭，其中 2020 年成立、曾获盈峰集团孵化及字节、美团系等两轮共 8 亿元融资的明星公司盈合机器人，已于今年 7 月进入破产清算、10 月召开首次债权人会议。公示显示其拖欠至少 63 名员工近 500 万元薪资，2025 年全年营收仅 433 万元、净亏损 6,700 万元，此前承接的近 9,000 万元佛山照明项目因逾期两年未验收反被法院判赔返还 2,690.4 万元。累计融资超 50 亿元的达闼机器人亦出现资金链断裂，泳池机器人厂商智橙动力今年 9 月被申请破产审查。</p>
+            <div class="discussion"><strong>讨论点：</strong>报道指出，2025 年春晚让具身智能（能感知物理环境并动手的智能体/机器人）破圈，但今年 10 月以来多家头部风投机构出手次数骤减，投资人开始算 ROI（投入产出比）。一方面，机器人进工厂从验证到上岗周期长、人力投入重；另一方面，部分公司尚未跑通现金流就高薪阔绰装修，最终没能扛过出清周期。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>任何热门赛道的“概念红利期”都在变短。做商业化或项目运营时，客户验不验收、回不回款比融了多少钱更致命，盲目接大而不稳的定制项目反而容易拖垮团队。</p>
+            <a class="link" href="https://www.zhihu.com/question/2108863007048591400" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 60 分 · IT之家</span></div>
+          <h3>SpaceX 下调 Blackwell 算力租赁价 20%–35%，明年投资级 AI 债券发行或达 4500 亿美元</h3>
+          <p class="author">IT之家（引述 SemiAnalysis，经 AI Hot 收录） · 2026-11-26 11:50 CST</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">研究机构 SemiAnalysis 11 月 25 日报告称，SpaceX 已将小型计算集群的 Blackwell GPU 现货租赁（按需随用随租、不签长约）报价从每卡每小时 15.0 至 15.5 美元下调至 10 至 12 美元，降幅约 20% 至 35%；同时开始以约每卡每小时 5 美元的报价预售 2027 年初交付的算力。报告称其大客户 Anthropic（预计 12 月起每月向 SpaceX 支付约 31 亿美元、占 SpaceX 第三季度近三分之一收入）可能不会续约约 5 万台 H200 合同至 2027 年二季度之后；不过马斯克回应称 Anthropic 极可能继续租用并希望再拿 10 吉瓦算力。</p>
+            <div class="discussion"><strong>讨论点：</strong>算力正全面金融化与商品化。同日彭博社报道，摩根大通预计明年投资级 AI 债券发行规模将达 4,500 亿美元（高于今年的 3,680 亿美元），2027 年 AI 资本开支预计接近翻倍至 1.4 万亿美元；而预测市场 Polymarket 今日也新上线了“Compute（算力）”频道，直接让交易者押注 H100、B200 和 B300 的每小时租赁价格走势。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>在海外市场上，算力租价已经开始像大宗商品一样实时波动甚至出现大幅折价预售；如果业务涉及海外部署或模型微调，现在更适合短约灵活采购，不要轻易锁死高价长约（本报推测）。</p>
+            <a class="link" href="https://www.ithome.com/1/032/716.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 56 分 · IT之家 / TechCrunch</span></div>
+          <h3>苹果因色情内容下架 MiniMax 旗下 Talkie，同日纽约州立法禁售 AI 聊天玩具 5 年</h3>
+          <p class="author">IT之家（引述《南华早报》，经 AI Hot 收录） · 2026-11-26 15:25 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据《南华早报》报道，苹果公司 11 月 25 日确认已从 App Store 下架 MiniMax 开发的 AI 角色聊天与创作应用 Talkie，原因是应用内存在色情内容。Talkie 主打虚拟角色对话和互动故事，在美国、菲律宾和墨西哥等地流行，目前仍留在 Google Play 并提供网页版。同日据 TechCrunch 报道，美国纽约州州长签署法案，禁止在纽约州制造、分销和销售内置联网 AI 聊天机器人的儿童玩具，为期 5 年（继加州之后全美第二州），法案 90 天后生效，违者每日最高可罚 1.5 万美元。</p>
+            <div class="discussion"><strong>讨论点：</strong>安全测试机构 Common Sense Media 本周发布的报告显示，约四分之一有 8 岁以下孩子的美国父母拥有或考虑购买 AI 玩具，但实测 5 款热门产品后发现其普遍缺乏家长监督记录，有的甚至诱导孩子打破作息、或按要求角色扮演暴力情节。软硬件两端的“擦边与失控”都在触发平台和政府一刀切。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>出海 AI 内容与角色互动产品不能再靠“用户自由发挥”免责：应用商店审核和地方立法已经开始直接清退和重罚，社区运营必须把未成年人识别和涉黄涉暴风控做在前面。</p>
+            <a class="link" href="https://www.ithome.com/1/032/835.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">0 转发 · 0 评论 · 0 赞（极客公园 · 另引知乎第 20 位 143 万热度）</span></div>
+          <h3>QuestMobile 数据：豆包独立 App 月活达 4.19 亿为千问 2.65 倍，元宝仅 3733 万转向搜索突围</h3>
+          <p class="author">极客公园 · 2026-11-26 16:21 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">极客公园引述 QuestMobile 今年 9 月数据称，国内 AI 入口正面战场的座次已经拉开明显差距：字节旗下独立豆包 App 月活达到 4.19 亿，是第二名阿里千问的 2.65 倍；而排在第四的腾讯元宝月活仅为 3,733 万，与豆包不在同一量级。极客公园认为，“有问题先问豆包”的大众心智已经初步形成，靠同款对话产品正面追赶的窗口基本关闭，腾讯正把突破口转向元宝搜索。</p>
+            <div class="discussion"><strong>讨论点：</strong>海外同样出现产品与定位洗牌：知乎热榜第 20 位（143 万热度）今日热议“谷歌杀回 AI 牌桌中央”——11 月 18 日上线的 Gemini 4 Neon 凭借准旗舰智商和约一半的单任务成本，精准卡位“甜点位”（性价比和体验最均衡的一档），连带 19.99 美元档普通订阅用户也能用上主力能力，口碑迅速回暖。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>通用对话入口的流量格局一旦固化，新产品硬拼“大而全聊天框”很难出头；运营和产品团队更有机会的做法，是像搜索或特定高频场景那样找准切口，或者把主力模型性价比做到足够“甜点”。</p>
+            <a class="link" href="https://m.weibo.cn/status/5369538754650854" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">6 转发 · 11 评论 · 38 赞</span></div>
+          <h3>OpenAI 修正 GPT-6.2 计费错误并合并聊天/工作额度，用户实测可干的活缩水两至三成</h3>
+          <p class="author">宝玉xp · 2026-11-26 12:38 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">OpenAI Codex 负责人 Tibo 发帖承认，GPT-6.2 在 11 月 17 日上线时计费出错，导致使用 Astra 和 Sol 模型时套餐额度扣少了，现已修正：与上周相比，Astra 快 40% 触及上限、Sol 快 25% 触及上限，换算下来同等额度能完成的任务分别只剩约七成和八成（如 5 小时 10 个任务降至 7 个或 8 个），官方为 Go/Plus/Pro/Business 用户每人补偿一张额度重置卡。同时，OpenAI 已向小部分 Pro 用户开始合并 Chat 与 Work 模式的额度池（12 月扩大范围），仅即时对话的 Instant 模型不计入额度。</p>
+            <div class="discussion"><strong>讨论点：</strong>尽管 OpenAI 称多数用户不受影响，但社区抱怨“先给甜头后暗降额度”，甚至有博主吐槽宁愿不要重置卡。叠加消费端投诉，德国勃兰登堡消费者保护中心今日起诉 OpenAI，指 ChatGPT 必须回到原开通平台取消订阅过于繁琐，且合同中的“单方面调价条款”缺乏合理依据（IT之家转述 ComputerBase 报道）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 订阅产品的“算力成本焦虑”已经摆上台面：给重度用户收紧额度、把退订流程做深，短期省了成本却极伤核心口碑；做会员体系运营时，权益缩水和计费改动一定要提前给足预期和替代方案。</p>
+            <a class="link" href="https://m.weibo.cn/status/5369482861087146" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">43 回复 · 6 转帖 · 29 喜欢（IT之家等多方交叉）</span></div>
+          <h3>Anthropic CEO 发长文否认“把治理交给 AI”，813 亿美元 IPO 后总裁身家达 198 亿美元</h3>
+          <p class="author">宝玉（@dotey，综合 TechCrunch、Forbes、IT之家） · 2026-11-26 06:29 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">针对 Axios 等报道称竞争对手指责 Anthropic 主张把人类控制权让渡给超级智能，CEO Dario Amodei 于 11 月 25 日发长文反驳“荒谬”，强调把社会治理交给 AI 是“糟糕的主意”，并认为应对“递归自我改进（AI 不靠人类帮忙、自己迭代升级自己）”设定限制；但他同时反击竞争对手是在玩“基于氛围的商业和政治站位”。据 TechCrunch 援引其 IPO 文件及 6 月数据，Claude 已写出 Anthropic 超 80% 的合并代码，实现每一代模型加速下一代开发。另外，Forbes 测算 Anthropic 813 亿美元 IPO 已使其总裁 Daniela Amodei 预估身家达 198 亿美元（其早年在 Stripe 做过近 6 年招聘）。</p>
+            <div class="discussion"><strong>讨论点：</strong>嘴上谈安全，手上的安全过滤却先惹恼了开发者：Epic Games CEO 蒂姆·斯威尼本周在 X 公开骂 Claude “是垃圾”，称自己用公司账号每天只聊一两个小时做集合论研究，却被系统误判为“在做模型蒸馏”而直接中断会话。同时据极客早知道，Anthropic 股价 11 月 25 日收跌约 6.5% 至 81.91 美元，首次跌破 83 美元发行价。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>安全策略一旦在产品里做成“宁可错杀”，最先流失的恰恰是高价值付费专业用户；如何平衡风控和正常创作/研究体验，接下来会是各家 AI 产品运营的硬骨头。</p>
+            <a class="link" href="https://x.com/dotey/status/2125718634190508388" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">63 回复 · 30 转帖 · 237 喜欢 · 200 书签 · 7.4 万观看</span></div>
+          <h3>疑似 Opus 5.6 灰度做出 5MB“3D 运镜单页网页 PPT”，创作者热议演示与排版重构</h3>
+          <p class="author">歸藏（@op7418） · 2026-11-26 10:51 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一个据传由 Claude Opus 5.6 灰度测试模型（或新版本路由）生成、仅用一段英文提示词跑出的演示网页今日在 X 和即刻刷屏：整个作品是一个 5MB 大小的单个 HTML 网页文件，每一页都是完整的 3D 场景，页面之间用无缝动画和镜头推拉串联，彻底打破了传统幻灯片“一页页翻图片”的形态。据 ITBears 转述部分灰度用户反馈，新模型在 3D 精细度上明显提升，响应速度也比前代快 2 到 3 倍；不过具体底层模型尚未获 Anthropic 官方确认。</p>
+            <div class="discussion"><strong>讨论点：</strong>同一天，“让 AI 输出不再千篇一律”也在中文创作者圈走红：即刻博主橘AI 与微博蚁工厂整理的 6 个“AI 味清除 Skill（给 AI 助手装的专项技能包）”收获高转发，覆盖自动洗掉“不是…而是…”、三连排比与破折号，以及先定配色字阶再写界面、按影片情绪挑 36 种海报构图和字体等。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>以前做交互长页或 3D 汇报得靠设计加前端，现在一个提示词就能出单文件成品；内容与市场运营同学以后做活动页、方案汇报，可以开始用“网页级交互演示 + 去 AI 味技能包”直接提质，不用再拿模板套图。</p>
+            <a class="link" href="https://x.com/op7418/status/2125784465951896043" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">53 赞 · 3 评论 · 3 转发（结合极客公园）</span></div>
+          <h3>视频模型成本打到“一折”：歸藏实测 MAGI-2“视频转官网、代码控视频”双向工作流</h3>
+          <p class="author">歸藏 · 2026-11-25 18:14 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">歸藏在即刻分享了两套基于谷歌 Neon、LibTV MCP（让 AI 助手连接外部软件和素材库的通用接口）与国产音视频模型 MAGI-2 的新玩法：正着走，先让视频模型生成带飘带转场的宣传视频，再让 AI 读取视频配色与动势直接写出视差滚动产品官网，几毛钱一次把视频当网页草稿；反着走，先用代码写一段 2D 动作灰盒在网页里调准跳跃、顿帧和镜头，再把静音灰盒喂给视频模型直接重绘成带战鼓音效的水墨大片，实现动作逐帧可控，他已把流程打包成开源技能包。</p>
+            <div class="discussion"><strong>讨论点：</strong>这一玩法之所以能普及，背后是 11 月 25 日 Sand.ai 宣布 4,800 亿参数音视频统一模型 MAGI-2 即将开源全量权重。据极客公园报道，MAGI-2 在 Artificial Analysis 图生带音频视频榜暂列第一（领先 Seedance 2.5 5 个 Elo 分），官方 API 1080p 刊例价仅每秒 0.5 元（0.08 美元），不到闭源标杆的十分之一，支持最长 30 秒音画同步及 20 份混合素材参考。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>视频生成降到“几毛钱一条”且开源后，内容和广告团队不必再靠“抽卡碰运气”做物料：先用简单动画或草稿定死动作和节奏，再批量转成成片，能直接把短视频、信息流素材的试错成本压下来。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6b06b51094989e7677e00d87" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">71,316 stars · 今日 +826</span></div>
+          <h3>jingyaogong/minimind</h3>
+          <p class="author">Python</p>
+          <p class="tagline">教你用大约 2 小时、在普通消费级显卡上从零训练出一个 6,400 万参数的迷你大语言模型，附带完整数据清洗与对话微调脚本。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">教你用大约 2 小时、在普通消费级显卡上从零训练出一个 6,400 万参数的迷你大语言模型，附带完整数据清洗与对话微调脚本。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>不是只有烧几亿美元才能碰模型训练。它把大模型最神秘的“预训练—微调—推理”全过程拆成几百行可读代码，非算法背景也能看懂模型是怎么长出对话能力的。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做 AI 产品或技术运营的同学想补“大模型到底怎么训出来的”底层常识，看这个项目的目录和说明比啃枯燥论文直观得多。</p>
+            <a class="link" href="https://github.com/jingyaogong/minimind" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">75,380 stars · 今日 +945</span></div>
+          <h3>mvanhorn/last30days-skill</h3>
+          <p class="author">Python</p>
+          <p class="tagline">一个给 AI 助手用的选题与舆情调研技能包，能自动抓取过去 30 天 Reddit、X、YouTube、Hacker News、Polymarket 和全网对某个话题的讨论并汇总成报告。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一个给 AI 助手用的选题与舆情调研技能包，能自动抓取过去 30 天 Reddit、X、YouTube、Hacker News、Polymarket 和全网对某个话题的讨论并汇总成报告。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>过去刷海外社区看口碑要开十几个标签页，现在装个技能包就能一次看清最近一个月大家到底在夸什么、骂什么、赌什么。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>内容策划、海外运营和产品经理日常做竞品口碑调研、找爆款选题时，可以直接拿它替代手工翻论坛，把精力留给判断趋势。</p>
+            <a class="link" href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">78,685 stars · 今日 +574</span></div>
+          <h3>toeverything/AFFiNE</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">一款开源的下一代个人与团队知识库，把长文档写作（类似 Notion）和自由画布白板（类似 Miro）合在同一个工作区里，支持本地优先与多模态内容。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一款开源的下一代个人与团队知识库，把长文档写作（类似 Notion）和自由画布白板（类似 Miro）合在同一个工作区里，支持本地优先与多模态内容。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>运营和内容团队常在文档、思维导图和素材白板之间来回切软件，这类“文档 + 白板一体化”的开源底座正成为 AI 工作流的新容器。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>如果你厌倦了付费云笔记的限制、又想把项目复盘文档和活动流程图放在一处管理，可以用它搭建团队共创和知识沉淀空间。</p>
+            <a class="link" href="https://github.com/toeverything/AFFiNE" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>算力进入“金融化 + 强监管”双轨期。</strong> 一边是美国新规让英伟达停发东南亚服务器、全球银行冻结数十亿美元中企算力贷款、B300 现转售潮；另一边是 DeepSeek 传融资千亿、SpaceX 降价卖算力、Polymarket 开出算力租赁盘口。算力不再只是技术资源，而是受地缘与信用评级左右的重资产。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>AI 产品集体迎来“商业与合规兑现考”。</strong> 两年近 30 家机器人公司倒下，OpenAI 悄悄缩减额度还在德国被诉，Character.AI 破产卖数据遭 42 州拦截，Talkie 被苹果下架、纽约州禁售 AI 玩具。只讲增长和故事的窗口期过去了，合规、隐私和真实交付能力成了生死线。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>内容生产从“抽卡”走向“精确工程化”。</strong> 无论是 5MB 的 3D 运镜单页网页 PPT、“代码控视频”的 MAGI-2 双向工作流，还是刷屏的“AI 味清除 Skill”，创作者都在用结构化规则约束 AI。工具成本断崖下跌后，审美、选题判断和去同质化能力才是护城河。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-26 17:20 CST · 时间窗口：2026-11-25 17:20 至 2026-11-26 17:20（北京时间） · <a class="archive-link" href="./">查看往期日报 →</a></p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @deepseek_ai、@rowancheung 和微博潘乱，过去 24 小时无新帖（置顶帖不计）。The Information 原文受访问限制，相关项目延期信息依据 The Decoder 公开报道及 X 转述；FT、Bloomberg、路透社与《南华早报》原文未直接打开，本期依据公开媒体转述与知乎/微博核验摘要；标普评级、Character.AI、OpenAI 合并额度、纽约州 AI 玩具法案、SpaceX 算力报价及 Epic CEO 事件均已核对 TechCrunch 或 IT之家公开原文；标注“据报道”或“据转述”的条目未逐一核对最初信源原始文件。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
