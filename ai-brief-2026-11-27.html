@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 早报 · 2026-11-27</title>
+  <style>
+:root {
+--ink: #171717; --muted: #6b7280; --paper: #f5f2ea; --card: #fff;
+--line: #e7e2d8; --jike: #f5c542; --zhihu: #1772f6; --x: #111;
+--weibo: #ff8200; --green: #0f766e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+a { color: inherit; }
+.page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 56px; }
+.hero { position: relative; overflow: hidden; background: #111827; color: #fff; border-radius: 28px; padding: 42px; box-shadow: 0 20px 50px rgba(17,24,39,.16); }
+.hero::after { content: ""; position: absolute; width: 360px; height: 360px; right: -90px; top: -150px; background: radial-gradient(circle, rgba(245,197,66,.58), rgba(245,197,66,0) 68%); }
+.eyebrow { position: relative; z-index: 1; color: #f5c542; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+.hero h1 { position: relative; z-index: 1; margin: 12px 0 4px; font-size: clamp(38px, 7vw, 72px); line-height: 1.05; letter-spacing: -.04em; }
+.date { position: relative; z-index: 1; margin: 0 0 18px; color: #d1d5db; font-size: 15px; }
+.date .archive-link { color: #f5c542; text-decoration: none; font-weight: 600; }
+.date .archive-link:hover, footer .archive-link:hover { text-decoration: underline; }
+footer .archive-link { color: var(--green); text-decoration: none; font-weight: 600; }
+.lead { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #f3f4f6; font-size: 17px; }
+.hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hero-tags span { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 5px 11px; border-radius: 999px; font-size: 13px; }
+section { margin-top: 34px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -.02em; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.section-head h2 { white-space: nowrap; flex-shrink: 0; }
+.summary { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 8px 26px rgba(23,23,23,.05); }
+.summary h2 { margin-bottom: 12px; }
+.summary ol { margin: 0; padding-left: 22px; }
+.summary li { margin: 8px 0; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; align-items: start; }
+.grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+.grid.six > .card { grid-column: span 3; }
+.grid.six > .card.third { grid-column: span 2; }
+.card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 24px rgba(23,23,23,.045); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; color: #111; background: #e5e7eb; white-space: nowrap; }
+.badge.jike { background: var(--jike); }
+.badge.zhihu { background: var(--zhihu); color: #fff; }
+.badge.x { background: var(--x); color: #fff; }
+.badge.weibo { background: var(--weibo); color: #fff; }
+.badge.github { background: #24292f; color: #fff; }
+.badge.aihot { background: #ef4444; color: #fff; }
+.badge.media { background: #6d28d9; color: #fff; }
+.meta { color: var(--muted); font-size: 12px; text-align: right; }
+.card h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.4; letter-spacing: -.015em; }
+.author { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+.summary-text { margin: 0 0 14px; color: #333; }
+.discussion { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); color: #444; font-size: 14px; }
+.discussion strong { color: var(--green); }
+.toggle, .toggle-bottom, .tagline { display: none; }
+.more { display: flex; flex-direction: column; }
+.impact { margin: 12px 0 0; padding: 10px 12px; background: #f0fdf4; border-radius: 12px; color: #14532d; font-size: 14px; }
+.impact strong { color: #15803d; }
+.link { display: inline-block; margin-top: 14px; color: #0f766e; font-weight: 700; text-decoration: none; font-size: 14px; }
+.link:hover { text-decoration: underline; }
+.takeaway { background: #0f766e; color: #fff; border-radius: 24px; padding: 26px; }
+.takeaway h2 { color: #fff; }
+.takeaway-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 18px; }
+.takeaway-item { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 16px; }
+.takeaway-item span { display: block; color: #a7f3d0; font-size: 12px; font-weight: 800; letter-spacing: .12em; margin-bottom: 8px; }
+.takeaway-item p { margin: 0; color: #ecfdf5; font-size: 14px; }
+footer { margin-top: 28px; color: var(--muted); font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+.page { padding: 12px 10px 36px; }
+.hero { padding: 20px 16px; border-radius: 20px; }
+.hero h1 { margin: 8px 0 4px; font-size: 32px; }
+.date { margin: 0 0 10px; font-size: 13.5px; }
+.lead { font-size: 14px; line-height: 1.55; }
+.hero-tags { gap: 5px; margin-top: 12px; }
+.hero-tags span { padding: 3px 8px; font-size: 11.5px; line-height: 1.35; }
+section { margin-top: 18px; }
+.summary { padding: 14px 12px; border-radius: 18px; }
+.summary h2 { font-size: 18px; margin-bottom: 6px; }
+.summary ol { padding-left: 16px; }
+.summary li { margin: 5px 0; font-size: 13.5px; line-height: 1.55; }
+.section-head { flex-direction: column; align-items: flex-start; gap: 1px; margin-bottom: 8px; }
+.section-head h2 { font-size: 18px; }
+.section-head span { white-space: normal; font-size: 11.5px; line-height: 1.4; }
+.takeaway-grid { grid-template-columns: 1fr; }
+/* 兜底：不支持 :has() 的旧浏览器，保持单列完整卡片 */
+.grid, .grid.cols-3, .grid.six { grid-template-columns: 1fr; }
+.grid.six > .card, .grid.six > .card.third { grid-column: auto; }
+.card { padding: 13px 12px; }
+}
+@supports selector(:has(*)) {
+@media screen and (max-width: 760px) {
+/* 手机：两列“标题卡”，点一下在原位展开成整行看全文 */
+html { overflow-anchor: none; }
+.grid, .grid.cols-3, .grid.six { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; grid-auto-flow: dense; align-items: stretch; }
+.grid > .card { order: var(--ord); }
+.grid > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; padding: 10px 10px 8px; border-radius: 13px; scroll-margin-top: 10px; }
+.card-top { margin-bottom: 5px; gap: 6px; }
+.badge { padding: 2px 7px; font-size: 10.5px; line-height: 1.35; }
+.meta { font-size: 11px; line-height: 1.35; }
+.card .meta, .card .author, .card .more { display: none; }
+.card h3 { margin: 0; font-size: 13.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.card .tagline { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 4px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+.tg:checked ~ .tagline { display: none; }
+.toggle { display: block; margin-top: auto; padding-top: 5px; color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer; }
+.toggle::before { content: ""; position: absolute; inset: 0; }
+.toggle .t-close { display: none; }
+.tg:checked ~ .more { display: flex; }
+.tg:checked ~ .card-top .meta, .tg:checked ~ .author { display: block; }
+.tg:checked ~ h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.4; }
+.tg:checked ~ .author { margin: 0 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle { margin-top: 0; padding: 6px 0 8px; font-size: 12px; }
+.tg:checked ~ .toggle::before { display: none; }
+.tg:checked ~ .toggle .t-open { display: none; }
+.tg:checked ~ .toggle .t-close { display: inline; }
+.tg:checked ~ .more .summary-text { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; }
+.tg:checked ~ .more .discussion { margin-top: 10px; padding-top: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .impact { margin-top: 10px; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 1.55; }
+.tg:checked ~ .more .link { margin-top: 10px; font-size: 13px; }
+.tg:checked ~ .more .toggle-bottom { display: block; margin-top: 12px; padding: 10px 0 4px; border-top: 1px dashed var(--line); color: var(--green); font-size: 12.5px; font-weight: 700; text-align: center; cursor: pointer; }
+.grid > .card:has(.tg:checked) { grid-column: 1 / -1; padding: 13px 12px; order: var(--ord-open); }
+}
+}
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">DAILY AI BRIEF · 正式版</div>
+      <h1>AI 早报</h1>
+      <p class="date">2026 年 11 月 27 日 · 周五 · <a class="archive-link" href="./">往期日报 →</a></p>
+      <p class="lead">给不懂技术、但想跟上 AI 的人：今天大家主要在聊什么，以及这些变化为什么值得关心。</p>
+      <div class="hero-tags"><span>A 股芯片暴涨</span><span>算力资本降温</span><span>AI 隐私安全</span><span>DeepSeek 变现</span><span>大厂缩招</span></div>
+    </header>
+
+    <section class="summary">
+      <h2>今天先看这 3 件事</h2>
+      <ol>
+        <li><strong>A 股芯片算力爆发，创业板涨 11.61%。</strong> 沪深两市成交重回 2 万亿元，科创 50 盘中涨超 15%、逾 400 股涨停；国常会力挺稳市，英伟达暂停东南亚供货助推国产替代预期（美股因感恩节休市）。</li>
+        <li><strong>海外算力 IPO 降温，AI 基金巨亏。</strong> 英国数据中心运营商 Nscale 搁置今年 350 亿美元上市计划，9 个月净亏近 17 亿美元；知名 AI 对冲基金 Situational Awareness 三季度亏 65%。</li>
+        <li><strong>MiniMax 被曝隐私隐患，大厂缩招新人。</strong> 安全公司 Dragos 称 MiniMax 在无存储请求下仍打开提示词私有链接；微软 CEO 承认放缓校招先花 AI 预算，SAP 传 AI 重组裁员万人。</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>平台热帖</h2><span>12 条 · 知乎 2 · X 2 · 英文媒体 2 · AI Hot 3 · 微博 2 · 即刻 1</span></div>
+      <div class="grid">
+        <article class="card" id="ap0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cp0" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 1 · 1,661 万热度</span></div>
+          <h3>A 股成交重回 2 万亿元、创业板指涨 11.61%，芯片与算力硬件掀涨停潮</h3>
+          <p class="author">知乎热榜问题（综合财联社电讯） · 采集时在榜</p>
+          <label class="toggle" for="cp0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据知乎热榜引述财联社电讯，11 月 27 日午后 A 股大幅拉升，截至收盘沪指涨 3.73%、深成指涨 7.24%、创业板指涨 11.61%，科创 50 指数盘中一度涨超 15%。沪深两市成交额重回 2 万亿元，较上一交易日放量 6,824 亿元，全市场超 5,300 只个股上涨、超 400 只个股涨停。盘面上，芯片产业链、华为产业链与算力硬件概念集体爆发，灿芯股份、京仪装备、长川科技、新易盛、源杰科技等多股 20CM 涨停（涨跌幅限制 20% 封板），机器人概念股克来机电 6 连板；高股息红利股逆势回落。</p>
+            <div class="discussion"><strong>讨论点：</strong>催化来自两方面：午间国务院常务会议指出要加力发挥“国家队”稳市作用，进一步优化中央汇金公司的类“平准基金”功能，提供充足流动性保障；同时微博博主梁赛发帖指出，英伟达暂停向东南亚四国发运服务器成为国产算力芯片替代概念的“临门一脚”。另需留意，11 月 26 日为美国感恩节，美股休市，北京时间 27 日凌晨无美股收盘报价。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>国内算力和半导体板块情绪迅速回暖，叠加国产芯片替代预期升温，相关 AI 硬件与软件产业链公司的市场关注度和合作资源会随之增加，做企业服务或 B 端营销的团队近期可重点关注国产算力生态伙伴的动向（本报推测）。</p>
+            <a class="link" href="https://www.zhihu.com/question/2109643924381726700" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cp1" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">4 回复 · 2 转帖 · 5 喜欢 · 2,188 观看（结合 AI Hot 66 分）</span></div>
+          <h3>英国算力独角兽 Nscale 搁置今年 350 亿美元 IPO 计划，AI 对冲基金 Q3 亏损 65%</h3>
+          <p class="author">Rohan Paul（@rohanpaul_ai，转述 FT、WSJ） · 2026-11-27 15:12 CST</p>
+          <label class="toggle" for="cp1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据《金融时报》（FT，经博主转述）报道，英国 AI 数据中心运营商 Nscale 首席执行官乔什·佩恩（Josh Payne）告知员工，公司拥有足够资金保持私有化状态，不再按原计划今年推进 350 亿美元估值 IPO（首次公开募股），仅承诺“尽快上市”。文件显示该公司预计截至 9 月的 9 个月净亏损近 17 亿美元，收入仅 3.07 亿美元，并称 2027 年需额外融资。同日据《华尔街日报》（WSJ，经同博主转述）报道，Leopold Aschenbrenner 创立的 AI 对冲基金 Situational Awareness 告知投资者，第三季度费后亏损达 65%。</p>
+            <div class="discussion"><strong>讨论点：</strong>海外 AI 资本端正在从“只看故事”转向严苛算账。即刻博主莫唯书Mark 复盘近期敲钟仅四天即跌破发行价的 Anthropic 时指出，代码场景能跑通是因为有编译器当“冷血裁判”，一旦进入没有客观裁判的开放商业世界，企业算清投入产出比后就会砍掉边缘预算。微博博主梁赛也通过 AI 监测指出，软银 5 年期 CDS（信用违约掉期，用来对冲企业债务违约风险的指标）已升至 534.6 bp（基点），若继续恶化可能引发评级下调与融资收紧的连锁反应。注：FT、WSJ 报道系经博主转述，本报未单独核实原文。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>高估值 AI 基建和明星基金开始接连暴露亏损与回撤压力，一级和二级市场都会更看重真实回本周期；创业或做商业化运营时，必须尽早证明自家产品的现金流与不可替代性。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2126212594868593056" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cp2" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · 结合 AI Hot 70 分（FT 转述）</span></div>
+          <h3>英伟达停发东南亚服务器后续：智库估该区供中国约 24% AI 算力，数百亚洲项目延误</h3>
+          <p class="author">TechCrunch · 2026-11-27 04:03 CST</p>
+          <label class="toggle" for="cp2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">针对英伟达通知戴尔、超微等制造伙伴暂停向马来西亚、新加坡、泰国和印尼发运服务器一事，TechCrunch 援引《华尔街日报》报道称，智库 Institute for Progress 估算此类海外远程数据中心此前约供应了中国 24% 的 AI 算力，美国商务部本月早些时候已收紧相关漏洞。另据 FT 今日报道（经 @rohanpaul_ai 转述），受上周四生效的出口许可新规影响，数百个亚洲数据中心项目正面临美国许可审查、融资延误与更长的尽职调查，运营商须在 90 天内取得批准。</p>
+            <div class="discussion"><strong>讨论点：</strong>海外远程租卡通道受阻后，国内大模型研发节奏是否受拖累成为关注焦点。对此，据《极客早知道》报道，智谱高管杨昊翊 11 月 26 日在朋友圈公开辟谣“GLM-5.5 跳票至 2027 年一季度”传闻，称相关爆料均为假消息，并披露用于前期训练的万卡昇腾 950DT 进展顺利，预计明年跑通。注：FT 报道系经 X 博主转述，本报未单独核实原文。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>依赖海外云端租赁高端显卡的国内模型与应用团队短期内面临更高的合规和延期风险，选型和采购国产算力或国内合规云厂商的趋势会继续加快（本报推测）。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp2">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap3" style="--ord:6;--ord-open:3">
+          <input type="checkbox" class="tg" id="cp3" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 84 · 今日最高分</span></div>
+          <h3>安全公司 Dragos 调查称：MiniMax 在用户请求“不存储”后仍打开提示词中的私有链接</h3>
+          <p class="author">AI Hot 收录（Rohan Paul @rohanpaul_ai 转述） · 2026-11-27 15:21 CST</p>
+          <label class="toggle" for="cp3"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">据美国网络安全公司 Dragos 披露（经 X 博主 @rohanpaul_ai 转述），其在发往多个 AI 服务的近 200 万个提示词中埋入了“金丝雀”陷阱链接（用于追踪数据是否被私下读取的唯一诱饵网址）和假登录页面，以检测服务商是否秘密读取或传递客户数据。测试结果显示，只有到达 MiniMax 的提示词触发了私有链接被收集和打开，即使在用户明确请求“不存储”数据的情况下也是如此。</p>
+            <div class="discussion"><strong>讨论点：</strong>该消息今日登上 AI Hot 最高分（84 分）。作为直接面向全球个人和企业用户的 AI 模型与内容产品，如何兑现“无存储请求”承诺成为焦点。注：该调查细节系博主转述，MiniMax 方面在本次采集窗口内暂未见公开回应，本报未单独核实 Dragos 原始报告。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>个人或团队把包含内网地址、未公开链接、客户资料的内容丢给外部大模型前，最好先做脱敏或关闭敏感链接透传；做面向企业客户的 AI 产品，数据“不存储、不访问”的承诺必须有可审计的技术兑现。</p>
+            <a class="link" href="https://x.com/rohanpaul_ai/status/2126214860421914884" target="_blank" rel="noopener noreferrer">查看转述 →</a>
+            <label class="toggle-bottom" for="cp3">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap4" style="--ord:8;--ord-open:5">
+          <input type="checkbox" class="tg" id="cp4" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 67 分（IT之家）· 结合 AI Hot 72 分（SAP）</span></div>
+          <h3>微软 CEO 承认放缓校招先花 AI 预算，SAP 传拟在 AI 重组中裁员至少 1 万人</h3>
+          <p class="author">IT之家 / 极客公园（综合 FT 转述） · 2026-11-27 11:54 CST</p>
+          <label class="toggle" for="cp4"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">微软首席执行官纳德拉在《务实工程师》播客节目中坦言，公司已放缓应届生与初级岗位招聘，称企业应先将内部人员调配到位，且未来“AI 原生公司”会优先给员工配满 AI 额度，用尽仍不够再增员；截至 2026 年 6 月 30 日，微软员工总数降至 22.3 万人，减少约 5,000 人（2016 年以来首次年度下降）。同日据 FT 报道（经 @rohanpaul_ai 转述），企业软件巨头 SAP 第三季度营收增 13% 至约 113 亿美元、非国际财务报告准则营业利润增 18% 至约 33 亿美元，仍考虑在 AI 驱动的重组中裁员至少 1 万人（约占一成岗位）。</p>
+            <div class="discussion"><strong>讨论点：</strong>极客公园援引 SignalFire 报告指出，2019 年以来 12 家大科技公司新人与入门级招聘已下降约 65%，企业把带新人的预算转去采购 AI 工具与招募熟手。另据微博博主猫叔在硅谷分享，IBM 已确认停止为美国咨询部门多数岗位担保 H-1B 工作签证与 PERM 绿卡，受影响员工须在约三周内选择外派海外（1,278 个海外空缺中 1,125 个在印度）或拿三个月遣散费离职。不过纳德拉也提醒，现在断定这是长期趋势还为时过早。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>行业里“初级重复劳动”的岗位正在被 AI 预算直接替代，不管是在校生还是在职运营人，竞争壁垒都在往“能拆解复杂问题、能判断 AI 输出对错”的复合能力上移。</p>
+            <a class="link" href="https://www.ithome.com/1/033/309.htm" target="_blank" rel="noopener noreferrer">阅读原文 →</a>
+            <label class="toggle-bottom" for="cp4">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap5" style="--ord:10;--ord-open:7">
+          <input type="checkbox" class="tg" id="cp5" hidden>
+          <div class="card-top"><span class="badge zhihu">知乎</span><span class="meta">知乎热榜第 23 · 96 万热度（结合量子位、极客公园）</span></div>
+          <h3>DeepSeek 网页与 App 端灰度展示“本轮消耗额度”，按 API 闲时价折算引收费猜测</h3>
+          <p class="author">知乎热榜问题（综合量子位、IT之家） · 采集时在榜</p>
+          <label class="toggle" for="cp5"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">部分用户发现 DeepSeek 网页端与移动端 App 的回答下方灰度新增了“本轮消耗额度”账单，按 DeepSeek-V4.1-Flash 的 API（应用程序接口）空闲时段单价——输入缓存命中（复用此前已算过的上下文，单价大幅降低）0.02 元/百万 tokens（AI 计费的文字计算单位）、未命中 1 元/百万 tokens、输出 4 元/百万 tokens——列明本轮用量与折算金额，并附带上下文占用比例条。目前个人对话依然免费，官方尚未宣布收费方案。</p>
+            <div class="discussion"><strong>讨论点：</strong>此前 DeepSeek 曾因算力紧张收紧免费限制，如今亮出成本账单被网友猜测是在为 C 端收费或订阅制做铺垫；量子位实测一轮超 1.3 万 Token 对话折合约 0.0088 元，并提及有用户反馈今日网页版限额提示似乎已消失。微博博主蚁工厂另指出，DeepSeek API 同日新增“延迟加载工具”功能，允许开发者先声明工具目录、需要时再加载具体定义，避免多余工具塞满上下文。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>AI 对话服务“零门槛无限白嫖”的窗口期正在收窄；哪怕目前未正式收钱，产品运营端也要开始算清用户的真实 Token 成本，并通过提示词精简与缓存机制压低单次服务损耗。</p>
+            <a class="link" href="https://www.zhihu.com/question/2109411707877695700" target="_blank" rel="noopener noreferrer">查看问题 →</a>
+            <label class="toggle-bottom" for="cp5">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap6" style="--ord:12;--ord-open:9">
+          <input type="checkbox" class="tg" id="cp6" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">14 转发 · 12 评论 · 55 赞（结合知乎第 30 · 74 万热度）</span></div>
+          <h3>知乎宣布与 DeepSeek 展开内容合作，AI 回答可溯源引用并一键跳转原文</h3>
+          <p class="author">蚁工厂（结合 IT之家、知乎热榜） · 2026-11-27 12:46 CST</p>
+          <label class="toggle" for="cp6"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">11 月 27 日，知乎宣布与 DeepSeek 展开内容合作，将通过数据开放平台为 DeepSeek 网页端与移动端提供社区问答、文章、热榜与话题讨论等内容的检索能力，覆盖科技、科学、职场、生活、教育、财经等多元领域。当相关知乎内容被检索并用于回答时，用户可在参考资料中看到知乎来源标识、内容标题、摘要及创作者信息，并一键跳转至知乎阅读原文。</p>
+            <div class="discussion"><strong>讨论点：</strong>据 IT之家回顾，11 月 23 日知乎刚发公告，披露其参投的基金已通过中间主体间接投资 DeepSeek，取得低个位数百分比股权；四天后双方即落地内容检索与溯源导流合作。该话题今天也登上知乎热榜第 30 位（74 万热度），业内关注大模型搜索引用社区内容时，能否给原平台和创作者带回真实流量。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>优质社区问答正在成为 AI 搜索的“高权重信源”，而且开始支持带作者署名跳回原文；品牌和内容运营人员可以把深度问答、评测和行业经验沉淀在可被大模型索引的公开社区，抢占 AI 时代的自然流量入口。</p>
+            <a class="link" href="https://m.weibo.cn/status/5369847187243183" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp6">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap7" style="--ord:14;--ord-open:11">
+          <input type="checkbox" class="tg" id="cp7" hidden>
+          <div class="card-top"><span class="badge aihot">AI Hot</span><span class="meta">AI Hot 评分 71 · 精选 · X 425 喜欢 · 475 书签</span></div>
+          <h3>实测支付宝 SkillPay 跑通 AI 技能变现：支持 0.01 至 50 元买断与云端沙盒订阅</h3>
+          <p class="author">数字生命卡兹克（经 AI Hot 精选收录） · 2026-11-27 07:56 CST</p>
+          <label class="toggle" for="cp7"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">博主数字生命卡兹克完整实测了支付宝今年 7 月上线的 Skill（给 AI 助手装配的专项技能包）交易平台 SkillPay。该平台支持两种变现模式：买断制定价 0.01 至 50 元，将完整技能交付本地且可跨不同 Agent（智能体）使用；订阅制按周、月、季收费且上限 50 元，最低提供 5 次免费试用，并把完整 Skill 留在云端沙盒（隔离运行环境）中，不向买家或 Agent 暴露明文源码。平台目前免收服务费。</p>
+            <div class="discussion"><strong>讨论点：</strong>这条实测在 X 收获 475 次书签（超过点赞数 425），微博博主 AIGC·非著名程序员也在晨间汇总中重点推介，并转述 Google 开发者布道师 Philipp Schmid 公布的数据指出：Atlassian 每天 MCP（连接 AI 与外部软件的通用协议）工具调用超 500 万次，其中 44% 来自软件团队之外，说明非技术人员也正在大规模使用并愿意接触标准化 AI 技能。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>不懂复杂编程的运营或行业专家，如果把自己的工作方法、选题框架、排版规范打包成好用的 Skill，已经有了现成的低门槛定价和防抄袭（云端沙盒）售卖渠道，值得尽早试水。</p>
+            <a class="link" href="https://x.com/Khazix0918/status/2126163343023263893" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp7">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap8" style="--ord:16;--ord-open:13">
+          <input type="checkbox" class="tg" id="cp8" hidden>
+          <div class="card-top"><span class="badge media">英文媒体</span><span class="meta">TechCrunch · 公开报道</span></div>
+          <h3>《GTA 6》首日狂揽 37.9 亿美元破娱乐史纪录，外媒对比 Anthropic 上市：纯人工死磕反衬效率悖论</h3>
+          <p class="author">TechCrunch · 2026-11-27 00:00 CST</p>
+          <label class="toggle" for="cp8"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">TechCrunch 发文指出，在 Anthropic 以 813 亿美元估值上市打破科技股 IPO 纪录的同一周，Rockstar 耗时 13 年、由约 5,000 人完全不使用生成式 AI 打造的《GTA 6》上周发售，不仅拿下 Metacritic（著名评分聚合网站）历史最高游戏评分，首日营收更达 37.9 亿美元，超越电影《复仇者联盟：终局之战》（29 亿美元）与泰勒·斯威夫特巡演（20 亿美元），创下史上最大规模娱乐发布纪录。游戏内包含 3 万个具备独立外貌和性格的 NPC（非玩家角色）。</p>
+            <div class="discussion"><strong>讨论点：</strong>开发商母公司 Take-Two 前 CEO 本·费德认为《GTA 6》可能是同类纯人工重投入大作的绝唱，但现任 CEO 施特劳斯·泽尔尼克反驳“按一个按钮让 AI 生成并营销爆款”的设想“十分可笑”。TechCrunch 指出，恰恰是“允许试错、返工和两次跳票”这种 AI 行业眼中的“低效”，才锻造出了难以被提示词复制的艺术质感。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>在海量 AI 粗制滥造内容泛滥的当下，真正靠时间、审美和细节打磨出来的精品反而能卖出更高的稀缺溢价；做头部内容或品牌旗舰项目时，不能为了追求“高产降本”把打磨环节一刀切掉。</p>
+            <a class="link" href="https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/" target="_blank" rel="noopener noreferrer">阅读报道 →</a>
+            <label class="toggle-bottom" for="cp8">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap9" style="--ord:18;--ord-open:15">
+          <input type="checkbox" class="tg" id="cp9" hidden>
+          <div class="card-top"><span class="badge weibo">微博</span><span class="meta">极客公园（微博 3 赞 · 原文实证数据）</span></div>
+          <h3>AI 时代长视频反而“升值”：B 站 Q3 营收 83.2 亿元，AI 知识内容消费时长翻倍</h3>
+          <p class="author">极客公园 · 2026-11-27 15:45 CST</p>
+          <label class="toggle" for="cp9"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">极客公园拆解 11 月 24 日发布的 B 站 2026 年第三季度财报：总营收 83.2 亿元（同比增长 8%），调整后净利润 8.3 亿元；日活达 1.24 亿、月活 3.94 亿，用户日均使用时长首次突破两小时至 121 分钟，其中 AI 知识内容消费时长同比增长 108%。Q3 站内大模型真实场景实测投稿超 1.3 万条、覆盖 100 多个模型版本；广告收入 30.9 亿元（同比增长 20%），其中 AI 行业广告收入同比大增近 95%。</p>
+            <div class="discussion"><strong>讨论点：</strong>当大众疑虑“AI 秒出答案会杀死长视频”时，B 站财报给出了相反样本：一方面 AI 成了用户持续消费的“新学科”，另一方面 AI 工具把长尾兴趣变成可落地的视频播客与动画创作——今年 B 站“AI 创造公开赛”吸引 1.34 万名创作者，其中 64% 无专业开发背景、56% 创作成本不到 500 元；三季度 UP 主人均收入同比增长 25%（人均充电收入增 31%），老社区的兴趣土壤反而接住了 AI 的生产力红利。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>内容平台的护城河不在“有没有标准答案”，而在“有一群因共同兴趣聚在一起、互相接梗交作业的活人”。做社区或垂类账号运营，与其拼快餐式信息总结，不如深耕真实场景测评和创作者互动。</p>
+            <a class="link" href="https://m.weibo.cn/status/5369892087792596" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp9">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap10" style="--ord:20;--ord-open:17">
+          <input type="checkbox" class="tg" id="cp10" hidden>
+          <div class="card-top"><span class="badge x">X</span><span class="meta">68 回复 · 25 转帖 · 187 喜欢 · 189 书签 · 5.1 万观看</span></div>
+          <h3>AI 像素动画风 MV 在国内平台一个月涨粉 10 万，创作者拆解“代码剪辑+生图”省钱法</h3>
+          <p class="author">歸藏（@op7418） · 2026-11-27 00:01 CST</p>
+          <label class="toggle" for="cp10"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">博主歸藏在 X（同时发于即刻）分享案例称，有创作者从 10 月 25 日起在抖音和小红书发布用 AI 制作的像素动画风格 MV，仅一个月涨粉 10 万。同日下午他又公开了自己的省钱制作方案：用 Opus 5.5 负责写代码、剪辑、写转场以及制作非场景与非人物动画；再用图片模型专门生成场景和人物，最后让 Opus 5.5 用简单动画代码让图片动起来，大幅压低直接生成全片视频的抽卡成本。</p>
+            <div class="discussion"><strong>讨论点：</strong>同日极客公园发文指出，2026 年 AI 视频已走过早期“人物失真、只能出短片”的产能竞速期，随着 4K 画质、分钟级长镜头与局部精修落地，行业焦点正转向做出有辨识度的好内容与健康商业模式——既有 OST 传媒这类从真人全面转向 AIGC 的工业化 MCN（多频道网络机构），也有像《持械入宋》这样零投流跑出百亿播放的小团队精品路线。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>做短视频、音乐宣发或 AIGC 账号的运营同学，不必硬拼高价视频大模型全自动出片，“生图定美术风格 + 大模型写代码控制剪辑转场”的混搭工作流既省算力钱，又更容易做出强辨识度爆款。</p>
+            <a class="link" href="https://x.com/op7418/status/2125983266117423533" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp10">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ap11" style="--ord:22;--ord-open:19">
+          <input type="checkbox" class="tg" id="cp11" hidden>
+          <div class="card-top"><span class="badge jike">即刻</span><span class="meta">57 赞 · 6 评论 · 5 转发</span></div>
+          <h3>玉伯访谈多位 AI 变现者：视频号短剧年入百万靠“行动差”，用户仍愿为省心 SaaS 付费</h3>
+          <p class="author">玉伯 · 2026-11-27 18:08 CST</p>
+          <label class="toggle" for="cp11"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">YouMind 创始人玉伯在即刻分享了近期访谈多位资深用户与 AI 变现者的观察：一是“行动差”比“认知差”重要，一位做短剧的朋友一年前就在别人还在观望怀疑时动手试水，今年通过微信视频号已收入一百多万元；二是拥有真实兴趣的人在 AI 时代活得很好，一位中学起就爱读小说的用户借助 YouMind 写完两部小说，其中一部在番茄小说连载且收益不错，正考虑全职写作。</p>
+            <div class="discussion"><strong>讨论点：</strong>玉伯还指出两个反常识细节：这位高产作者连复杂的 Skills 都没用，只是在文档里维护自己聊天攒下的 Prompts（提示词），每次复制粘贴再微调；另一位用户则提醒他，虽然现在人人好像都能用 AI 自己做软件，但试过一圈后还是觉得花钱买现成的 SaaS（软件即服务）最省心。无独有偶，微博博主 AIGC·非著名程序员同日也分享海外一人公司 CreativeClaw 靠做 Claude MCP 插件，自今年 4 月以来累计营收近 210 万元（9 月 65 万元、10 月 77.7 万元，注：为作者转述，本报未单独核实）。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>普通从业者不必被各种新概念吓住，先选一个自己真有兴趣且能拿到反馈的场景（短剧、连载网文或小痛点工具），用最简单的文档和现成软件跑起来，往往比憋大招学全套配置更快见到钱。</p>
+            <a class="link" href="https://m.okjike.com/originalPosts/6b095687136b2761c63260bd" target="_blank" rel="noopener noreferrer">查看原帖 →</a>
+            <label class="toggle-bottom" for="cp11">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>GitHub 新鲜项目</h2><span>3 个 · 今日 Trending</span></div>
+      <div class="grid cols-3">
+        <article class="card" id="ar0" style="--ord:0;--ord-open:-3">
+          <input type="checkbox" class="tg" id="cr0" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">327,876 stars · 今日 +916</span></div>
+          <h3>obra/superpowers</h3>
+          <p class="author">Shell</p>
+          <p class="tagline">一套高人气的智能体技能框架（Agentic Skills Framework）与 AI 辅助开发方法论，帮编程助手按一套行之有效的规范推进任务。</p>
+          <label class="toggle" for="cr0"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">一套高人气的智能体技能框架（Agentic Skills Framework）与 AI 辅助开发方法论，帮编程助手按一套行之有效的规范推进任务。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>目前 GitHub 上体量最大的 AI 工作流项目之一（近 32.8 万星、今日再增 916 星），把零散的 AI 提示词沉淀成可复用的技能框架与流程方法。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>就算自己不写代码，用 AI 做网页或自动化小工具时，也可以借鉴它把“套路和方法论写进技能包”的思路，减少每次从头交代需求的返工。</p>
+            <a class="link" href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr0">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar1" style="--ord:2;--ord-open:-1">
+          <input type="checkbox" class="tg" id="cr1" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">13,434 stars · 今日 +311</span></div>
+          <h3>google-labs-code/stitch-skills</h3>
+          <p class="author">TypeScript</p>
+          <p class="tagline">Google Labs 开源的智能体技能库，专为配合 Stitch MCP（谷歌的外部工具连接服务）使用而设计，遵循开放技能标准，兼容 Antigravity、Gemini CLI、Claude Code 与 Cursor。</p>
+          <label class="toggle" for="cr1"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">Google Labs 开源的智能体技能库，专为配合 Stitch MCP（谷歌的外部工具连接服务）使用而设计，遵循开放技能标准，兼容 Antigravity、Gemini CLI、Claude Code 与 Cursor。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>由谷歌实验室团队直接维护，把围绕 Stitch MCP 的常用操作拆成跨多款主流 AI 助手通用的标准技能包，一次安装即可复用。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>运营和产品同学平时会在不同 AI 工具间来回切换，这类遵循开放标准的官方技能库值得关注，能减少换工具后重复配置工作流的成本。</p>
+            <a class="link" href="https://github.com/google-labs-code/stitch-skills" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr1">收起 ▴</label>
+          </div>
+        </article>
+        <article class="card" id="ar2" style="--ord:4;--ord-open:1">
+          <input type="checkbox" class="tg" id="cr2" hidden>
+          <div class="card-top"><span class="badge github">GitHub</span><span class="meta">25,297 stars · 今日 +1,615</span></div>
+          <h3>elementalsouls/Claude-BugHunter</h3>
+          <p class="author">Python</p>
+          <p class="tagline">面向 Claude Code 的安全漏洞排查与外部红队演练（模拟黑客攻击来找隐患）技能包，内置 85 个技能和 16 个快捷指令，梳理了 24 类核心漏洞与 681 个公开披露案例模式。</p>
+          <label class="toggle" for="cr2"><span class="t-open">展开 ▾</span><span class="t-close">收起 ▴</span></label>
+          <div class="more">
+            <p class="summary-text">面向 Claude Code 的安全漏洞排查与外部红队演练（模拟黑客攻击来找隐患）技能包，内置 85 个技能和 16 个快捷指令，梳理了 24 类核心漏洞与 681 个公开披露案例模式。</p>
+            <div class="discussion"><strong>为什么值得看：</strong>今天单日新增 1,615 星居 GitHub 趋势榜前列，在 AI 自动找漏洞和隐私安全风险升温的当下，专门用来给产品做上线前安全自检。</div>
+            <p class="impact"><strong>对运营/内容人：</strong>当你用 AI 快速上线活动页、SaaS 小工具或接外部接口时，在发布前可以请技术同学或 AI 助手照着这类红队自检清单扫一遍，防止低级漏洞或数据泄露。</p>
+            <a class="link" href="https://github.com/elementalsouls/Claude-BugHunter" target="_blank" rel="noopener noreferrer">打开项目 →</a>
+            <label class="toggle-bottom" for="cr2">收起 ▴</label>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>今日观察</h2>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><span>01</span><p><strong>资本算账从云端蔓延到一二级市场，国产替代情绪升温。</strong> 海外 Nscale 搁置今年 350 亿美元 IPO、AI 基金单季亏 65%，叠加此前 Anthropic 破发，市场对“烧钱故事”耐心骤减；而美芯片许可新规拖延数百亚洲数据中心项目，反手推高了 A 股芯片与算力硬件板块的国产替代预期。</p></div>
+        <div class="takeaway-item"><span>02</span><p><strong>AI 产品与大厂组织都在进入“精打细算”阶段。</strong> 微软放缓校招先花 AI 预算、SAP 传业绩增长仍裁万人、DeepSeek 灰度亮出单轮 Token 账单，说明无论算力还是人力都在严抠投入产出比；同时支付宝 SkillPay 把技能包标价售卖，知识与工作流正加速商品化。</p></div>
+        <div class="takeaway-item"><span>03</span><p><strong>纯人工精品与低成本 AI 创意在内容两端同时跑赢。</strong> 一边是零生成式 AI 的《GTA 6》首日吸金 37.9 亿美元、B 站 AI 知识消费时长翻倍；另一边是个人创作者用 AI 像素 MV 月涨粉 10 万、用微信视频号短剧年入百余万。内容行业不怕用 AI，怕的是既没审美打磨又不动手试错。</p></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>数据采集时间：2026-11-27 19:13 CST · 时间窗口：2026-11-26 19:13 至 2026-11-27 19:13（北京时间） · <a class="archive-link" href="./">查看往期日报 →</a></p>
+      <p>说明：X、微博、知乎、即刻内容均来自公开帖子；AI Hot（aihot.news 官方接口）、aihot.today、GitHub Trending 为公开页面或接口。本期 X 账号 @OpenAI、@deepseek_ai、@xAI、@AnthropicAI、@rowancheung、@_akhaliq 和微博潘乱，过去 24 小时无新帖（置顶帖不计）。采集全程无报错。FT（Nscale IPO 推迟、亚洲数据中心审查、SAP 裁员）、WSJ（Situational Awareness 亏损、对华算力占比）及 Dragos 对 MiniMax 的安全调查，本期依据 X 博主转述或 TechCrunch、IT之家公开报道，未直接打开原始付费报道或研究原报告；CreativeClaw 营收数字依据微博博主转述，本报未单独核实；11 月 26 日为美国感恩节，美股休市。小红书需要登录，未纳入。互动数为采集时页面显示值。本报只报道市场事实与出处，不构成任何投资建议。</p>
+    </footer>
+  </main>
+  <script>
+  // 点卡片底部的“收起”：收起后把页面滚回这张卡片，免得跳到不相干的位置（没有这段脚本也能收起，只是不会自动滚回）
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".toggle-bottom");
+    if (b) setTimeout(function () { b.closest("article").scrollIntoView({ block: "start" }); }, 0);
+  });
+  </script>
+</body>
+</html>
